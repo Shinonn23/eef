@@ -11,22 +11,22 @@ app_license = "mit"
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "eef",
-# 		"logo": "/assets/eef/logo.png",
-# 		"title": "EEF",
-# 		"route": "/eef",
-# 		"has_permission": "eef.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "eef",
+		# "logo": "/assets/eef/logo.png",
+		"title": "EEF",
+		"route": "/app/dev",
+		# "has_permission": "eef.api.permission.has_app_permission"
+	}
+]
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/eef/css/eef.css"
-# app_include_js = "/assets/eef/js/eef.js"
+app_include_js = ["thailand-address-autocomplete.bundle.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/eef/css/eef.css"

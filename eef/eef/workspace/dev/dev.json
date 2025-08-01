@@ -1,0 +1,57 @@
+{
+    "app": "EEF",
+    "charts": [],
+    "content": "[{\"id\":\"7P8hiXW99o\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Shortcut</span>\",\"col\":12}},{\"id\":\"eJve2-O0Qd\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Build</b></span>\",\"col\":12}},{\"id\":\"DCF-OeiWh0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"DocType\",\"col\":3}},{\"id\":\"K7uW067wxj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Workspace\",\"col\":3}},{\"id\":\"LjhYixvoMG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Module Def\",\"col\":3}}]",
+    "creation": "2025-08-01 23:40:10.232260",
+    "custom_blocks": [],
+    "docstatus": 0,
+    "doctype": "Workspace",
+    "for_user": "",
+    "hide_custom": 0,
+    "icon": "setting-gear",
+    "idx": 0,
+    "indicator_color": "green",
+    "is_hidden": 0,
+    "label": "DEV",
+    "link_type": "DocType",
+    "links": [],
+    "modified": "2025-08-01 23:42:53.345496",
+    "modified_by": "Administrator",
+    "module": "EEF",
+    "name": "DEV",
+    "number_cards": [],
+    "owner": "Administrator",
+    "parent_page": "",
+    "public": 1,
+    "quick_lists": [],
+    "roles": [],
+    "sequence_id": 23.0,
+    "shortcuts": [
+        {
+            "color": "Grey",
+            "doc_view": "List",
+            "label": "DocType",
+            "link_to": "DocType",
+            "stats_filter": "[]",
+            "type": "DocType"
+        },
+        {
+            "color": "Grey",
+            "doc_view": "List",
+            "label": "Workspace",
+            "link_to": "Workspace",
+            "stats_filter": "[]",
+            "type": "DocType"
+        },
+        {
+            "color": "Grey",
+            "doc_view": "List",
+            "label": "Module Def",
+            "link_to": "Module Def",
+            "stats_filter": "[]",
+            "type": "DocType"
+        }
+    ],
+    "title": "DEV",
+    "type": "Workspace"
+}
