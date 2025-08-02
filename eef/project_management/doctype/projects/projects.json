@@ -1,89 +1,111 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2025-08-01 23:47:58.889634",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "information_section",
-  "name1",
-  "address_section",
-  "province",
-  "district",
-  "column_break_lyys",
-  "subdistrict",
-  "postal_code"
- ],
- "fields": [
-  {
-   "fieldname": "information_section",
-   "fieldtype": "Section Break",
-   "label": "Information"
-  },
-  {
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name"
-  },
-  {
-   "fieldname": "province",
-   "fieldtype": "Select",
-   "label": "Province",
-   "options": "None"
-  },
-  {
-   "fieldname": "district",
-   "fieldtype": "Select",
-   "label": "District",
-   "options": "None"
-  },
-  {
-   "fieldname": "subdistrict",
-   "fieldtype": "Select",
-   "label": "Subdistrict",
-   "options": "None"
-  },
-  {
-   "fieldname": "postal_code",
-   "fieldtype": "Data",
-   "label": "Postal code",
-   "options": "None",
-   "read_only": 1
-  },
-  {
-   "fieldname": "address_section",
-   "fieldtype": "Section Break",
-   "label": "Address"
-  },
-  {
-   "fieldname": "column_break_lyys",
-   "fieldtype": "Column Break"
-  }
- ],
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-08-02 08:07:54.790553",
- "modified_by": "Administrator",
- "module": "Project Management",
- "name": "Projects",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
- "row_format": "Dynamic",
- "sort_field": "creation",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "autoname": "field:name1",
+    "creation": "2025-08-01 23:47:58.889634",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "general_information_section",
+        "name1",
+        "type",
+        "column_break_cgbw",
+        "address_section",
+        "province",
+        "subdistrict",
+        "column_break_lyys",
+        "district",
+        "postal_code",
+        "section_break_bewc",
+        "majors"
+    ],
+    "fields": [
+        {
+            "fieldname": "name1",
+            "fieldtype": "Data",
+            "label": "Name",
+            "unique": 1
+        },
+        {
+            "fieldname": "province",
+            "fieldtype": "Select",
+            "label": "Province"
+        },
+        {
+            "fieldname": "district",
+            "fieldtype": "Select",
+            "label": "District"
+        },
+        {
+            "fieldname": "subdistrict",
+            "fieldtype": "Select",
+            "label": "Subdistrict"
+        },
+        {
+            "fieldname": "postal_code",
+            "fieldtype": "Data",
+            "label": "Postal code",
+            "read_only": 1
+        },
+        {
+            "fieldname": "address_section",
+            "fieldtype": "Section Break",
+            "label": "Address"
+        },
+        {
+            "fieldname": "column_break_lyys",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "column_break_cgbw",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "type",
+            "fieldtype": "Select",
+            "label": "Type",
+            "options": "Education\nBusiness"
+        },
+        {
+            "fieldname": "general_information_section",
+            "fieldtype": "Section Break",
+            "label": "General Information"
+        },
+        {
+            "fieldname": "section_break_bewc",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "majors",
+            "fieldtype": "Table",
+            "label": "Majors",
+            "options": "Majors Child"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-08-02 22:55:26.986664",
+    "modified_by": "Administrator",
+    "module": "Project Management",
+    "name": "Projects",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
 }

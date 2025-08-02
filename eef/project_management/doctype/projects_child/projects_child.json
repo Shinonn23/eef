@@ -1,0 +1,61 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-08-02 21:12:08.522256",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "source",
+        "dynamic_link_ejqj",
+        "labor_demand_count",
+        "project"
+    ],
+    "fields": [
+        {
+            "fieldname": "source",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Source",
+            "options": "Projects\nBusinesses",
+            "reqd": 1
+        },
+        {
+            "fieldname": "dynamic_link_ejqj",
+            "fieldtype": "Dynamic Link",
+            "in_list_view": 1,
+            "options": "source",
+            "reqd": 1
+        },
+        {
+            "fieldname": "labor_demand_count",
+            "fieldtype": "Int",
+            "label": "Labor Demand Count",
+            "non_negative": 1,
+            "reqd": 1
+        },
+        {
+            "default": "#",
+            "fieldname": "project",
+            "fieldtype": "Link",
+            "hidden": 1,
+            "label": "Project",
+            "options": "Projects",
+            "read_only": 1
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2025-08-02 22:17:39.383250",
+    "modified_by": "Administrator",
+    "module": "Project Management",
+    "name": "Projects Child",
+    "owner": "Administrator",
+    "permissions": [],
+    "row_format": "Dynamic",
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
+}
