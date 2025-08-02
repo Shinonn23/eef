@@ -20,6 +20,9 @@ frappe.ui.form.on("Projects", {
 		} else {
 			// สำหรับข้อมูลที่มีอยู่แล้ว - โหลดข้อมูลที่เกี่ยวข้อง
 			frm.trigger("load_existing_address_data");
+            
+            // set recent projects
+			eef.user.setRecentProjects(frm.doc.name);
 		}
 	},
 

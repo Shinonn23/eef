@@ -12,13 +12,13 @@ app_license = "mit"
 
 # Each item in the list will be shown as an app in the apps page
 add_to_apps_screen = [
-	{
-		"name": "eef",
-		# "logo": "/assets/eef/logo.png",
-		"title": "EEF",
-		"route": "/app/dev",
-		# "has_permission": "eef.api.permission.has_app_permission"
-	}
+    {
+        "name": "eef",
+        # "logo": "/assets/eef/logo.png",
+        "title": "EEF",
+        "route": "/app/dev",
+        # "has_permission": "eef.api.permission.has_app_permission"
+    }
 ]
 
 # Includes in <head>
@@ -26,7 +26,7 @@ add_to_apps_screen = [
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/eef/css/eef.css"
-app_include_js = ["thailand-address-autocomplete.bundle.js"]
+app_include_js = ["thailand-address-autocomplete.bundle.js", "user.bundle.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/eef/css/eef.css"
@@ -231,9 +231,14 @@ app_include_js = ["thailand-address-autocomplete.bundle.js"]
 # ]
 
 # Automatically update python controller files with type annotations for this app.
-# export_python_type_annotations = True
+export_python_type_annotations = True
 
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+# Fixtures
+
+fixtures = [  # pyright: ignore[reportUnknownVariableType]
+    {"doctype": "Custom Field", "filters": {"name": ["like", "User-recent_projects"]}},
+]
