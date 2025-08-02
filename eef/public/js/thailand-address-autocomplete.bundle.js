@@ -55,12 +55,21 @@ class ThailandGeography {
     }
 
     /**
-     * Get all districts in a specific province
+     * Get all districts in a specific province by name
      */
-    getDistrictsByProvince(provinceCode) {
-        const numProvinceCode = Number(provinceCode);
+    getDistrictsByProvince(provinceName) {
+        // Find province by name (Thai or English)
+        const province = this.getAllProvinces().find(p =>
+            p.provinceNameTh === provinceName ||
+            p.provinceNameEn === provinceName ||
+            p.provinceNameEn.toLowerCase() === provinceName.toLowerCase() ||
+            p.provinceNameTh.includes(provinceName)
+        );
+
+        if (!province) return [];
+
         const districts = this.data
-            .filter(item => item.provinceCode === numProvinceCode)
+            .filter(item => item.provinceCode === province.provinceCode)
             .map(item => ({
                 provinceCode: item.provinceCode,
                 provinceNameEn: item.provinceNameEn,
@@ -73,51 +82,96 @@ class ThailandGeography {
     }
 
     /**
-     * Get subdistricts by province and/or district
+     * Get subdistricts by province name and/or district name
      */
-    getSubdistricts(provinceCode, districtCode = null) {
-        const numProvinceCode = Number(provinceCode);
-        const numDistrictCode = districtCode ? Number(districtCode) : null;
+    getSubdistricts(provinceName, districtName = null) {
+        // Find province by name
+        const province = this.getAllProvinces().find(p =>
+            p.provinceNameTh === provinceName ||
+            p.provinceNameEn === provinceName ||
+            p.provinceNameEn.toLowerCase() === provinceName.toLowerCase() ||
+            p.provinceNameTh.includes(provinceName)
+        );
 
-        return this.data
-            .filter(item => {
-                if (numDistrictCode) {
-                    return item.provinceCode === numProvinceCode && item.districtCode === numDistrictCode;
-                }
-                return item.provinceCode === numProvinceCode;
-            })
+        if (!province) return [];
+
+        let filteredData = this.data.filter(item => item.provinceCode === province.provinceCode);
+
+        // If district name is provided, filter by district
+        if (districtName) {
+            const district = this.getDistrictsByProvince(provinceName).find(d =>
+                d.districtNameTh === districtName ||
+                d.districtNameEn === districtName ||
+                d.districtNameEn.toLowerCase() === districtName.toLowerCase() ||
+                d.districtNameTh.includes(districtName)
+            );
+
+            if (!district) return [];
+
+            filteredData = filteredData.filter(item => item.districtCode === district.districtCode);
+        }
+
+        return filteredData
             .map(this._formatAddressData)
             .sort((a, b) => a.subdistrictCode - b.subdistrictCode);
     }
 
     // Backward compatibility
-    getSubdistrictsByDistrict(provinceCode, districtCode) {
-        return this.getSubdistricts(provinceCode, districtCode);
+    getSubdistrictsByDistrict(provinceName, districtName) {
+        return this.getSubdistricts(provinceName, districtName);
     }
 
-    getSubdistrictsByProvince(provinceCode) {
-        return this.getSubdistricts(provinceCode);
+    getSubdistrictsByProvince(provinceName) {
+        return this.getSubdistricts(provinceName);
     }
 
     /**
-     * Get postal codes for a specific subdistrict
+     * Get postal codes for a specific subdistrict by names
      */
-    getPostalCodes(provinceCode, districtCode, subdistrictCode) {
+    getPostalCodes(provinceName, districtName, subdistrictName) {
+        // Find province by name
+        const province = this.getAllProvinces().find(p =>
+            p.provinceNameTh === provinceName ||
+            p.provinceNameEn === provinceName ||
+            p.provinceNameEn.toLowerCase() === provinceName.toLowerCase() ||
+            p.provinceNameTh.includes(provinceName)
+        );
+
+        if (!province) return [];
+
+        // Find district by name
+        const district = this.getDistrictsByProvince(provinceName).find(d =>
+            d.districtNameTh === districtName ||
+            d.districtNameEn === districtName ||
+            d.districtNameEn.toLowerCase() === districtName.toLowerCase() ||
+            d.districtNameTh.includes(districtName)
+        );
+
+        if (!district) return [];
+
+        // Find subdistrict by name
+        const subdistrict = this.getSubdistricts(provinceName, districtName).find(s =>
+            s.subdistrictNameTh === subdistrictName ||
+            s.subdistrictNameEn === subdistrictName ||
+            s.subdistrictNameEn.toLowerCase() === subdistrictName.toLowerCase() ||
+            s.subdistrictNameTh.includes(subdistrictName)
+        );
+
+        if (!subdistrict) return [];
+
         return [...new Set(
             this.data
                 .filter(item =>
-                    item.provinceCode === Number(provinceCode) &&
-                    item.districtCode === Number(districtCode) &&
-                    item.subdistrictCode === Number(subdistrictCode)
+                    item.provinceCode === province.provinceCode &&
+                    item.districtCode === district.districtCode &&
+                    item.subdistrictCode === subdistrict.subdistrictCode
                 )
                 .map(item => item.postalCode)
         )].sort();
-    }
-
-    /**
+    }    /**
      * Universal search function
      */
-    search(searchTerm, type = 'all', provinceCode = null, districtCode = null) {
+    search(searchTerm, type = 'all', provinceName = null, districtName = null) {
         const results = {};
 
         if (type === 'province' || type === 'all') {
@@ -126,14 +180,14 @@ class ThailandGeography {
             );
         }
 
-        if ((type === 'district' || type === 'all') && provinceCode) {
-            results.districts = this.getDistrictsByProvince(provinceCode).filter(d =>
+        if ((type === 'district' || type === 'all') && provinceName) {
+            results.districts = this.getDistrictsByProvince(provinceName).filter(d =>
                 this._matchesSearch(d.districtNameEn, d.districtNameTh, searchTerm)
             );
         }
 
-        if ((type === 'subdistrict' || type === 'all') && provinceCode && districtCode) {
-            results.subdistricts = this.getSubdistricts(provinceCode, districtCode).filter(s =>
+        if ((type === 'subdistrict' || type === 'all') && provinceName && districtName) {
+            results.subdistricts = this.getSubdistricts(provinceName, districtName).filter(s =>
                 this._matchesSearch(s.subdistrictNameEn, s.subdistrictNameTh, searchTerm)
             );
         }
@@ -146,35 +200,65 @@ class ThailandGeography {
         return this.search(searchTerm, 'province').provinces || [];
     }
 
-    searchDistricts(provinceCode, searchTerm) {
-        return this.search(searchTerm, 'district', provinceCode).districts || [];
+    searchDistricts(provinceName, searchTerm) {
+        return this.search(searchTerm, 'district', provinceName).districts || [];
     }
 
-    searchSubdistricts(provinceCode, districtCode, searchTerm) {
-        return this.search(searchTerm, 'subdistrict', provinceCode, districtCode).subdistricts || [];
+    searchSubdistricts(provinceName, districtName, searchTerm) {
+        return this.search(searchTerm, 'subdistrict', provinceName, districtName).subdistricts || [];
     }
 
     /**
-     * Get complete address information by codes
+     * Get complete address information by names
      */
-    getAddressInfo(provinceCode, districtCode = null, subdistrictCode = null) {
-        const result = this.data.find(item => {
-            if (subdistrictCode) {
-                return item.provinceCode === Number(provinceCode) &&
-                    item.districtCode === Number(districtCode) &&
-                    item.subdistrictCode === Number(subdistrictCode);
+    getAddressInfo(provinceName, districtName = null, subdistrictName = null) {
+        // Find province by name
+        const province = this.getAllProvinces().find(p =>
+            p.provinceNameTh === provinceName ||
+            p.provinceNameEn === provinceName ||
+            p.provinceNameEn.toLowerCase() === provinceName.toLowerCase() ||
+            p.provinceNameTh.includes(provinceName)
+        );
+
+        if (!province) return null;
+
+        let result = this.data.find(item => item.provinceCode === province.provinceCode);
+
+        if (districtName) {
+            const district = this.getDistrictsByProvince(provinceName).find(d =>
+                d.districtNameTh === districtName ||
+                d.districtNameEn === districtName ||
+                d.districtNameEn.toLowerCase() === districtName.toLowerCase() ||
+                d.districtNameTh.includes(districtName)
+            );
+
+            if (!district) return null;
+
+            result = this.data.find(item =>
+                item.provinceCode === province.provinceCode &&
+                item.districtCode === district.districtCode
+            );
+
+            if (subdistrictName) {
+                const subdistrict = this.getSubdistricts(provinceName, districtName).find(s =>
+                    s.subdistrictNameTh === subdistrictName ||
+                    s.subdistrictNameEn === subdistrictName ||
+                    s.subdistrictNameEn.toLowerCase() === subdistrictName.toLowerCase() ||
+                    s.subdistrictNameTh.includes(subdistrictName)
+                );
+
+                if (!subdistrict) return null;
+
+                result = this.data.find(item =>
+                    item.provinceCode === province.provinceCode &&
+                    item.districtCode === district.districtCode &&
+                    item.subdistrictCode === subdistrict.subdistrictCode
+                );
             }
-            if (districtCode) {
-                return item.provinceCode === Number(provinceCode) &&
-                    item.districtCode === Number(districtCode);
-            }
-            return item.provinceCode === Number(provinceCode);
-        });
+        }
 
         return result ? this._formatAddressData(result) : null;
-    }
-
-    /**
+    }    /**
      * Find addresses by postal code
      */
     getAddressByPostalCode(postalCode) {
@@ -219,7 +303,7 @@ if (typeof window !== 'undefined') {
         ThailandGeographyClass: ThailandGeography
     });
 
-    // Direct window access
+    // Direct window access 
     window.ThailandGeography = thailandGeography;
     window.ThailandGeographyClass = ThailandGeography;
 
@@ -227,17 +311,18 @@ if (typeof window !== 'undefined') {
     window.eef.geography = {
         // Direct method proxies
         getProvinces: () => thailandGeography.getAllProvinces(),
-        getDistricts: (provinceCode) => thailandGeography.getDistrictsByProvince(provinceCode),
-        getSubdistricts: (provinceCode, districtCode = null) => thailandGeography.getSubdistricts(provinceCode, districtCode),
+        getDistrictsByProvince: (provinceName) => thailandGeography.getDistrictsByProvince(provinceName),
+        getDistricts: (provinceName) => thailandGeography.getDistrictsByProvince(provinceName),
+        getSubdistricts: (provinceName, districtName = null) => thailandGeography.getSubdistricts(provinceName, districtName),
         getByPostalCode: (postalCode) => thailandGeography.getAddressByPostalCode(postalCode),
-        getAddressInfo: (provinceCode, districtCode = null, subdistrictCode = null) =>
-            thailandGeography.getAddressInfo(provinceCode, districtCode, subdistrictCode),
+        getAddressInfo: (provinceName, districtName = null, subdistrictName = null) =>
+            thailandGeography.getAddressInfo(provinceName, districtName, subdistrictName),
         getStats: () => thailandGeography.getStats(),
         createInstance: (customData) => new ThailandGeography(customData),
 
         // Unified search method
-        search: (searchTerm, type = 'all', provinceCode = null, districtCode = null) =>
-            thailandGeography.search(searchTerm, type, provinceCode, districtCode),
+        search: (searchTerm, type = 'all', provinceName = null, districtName = null) =>
+            thailandGeography.search(searchTerm, type, provinceName, districtName),
 
         // Smart search with automatic type detection
         smartSearch: (params) => {
@@ -247,41 +332,30 @@ if (typeof window !== 'undefined') {
                 return { type: 'postalCode', results: thailandGeography.getAddressByPostalCode(postalCode) };
             }
 
-            // Auto-detect codes vs names
-            const provinceCode = !isNaN(province) ? Number(province) :
-                (() => {
-                    const found = thailandGeography.searchProvinces(province);
-                    return found.length ? found[0].provinceCode : null;
-                })();
+            // All searches are now by name, no code detection needed
+            if (!province) return { type: 'notFound', results: [] };
 
-            if (!provinceCode) return { type: 'notFound', results: [] };
+            // Check if province exists
+            const foundProvince = thailandGeography.searchProvinces(province);
+            if (!foundProvince.length) return { type: 'notFound', results: [] };
 
-            const districtCode = !isNaN(district) ? Number(district) :
-                district ? (() => {
-                    const found = thailandGeography.searchDistricts(provinceCode, district);
-                    return found.length ? found[0].districtCode : null;
-                })() : null;
+            const provinceName = foundProvince[0].provinceNameTh;
 
-            const subdistrictCode = !isNaN(subdistrict) ? Number(subdistrict) :
-                (districtCode && subdistrict) ? (() => {
-                    const found = thailandGeography.searchSubdistricts(provinceCode, districtCode, subdistrict);
-                    return found.length ? found[0].subdistrictCode : null;
-                })() : null;
-
-            if (subdistrictCode) {
+            if (subdistrict && district) {
+                const result = thailandGeography.getAddressInfo(provinceName, district, subdistrict);
                 return {
                     type: 'complete',
-                    results: [thailandGeography.getAddressInfo(provinceCode, districtCode, subdistrictCode)]
+                    results: result ? [result] : []
                 };
-            } else if (districtCode) {
+            } else if (district) {
                 return {
                     type: 'subdistricts',
-                    results: thailandGeography.getSubdistricts(provinceCode, districtCode)
+                    results: thailandGeography.getSubdistricts(provinceName, district)
                 };
             } else {
                 return {
                     type: 'districts',
-                    results: thailandGeography.getDistrictsByProvince(provinceCode)
+                    results: thailandGeography.getDistrictsByProvince(provinceName)
                 };
             }
         }
