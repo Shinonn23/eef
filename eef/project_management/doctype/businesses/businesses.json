@@ -7,6 +7,7 @@
  "field_order": [
   "general_information_section",
   "name1",
+  "project",
   "address_section",
   "province",
   "subdistrict",
@@ -54,12 +55,18 @@
    "fieldtype": "Data",
    "label": "Postal code",
    "read_only": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Projects"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-02 22:30:08.646964",
+ "modified": "2025-08-03 01:36:35.132125",
  "modified_by": "Administrator",
  "module": "Project Management",
  "name": "Businesses",
