@@ -75,6 +75,7 @@ class ThailandGeography {
                 provinceNameEn: item.provinceNameEn,
                 provinceNameTh: item.provinceNameTh,
                 districtCode: item.districtCode,
+                postalCode: item.postalCode,
                 districtNameEn: item.districtNameEn,
                 districtNameTh: item.districtNameTh
             }));
@@ -311,7 +312,6 @@ if (typeof window !== 'undefined') {
     window.eef.geography = {
         // Direct method proxies
         getProvinces: () => thailandGeography.getAllProvinces(),
-        getDistrictsByProvince: (provinceName) => thailandGeography.getDistrictsByProvince(provinceName),
         getDistricts: (provinceName) => thailandGeography.getDistrictsByProvince(provinceName),
         getSubdistricts: (provinceName, districtName = null) => thailandGeography.getSubdistricts(provinceName, districtName),
         getByPostalCode: (postalCode) => thailandGeography.getAddressByPostalCode(postalCode),

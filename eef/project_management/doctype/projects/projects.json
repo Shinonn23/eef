@@ -7,8 +7,10 @@
  "field_order": [
   "information_section",
   "name1",
+  "address_section",
   "province",
   "district",
+  "column_break_lyys",
   "subdistrict",
   "postal_code"
  ],
@@ -43,15 +45,25 @@
   },
   {
    "fieldname": "postal_code",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "label": "Postal code",
-   "options": "None"
+   "options": "None",
+   "read_only": 1
+  },
+  {
+   "fieldname": "address_section",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_lyys",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-01 23:59:12.117877",
+ "modified": "2025-08-02 08:07:54.790553",
  "modified_by": "Administrator",
  "module": "Project Management",
  "name": "Projects",
