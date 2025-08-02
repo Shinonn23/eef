@@ -1,35 +1,27 @@
 {
  "actions": [],
- "allow_rename": 1,
- "creation": "2025-08-02 21:28:47.351236",
+ "autoname": "field:name1",
+ "creation": "2025-08-01 23:47:58.889634",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "general_information_section",
   "name1",
-  "project",
+  "type",
+  "column_break_cgbw",
   "address_section",
   "province",
   "subdistrict",
-  "column_break_aykg",
+  "column_break_lyys",
   "district",
   "postal_code"
  ],
  "fields": [
   {
-   "fieldname": "general_information_section",
-   "fieldtype": "Section Break",
-   "label": "General Information"
-  },
-  {
    "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "Name"
-  },
-  {
-   "fieldname": "address_section",
-   "fieldtype": "Section Break",
-   "label": "Address"
+   "label": "Name",
+   "unique": 1
   },
   {
    "fieldname": "province",
@@ -37,18 +29,14 @@
    "label": "Province"
   },
   {
-   "fieldname": "subdistrict",
-   "fieldtype": "Select",
-   "label": "Subdistrict"
-  },
-  {
-   "fieldname": "column_break_aykg",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "district",
    "fieldtype": "Select",
    "label": "District"
+  },
+  {
+   "fieldname": "subdistrict",
+   "fieldtype": "Select",
+   "label": "Subdistrict"
   },
   {
    "fieldname": "postal_code",
@@ -57,19 +45,38 @@
    "read_only": 1
   },
   {
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "label": "Project",
-   "options": "Projects"
+   "fieldname": "address_section",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_lyys",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cgbw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Education\nBusiness"
+  },
+  {
+   "fieldname": "general_information_section",
+   "fieldtype": "Section Break",
+   "label": "General Information"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-03 01:36:35.132125",
+ "modified": "2025-08-03 02:11:41.431980",
  "modified_by": "Administrator",
  "module": "Project Management",
- "name": "Businesses",
+ "name": "Project",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

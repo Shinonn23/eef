@@ -239,6 +239,6 @@ export_python_type_annotations = True
 
 # Fixtures
 
-fixtures = [  # pyright: ignore[reportUnknownVariableType]
-    {"doctype": "Custom Field", "filters": {"name": ["like", "User-recent_projects"]}},
-]
+# fixtures = [
+#     {"doctype": "Custom Field", "filters": {"name": ["like", "User-recent_projects"]}},
+# ]

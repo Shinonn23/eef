@@ -13,9 +13,9 @@ IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
 
-class IntegrationTestProjects(IntegrationTestCase):
+class IntegrationTestMajor(IntegrationTestCase):
 	"""
-	Integration tests for Projects.
+	Integration tests for Major.
 	Use this class for testing interactions between multiple components.
 	"""
 
