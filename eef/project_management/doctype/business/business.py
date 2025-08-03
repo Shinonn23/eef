@@ -12,13 +12,14 @@ class Business(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
+        from frappe.types import DF
+
         from eef.project_management.doctype.business_major_interest.business_major_interest import (
             BusinessMajorInterest,
         )
         from eef.project_management.doctype.partnership_institution.partnership_institution import (
             PartnershipInstitution,
         )
-        from frappe.types import DF
 
         business_major_interest: DF.Table[BusinessMajorInterest]
         district: DF.Literal[None]
@@ -27,7 +28,6 @@ class Business(Document):
         postal_code: DF.Data | None
         province: DF.Literal[None]
         subdistrict: DF.Literal[None]
-
     # end: auto-generated types
 
     @frappe.whitelist()
@@ -35,10 +35,21 @@ class Business(Document):
         """
         Returns True if the business has any partnership institutions, else False.
         """
+        # ถ้า instance ยังไม่ได้บันทึก (is_new) ให้ return False ทันที
+        if self.is_new():
+            return False
+
+        # กรณี instance ยังไม่ได้บันทึก (local doc)
+        if hasattr(self, "partnership_institution") and self.partnership_institution:
+            return len(self.partnership_institution) > 0
+
         if not self.name:
             return False
+
         business = frappe.get_doc("Business", self.name)
-        return bool(business.partnership_institution and len(business.partnership_institution) > 0) # type: ignore
+        return bool(
+            getattr(business, "partnership_institution", None) and len(business.partnership_institution) > 0  # type: ignore
+        )
 
 
 @frappe.whitelist()

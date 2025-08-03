@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:name1",
  "creation": "2025-08-03 04:49:23.213788",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -25,7 +26,8 @@
   {
    "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "Name"
+   "label": "Name",
+   "unique": 1
   },
   {
    "fieldname": "education_information_section",
@@ -71,10 +73,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-03 05:31:32.364274",
+ "modified": "2025-08-03 14:25:09.437587",
  "modified_by": "Administrator",
  "module": "Project Management",
  "name": "Educational Institution",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

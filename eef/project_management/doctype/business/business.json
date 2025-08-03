@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:name1",
  "creation": "2025-08-03 04:27:16.473391",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -26,7 +27,8 @@
   {
    "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "Name"
+   "label": "Name",
+   "unique": 1
   },
   {
    "fieldname": "partnership_institution",
@@ -78,10 +80,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-03 12:46:30.591437",
+ "modified": "2025-08-03 14:31:36.430354",
  "modified_by": "Administrator",
  "module": "Project Management",
  "name": "Business",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
