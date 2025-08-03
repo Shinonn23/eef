@@ -1,15 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-08-03 04:27:16.473391",
+ "creation": "2025-08-03 04:49:23.213788",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "general_information_section",
   "name1",
-  "business_information_section",
-  "partnership_institution",
-  "business_major_interest",
+  "education_information_section",
+  "partnership_business",
   "address_section",
   "province",
   "subdistrict",
@@ -29,10 +28,9 @@
    "label": "Name"
   },
   {
-   "fieldname": "partnership_institution",
-   "fieldtype": "Table MultiSelect",
-   "label": "Partnership Institution",
-   "options": "Partnership Institution"
+   "fieldname": "education_information_section",
+   "fieldtype": "Section Break",
+   "label": "Education Information"
   },
   {
    "fieldname": "address_section",
@@ -64,24 +62,19 @@
    "label": "Postal code"
   },
   {
-   "fieldname": "business_information_section",
-   "fieldtype": "Section Break",
-   "label": "Business Information"
-  },
-  {
-   "fieldname": "business_major_interest",
-   "fieldtype": "Table",
-   "label": "Business Major Interest",
-   "options": "Business Major Interest"
+   "fieldname": "partnership_business",
+   "fieldtype": "Table MultiSelect",
+   "label": "Partnership Business",
+   "options": "Partnership Business"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-03 12:46:30.591437",
+ "modified": "2025-08-03 05:31:32.364274",
  "modified_by": "Administrator",
  "module": "Project Management",
- "name": "Business",
+ "name": "Educational Institution",
  "owner": "Administrator",
  "permissions": [
   {

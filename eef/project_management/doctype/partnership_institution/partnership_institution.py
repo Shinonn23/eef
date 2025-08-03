@@ -5,7 +5,7 @@
 from frappe.model.document import Document
 
 
-class Project(Document):
+class PartnershipInstitution(Document):
 	# begin: auto-generated types
 	# This code is auto-generated. Do not modify anything in this block.
 
@@ -14,11 +14,9 @@ class Project(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		district: DF.Literal[None]
-		name1: DF.Data | None
-		postal_code: DF.Data | None
-		province: DF.Literal[None]
-		subdistrict: DF.Literal[None]
-		type: DF.Literal["Education", "Business"]
+		educational_institution: DF.Link | None
+		parent: DF.Data
+		parentfield: DF.Data
+		parenttype: DF.Data
 	# end: auto-generated types
 	pass

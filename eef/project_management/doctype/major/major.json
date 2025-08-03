@@ -6,12 +6,8 @@
  "engine": "InnoDB",
  "field_order": [
   "name1",
-  "desired_job_title",
-  "approved_scholarship_amount",
-  "screened_and_allocated_amount",
-  "institution_confirmed_students",
   "column_break_jciz",
-  "project"
+  "educational_institution"
  ],
  "fields": [
   {
@@ -22,42 +18,22 @@
    "reqd": 1
   },
   {
-   "fieldname": "desired_job_title",
-   "fieldtype": "Data",
-   "label": "Desired Job Title"
-  },
-  {
-   "fieldname": "approved_scholarship_amount",
-   "fieldtype": "Data",
-   "label": "Approved Scholarship Amount"
-  },
-  {
-   "fieldname": "screened_and_allocated_amount",
-   "fieldtype": "Data",
-   "label": "Screened and Allocated Amount"
-  },
-  {
-   "fieldname": "institution_confirmed_students",
-   "fieldtype": "Data",
-   "label": "Institution Confirmed Students"
-  },
-  {
    "fieldname": "column_break_jciz",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "project",
+   "fieldname": "educational_institution",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Project",
-   "options": "Project",
+   "label": "Educational Institution",
+   "options": "Educational Institution",
    "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-03 02:18:40.172604",
+ "modified": "2025-08-03 05:41:44.007957",
  "modified_by": "Administrator",
  "module": "Project Management",
  "name": "Major",

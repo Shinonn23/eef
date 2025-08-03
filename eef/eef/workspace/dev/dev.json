@@ -1,78 +1,62 @@
 {
- "charts": [],
- "content": "[{\"id\":\"7P8hiXW99o\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Shortcut</span>\",\"col\":12}},{\"id\":\"6qkOk8RP5J\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Projects\",\"col\":3}},{\"id\":\"ZEjsZCeJc8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Businesses\",\"col\":3}},{\"id\":\"bVjFPNB-CY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Majors\",\"col\":3}},{\"id\":\"eJve2-O0Qd\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Build</b></span>\",\"col\":12}},{\"id\":\"DCF-OeiWh0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"DocType\",\"col\":3}},{\"id\":\"K7uW067wxj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Workspace\",\"col\":3}},{\"id\":\"LjhYixvoMG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Module Def\",\"col\":3}}]",
- "creation": "2025-08-01 23:40:10.232260",
- "custom_blocks": [],
- "docstatus": 0,
- "doctype": "Workspace",
- "for_user": "",
- "hide_custom": 0,
- "icon": "setting-gear",
- "idx": 0,
- "indicator_color": "green",
- "is_hidden": 0,
- "label": "DEV",
- "links": [],
- "modified": "2025-08-03 01:35:59.600256",
- "modified_by": "Administrator",
- "module": "EEF",
- "name": "DEV",
- "number_cards": [],
- "owner": "Administrator",
- "parent_page": "",
- "public": 1,
- "quick_lists": [],
- "roles": [],
- "sequence_id": 1.0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "DocType",
-   "link_to": "DocType",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Projects",
-   "link_to": "Projects",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Workspace",
-   "link_to": "Workspace",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Businesses",
-   "link_to": "Businesses",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Module Def",
-   "link_to": "Module Def",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Majors",
-   "link_to": "Majors",
-   "stats_filter": "[]",
-   "type": "DocType"
-  }
- ],
- "title": "DEV"
+    "charts": [],
+    "content": "[{\"id\":\"7P8hiXW99o\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Shortcut</span>\",\"col\":12}},{\"id\":\"6qkOk8RP5J\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Project\",\"col\":3}},{\"id\":\"bVjFPNB-CY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Major\",\"col\":3}},{\"id\":\"eJve2-O0Qd\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Build</b></span>\",\"col\":12}},{\"id\":\"DCF-OeiWh0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"DocType\",\"col\":3}},{\"id\":\"K7uW067wxj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Workspace\",\"col\":3}},{\"id\":\"LjhYixvoMG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Module Def\",\"col\":3}}]",
+    "creation": "2025-08-01 23:40:10.232260",
+    "custom_blocks": [],
+    "docstatus": 0,
+    "doctype": "Workspace",
+    "for_user": "",
+    "hide_custom": 0,
+    "icon": "setting-gear",
+    "idx": 0,
+    "indicator_color": "green",
+    "is_hidden": 0,
+    "label": "DEV",
+    "links": [],
+    "modified": "2025-08-03 03:32:23.814098",
+    "modified_by": "Administrator",
+    "module": "EEF",
+    "name": "DEV",
+    "number_cards": [],
+    "owner": "Administrator",
+    "parent_page": "",
+    "public": 1,
+    "quick_lists": [],
+    "roles": [],
+    "sequence_id": 1.0,
+    "shortcuts": [
+        {
+            "color": "Grey",
+            "doc_view": "List",
+            "label": "DocType",
+            "link_to": "DocType",
+            "stats_filter": "[]",
+            "type": "DocType"
+        },
+        {
+            "color": "Grey",
+            "doc_view": "List",
+            "label": "Major",
+            "link_to": "Major",
+            "stats_filter": "[]",
+            "type": "DocType"
+        },
+        {
+            "color": "Grey",
+            "doc_view": "List",
+            "label": "Workspace",
+            "link_to": "Workspace",
+            "stats_filter": "[]",
+            "type": "DocType"
+        },
+        {
+            "color": "Grey",
+            "doc_view": "List",
+            "label": "Module Def",
+            "link_to": "Module Def",
+            "stats_filter": "[]",
+            "type": "DocType"
+        }
+    ],
+    "title": "DEV"
 }

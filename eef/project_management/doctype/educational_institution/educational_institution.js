@@ -1,7 +1,7 @@
 // Copyright (c) 2025, Siwat Sroisuwan and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on("Project", {
+frappe.ui.form.on("Educational Institution", {
 	refresh(frm) {
 		// โหลดข้อมูลจังหวัดทุกครั้ง
 		const provinces = eef.geography.getProvinces();
