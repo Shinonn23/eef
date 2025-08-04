@@ -4,6 +4,8 @@
 import frappe
 from frappe.model.document import Document
 
+from eef.utils.sync import cleanup_orphaned_partnerships
+
 
 class Business(Document):
     # begin: auto-generated types
@@ -12,14 +14,9 @@ class Business(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
+        from eef.project_management.doctype.business_major_interest.business_major_interest import BusinessMajorInterest
+        from eef.project_management.doctype.partnership_institution.partnership_institution import PartnershipInstitution
         from frappe.types import DF
-
-        from eef.project_management.doctype.business_major_interest.business_major_interest import (
-            BusinessMajorInterest,
-        )
-        from eef.project_management.doctype.partnership_institution.partnership_institution import (
-            PartnershipInstitution,
-        )
 
         business_major_interest: DF.Table[BusinessMajorInterest]
         district: DF.Literal[None]
@@ -29,6 +26,14 @@ class Business(Document):
         province: DF.Literal[None]
         subdistrict: DF.Literal[None]
     # end: auto-generated types
+
+    def after_save(self) -> None:
+        """
+        Validate the Business document.
+        This method is called after saving the document.
+        """
+        pass
+        # cleanup_orphaned_partnerships()
 
     @frappe.whitelist()
     def has_partnership_institutions(self) -> bool:
@@ -48,8 +53,7 @@ class Business(Document):
 
         business = frappe.get_doc("Business", self.name)
         return bool(
-            getattr(business, "partnership_institution", None) # type: ignore
-            and len(business.partnership_institution) > 0  # type: ignore
+            getattr(business, "partnership_institution", None) and len(business.partnership_institution) > 0
         )
 
 
@@ -62,9 +66,7 @@ def get_major_query(doctype: str, txt, searchfield, start, page_len, filters):
         return []
 
     business = frappe.get_doc("Business", business_name)
-    institution_names = [
-        d.educational_institution for d in business.partnership_institution
-    ]
+    institution_names = [d.educational_institution for d in business.partnership_institution]
 
     major = []
     for institution_name in institution_names:

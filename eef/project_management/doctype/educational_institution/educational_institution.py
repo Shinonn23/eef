@@ -4,6 +4,8 @@
 # import frappe
 from frappe.model.document import Document
 
+from eef.utils.sync import cleanup_orphaned_partnerships
+
 
 class EducationalInstitution(Document):
     # begin: auto-generated types
@@ -12,9 +14,7 @@ class EducationalInstitution(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
-        from eef.project_management.doctype.partnership_business.partnership_business import (
-            PartnershipBusiness,
-        )
+        from eef.project_management.doctype.partnership_business.partnership_business import PartnershipBusiness
         from frappe.types import DF
 
         district: DF.Literal[None]
@@ -24,4 +24,10 @@ class EducationalInstitution(Document):
         province: DF.Literal[None]
         subdistrict: DF.Literal[None]
     # end: auto-generated types
-    pass
+    def after_save(self) -> None:
+        """
+        Validate the Business document.
+        This method is called after saving the document.
+        """
+        pass
+        # cleanup_orphaned_partnerships()

@@ -12,7 +12,7 @@ def get_data():
         },
         "transactions": [
             {
-                "label": _("Partnership Institution"),
+                "label": _("Workflow"),
                 "items": ["Educational Institution"],
             },
         ],

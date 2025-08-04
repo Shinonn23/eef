@@ -24,6 +24,7 @@
    "label": "General Information"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "name1",
    "fieldtype": "Data",
    "label": "Name",
@@ -73,7 +74,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-03 14:25:09.437587",
+ "modified": "2025-08-04 21:36:40.737660",
  "modified_by": "Administrator",
  "module": "Project Management",
  "name": "Educational Institution",
@@ -93,6 +94,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
