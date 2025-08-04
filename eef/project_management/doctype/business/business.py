@@ -79,7 +79,7 @@ def get_major_query(doctype: str, txt, searchfield, start, page_len, filters):
 
     # สร้าง filters สำหรับ query
     query_filters = {"educational_institution": ["in", institution_names]}
-    
+
     # เพิ่ม text search filter ถ้ามี txt
     if txt:
         query_filters["name"] = ["like", f"%{txt}%"]
@@ -96,5 +96,5 @@ def get_major_query(doctype: str, txt, searchfield, start, page_len, filters):
     for major in majors:
         if major.name and major.name not in existing_majors:
             result.append([major.name, major.educational_institution])
-    
+
     return result

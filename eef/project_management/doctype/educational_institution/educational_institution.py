@@ -14,8 +14,11 @@ class EducationalInstitution(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
-        from eef.project_management.doctype.partnership_business.partnership_business import PartnershipBusiness
         from frappe.types import DF
+
+        from eef.project_management.doctype.partnership_business.partnership_business import (
+            PartnershipBusiness,
+        )
 
         district: DF.Literal[None]
         name1: DF.Data | None

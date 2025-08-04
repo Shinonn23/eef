@@ -64,7 +64,8 @@
   {
    "fieldname": "postal_code",
    "fieldtype": "Data",
-   "label": "Postal code"
+   "label": "Postal code",
+   "read_only": 1
   },
   {
    "fieldname": "business_information_section",
@@ -81,7 +82,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-04 21:44:32.458369",
+ "modified": "2025-08-04 23:10:01.846680",
  "modified_by": "Administrator",
  "module": "Project Management",
  "name": "Business",
