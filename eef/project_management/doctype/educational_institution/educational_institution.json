@@ -74,7 +74,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-04 21:36:40.737660",
+ "modified": "2025-08-04 21:44:36.034636",
  "modified_by": "Administrator",
  "module": "Project Management",
  "name": "Educational Institution",
@@ -98,5 +98,6 @@
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Business", {
-    onload(frm) { },
+    onload(frm) {},
     refresh(frm) {
         // โหลดข้อมูลจังหวัดทุกครั้ง
         const provinces = eef.geography.getProvinces();
@@ -41,11 +41,22 @@ frappe.ui.form.on("Business", {
     },
     set_major_query(frm) {
         frm.set_query("major", "business_major_interest", function () {
-            // console.log("Setting major query for business:", frm.doc.name);
+            // กรอง existing majors ที่ client
+            const existing_majors = [];
+            if (frm.doc.business_major_interest) {
+                frm.doc.business_major_interest.forEach((row) => {
+                    if (row.major && !row.major.startsWith("new-")) {
+                        existing_majors.push(row.major);
+                    }
+                });
+            }
+
+            console.log("Existing major interests:", existing_majors);
             return {
                 query: "eef.project_management.doctype.business.business.get_major_query",
                 filters: {
                     business_name: frm.doc.name,
+                    existing_majors: existing_majors,
                 },
             };
         });

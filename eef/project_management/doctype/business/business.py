@@ -14,9 +14,14 @@ class Business(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
-        from eef.project_management.doctype.business_major_interest.business_major_interest import BusinessMajorInterest
-        from eef.project_management.doctype.partnership_institution.partnership_institution import PartnershipInstitution
         from frappe.types import DF
+
+        from eef.project_management.doctype.business_major_interest.business_major_interest import (
+            BusinessMajorInterest,
+        )
+        from eef.project_management.doctype.partnership_institution.partnership_institution import (
+            PartnershipInstitution,
+        )
 
         business_major_interest: DF.Table[BusinessMajorInterest]
         district: DF.Literal[None]
@@ -61,6 +66,7 @@ class Business(Document):
 def get_major_query(doctype: str, txt, searchfield, start, page_len, filters):
     """Returns a list of majors associated with the business's partnership institutions."""
     business_name = filters.get("business_name")
+    existing_majors = filters.get("existing_majors", [])
 
     if not business_name:
         return []
@@ -68,23 +74,27 @@ def get_major_query(doctype: str, txt, searchfield, start, page_len, filters):
     business = frappe.get_doc("Business", business_name)
     institution_names = [d.educational_institution for d in business.partnership_institution]
 
-    major = []
-    for institution_name in institution_names:
-        # สร้าง base filters
-        filters = {"educational_institution": institution_name}
+    if not institution_names:
+        return []
 
-        # เพิ่ม text search filter ถ้ามี txt
-        if txt:
-            filters["or"] = [
-                ["name", "like", f"%{txt}%"],
-                ["name1", "like", f"%{txt}%"],
-            ]
+    # สร้าง filters สำหรับ query
+    query_filters = {"educational_institution": ["in", institution_names]}
+    
+    # เพิ่ม text search filter ถ้ามี txt
+    if txt:
+        query_filters["name"] = ["like", f"%{txt}%"]
 
-        majors = frappe.get_all(
-            doctype,
-            filters=filters,
-            fields=["name", "name1"],
-        )
-        # คืนค่า name (hash) และ name1 (description)
-        major.extend([[d.name, d.name1] for d in majors])
-    return major
+    # ดึงข้อมูล majors
+    majors = frappe.get_all(
+        doctype,
+        filters=query_filters,
+        fields=["name", "educational_institution"],
+    )
+
+    # กรอง existing majors ออก และ return เฉพาะที่มี name
+    result = []
+    for major in majors:
+        if major.name and major.name not in existing_majors:
+            result.append([major.name, major.educational_institution])
+    
+    return result

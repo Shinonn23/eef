@@ -14,6 +14,7 @@ class BusinessMajorInterest(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
+		educational_institution: DF.Link
 		major: DF.Link
 		parent: DF.Data
 		parentfield: DF.Data
