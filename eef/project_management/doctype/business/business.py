@@ -48,7 +48,8 @@ class Business(Document):
 
         business = frappe.get_doc("Business", self.name)
         return bool(
-            getattr(business, "partnership_institution", None) and len(business.partnership_institution) > 0  # type: ignore
+            getattr(business, "partnership_institution", None) # type: ignore
+            and len(business.partnership_institution) > 0  # type: ignore
         )
 
 

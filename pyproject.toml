@@ -18,16 +18,3 @@ build-backend = "flit_core.buildapi"
 # package_name = "~=1.1.0"
 
 typing-modules = ["frappe.types.DF"]
-
-[tool.pyright]
-
-# Pyright settings
-typeCheckingMode = "strict"
-
-reportUnknownParameterType = "none"
-reportUnknownVariableType = "none"
-reportUnknownMemberType = "none"
-reportUntypedFunctionDecorator = "none"
-reportMissingParameterType = "none"
-reportAttributeAccessIssue = "none"
-reportUndefinedVariable = "none"

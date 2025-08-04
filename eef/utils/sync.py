@@ -11,18 +11,21 @@ def sync_partnerships(doctype: str, partnerships: Any):
     print(
         f"Syncing partnerships for doctype: {doctype}, partnerships: {frappe.parse_json(partnerships)}"
     )
+    if doctype == "Business":
+        institutions_data: list[dict[str, str]] = frappe.db.get_all(
+            "Partnership Institution",
+            fields=["educational_institution", "parent"],
+            filters={"educational_institution": ["in", ["Sawananan", "AnotherOne"]]},
+        )
 
-    frappe.get_doc(
-        {
-            "doctype": "Sync Partnerships",
-        }
-    )
+        business_data: list[dict[str, str]] = frappe.db.get_all(
+            "Partnership Business",
+            fields=["educational_institution", "parent"],
+            filters={"educational_institution": ["in", ["Sawananan", "AnotherOne"]]},
+        )
 
-    return doctype, [
-        partnership["educational_institution"]
-        for partnership in frappe.parse_json(partnerships)
-    ]
-    # Here you can implement the logic to sync partnerships and majors
-    # For example, you might want to update the database or perform some calculations
-    # This is just a placeholder to demonstrate the function structure
-    # return {"status": "success", "message": "Partnerships synchronized successfully."
+    #     frappe.get_doc(
+    #     {
+    #         "doctype": "Sync Partnerships",
+    #     }
+    # )
