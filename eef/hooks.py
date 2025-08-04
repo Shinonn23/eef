@@ -144,20 +144,8 @@ app_include_js = ["thailand-address-autocomplete.bundle.js", "user.bundle.js"]
 # ---------------
 
 # scheduler_events = {
-# 	"all": [
-# 		"eef.tasks.all"
-# 	],
 # 	"daily": [
-# 		"eef.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"eef.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"eef.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"eef.tasks.monthly"
+# 		"eef.project_management.utils.fix_partnership_inconsistencies"
 # 	],
 # }
 

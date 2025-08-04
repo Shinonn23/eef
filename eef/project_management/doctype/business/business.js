@@ -2,6 +2,7 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Business", {
+	onload(frm) {},
 	refresh(frm) {
 		// โหลดข้อมูลจังหวัดทุกครั้ง
 		const provinces = eef.geography.getProvinces();
@@ -23,17 +24,17 @@ frappe.ui.form.on("Business", {
 			frm.trigger("load_existing_address_data");
 		}
 
-        frm.call("has_partnership_institutions").then((r) => {
-				if (r.message) {
-                    // console.log("Partnership institutions found, showing business major interest section.");
-                    // ถ้ามี partnership institution อย่างน้อย 1 รายการ ให้แสดง section
-                    frm.set_df_property("business_major_interest", "hidden", 0);
-                } else {
-                    // console.log("No partnership institutions found, hiding business major interest section.");
-                    // ถ้าไม่มี partnership institution ให้ซ่อน section
-                    frm.set_df_property("business_major_interest", "hidden", 1);
-                }
-			})
+		frm.call("has_partnership_institutions").then((r) => {
+			if (r.message) {
+				// console.log("Partnership institutions found, showing business major interest section.");
+				// ถ้ามี partnership institution อย่างน้อย 1 รายการ ให้แสดง section
+				frm.set_df_property("business_major_interest", "hidden", 0);
+			} else {
+				// console.log("No partnership institutions found, hiding business major interest section.");
+				// ถ้าไม่มี partnership institution ให้ซ่อน section
+				frm.set_df_property("business_major_interest", "hidden", 1);
+			}
+		});
 
 		// ตั้งค่า query สำหรับ major field
 		// console.log("Setting major query for business:", frm.doc.name);
@@ -148,10 +149,18 @@ frappe.ui.form.on("Business", {
 		}
 	},
 	partnership_institution(frm) {
-		// รีเฟรช query เมื่อมีการเปลี่ยนแปลง partnership institution
-		// console.log("Partnership institution changed, refreshing major query.");
+		frappe
+			.call("eef.utils.sync.sync_partnerships", {
+				doctype: "Business",
+				partnerships: frm.doc.partnership_institution,
+			})
+			.then((r) => {
+				console.log("Partnerships synchronized successfully.", r);
+			});
+            
 		frm.trigger("set_major_query");
 	},
+	before_save() {},
 });
 
 frappe.ui.form.on("Partnership Institution", {
