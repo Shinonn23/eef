@@ -1,59 +1,62 @@
 {
-    "actions": [],
-    "allow_rename": 1,
-    "creation": "2025-08-02 21:53:26.512825",
-    "doctype": "DocType",
-    "engine": "InnoDB",
-    "field_order": [
-        "name1",
-        "column_break_jciz",
-        "educational_institution"
-    ],
-    "fields": [
-        {
-            "fieldname": "name1",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "label": "Name",
-            "reqd": 1
-        },
-        {
-            "fieldname": "column_break_jciz",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "educational_institution",
-            "fieldtype": "Link",
-            "in_list_view": 1,
-            "label": "Educational Institution",
-            "options": "Educational Institution",
-            "reqd": 1
-        }
-    ],
-    "grid_page_length": 50,
-    "index_web_pages_for_search": 1,
-    "links": [],
-    "modified": "2025-08-03 05:41:44.007957",
-    "modified_by": "Administrator",
-    "module": "Project Management",
-    "name": "Major",
-    "owner": "Administrator",
-    "permissions": [
-        {
-            "create": 1,
-            "delete": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "System Manager",
-            "share": 1,
-            "write": 1
-        }
-    ],
-    "row_format": "Dynamic",
-    "sort_field": "creation",
-    "sort_order": "DESC",
-    "states": []
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-02 21:53:26.512825",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "column_break_jciz",
+  "educational_institution"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_jciz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "educational_institution",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Educational Institution",
+   "options": "Educational Institution",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-04 23:06:04.308949",
+ "modified_by": "Administrator",
+ "module": "Project Management",
+ "name": "Major",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
 }

@@ -7,12 +7,13 @@ def get_data():
         "heatmap_message": _(
             "This is based on the partnership institutions related to this business"
         ),
+        "fieldname": "business",
         "internal_links": {
-            "Educational Institution": ["partnership_institution", "educational_institution"],
+            "Educational Institution": ["partnership_business", "business"],
         },
         "transactions": [
             {
-                "label": _("Workflow"),
+                "label": _("Partnership"),
                 "items": ["Educational Institution"],
             },
         ],
