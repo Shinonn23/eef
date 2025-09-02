@@ -1,0 +1,81 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-09-02 20:21:58.987294",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "agenda",
+        "column_break_ettc",
+        "meeting",
+        "section_break_solq",
+        "decision",
+        "result",
+        "reason"
+    ],
+    "fields": [
+        {
+            "fieldname": "agenda",
+            "fieldtype": "Link",
+            "label": "Agenda",
+            "options": "Agenda"
+        },
+        {
+            "fieldname": "decision",
+            "fieldtype": "Text",
+            "label": "Decision"
+        },
+        {
+            "fieldname": "result",
+            "fieldtype": "Select",
+            "label": "Result",
+            "options": "approved\nrejected\npending"
+        },
+        {
+            "fieldname": "reason",
+            "fieldtype": "Text",
+            "label": "Reason"
+        },
+        {
+            "fetch_from": "agenda.meeting",
+            "fieldname": "meeting",
+            "fieldtype": "Data",
+            "hidden": 1,
+            "label": "Meeting"
+        },
+        {
+            "fieldname": "column_break_ettc",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "section_break_solq",
+            "fieldtype": "Section Break"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-09-02 21:23:59.526462",
+    "modified_by": "Administrator",
+    "module": "Meeting",
+    "name": "Decisions",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
+}

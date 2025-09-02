@@ -1,0 +1,44 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-09-02 20:22:49.747249",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "file",
+        "uploaded_by",
+        "uploaded_at"
+    ],
+    "fields": [
+        {
+            "fieldname": "file",
+            "fieldtype": "Attach",
+            "label": "File"
+        },
+        {
+            "fieldname": "uploaded_by",
+            "fieldtype": "Data",
+            "label": "Uploaded By"
+        },
+        {
+            "fieldname": "uploaded_at",
+            "fieldtype": "Datetime",
+            "label": "Uploaded At"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2025-09-02 21:30:10.232046",
+    "modified_by": "Administrator",
+    "module": "EEF",
+    "name": "Attachments",
+    "owner": "Administrator",
+    "permissions": [],
+    "row_format": "Dynamic",
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
+}
