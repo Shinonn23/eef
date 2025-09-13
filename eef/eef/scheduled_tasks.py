@@ -1,3 +1,4 @@
+import logging
 import os
 import shutil
 import subprocess
@@ -7,22 +8,13 @@ from datetime import datetime
 from pathlib import Path
 
 import boto3
-import frappe  # ตรวจสอบว่ามีการ import frappe
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
 
-# --- Logger Setup ---
-# สร้าง logger instance โดยใช้ชื่อ module ปัจจุบัน
-# Log จะถูกส่งไปยังระบบ log ของ Frappe โดยอัตโนมัติ
-logger = frappe.logger(__name__)
-
-
-# --- Dynamic Path Configuration ---
 script_path = Path(__file__).resolve()
 app_root_path = script_path.parent.parent.parent
 TEMP_PATH = app_root_path / "temp"
 dotenv_path = app_root_path / ".env"
-# --- End of Dynamic Path Configuration ---
 
 MAX_RETRIES = 10
 
@@ -34,13 +26,11 @@ if (
     or "endpoint_url" not in os.environ
     or "aws_bucket_name" not in os.environ
 ):
-    # ใช้ logger ในการบันทึก error แทนการ raise exception ทันที
-    # เพื่อให้ scheduler ทำงานต่อไปได้ แต่ยังคงมีร่องรอยของปัญหา
-    logger.critical(
-        f"Missing required AWS environment variables in .env file ({dotenv_path}). Backup cannot proceed."
-    )
-    # อาจจะ raise OSError ที่นี่ถ้าต้องการให้ process หยุดทำงานไปเลย
-    # raise OSError(f"Missing required AWS environment variables in .env file ({dotenv_path}).")
+    raise OSError("Missing required AWS environment variables in .env file")
+
+# Remove frappe logger and set up Python logging to console
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
 
 
 def upload_to_storage(zip_path):
@@ -64,7 +54,6 @@ def upload_to_storage(zip_path):
         return True
 
     except ClientError as e:
-        # exc_info=True จะแนบ Traceback ของ error ไปกับ log ด้วย
         logger.error(f"[{log_prefix}:ERROR]: Upload failed due to client error: {e}", exc_info=True)
         return False
     except FileNotFoundError:
@@ -95,9 +84,11 @@ def backup_daily():
         private_path = TEMP_PATH / f"{timestamp}-private-files"
 
         try:
-            # รันคำสั่ง bench backup
             subprocess.run(
                 [
+                    "uvx",
+                    "--from",
+                    "frappe-bench",
                     "bench",
                     "backup",
                     f"--backup-path-db={db_path}",
@@ -108,8 +99,8 @@ def backup_daily():
                     "--compress",
                 ],
                 check=True,
-                capture_output=True,  # เก็บ output ของ command
-                text=True,  # ให้ output เป็น text
+                capture_output=True,
+                text=True,
             )
 
             # บีบอัดไฟล์ทั้งหมดเป็น zip เดียว
@@ -150,14 +141,8 @@ def backup_daily():
             if attempt < MAX_RETRIES:
                 time.sleep(5)
     else:
-        # ส่วนนี้จะทำงานเมื่อ for loop วนจนครบทุกรอบ (หมายถึงไม่สำเร็จ)
         logger.error(f"[{log_prefix}:CRITICAL]: Backup failed after {MAX_RETRIES} attempts.")
 
 
-# บล็อกนี้สำหรับการรันด้วยตนเอง จะไม่ถูกเรียกโดย Scheduler ของ Frappe
 if __name__ == "__main__":
-    print("Starting backup process (manual execution)...")
-    # ใน context นี้ frappe.logger อาจจะทำงานไม่สมบูรณ์
-    # แต่การเรียก backup_daily() จะยังคงทำงานและ print log ออกมาทาง console
     backup_daily()
-    print("Backup process completed (manual execution).")
