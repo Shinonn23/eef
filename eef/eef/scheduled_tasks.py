@@ -1,0 +1,163 @@
+import os
+import shutil
+import subprocess
+import time
+import zipfile
+from datetime import datetime
+from pathlib import Path
+
+import boto3
+import frappe  # ตรวจสอบว่ามีการ import frappe
+from botocore.exceptions import ClientError
+from dotenv import load_dotenv
+
+# --- Logger Setup ---
+# สร้าง logger instance โดยใช้ชื่อ module ปัจจุบัน
+# Log จะถูกส่งไปยังระบบ log ของ Frappe โดยอัตโนมัติ
+logger = frappe.logger(__name__)
+
+
+# --- Dynamic Path Configuration ---
+script_path = Path(__file__).resolve()
+app_root_path = script_path.parent.parent.parent
+TEMP_PATH = app_root_path / "temp"
+dotenv_path = app_root_path / ".env"
+# --- End of Dynamic Path Configuration ---
+
+MAX_RETRIES = 10
+
+load_dotenv(dotenv_path=dotenv_path)
+
+if (
+    "aws_access_key_id" not in os.environ
+    or "aws_secret_access_key" not in os.environ
+    or "endpoint_url" not in os.environ
+    or "aws_bucket_name" not in os.environ
+):
+    # ใช้ logger ในการบันทึก error แทนการ raise exception ทันที
+    # เพื่อให้ scheduler ทำงานต่อไปได้ แต่ยังคงมีร่องรอยของปัญหา
+    logger.critical(
+        f"Missing required AWS environment variables in .env file ({dotenv_path}). Backup cannot proceed."
+    )
+    # อาจจะ raise OSError ที่นี่ถ้าต้องการให้ process หยุดทำงานไปเลย
+    # raise OSError(f"Missing required AWS environment variables in .env file ({dotenv_path}).")
+
+
+def upload_to_storage(zip_path):
+    log_prefix = "UPLOAD_TO_STORAGE"
+    try:
+        s3 = boto3.client(
+            "s3",
+            aws_access_key_id=os.getenv("aws_access_key_id"),
+            aws_secret_access_key=os.getenv("aws_secret_access_key"),
+            endpoint_url=os.getenv("endpoint_url"),
+        )
+
+        bucket_name = os.getenv("aws_bucket_name")
+        s3_key = os.path.basename(zip_path)
+
+        logger.info(f"[{log_prefix}:INFO]: Uploading {s3_key} to bucket {bucket_name}...")
+
+        s3.upload_file(str(zip_path), bucket_name, s3_key)
+
+        logger.info(f"[{log_prefix}:INFO]: Upload successful: {s3_key}")
+        return True
+
+    except ClientError as e:
+        # exc_info=True จะแนบ Traceback ของ error ไปกับ log ด้วย
+        logger.error(f"[{log_prefix}:ERROR]: Upload failed due to client error: {e}", exc_info=True)
+        return False
+    except FileNotFoundError:
+        logger.error(f"[{log_prefix}:ERROR]: The file {zip_path} was not found.", exc_info=True)
+        return False
+    except Exception as e:
+        logger.error(f"[{log_prefix}:ERROR]: An unexpected error occurred during upload: {e}", exc_info=True)
+        return False
+
+
+def backup_daily():
+    log_prefix = "BACKUP_DAILY"
+    logger.info(f"[{log_prefix}:INFO]: Backup process started.")
+
+    # ตรวจสอบว่า env vars โหลดมาครบหรือไม่ก่อนเริ่ม
+    if "aws_access_key_id" not in os.environ:
+        logger.error(f"[{log_prefix}:ERROR]: Cannot start backup, AWS credentials are not configured.")
+        return
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        logger.info(f"[{log_prefix}:INFO]: Backup attempt {attempt}/{MAX_RETRIES}")
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        os.makedirs(TEMP_PATH, exist_ok=True)
+
+        db_path = TEMP_PATH / f"{timestamp}-database.sql.gz"
+        conf_path = TEMP_PATH / f"{timestamp}-site_config.json"
+        files_path = TEMP_PATH / f"{timestamp}-public-files"
+        private_path = TEMP_PATH / f"{timestamp}-private-files"
+
+        try:
+            # รันคำสั่ง bench backup
+            subprocess.run(
+                [
+                    "bench",
+                    "backup",
+                    f"--backup-path-db={db_path}",
+                    f"--backup-path-conf={conf_path}",
+                    f"--backup-path-files={files_path}",
+                    f"--backup-path-private-files={private_path}",
+                    "--with-files",
+                    "--compress",
+                ],
+                check=True,
+                capture_output=True,  # เก็บ output ของ command
+                text=True,  # ให้ output เป็น text
+            )
+
+            # บีบอัดไฟล์ทั้งหมดเป็น zip เดียว
+            zip_filename = TEMP_PATH / f"{timestamp}-backup.zip"
+            with zipfile.ZipFile(zip_filename, "w", zipfile.ZIP_DEFLATED) as zipf:
+                for f in [db_path, conf_path, files_path, private_path]:
+                    if os.path.exists(f):
+                        if os.path.isdir(f):
+                            for root, _dirs, files in os.walk(f):
+                                for file in files:
+                                    full_path = Path(root) / file
+                                    arcname = full_path.relative_to(TEMP_PATH)
+                                    zipf.write(full_path, arcname)
+                        else:
+                            zipf.write(f, os.path.basename(f))
+
+            # อัปโหลดไฟล์
+            success = upload_to_storage(zip_filename)
+
+            if success:
+                logger.info(f"[{log_prefix}:INFO]: Backup and upload successful!")
+                break
+            else:
+                logger.warning(f"[{log_prefix}:WARNING]: Upload failed on attempt {attempt}, retrying...")
+
+        except subprocess.CalledProcessError as e:
+            logger.error(
+                f"[{log_prefix}:ERROR]: Backup command failed on attempt {attempt}: {e.stderr}", exc_info=True
+            )
+        except Exception as e:
+            logger.error(
+                f"[{log_prefix}:ERROR]: An unexpected error occurred on attempt {attempt}: {e}", exc_info=True
+            )
+
+        finally:
+            logger.info(f"[{log_prefix}:INFO]: Cleaning up temp files for attempt {attempt}.")
+            shutil.rmtree(TEMP_PATH, ignore_errors=True)
+            if attempt < MAX_RETRIES:
+                time.sleep(5)
+    else:
+        # ส่วนนี้จะทำงานเมื่อ for loop วนจนครบทุกรอบ (หมายถึงไม่สำเร็จ)
+        logger.error(f"[{log_prefix}:CRITICAL]: Backup failed after {MAX_RETRIES} attempts.")
+
+
+# บล็อกนี้สำหรับการรันด้วยตนเอง จะไม่ถูกเรียกโดย Scheduler ของ Frappe
+if __name__ == "__main__":
+    print("Starting backup process (manual execution)...")
+    # ใน context นี้ frappe.logger อาจจะทำงานไม่สมบูรณ์
+    # แต่การเรียก backup_daily() จะยังคงทำงานและ print log ออกมาทาง console
+    backup_daily()
+    print("Backup process completed (manual execution).")
