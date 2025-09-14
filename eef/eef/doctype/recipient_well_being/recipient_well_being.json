@@ -15,6 +15,8 @@
   "institute",
   "major",
   "campus_province",
+  "section_break_cneg",
+  "supporting_the_times",
   "living_conditions",
   "accommodation_section",
   "accommodation_condition",
@@ -82,7 +84,7 @@
   {
    "fieldname": "accommodation_section",
    "fieldtype": "Section Break",
-   "label": "Accommodation"
+   "label": "\u0e17\u0e35\u0e48\u0e1e\u0e31\u0e01\u0e2d\u0e32\u0e28\u0e31\u0e22"
   },
   {
    "fieldname": "accommodation_condition",
@@ -431,12 +433,21 @@
    "fieldname": "support_suggestions",
    "fieldtype": "Small Text",
    "label": "\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e2d\u0e37\u0e48\u0e19\u0e46"
+  },
+  {
+   "fieldname": "section_break_cneg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "supporting_the_times",
+   "fieldtype": "Int",
+   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-14 22:30:21.727476",
+ "modified": "2025-09-14 23:26:38.726282",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Recipient Well-being",

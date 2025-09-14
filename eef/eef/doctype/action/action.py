@@ -19,7 +19,7 @@ class Action(Document):
 		eadline: DF.Date | None
 		meeting: DF.Data | None
 		progress_notes: DF.Text | None
-		status: DF.Literal["not started", "in progress", "completed", "delayed"]
+		status: DF.Literal["not started", "in progress", "completed", "delayed"] # type: ignore
 		task: DF.Text | None
 	# end: auto-generated types
 

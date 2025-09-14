@@ -49,7 +49,8 @@ ignore = [
 typing-modules = ["frappe.types.DF"]
 
 [tool.pyright]
-typeCheckingMode = "standard"
+typeCheckingMode = "strict"
 
 reportAttributeAccessIssue = "none"
 reportUndefinedVariable = "none"
+reportUntypedBaseClass = "none"
