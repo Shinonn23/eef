@@ -16,7 +16,7 @@ class EducationalInstitution(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
-        from eef.project_management.doctype.partnership_business.partnership_business import (
+        from eef.eef.doctype.partnership_business.partnership_business import (
             PartnershipBusiness,
         )
 
