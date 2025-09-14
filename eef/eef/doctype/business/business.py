@@ -16,10 +16,10 @@ class Business(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
-        from eef.project_management.doctype.business_major_interest.business_major_interest import (
+        from eef.eef.doctype.business_major_interest.business_major_interest import (
             BusinessMajorInterest,
         )
-        from eef.project_management.doctype.partnership_institution.partnership_institution import (
+        from eef.eef.doctype.partnership_institution.partnership_institution import (
             PartnershipInstitution,
         )
 
