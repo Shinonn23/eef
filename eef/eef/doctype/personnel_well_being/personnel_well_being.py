@@ -6,8 +6,6 @@ from frappe.model.document import Document
 
 
 class PersonnelWellbeing(Document):
-    
-    
     def autoname(self) -> None:
         """
         สร้างชื่อ Document อัตโนมัติจาก รหัสนักเรียน และ ครั้งที่หนุนเสริม
@@ -20,5 +18,3 @@ class PersonnelWellbeing(Document):
             # กรณีที่ข้อมูลยังไม่ครบ ให้ใช้ชื่อชั่วคราวหรือปล่อยให้ระบบจัดการ
             # ในที่นี้จะปล่อยให้ใช้ default naming (hash) ไปก่อน
             self.name = None
-
-
