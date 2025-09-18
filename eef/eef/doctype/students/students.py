@@ -18,9 +18,7 @@ class Students(Document):
         campus_province: DF.Literal[None]
         first_name: DF.Data | None
         full_name: DF.Data | None
-        gender: DF.Literal[
-            "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38", "\u0e0a\u0e32\u0e22", "\u0e2b\u0e0d\u0e34\u0e07"
-        ]
+        gender: DF.Literal["\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38", "\u0e0a\u0e32\u0e22", "\u0e2b\u0e0d\u0e34\u0e07"]
         institute: DF.Link | None
         last_name: DF.Data | None
         major: DF.Link | None

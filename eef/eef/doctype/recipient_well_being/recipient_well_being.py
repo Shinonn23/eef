@@ -17,21 +17,17 @@ class RecipientWellbeing(Document):
         academic_stress: DF.Rating
         accommodation_condition: DF.Rating
         accommodation_safety: DF.Rating
-        adapt_culture: DF.Rating
+        adapt_academic: DF.Rating
+        adapt_social: DF.Rating
         adaptation_stress: DF.Rating
         addiction: DF.Rating
         amenities_access: DF.Rating
         campus_province: DF.Literal[None]
+        check_data_confirmation: DF.Check
         college_activity: DF.Rating
         commute_access: DF.Rating
         coping_skill: DF.Rating
-        debt_level: DF.Literal[
-            "\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2b\u0e19\u0e35\u0e49",
-            "\u0e19\u0e49\u0e2d\u0e22 (<5k)",
-            "\u0e1b\u0e32\u0e19\u0e01\u0e25\u0e32\u0e07 (5k\u201320k)",
-            "\u0e2a\u0e39\u0e07 (>20k)",
-            "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38",
-        ]
+        debt_level: DF.Literal["\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2b\u0e19\u0e35\u0e49", "\u0e19\u0e49\u0e2d\u0e22\u0e01\u0e27\u0e48\u0e32 5000 \u0e1a\u0e32\u0e17", "5000\u201320000 \u0e1a\u0e32\u0e17", "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 20000 \u0e1a\u0e32\u0e17", "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38"]
         exercise_facility_access: DF.Rating
         expense_manage: DF.Rating
         family_problems: DF.Rating
@@ -44,15 +40,9 @@ class RecipientWellbeing(Document):
         major: DF.Link | None
         medical_facility_access: DF.Rating
         mental_health_promo: DF.Rating
-        monthly_saving: DF.Literal["0-500", "500-1000", "1000-2000", ">2000"]
-        personal_health_status: DF.Literal[
-            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e44\u0e21\u0e48\u0e14\u0e35",
-            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e04\u0e48\u0e2d\u0e19\u0e02\u0e49\u0e32\u0e07\u0e14\u0e35",
-            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35",
-            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\u0e21\u0e32\u0e01",
-        ]
+        monthly_saving: DF.Literal["0-500 \u0e1a\u0e32\u0e17", "500-1000 \u0e1a\u0e32\u0e17", "1000-2000 \u0e1a\u0e32\u0e17", "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 2000 \u0e1a\u0e32\u0e17"]
+        personal_health_status: DF.Literal["\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e44\u0e21\u0e48\u0e14\u0e35", "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e04\u0e48\u0e2d\u0e19\u0e02\u0e49\u0e32\u0e07\u0e14\u0e35", "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35", "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\u0e21\u0e32\u0e01"]
         personal_stress: DF.Rating
-        placehoder: DF.Data | None
         relationship_problems: DF.Rating
         service_access: DF.Rating
         student_id: DF.Data | None
