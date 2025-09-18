@@ -8,8 +8,6 @@
   "general_information",
   "personal_information",
   "full_name",
-  "age",
-  "gender",
   "academic_information",
   "student_id",
   "institute",
@@ -162,20 +160,6 @@
    "fieldtype": "Link",
    "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
    "options": "Students"
-  },
-  {
-   "fetch_from": "full_name.age",
-   "fieldname": "age",
-   "fieldtype": "Int",
-   "label": "\u0e2d\u0e32\u0e22\u0e38",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "full_name.gender",
-   "fieldname": "gender",
-   "fieldtype": "Select",
-   "label": "\u0e40\u0e1e\u0e28",
-   "read_only": 1
   },
   {
    "fieldname": "academic_information",
@@ -447,7 +431,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-14 23:26:38.726282",
+ "modified": "2025-09-18 07:57:42.075139",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Recipient Well-being",

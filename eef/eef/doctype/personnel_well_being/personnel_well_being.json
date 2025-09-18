@@ -1,0 +1,267 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-18 05:50:18.128503",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_information",
+  "full_name",
+  "academic_information",
+  "institute",
+  "major",
+  "campus_province",
+  "section_break_qpsp",
+  "supporting_the_times",
+  "living_conditions",
+  "accommodation",
+  "food_and_dining",
+  "physical_wellbeing",
+  "personal_health",
+  "mental_and_emotional_health",
+  "stress_or_anxiety",
+  "depression",
+  "social_relation",
+  "emotion_management",
+  "counseling_access",
+  "college_adaptation_and_living",
+  "new_environment_adaptation",
+  "time_management",
+  "financial_management",
+  "transportation",
+  "access_to_information_and_services",
+  "problems_and_obstacles_that_may_occur",
+  "study_problems",
+  "family_problems",
+  "relationship_problems",
+  "legal_issues",
+  "addiction",
+  "support_received_and_needed",
+  "family_support",
+  "support_from_friends",
+  "college_support",
+  "additional_requirements",
+  "additional_suggestions"
+ ],
+ "fields": [
+  {
+   "fieldname": "personal_information",
+   "fieldtype": "Section Break",
+   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Link",
+   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
+   "options": "Personnel"
+  },
+  {
+   "fieldname": "academic_information",
+   "fieldtype": "Section Break",
+   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32"
+  },
+  {
+   "fetch_from": "full_name.institute",
+   "fieldname": "institute",
+   "fieldtype": "Link",
+   "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
+   "options": "Educational Institution",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "full_name.major",
+   "fieldname": "major",
+   "fieldtype": "Link",
+   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
+   "options": "Major",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "full_name.campus_province",
+   "fieldname": "campus_province",
+   "fieldtype": "Select",
+   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+  },
+  {
+   "fieldname": "section_break_qpsp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "supporting_the_times",
+   "fieldtype": "Int",
+   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48"
+  },
+  {
+   "fieldname": "living_conditions",
+   "fieldtype": "Tab Break",
+   "label": "\u0e2a\u0e20\u0e32\u0e1e\u0e04\u0e27\u0e32\u0e21\u0e40\u0e1b\u0e47\u0e19\u0e2d\u0e22\u0e39\u0e48\u0e17\u0e31\u0e48\u0e27\u0e44\u0e1b"
+  },
+  {
+   "fieldname": "food_and_dining",
+   "fieldtype": "Long Text",
+   "label": "\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e01\u0e32\u0e23\u0e01\u0e34\u0e19"
+  },
+  {
+   "fieldname": "physical_wellbeing",
+   "fieldtype": "Long Text",
+   "label": "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e01\u0e32\u0e22"
+  },
+  {
+   "fieldname": "personal_health",
+   "fieldtype": "Long Text",
+   "label": "\u0e2a\u0e38\u0e02\u0e2d\u0e19\u0e32\u0e21\u0e31\u0e22\u0e2a\u0e48\u0e27\u0e19\u0e1a\u0e38\u0e04\u0e04\u0e25"
+  },
+  {
+   "fieldname": "mental_and_emotional_health",
+   "fieldtype": "Tab Break",
+   "label": "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e08\u0e34\u0e15\u0e41\u0e25\u0e30\u0e2d\u0e32\u0e23\u0e21\u0e13\u0e4c"
+  },
+  {
+   "fieldname": "stress_or_anxiety",
+   "fieldtype": "Long Text",
+   "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e04\u0e23\u0e35\u0e22\u0e14/\u0e04\u0e27\u0e32\u0e21\u0e27\u0e34\u0e15\u0e01\u0e01\u0e31\u0e07\u0e27\u0e25"
+  },
+  {
+   "fieldname": "depression",
+   "fieldtype": "Long Text",
+   "label": "\u0e20\u0e32\u0e27\u0e30\u0e0b\u0e36\u0e21\u0e40\u0e28\u0e23\u0e49\u0e32"
+  },
+  {
+   "fieldname": "social_relation",
+   "fieldtype": "Long Text",
+   "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e31\u0e21\u0e1e\u0e31\u0e19\u0e18\u0e4c\u0e17\u0e32\u0e07\u0e2a\u0e31\u0e07\u0e04\u0e21"
+  },
+  {
+   "fieldname": "emotion_management",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e2d\u0e32\u0e23\u0e21\u0e13\u0e4c"
+  },
+  {
+   "fieldname": "counseling_access",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e40\u0e02\u0e49\u0e32\u0e16\u0e36\u0e07\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e49\u0e04\u0e33\u0e1b\u0e23\u0e36\u0e01\u0e29\u0e32"
+  },
+  {
+   "fieldname": "college_adaptation_and_living",
+   "fieldtype": "Tab Break",
+   "label": "\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e0a\u0e35\u0e27\u0e34\u0e15\u0e43\u0e19\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+  },
+  {
+   "fieldname": "new_environment_adaptation",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e40\u0e02\u0e49\u0e32\u0e01\u0e31\u0e1a\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e43\u0e2b\u0e21\u0e48"
+  },
+  {
+   "fieldname": "time_management",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e40\u0e27\u0e25\u0e32"
+  },
+  {
+   "fieldname": "financial_management",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e40\u0e07\u0e34\u0e19"
+  },
+  {
+   "fieldname": "transportation",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e40\u0e14\u0e34\u0e19\u0e17\u0e32\u0e07"
+  },
+  {
+   "fieldname": "access_to_information_and_services",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e40\u0e02\u0e49\u0e32\u0e16\u0e36\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e41\u0e25\u0e30\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23"
+  },
+  {
+   "fieldname": "problems_and_obstacles_that_may_occur",
+   "fieldtype": "Tab Break",
+   "label": "\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e2a\u0e23\u0e23\u0e04\u0e17\u0e35\u0e48\u0e2d\u0e32\u0e08\u0e40\u0e01\u0e34\u0e14\u0e02\u0e36\u0e49\u0e19"
+  },
+  {
+   "fieldname": "study_problems",
+   "fieldtype": "Long Text",
+   "label": "\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e14\u0e49\u0e32\u0e19\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19"
+  },
+  {
+   "fieldname": "family_problems",
+   "fieldtype": "Long Text",
+   "label": "\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e23\u0e31\u0e27"
+  },
+  {
+   "fieldname": "relationship_problems",
+   "fieldtype": "Long Text",
+   "label": "\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e31\u0e21\u0e1e\u0e31\u0e19\u0e18\u0e4c"
+  },
+  {
+   "fieldname": "legal_issues",
+   "fieldtype": "Long Text",
+   "label": "\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e17\u0e32\u0e07\u0e01\u0e0e\u0e2b\u0e21\u0e32\u0e22/\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22"
+  },
+  {
+   "fieldname": "addiction",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e2a\u0e34\u0e48\u0e07\u0e40\u0e2a\u0e1e\u0e15\u0e34\u0e14/\u0e1e\u0e24\u0e15\u0e34\u0e01\u0e23\u0e23\u0e21\u0e40\u0e2a\u0e35\u0e48\u0e22\u0e07"
+  },
+  {
+   "fieldname": "support_received_and_needed",
+   "fieldtype": "Tab Break",
+   "label": "\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e17\u0e35\u0e48\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e41\u0e25\u0e30\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23"
+  },
+  {
+   "fieldname": "family_support",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e08\u0e32\u0e01\u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e23\u0e31\u0e27"
+  },
+  {
+   "fieldname": "support_from_friends",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e08\u0e32\u0e01\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e19"
+  },
+  {
+   "fieldname": "college_support",
+   "fieldtype": "Long Text",
+   "label": "\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e08\u0e32\u0e01\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+  },
+  {
+   "fieldname": "additional_requirements",
+   "fieldtype": "Long Text",
+   "label": "\u0e04\u0e27\u0e32\u0e21\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21"
+  },
+  {
+   "fieldname": "additional_suggestions",
+   "fieldtype": "Long Text",
+   "label": "\u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21"
+  },
+  {
+   "description": "sdfsdf",
+   "fieldname": "accommodation",
+   "fieldtype": "Long Text",
+   "label": "\u0e17\u0e35\u0e48\u0e1e\u0e31\u0e01\u0e2d\u0e32\u0e28\u0e31\u0e22"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-18 07:51:49.386448",
+ "modified_by": "Administrator",
+ "module": "EEF",
+ "name": "Personnel Well-being",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

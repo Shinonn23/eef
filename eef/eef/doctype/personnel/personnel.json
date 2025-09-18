@@ -2,16 +2,16 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:full_name",
- "creation": "2025-09-14 20:34:15.935799",
+ "creation": "2025-09-18 05:34:09.422080",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "full_name",
+  "title",
   "first_name",
   "last_name",
   "age",
-  "gender",
-  "student_id",
+  "\u0e40\u0e1e\u0e28",
   "institute",
   "major",
   "campus_province"
@@ -23,6 +23,12 @@
    "hidden": 1,
    "label": "Full name",
    "unique": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Select",
+   "label": "\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07",
+   "options": "\n\u0e2d.\n\u0e14\u0e23.\n\u0e2d.\u0e14\u0e23.\n\u0e1c\u0e28.\u0e14\u0e23.\n\u0e23\u0e28.\u0e14\u0e23.\n\u0e28.\u0e14\u0e23."
   },
   {
    "fieldname": "first_name",
@@ -40,21 +46,16 @@
    "label": "\u0e2d\u0e32\u0e22\u0e38"
   },
   {
-   "fieldname": "gender",
-   "fieldtype": "Select",
-   "label": "\u0e40\u0e1e\u0e28",
-   "options": "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38\n\u0e0a\u0e32\u0e22\n\u0e2b\u0e0d\u0e34\u0e07"
-  },
-  {
-   "fieldname": "student_id",
-   "fieldtype": "Data",
-   "label": "\u0e23\u0e2b\u0e31\u0e2a\u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32"
-  },
-  {
    "fieldname": "institute",
    "fieldtype": "Link",
    "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
    "options": "Educational Institution"
+  },
+  {
+   "fieldname": "major",
+   "fieldtype": "Link",
+   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
+   "options": "Major"
   },
   {
    "fieldname": "campus_province",
@@ -62,19 +63,19 @@
    "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
   },
   {
-   "fieldname": "major",
-   "fieldtype": "Link",
-   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
-   "options": "Major"
+   "fieldname": "\u0e40\u0e1e\u0e28",
+   "fieldtype": "Select",
+   "label": "\u0e40\u0e1e\u0e28",
+   "options": "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38\n\u0e0a\u0e32\u0e22\n\u0e2b\u0e0d\u0e34\u0e07"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 07:43:37.853779",
+ "modified": "2025-09-18 07:43:11.553377",
  "modified_by": "Administrator",
  "module": "EEF",
- "name": "Students",
+ "name": "Personnel",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
