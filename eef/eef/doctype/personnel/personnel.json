@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:full_name",
  "creation": "2025-09-18 05:34:09.422080",
@@ -73,7 +74,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-23 05:00:24.461184",
+ "modified": "2025-09-23 05:59:47.854721",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Personnel",
@@ -85,6 +86,7 @@
    "delete": 1,
    "email": 1,
    "export": 1,
+   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,
