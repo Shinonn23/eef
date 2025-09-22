@@ -15,7 +15,6 @@ class ProfessionalSkillDevelopment(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
-        campus_province: DF.Literal[None]
         creativity: DF.SmallText | None
         full_name: DF.Link | None
         honesty: DF.SmallText | None

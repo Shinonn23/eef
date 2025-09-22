@@ -8,6 +8,7 @@
  "field_order": [
   "general_information_section",
   "name1",
+  "abbreviation",
   "education_information_section",
   "partnership_business",
   "address_section",
@@ -27,7 +28,9 @@
    "allow_in_quick_entry": 1,
    "fieldname": "name1",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Name",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -43,7 +46,8 @@
   {
    "fieldname": "province",
    "fieldtype": "Select",
-   "label": "Province"
+   "label": "Province",
+   "reqd": 1
   },
   {
    "fieldname": "subdistrict",
@@ -70,12 +74,19 @@
    "fieldtype": "Table MultiSelect",
    "label": "Partnership Business",
    "options": "Partnership Business"
+  },
+  {
+   "fieldname": "abbreviation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Abbrebiation",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-21 19:25:55.502215",
+ "modified": "2025-09-23 04:14:14.378758",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Educational Institution",

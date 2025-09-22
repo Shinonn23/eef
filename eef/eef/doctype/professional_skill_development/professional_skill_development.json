@@ -10,7 +10,6 @@
   "academic_information",
   "institute",
   "major",
-  "campus_province",
   "additional_information",
   "supporting_the_times",
   "tab_academic_skill_development",
@@ -51,23 +50,13 @@
    "fieldname": "institute",
    "fieldtype": "Link",
    "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
-   "options": "Educational Institution",
-   "read_only": 1
+   "options": "Educational Institution"
   },
   {
-   "fetch_from": "full_name.major",
    "fieldname": "major",
    "fieldtype": "Link",
    "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
-   "options": "Major",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "full_name.campus_province",
-   "fieldname": "campus_province",
-   "fieldtype": "Select",
-   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22",
-   "read_only": 1
+   "options": "Major"
   },
   {
    "fieldname": "additional_information",
@@ -171,7 +160,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-22 05:31:50.767813",
+ "modified": "2025-09-23 05:06:27.477965",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Professional Skill Development",

@@ -14,7 +14,7 @@ app_license = "mit"
 add_to_apps_screen = [
     {
         "name": "eef",
-        # "logo": "/assets/eef/logo.png",
+        "logo": "/assets/eef/logo.png",
         "title": "EEF",
         "route": "/app/dev",
         # "has_permission": "eef.api.permission.has_app_permission"
@@ -26,7 +26,7 @@ add_to_apps_screen = [
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/eef/css/eef.css"
-app_include_js = ["thailand-address-autocomplete.bundle.js", "user.bundle.js"]
+app_include_js = ["thailand-address-autocomplete.bundle.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/eef/css/eef.css"
@@ -228,4 +228,5 @@ export_python_type_annotations = True
 fixtures = [
     {"doctype": "Role", "filters": {"name": ["like", "Academic Personnel"]}},
     {"doctype": "Role Profile", "filters": {"name": ["like", "Teacher"]}},
+    {"doctype": "Educational Institution"},
 ]

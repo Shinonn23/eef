@@ -17,8 +17,9 @@ class EducationalInstitution(Document):
         from eef.eef.doctype.partnership_business.partnership_business import PartnershipBusiness
         from frappe.types import DF
 
+        abbreviation: DF.Data
         district: DF.Literal[None]
-        name1: DF.Data | None
+        name1: DF.Data
         partnership_business: DF.TableMultiSelect[PartnershipBusiness]
         postal_code: DF.Data | None
         province: DF.Literal[None]

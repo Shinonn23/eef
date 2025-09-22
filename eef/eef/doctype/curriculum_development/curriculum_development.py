@@ -17,7 +17,6 @@ class CurriculumDevelopment(Document):
 
         adequacy_personnel: DF.SmallText | None
         availability_learning_media: DF.SmallText | None
-        campus_province: DF.Literal[None]
         course_design: DF.SmallText | None
         curriculum_consistency: DF.SmallText | None
         curriculum_development_process: DF.SmallText | None

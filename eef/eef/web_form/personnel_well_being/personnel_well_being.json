@@ -21,7 +21,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2025-09-22 15:34:52.560446",
+ "modified": "2025-09-23 05:02:49.871786",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "personnel-well-being",
@@ -45,6 +45,20 @@
    "precision": "",
    "read_only": 0,
    "reqd": 1,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 1,
+   "fieldname": "major",
+   "fieldtype": "Link",
+   "hidden": 0,
+   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Major",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {
