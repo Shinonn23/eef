@@ -33,12 +33,16 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "\u0e0a\u0e37\u0e48\u0e2d"
+   "in_list_view": 1,
+   "label": "\u0e0a\u0e37\u0e48\u0e2d",
+   "reqd": 1
   },
   {
    "fieldname": "last_name",
    "fieldtype": "Data",
-   "label": "\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25"
+   "in_list_view": 1,
+   "label": "\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
+   "reqd": 1
   },
   {
    "fieldname": "age",
@@ -48,19 +52,24 @@
   {
    "fieldname": "institute",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
-   "options": "Educational Institution"
+   "options": "Educational Institution",
+   "reqd": 1
   },
   {
    "fieldname": "major",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
-   "options": "Major"
+   "options": "Major",
+   "reqd": 1
   },
   {
    "fieldname": "campus_province",
    "fieldtype": "Select",
-   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22",
+   "reqd": 1
   },
   {
    "fieldname": "\u0e40\u0e1e\u0e28",
@@ -72,7 +81,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 18:32:23.950960",
+ "modified": "2025-09-22 05:18:32.426895",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Personnel",
@@ -98,7 +107,15 @@
    "read": 1,
    "report": 1,
    "role": "Guest",
-   "select": 1,
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Personnel",
    "share": 1
   }
  ],

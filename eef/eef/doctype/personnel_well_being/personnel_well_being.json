@@ -76,7 +76,8 @@
    "fetch_from": "full_name.campus_province",
    "fieldname": "campus_province",
    "fieldtype": "Select",
-   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22",
+   "read_only": 1
   },
   {
    "fieldname": "supporting_the_times",
@@ -217,7 +218,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 16:54:33.608747",
+ "modified": "2025-09-22 05:28:28.990205",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Personnel Well-being",
@@ -232,6 +233,17 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Personnel",
    "share": 1,
    "write": 1
   }

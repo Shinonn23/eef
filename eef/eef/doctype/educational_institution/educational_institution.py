@@ -14,11 +14,8 @@ class EducationalInstitution(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
+        from eef.eef.doctype.partnership_business.partnership_business import PartnershipBusiness
         from frappe.types import DF
-
-        from eef.eef.doctype.partnership_business.partnership_business import (
-            PartnershipBusiness,
-        )
 
         district: DF.Literal[None]
         name1: DF.Data | None
@@ -27,6 +24,7 @@ class EducationalInstitution(Document):
         province: DF.Literal[None]
         subdistrict: DF.Literal[None]
     # end: auto-generated types
+
     def after_save(self) -> None:
         """
         Validate the Business document.

@@ -1,0 +1,14 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-09-22 05:16:59.513989",
+  "name": "Teacher",
+  "role_profile": "Teacher",
+  "roles": [
+   {
+    "role": "Academic Personnel"
+   }
+  ]
+ }
+]

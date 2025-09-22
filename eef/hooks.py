@@ -144,9 +144,7 @@ app_include_js = ["thailand-address-autocomplete.bundle.js", "user.bundle.js"]
 # ---------------
 
 scheduler_events = {
-	"daily": [
-		"eef.eef.scheduled_tasks.backup_daily"
-	],
+    "daily": ["eef.eef.scheduled_tasks.backup_daily"],
 }
 
 # Testing
@@ -227,6 +225,7 @@ export_python_type_annotations = True
 
 # Fixtures
 
-# fixtures = [
-#     {"doctype": "Custom Field", "filters": {"name": ["like", "User-recent_projects"]}},
-# ]
+fixtures = [
+    {"doctype": "Role", "filters": {"name": ["like", "Academic Personnel"]}},
+    {"doctype": "Role Profile", "filters": {"name": ["like", "Teacher"]}},
+]

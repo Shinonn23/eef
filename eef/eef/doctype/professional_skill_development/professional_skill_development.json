@@ -51,20 +51,23 @@
    "fieldname": "institute",
    "fieldtype": "Link",
    "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
-   "options": "Educational Institution"
+   "options": "Educational Institution",
+   "read_only": 1
   },
   {
    "fetch_from": "full_name.major",
    "fieldname": "major",
    "fieldtype": "Link",
    "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
-   "options": "Major"
+   "options": "Major",
+   "read_only": 1
   },
   {
    "fetch_from": "full_name.campus_province",
    "fieldname": "campus_province",
    "fieldtype": "Select",
-   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22",
+   "read_only": 1
   },
   {
    "fieldname": "additional_information",
@@ -168,7 +171,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 17:43:50.006365",
+ "modified": "2025-09-22 05:31:50.767813",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Professional Skill Development",
@@ -183,6 +186,17 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Personnel",
    "share": 1,
    "write": 1
   }
