@@ -21,7 +21,7 @@ class Students(Document):
         gender: DF.Literal["\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38", "\u0e0a\u0e32\u0e22", "\u0e2b\u0e0d\u0e34\u0e07"]
         institute: DF.Link
         last_name: DF.Data
-        major: DF.Link | None
+        major: DF.Link
         student_id: DF.Data | None
     # end: auto-generated types
 
