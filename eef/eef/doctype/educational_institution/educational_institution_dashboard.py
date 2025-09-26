@@ -1,4 +1,4 @@
-from frappe import _
+from frappe import _  # pyright: ignore[reportUnknownVariableType]
 
 
 def get_data():
