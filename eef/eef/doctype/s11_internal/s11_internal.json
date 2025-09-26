@@ -5,8 +5,6 @@
     "doctype": "DocType",
     "engine": "InnoDB",
     "field_order": [
-        "personal_information",
-        "full_name",
         "academic_information",
         "institute",
         "major",
@@ -39,17 +37,6 @@
         "additional_suggestions"
     ],
     "fields": [
-        {
-            "fieldname": "personal_information",
-            "fieldtype": "Section Break",
-            "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27"
-        },
-        {
-            "fieldname": "full_name",
-            "fieldtype": "Link",
-            "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
-            "options": "Personnel"
-        },
         {
             "fieldname": "academic_information",
             "fieldtype": "Section Break",
@@ -209,7 +196,7 @@
     "grid_page_length": 50,
     "index_web_pages_for_search": 1,
     "links": [],
-    "modified": "2025-09-25 13:16:54.711905",
+    "modified": "2025-09-26 12:27:55.240090",
     "modified_by": "Administrator",
     "module": "EEF",
     "name": "S11 Internal",

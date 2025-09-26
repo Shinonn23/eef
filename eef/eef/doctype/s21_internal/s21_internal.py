@@ -8,7 +8,7 @@ import frappe
 from frappe.model.document import Document
 
 
-class S12Internal(Document):
+class S21Internal(Document):
     # begin: auto-generated types
     # This code is auto-generated. Do not modify anything in this block.
 
@@ -17,21 +17,23 @@ class S12Internal(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
-        creativity: DF.SmallText | None
-        honesty: DF.SmallText | None
+        adequacy_personnel: DF.SmallText | None
+        availability_learning_media: DF.SmallText | None
+        course_design: DF.SmallText | None
+        curriculum_consistency: DF.SmallText | None
+        curriculum_development_process: DF.SmallText | None
+        employment: DF.SmallText | None
+        full_name: DF.Link | None
+        graduate_skill: DF.SmallText | None
         institute: DF.Link | None
-        intercultural_communication: DF.SmallText | None
-        leadership: DF.SmallText | None
-        learning_analytical_thinking: DF.SmallText | None
-        lifelong_learning: DF.SmallText | None
+        instructor_development: DF.SmallText | None
+        learning_design: DF.SmallText | None
+        learning_environment: DF.SmallText | None
+        learning_evaluation: DF.SmallText | None
+        learning_method: DF.SmallText | None
         major: DF.Link | None
-        presentation_communication: DF.SmallText | None
-        professional_ethics: DF.SmallText | None
-        self_management: DF.SmallText | None
-        social_responsibility: DF.SmallText | None
+        student_academic_achievement: DF.SmallText | None
         supporting_the_times: DF.Int
-        teamwork: DF.SmallText | None
-        technology_learning: DF.SmallText | None
     # end: auto-generated types
 
     def autoname(self) -> None:
