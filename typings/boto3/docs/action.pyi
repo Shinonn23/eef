@@ -7,13 +7,14 @@ from boto3.docs.base import NestedDocumenter
 PUT_DATA_WARNING_MESSAGE = ...
 WARNING_MESSAGES = ...
 IGNORE_PARAMS = ...
+
 class ActionDocumenter(NestedDocumenter):
-    def document_actions(self, section): # -> None:
+    def document_actions(self, section):  # -> None:
         ...
-    
 
-
-def document_action(section, resource_name, event_emitter, action_model, service_model, include_signature=...): # -> None:
+def document_action(
+    section, resource_name, event_emitter, action_model, service_model, include_signature=...
+):  # -> None:
     """Documents a resource action
 
     :param section: The section to write to
@@ -31,7 +32,9 @@ def document_action(section, resource_name, event_emitter, action_model, service
     """
     ...
 
-def document_load_reload_action(section, action_name, resource_name, event_emitter, load_model, service_model, include_signature=...): # -> None:
+def document_load_reload_action(
+    section, action_name, resource_name, event_emitter, load_model, service_model, include_signature=...
+):  # -> None:
     """Documents the resource load action
 
     :param section: The section to write to
@@ -50,4 +53,3 @@ def document_load_reload_action(section, action_name, resource_name, event_emitt
         It is useful for generating docstrings.
     """
     ...
-

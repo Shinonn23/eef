@@ -6,19 +6,19 @@ from frappe.model.document import Document
 
 
 class Decisions(Document):
-	# begin: auto-generated types
-	# This code is auto-generated. Do not modify anything in this block.
+    # begin: auto-generated types
+    # This code is auto-generated. Do not modify anything in this block.
 
-	from typing import TYPE_CHECKING
+    from typing import TYPE_CHECKING
 
-	if TYPE_CHECKING:
-		from frappe.types import DF
+    if TYPE_CHECKING:
+        from frappe.types import DF
 
-		agenda: DF.Link | None
-		decision: DF.Text | None
-		meeting: DF.Data | None
-		reason: DF.Text | None
-		result: DF.Literal["approved", "rejected", "pending"]
-	# end: auto-generated types
+        agenda: DF.Link | None
+        decision: DF.Text | None
+        meeting: DF.Data | None
+        reason: DF.Text | None
+        result: DF.Literal["approved", "rejected", "pending"]
+    # end: auto-generated types
 
-	pass
+    pass

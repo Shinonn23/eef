@@ -1,28 +1,27 @@
 repos:
-    - repo: https://github.com/psf/black
-      rev: 25.9.0
+    - repo: https://github.com/charliermarsh/ruff-pre-commit
+      rev: v0.13.2
       hooks:
-          - id: black
+          # Run the linter.
+          - id: ruff-check
+            args: [--fix]
+            exclude: ^typings/
+          # Run the formatter.
+          - id: ruff-format
             exclude: ^typings/
 
-    - repo: https://github.com/pycqa/isort
-      rev: 6.0.1
-      hooks:
-          - id: isort
-            exclude: ^typings/
+    # - repo: https://github.com/psf/black
+    #   rev: 25.9.0
+    #   hooks:
+    #       - id: black
+    #         exclude: ^typings/
 
-    - repo: https://github.com/pycqa/flake8
-      rev: 7.3.0
-      hooks:
-          - id: flake8
-            exclude: ^typings/
-
-    - repo: https://github.com/pre-commit/mirrors-eslint
-      rev: v9.36.0
-      hooks:
-          - id: eslint
-            files: \.(js|ts|jsx|tsx)$
-            exclude: ^typings/
+    # - repo: https://github.com/pre-commit/mirrors-eslint
+    #   rev: v9.36.0
+    #   hooks:
+    #       - id: eslint
+    #         files: \.(js|ts|jsx|tsx)$
+    #         exclude: ^typings/
 
     - repo: https://github.com/pre-commit/mirrors-prettier
       rev: v4.0.0-alpha.8

@@ -9,6 +9,5 @@ from frappe.search.website_search import WebsiteSearch
 from frappe.utils import cint
 
 @frappe.whitelist(allow_guest=True)
-def web_search(query, scope=..., limit=...): # -> list[_dict[Any, Any]]:
-	...
-
+def web_search(query, scope=..., limit=...):  # -> list[_dict[Any, Any]]:
+    ...

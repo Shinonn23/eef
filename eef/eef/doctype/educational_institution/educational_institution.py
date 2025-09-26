@@ -4,8 +4,6 @@
 # import frappe
 from frappe.model.document import Document
 
-from eef.utils.sync import cleanup_orphaned_partnerships
-
 
 class EducationalInstitution(Document):
     # begin: auto-generated types
@@ -14,8 +12,11 @@ class EducationalInstitution(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
-        from eef.eef.doctype.partnership_business.partnership_business import PartnershipBusiness
         from frappe.types import DF
+
+        from eef.eef.doctype.partnership_business.partnership_business import (
+            PartnershipBusiness,
+        )
 
         abbreviation: DF.Data
         district: DF.Literal[None]

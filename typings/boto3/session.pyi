@@ -22,40 +22,45 @@ class Session:
     :param profile_name: The name of a profile to use. If not given, then
                          the default profile is used.
     """
-    def __init__(self, aws_access_key_id=..., aws_secret_access_key=..., aws_session_token=..., region_name=..., botocore_session=..., profile_name=...) -> None:
+    def __init__(
+        self,
+        aws_access_key_id=...,
+        aws_secret_access_key=...,
+        aws_session_token=...,
+        region_name=...,
+        botocore_session=...,
+        profile_name=...,
+    ) -> None: ...
+    def __repr__(self):  # -> str:
         ...
-    
-    def __repr__(self): # -> str:
-        ...
-    
     @property
-    def profile_name(self): # -> Literal['default']:
+    def profile_name(self):  # -> Literal['default']:
         """
         The **read-only** profile name.
         """
         ...
-    
+
     @property
-    def region_name(self): # -> None:
+    def region_name(self):  # -> None:
         """
         The **read-only** region name.
         """
         ...
-    
+
     @property
     def events(self):
         """
         The event emitter for a session
         """
         ...
-    
+
     @property
-    def available_profiles(self): # -> list[Any]:
+    def available_profiles(self):  # -> list[Any]:
         """
         The profiles available to the session credentials
         """
         ...
-    
+
     def get_available_services(self):
         """
         Get a list of available services that can be loaded as low-level
@@ -65,7 +70,7 @@ class Session:
         :return: List of service names
         """
         ...
-    
+
     def get_available_resources(self):
         """
         Get a list of available services that can be loaded as resource
@@ -75,7 +80,7 @@ class Session:
         :return: List of service names
         """
         ...
-    
+
     def get_available_partitions(self):
         """Lists the available partitions
 
@@ -83,8 +88,10 @@ class Session:
         :return: Returns a list of partition names (e.g., ["aws", "aws-cn"])
         """
         ...
-    
-    def get_available_regions(self, service_name, partition_name=..., allow_non_regional=...): # -> list[Any]:
+
+    def get_available_regions(
+        self, service_name, partition_name=..., allow_non_regional=...
+    ):  # -> list[Any]:
         """Lists the region and endpoint names of a particular partition.
 
         The list of regions returned by this method are regions that are
@@ -108,8 +115,8 @@ class Session:
         :return: Returns a list of endpoint names (e.g., ["us-east-1"]).
         """
         ...
-    
-    def get_credentials(self): # -> Credentials:
+
+    def get_credentials(self):  # -> Credentials:
         """
         Return the :class:`botocore.credentials.Credentials` object
         associated with this session.  If the credentials have not
@@ -118,7 +125,7 @@ class Session:
         credentials.
         """
         ...
-    
+
     def get_partition_for_region(self, region_name):
         """Lists the partition name of a particular region.
 
@@ -130,8 +137,20 @@ class Session:
         :return: Returns the respective partition name (e.g., aws).
         """
         ...
-    
-    def client(self, service_name, region_name=..., api_version=..., use_ssl=..., verify=..., endpoint_url=..., aws_access_key_id=..., aws_secret_access_key=..., aws_session_token=..., config=...): # -> _:
+
+    def client(
+        self,
+        service_name,
+        region_name=...,
+        api_version=...,
+        use_ssl=...,
+        verify=...,
+        endpoint_url=...,
+        aws_access_key_id=...,
+        aws_secret_access_key=...,
+        aws_session_token=...,
+        config=...,
+    ):  # -> _:
         """
         Create a low-level service client by name.
 
@@ -202,8 +221,20 @@ class Session:
 
         """
         ...
-    
-    def resource(self, service_name, region_name=..., api_version=..., use_ssl=..., verify=..., endpoint_url=..., aws_access_key_id=..., aws_secret_access_key=..., aws_session_token=..., config=...): # -> _:
+
+    def resource(
+        self,
+        service_name,
+        region_name=...,
+        api_version=...,
+        use_ssl=...,
+        verify=...,
+        endpoint_url=...,
+        aws_access_key_id=...,
+        aws_secret_access_key=...,
+        aws_session_token=...,
+        config=...,
+    ):  # -> _:
         """
         Create a resource service client by name.
 
@@ -275,6 +306,3 @@ class Session:
         :return: Subclass of :py:class:`~boto3.resources.base.ServiceResource`
         """
         ...
-    
-
-

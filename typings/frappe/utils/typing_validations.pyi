@@ -10,35 +10,43 @@ SLACK_DICT = ...
 T = TypeVar("T")
 ForwardRefOrStr = ForwardRef | str
 FrappePydanticConfig = ...
-def validate_argument_types(func: Callable, apply_condition: Callable | None = ...): # -> _Wrapped[Callable[..., Any], Any, Callable[..., Any], Any]:
-	...
 
+def validate_argument_types(
+    func: Callable, apply_condition: Callable | None = ...
+):  # -> _Wrapped[Callable[..., Any], Any, Callable[..., Any], Any]:
+    ...
 def qualified_name(obj) -> str:
-	"""
-	Return the qualified name (e.g. package.module.Type) for the given object.
+    """
+    Return the qualified name (e.g. package.module.Type) for the given object.
 
-	Builtins and types from the :mod:typing package get special treatment by having the module
-	name stripped from the generated name.
+    Builtins and types from the :mod:typing package get special treatment by having the module
+    name stripped from the generated name.
 
-	"""
-	...
+    """
+    ...
 
-def raise_type_error(func: callable, arg_name: str, arg_type: type, arg_value: object, current_exception: Exception | None = ...):
-	"""
-	Raise a TypeError with a message that includes the name of the argument, the expected type
-	and the actual type of the value passed.
+def raise_type_error(
+    func: callable,
+    arg_name: str,
+    arg_type: type,
+    arg_value: object,
+    current_exception: Exception | None = ...,
+):
+    """
+    Raise a TypeError with a message that includes the name of the argument, the expected type
+    and the actual type of the value passed.
 
-	"""
-	...
+    """
+    ...
 
 @lru_cache(maxsize=2048)
-def TypeAdapter(type_): # -> TypeAdapter[Any]:
-	...
-
-def transform_parameter_types(func: Callable, args: tuple, kwargs: dict): # -> tuple[tuple[Any, ...], dict[Any, Any]] | tuple[list[Any], dict[Any, Any]]:
-	"""
-	Validate the types of the arguments passed to a function with the type annotations
-	defined on the function.
-	"""
-	...
-
+def TypeAdapter(type_):  # -> TypeAdapter[Any]:
+    ...
+def transform_parameter_types(
+    func: Callable, args: tuple, kwargs: dict
+):  # -> tuple[tuple[Any, ...], dict[Any, Any]] | tuple[list[Any], dict[Any, Any]]:
+    """
+    Validate the types of the arguments passed to a function with the type annotations
+    defined on the function.
+    """
+    ...

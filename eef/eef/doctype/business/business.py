@@ -1,10 +1,10 @@
 # Copyright (c) 2025, Siwat Sroisuwan and contributors
 # For license information, please see license.txt
 
+from typing import cast
+
 import frappe
 from frappe.model.document import Document
-
-from eef.utils.sync import cleanup_orphaned_partnerships
 
 
 class Business(Document):
@@ -40,7 +40,7 @@ class Business(Document):
         pass
         # cleanup_orphaned_partnerships()
 
-    @frappe.whitelist()
+    @frappe.whitelist()  # type: ignore
     def has_partnership_institutions(self) -> bool:
         """
         Returns True if the business has any partnership institutions, else False.
@@ -56,22 +56,34 @@ class Business(Document):
         if not self.name:
             return False
 
-        business = frappe.get_doc("Business", self.name)
+        business = cast(Business, frappe.get_doc("Business", self.name))
         return bool(
             getattr(business, "partnership_institution", None) and len(business.partnership_institution) > 0
         )
 
 
-@frappe.whitelist()
-def get_major_query(doctype: str, txt, searchfield, start, page_len, filters):
+class MajorInterestQueryParams:
+    business_name: str
+    existing_majors: str
+
+
+@frappe.whitelist()  # type: ignore
+def get_major_query(
+    doctype: str,
+    txt: str,
+    searchfield: str,
+    start: str,
+    page_len: int,
+    filters: MajorInterestQueryParams,
+) -> list[list[str]]:
     """Returns a list of majors associated with the business's partnership institutions."""
-    business_name = filters.get("business_name")
-    existing_majors = filters.get("existing_majors", [])
+    business_name = filters.business_name
+    existing_majors = filters.existing_majors
 
     if not business_name:
         return []
 
-    business = frappe.get_doc("Business", business_name)
+    business = cast(Business, frappe.get_doc("Business", business_name))
     institution_names = [d.educational_institution for d in business.partnership_institution]
 
     if not institution_names:
@@ -85,14 +97,17 @@ def get_major_query(doctype: str, txt, searchfield, start, page_len, filters):
         query_filters["name"] = ["like", f"%{txt}%"]
 
     # ดึงข้อมูล majors
-    majors = frappe.get_all(
-        doctype,
-        filters=query_filters,
-        fields=["name", "educational_institution"],
+    majors = cast(
+        list[dict[str, str]],
+        frappe.get_all(
+            doctype,
+            filters=query_filters,
+            fields=["name", "educational_institution"],
+        ),
     )
 
     # กรอง existing majors ออก และ return เฉพาะที่มี name
-    result = []
+    result: list[list[str]] = []
     for major in majors:
         if major.name and major.name not in existing_majors:
             result.append([major.name, major.educational_institution])

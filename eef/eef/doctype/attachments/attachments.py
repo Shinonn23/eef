@@ -6,20 +6,20 @@ from frappe.model.document import Document
 
 
 class Attachments(Document):
-	# begin: auto-generated types
-	# This code is auto-generated. Do not modify anything in this block.
+    # begin: auto-generated types
+    # This code is auto-generated. Do not modify anything in this block.
 
-	from typing import TYPE_CHECKING
+    from typing import TYPE_CHECKING
 
-	if TYPE_CHECKING:
-		from frappe.types import DF
+    if TYPE_CHECKING:
+        from frappe.types import DF
 
-		file: DF.Attach | None
-		parent: DF.Data
-		parentfield: DF.Data
-		parenttype: DF.Data
-		uploaded_at: DF.Datetime | None
-		uploaded_by: DF.Data | None
-	# end: auto-generated types
+        file: DF.Attach | None
+        parent: DF.Data
+        parentfield: DF.Data
+        parenttype: DF.Data
+        uploaded_at: DF.Datetime | None
+        uploaded_by: DF.Data | None
+    # end: auto-generated types
 
-	pass
+    pass

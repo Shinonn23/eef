@@ -11,7 +11,7 @@ frappe.ui.form.on("Educational Institution", {
             provinces
                 .map((d) => d.provinceNameEn)
                 .sort((a, b) => a.localeCompare(b))
-                .join("\n")
+                .join("\n"),
         );
 
         if (frm.is_new()) {
@@ -33,14 +33,14 @@ frappe.ui.form.on("Educational Institution", {
                 districts
                     .map((d) => d.districtNameEn)
                     .sort((a, b) => a.localeCompare(b))
-                    .join("\n")
+                    .join("\n"),
             );
 
             // โหลดข้อมูลตำบลตามอำเภอที่มีอยู่
             if (frm.doc.district) {
                 const subdistricts = eef.geography.getSubdistricts(
                     frm.doc.province,
-                    frm.doc.district
+                    frm.doc.district,
                 );
                 frm.set_df_property(
                     "subdistrict",
@@ -48,7 +48,7 @@ frappe.ui.form.on("Educational Institution", {
                     subdistricts
                         .map((d) => d.subdistrictNameEn)
                         .sort((a, b) => a.localeCompare(b))
-                        .join("\n")
+                        .join("\n"),
                 );
             }
         }
@@ -62,7 +62,7 @@ frappe.ui.form.on("Educational Institution", {
             districts
                 .map((d) => d.districtNameEn)
                 .sort((a, b) => a.localeCompare(b))
-                .join("\n")
+                .join("\n"),
         );
 
         // เคลียร์ข้อมูลที่เกี่ยวข้องเฉพาะเมื่อเปลี่ยนจังหวัด
@@ -77,14 +77,17 @@ frappe.ui.form.on("Educational Institution", {
     },
     district(frm) {
         // โหลดข้อมูลตำบลตามอำเภอที่เลือก
-        const subdistricts = eef.geography.getSubdistricts(frm.doc.province, frm.doc.district);
+        const subdistricts = eef.geography.getSubdistricts(
+            frm.doc.province,
+            frm.doc.district,
+        );
         frm.set_df_property(
             "subdistrict",
             "options",
             subdistricts
                 .map((d) => d.subdistrictNameEn)
                 .sort((a, b) => a.localeCompare(b))
-                .join("\n")
+                .join("\n"),
         );
 
         // เคลียร์ค่าเฉพาะเมื่อเป็นการเปลี่ยนแปลงจริง
@@ -105,7 +108,11 @@ frappe.ui.form.on("Educational Institution", {
         }
 
         let postalCode = "";
-        if (data.results && Array.isArray(data.results) && data.results.length > 0) {
+        if (
+            data.results &&
+            Array.isArray(data.results) &&
+            data.results.length > 0
+        ) {
             postalCode = data.results[0]["postalCode"];
         }
 
@@ -130,4 +137,3 @@ frappe.ui.form.on("Educational Institution", {
             });
     },
 });
-

@@ -11,11 +11,10 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
+class IntegrationTestMajor(IntegrationTestCase):  # type: ignore
+    """
+    Integration tests for Major.
+    Use this class for testing interactions between multiple components.
+    """
 
-class IntegrationTestMajor(IntegrationTestCase): # type: ignore
-	"""
-	Integration tests for Major.
-	Use this class for testing interactions between multiple components.
-	"""
-
-	pass
+    pass

@@ -12,40 +12,38 @@ which has been released under the MIT license, as described in attributions.md.
 GRID_SIZE = ...
 BORDER_SIZE = ...
 SQUARE_SIZE = ...
+
 class Identicon:
-	def __init__(self, str_, background=...) -> None:
-		"""
-		`str_` is the string used to generate the identicon.
-		`background` is the background of the identicon.
-		"""
-		...
-	
-	def digest(self, str_): # -> int:
-		"""Return an MD5 numeric hash."""
-		...
-	
-	def calculate(self): # -> None:
-		"""
-		Creates the identicon.
-		First three bytes are used to generate the color,
-		remaining bytes are used to create the drawing
-		"""
-		...
-	
-	def generate(self): # -> None:
-		"""
-		Save and show calculated identicon
-		"""
-		...
-	
-	def base64(self, format=...): # -> str:
-		"""
-		Return the identicon's base64
+    def __init__(self, str_, background=...) -> None:
+        """
+        `str_` is the string used to generate the identicon.
+        `background` is the background of the identicon.
+        """
+        ...
 
-		Created by: liuzheng712
-		Bug report: https://github.com/liuzheng712/identicons/issues
-		"""
-		...
-	
+    def digest(self, str_):  # -> int:
+        """Return an MD5 numeric hash."""
+        ...
 
+    def calculate(self):  # -> None:
+        """
+        Creates the identicon.
+        First three bytes are used to generate the color,
+        remaining bytes are used to create the drawing
+        """
+        ...
 
+    def generate(self):  # -> None:
+        """
+        Save and show calculated identicon
+        """
+        ...
+
+    def base64(self, format=...):  # -> str:
+        """
+        Return the identicon's base64
+
+        Created by: liuzheng712
+        Bug report: https://github.com/liuzheng712/identicons/issues
+        """
+        ...

@@ -14,7 +14,8 @@ CRT_S3_CLIENT = ...
 BOTOCORE_CRT_SERIALIZER = ...
 CLIENT_CREATION_LOCK = ...
 PROCESS_LOCK_NAME = ...
-def get_crt_s3_client(client, config): # -> CRTS3Client | None:
+
+def get_crt_s3_client(client, config):  # -> CRTS3Client | None:
     ...
 
 class CRTS3Client:
@@ -26,22 +27,17 @@ class CRTS3Client:
     in a single region and does not support redirects. We track the region to
     ensure we don't use the CRT client when a successful request cannot be made.
     """
-    def __init__(self, crt_client, process_lock, region, cred_provider) -> None:
-        ...
-    
+    def __init__(self, crt_client, process_lock, region, cred_provider) -> None: ...
 
-
-def is_crt_compatible_request(client, crt_s3_client): # -> Literal[False]:
+def is_crt_compatible_request(client, crt_s3_client):  # -> Literal[False]:
     """
     Boto3 client must use same signing region and credentials
     as the CRT_S3_CLIENT singleton. Otherwise fallback to classic.
     """
     ...
 
-def compare_identity(boto3_creds, crt_s3_creds): # -> Literal[False]:
+def compare_identity(boto3_creds, crt_s3_creds):  # -> Literal[False]:
     ...
-
-def create_crt_transfer_manager(client, config): # -> CRTTransferManager | None:
+def create_crt_transfer_manager(client, config):  # -> CRTTransferManager | None:
     """Create a CRTTransferManager for optimized data transfer."""
     ...
-

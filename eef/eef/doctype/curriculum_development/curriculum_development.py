@@ -1,9 +1,10 @@
 # Copyright (c) 2025, Siwat Sroisuwan and contributors
 # For license information, please see license.txt
 
+from datetime import datetime
+
 # import frappe
 from frappe.model.document import Document
-from datetime import datetime
 
 
 class CurriculumDevelopment(Document):

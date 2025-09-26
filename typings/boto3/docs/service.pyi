@@ -6,21 +6,15 @@ from botocore.docs.service import ServiceDocumenter as BaseServiceDocumenter
 
 class ServiceDocumenter(BaseServiceDocumenter):
     EXAMPLE_PATH = ...
-    def __init__(self, service_name, session, root_docs_path) -> None:
-        ...
-    
-    def document_service(self): # -> bytes:
+    def __init__(self, service_name, session, root_docs_path) -> None: ...
+    def document_service(self):  # -> bytes:
         """Documents an entire service.
 
         :returns: The reStructured text of the documented service.
         """
         ...
-    
-    def client_api(self, section): # -> None:
-        ...
-    
-    def resource_section(self, section): # -> None:
-        ...
-    
 
-
+    def client_api(self, section):  # -> None:
+        ...
+    def resource_section(self, section):  # -> None:
+        ...

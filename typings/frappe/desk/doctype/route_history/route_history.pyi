@@ -6,21 +6,17 @@ import frappe
 from frappe.model.document import Document
 
 class RouteHistory(Document):
-	if TYPE_CHECKING:
-		route: DF.Data | None
-		user: DF.Link | None
-		...
-	@staticmethod
-	def clear_old_logs(days=...): # -> None:
-		...
-	
-
+    if TYPE_CHECKING:
+        route: DF.Data | None
+        user: DF.Link | None
+        ...
+    @staticmethod
+    def clear_old_logs(days=...):  # -> None:
+        ...
 
 @frappe.whitelist()
-def deferred_insert(routes): # -> None:
-	...
-
+def deferred_insert(routes):  # -> None:
+    ...
 @frappe.whitelist()
-def frequently_visited_links(): # -> list[Any]:
-	...
-
+def frequently_visited_links():  # -> list[Any]:
+    ...

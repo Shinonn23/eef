@@ -7,11 +7,12 @@ from poplib import POP3
 from smtplib import SMTP
 
 class Oauth:
-	def __init__(self, conn: IMAP4 | POP3 | SMTP, email_account: str, email: str, access_token: str, mechanism: str = ...) -> None:
-		...
-	
-	def connect(self) -> None:
-		...
-	
-
-
+    def __init__(
+        self,
+        conn: IMAP4 | POP3 | SMTP,
+        email_account: str,
+        email: str,
+        access_token: str,
+        mechanism: str = ...,
+    ) -> None: ...
+    def connect(self) -> None: ...

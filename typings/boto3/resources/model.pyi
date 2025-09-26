@@ -14,6 +14,7 @@ These models are used both by the resource factory to generate resource
 classes as well as by the documentation generator.
 """
 logger = ...
+
 class Identifier:
     """
     A resource identifier, given by its name.
@@ -21,10 +22,7 @@ class Identifier:
     :type name: string
     :param name: The name of the identifier
     """
-    def __init__(self, name, member_name=...) -> None:
-        ...
-    
-
+    def __init__(self, name, member_name=...) -> None: ...
 
 class Action:
     """
@@ -37,10 +35,7 @@ class Action:
     :type resource_defs: dict
     :param resource_defs: All resources defined in the service
     """
-    def __init__(self, name, definition, resource_defs) -> None:
-        ...
-    
-
+    def __init__(self, name, definition, resource_defs) -> None: ...
 
 class DefinitionWithParams:
     """
@@ -51,19 +46,15 @@ class DefinitionWithParams:
     :type definition: dict
     :param definition: The JSON definition
     """
-    def __init__(self, definition) -> None:
-        ...
-    
+    def __init__(self, definition) -> None: ...
     @property
-    def params(self): # -> list[Any]:
+    def params(self):  # -> list[Any]:
         """
         Get a list of auto-filled parameters for this request.
 
         :type: list(:py:class:`Parameter`)
         """
         ...
-    
-
 
 class Parameter:
     """
@@ -78,10 +69,7 @@ class Parameter:
     :type source: string
     :param source: The source name, e.g. ``Url``
     """
-    def __init__(self, target, source, name=..., path=..., value=..., **kwargs) -> None:
-        ...
-    
-
+    def __init__(self, target, source, name=..., path=..., value=..., **kwargs) -> None: ...
 
 class Request(DefinitionWithParams):
     """
@@ -90,10 +78,7 @@ class Request(DefinitionWithParams):
     :type definition: dict
     :param definition: The JSON definition
     """
-    def __init__(self, definition) -> None:
-        ...
-    
-
+    def __init__(self, definition) -> None: ...
 
 class Waiter(DefinitionWithParams):
     """
@@ -104,11 +89,9 @@ class Waiter(DefinitionWithParams):
     :type definition: dict
     :param definition: The JSON definition
     """
-    PREFIX = ...
-    def __init__(self, name, definition) -> None:
-        ...
-    
 
+    PREFIX = ...
+    def __init__(self, name, definition) -> None: ...
 
 class ResponseResource:
     """
@@ -119,28 +102,24 @@ class ResponseResource:
     :type resource_defs: dict
     :param resource_defs: All resources defined in the service
     """
-    def __init__(self, definition, resource_defs) -> None:
-        ...
-    
+    def __init__(self, definition, resource_defs) -> None: ...
     @property
-    def identifiers(self): # -> list[Any]:
+    def identifiers(self):  # -> list[Any]:
         """
         A list of resource identifiers.
 
         :type: list(:py:class:`Identifier`)
         """
         ...
-    
+
     @property
-    def model(self): # -> ResourceModel:
+    def model(self):  # -> ResourceModel:
         """
         Get the resource model for the response resource.
 
         :type: :py:class:`ResourceModel`
         """
         ...
-    
-
 
 class Collection(Action):
     """
@@ -154,7 +133,7 @@ class Collection(Action):
     :param resource_defs: All resources defined in the service
     """
     @property
-    def batch_actions(self): # -> list[Any]:
+    def batch_actions(self):  # -> list[Any]:
         """
         Get a list of batch actions supported by the resource type
         contained in this action. This is a shortcut for accessing
@@ -163,8 +142,6 @@ class Collection(Action):
         :rtype: list(:py:class:`Action`)
         """
         ...
-    
-
 
 class ResourceModel:
     """
@@ -180,10 +157,8 @@ class ResourceModel:
     :type resource_defs: dict
     :param resource_defs: All resources defined in the service
     """
-    def __init__(self, name, definition, resource_defs) -> None:
-        ...
-    
-    def load_rename_map(self, shape=...): # -> None:
+    def __init__(self, name, definition, resource_defs) -> None: ...
+    def load_rename_map(self, shape=...):  # -> None:
         """
         Load a name translation map given a shape. This will set
         up renamed values for any collisions, e.g. if the shape,
@@ -221,8 +196,8 @@ class ResourceModel:
         :param shape: The underlying shape for this resource.
         """
         ...
-    
-    def get_attributes(self, shape): # -> dict[Any, Any]:
+
+    def get_attributes(self, shape):  # -> dict[Any, Any]:
         """
         Get a dictionary of attribute names to original name and shape
         models that represent the attributes of this resource. Looks
@@ -238,78 +213,75 @@ class ResourceModel:
         :return: Mapping of resource attributes.
         """
         ...
-    
+
     @property
-    def identifiers(self): # -> list[Any]:
+    def identifiers(self):  # -> list[Any]:
         """
         Get a list of resource identifiers.
 
         :type: list(:py:class:`Identifier`)
         """
         ...
-    
+
     @property
-    def load(self): # -> Action:
+    def load(self):  # -> Action:
         """
         Get the load action for this resource, if it is defined.
 
         :type: :py:class:`Action` or ``None``
         """
         ...
-    
+
     @property
-    def actions(self): # -> list[Any]:
+    def actions(self):  # -> list[Any]:
         """
         Get a list of actions for this resource.
 
         :type: list(:py:class:`Action`)
         """
         ...
-    
+
     @property
-    def batch_actions(self): # -> list[Any]:
+    def batch_actions(self):  # -> list[Any]:
         """
         Get a list of batch actions for this resource.
 
         :type: list(:py:class:`Action`)
         """
         ...
-    
+
     @property
-    def subresources(self): # -> list[Any]:
+    def subresources(self):  # -> list[Any]:
         """
         Get a list of sub-resources.
 
         :type: list(:py:class:`Action`)
         """
         ...
-    
+
     @property
-    def references(self): # -> list[Any]:
+    def references(self):  # -> list[Any]:
         """
         Get a list of reference resources.
 
         :type: list(:py:class:`Action`)
         """
         ...
-    
+
     @property
-    def collections(self): # -> list[Any]:
+    def collections(self):  # -> list[Any]:
         """
         Get a list of collections for this resource.
 
         :type: list(:py:class:`Collection`)
         """
         ...
-    
+
     @property
-    def waiters(self): # -> list[Any]:
+    def waiters(self):  # -> list[Any]:
         """
         Get a list of waiters for this resource.
 
         :type: list(:py:class:`Waiter`)
         """
         ...
-    
-
-

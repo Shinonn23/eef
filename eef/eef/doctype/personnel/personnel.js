@@ -16,7 +16,7 @@ frappe.ui.form.on("Personnel", {
             campus_province
                 .map((d) => d.provinceNameEn)
                 .sort((a, b) => a.localeCompare(b))
-                .join("\n")
+                .join("\n"),
         );
     },
 });

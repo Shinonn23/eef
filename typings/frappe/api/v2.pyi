@@ -14,95 +14,87 @@ Note:
 	  internal implementation can change without treating it as "breaking change".
 """
 PERMISSION_MAP = ...
-def handle_rpc_call(method: str, doctype: str | None = ...): # -> None:
-	...
 
-def login(): # -> None:
-	"""Login happens implicitly, this function doesn't do anything."""
-	...
+def handle_rpc_call(method: str, doctype: str | None = ...):  # -> None:
+    ...
+def login():  # -> None:
+    """Login happens implicitly, this function doesn't do anything."""
+    ...
 
-def logout(): # -> None:
-	...
-
-def read_doc(doctype: str, name: str): # -> dict[Any, Any]:
-	...
-
+def logout():  # -> None:
+    ...
+def read_doc(doctype: str, name: str):  # -> dict[Any, Any]:
+    ...
 def document_list(doctype: str) -> list[dict[str, Any]]:
-	"""
-	GET /api/v2/document/<doctype>?fields=[...],filters={...},...
+    """
+    GET /api/v2/document/<doctype>?fields=[...],filters={...},...
 
-	REST API endpoint for fetching doctype records
+    REST API endpoint for fetching doctype records
 
-	Args:
-		doctype: DocType name
+    Args:
+            doctype: DocType name
 
-	Query Parameters (accessible via frappe.form_dict):
-		fields: JSON string of field names to fetch
-		filters: JSON string of filters to apply
-		order_by: Order by field
-		start: Starting offset for pagination (default: 0)
-		limit: Maximum number of records to fetch (default: 20)
-		group_by: Group by field
-		as_dict: Return results as dictionary (default: True)
+    Query Parameters (accessible via frappe.form_dict):
+            fields: JSON string of field names to fetch
+            filters: JSON string of filters to apply
+            order_by: Order by field
+            start: Starting offset for pagination (default: 0)
+            limit: Maximum number of records to fetch (default: 20)
+            group_by: Group by field
+            as_dict: Return results as dictionary (default: True)
 
-	Response:
-		frappe.response["data"]: List of document records as dicts
-		frappe.response["has_next_page"]: Indicates if more pages are available
+    Response:
+            frappe.response["data"]: List of document records as dicts
+            frappe.response["has_next_page"]: Indicates if more pages are available
 
-	Controller Customization:
-		Doctype controllers can customize queries by implementing a static get_list(query) method
-		that receives a QueryBuilder object and returns a modified QueryBuilder.
+    Controller Customization:
+            Doctype controllers can customize queries by implementing a static get_list(query) method
+            that receives a QueryBuilder object and returns a modified QueryBuilder.
 
-		Example:
-			class Project(Document):
-				@staticmethod
-				def get_list(query):
-					Project = frappe.qb.DocType("Project")
-					if user_has_role("Project Owner"):
-						query = query.where(Project.owner == frappe.session.user)
-					else:
-						query = query.where(Project.is_private == 0)
-					return query
-	"""
-	...
+            Example:
+                    class Project(Document):
+                            @staticmethod
+                            def get_list(query):
+                                    Project = frappe.qb.DocType("Project")
+                                    if user_has_role("Project Owner"):
+                                            query = query.where(Project.owner == frappe.session.user)
+                                    else:
+                                            query = query.where(Project.is_private == 0)
+                                    return query
+    """
+    ...
 
-def count(doctype: str) -> int:
-	...
+def count(doctype: str) -> int: ...
+def create_doc(doctype: str):  # -> dict[Any, Any]:
+    ...
+def copy_doc(doctype: str, name: str, ignore_no_copy: bool = ...):  # -> dict[Any, Any]:
+    """Return a clean copy of the given document that can be modified and posted as a new document."""
+    ...
 
-def create_doc(doctype: str): # -> dict[Any, Any]:
-	...
-
-def copy_doc(doctype: str, name: str, ignore_no_copy: bool = ...): # -> dict[Any, Any]:
-	"""Return a clean copy of the given document that can be modified and posted as a new document."""
-	...
-
-def update_doc(doctype: str, name: str): # -> dict[Any, Any]:
-	...
-
-def delete_doc(doctype: str, name: str): # -> Literal['ok']:
-	...
-
-def get_meta(doctype: str): # -> _Meta:
-	...
-
+def update_doc(doctype: str, name: str):  # -> dict[Any, Any]:
+    ...
+def delete_doc(doctype: str, name: str):  # -> Literal['ok']:
+    ...
+def get_meta(doctype: str):  # -> _Meta:
+    ...
 def execute_doc_method(doctype: str, name: str, method: str | None = ...):
-	"""Get a document from DB and execute method on it.
+    """Get a document from DB and execute method on it.
 
-	Use cases:
-	- Submitting/cancelling document
-	- Triggering some kind of update on a document
-	"""
-	...
+    Use cases:
+    - Submitting/cancelling document
+    - Triggering some kind of update on a document
+    """
+    ...
 
 def run_doc_method(method: str, document: dict[str, Any] | str, kwargs=...):
-	"""run a whitelisted controller method on in-memory document.
+    """run a whitelisted controller method on in-memory document.
 
 
-	This is useful for building clients that don't necessarily encode all the business logic but
-	call server side function on object to validate and modify the doc.
+    This is useful for building clients that don't necessarily encode all the business logic but
+    call server side function on object to validate and modify the doc.
 
-	The doc CAN exists in DB too and can write to DB as well if method is POST.
-	"""
-	...
+    The doc CAN exists in DB too and can write to DB as well if method is POST.
+    """
+    ...
 
 url_rules = ...
