@@ -11,9 +11,9 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
-class IntegrationTestPersonnelWellbeing(IntegrationTestCase):
+class IntegrationTestS12Internal(IntegrationTestCase):
     """
-    Integration tests for PersonnelWellbeing.
+    Integration tests for S12Internal.
     Use this class for testing interactions between multiple components.
     """
 
