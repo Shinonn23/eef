@@ -10,23 +10,23 @@
         {
             "fieldname": "full_name",
             "fieldtype": "Data",
-            "label": "Full Name",
+            "label": "ชื่อ-นามสกุล",
             "unique": 1
         },
         {
             "fieldname": "position",
             "fieldtype": "Data",
-            "label": "Position"
+            "label": "ตำแหน่ง"
         },
         {
             "fieldname": "mail",
             "fieldtype": "Data",
-            "label": "mail"
+            "label": "อีเมล"
         },
         {
             "fieldname": "phone",
             "fieldtype": "Data",
-            "label": "Phone"
+            "label": "โทรศัพท์"
         }
     ],
     "grid_page_length": 50,

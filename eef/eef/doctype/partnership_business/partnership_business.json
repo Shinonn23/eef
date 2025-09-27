@@ -10,7 +10,7 @@
         {
             "fieldname": "business",
             "fieldtype": "Link",
-            "label": "Business",
+            "label": "ธุรกิจ",
             "options": "Business"
         }
     ],

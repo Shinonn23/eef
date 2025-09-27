@@ -17,41 +17,41 @@
         {
             "fieldname": "agenda",
             "fieldtype": "Link",
-            "label": "Agenda",
+            "label": "วาระ",
             "options": "Agenda"
         },
         {
             "fieldname": "assigned_to",
             "fieldtype": "Link",
-            "label": "Assigned To",
+            "label": "มอบหมายให้",
             "options": "Participants"
         },
         {
             "fieldname": "task",
             "fieldtype": "Text",
-            "label": "Task"
+            "label": "งาน"
         },
         {
             "fieldname": "eadline",
             "fieldtype": "Date",
-            "label": "Deadline"
+            "label": "กำหนดเสร็จ"
         },
         {
             "fieldname": "status",
             "fieldtype": "Select",
-            "label": "Status",
-            "options": "not started\nin progress\ncompleted\ndelayed"
+            "label": "สถานะ",
+            "options": "ยังไม่เริ่ม\nกำลังดำเนินการ\nเสร็จสิ้น\nล่าช้า"
         },
         {
             "fieldname": "progress_notes",
             "fieldtype": "Text",
-            "label": "Progress Notes"
+            "label": "บันทึกความคืบหน้า"
         },
         {
             "fetch_from": "agenda.meeting",
             "fieldname": "meeting",
             "fieldtype": "Data",
-            "label": "Meeting"
+            "label": "การประชุม"
         }
     ],
     "grid_page_length": 50,

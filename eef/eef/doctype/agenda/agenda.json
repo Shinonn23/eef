@@ -10,23 +10,23 @@
         {
             "fieldname": "meeting",
             "fieldtype": "Link",
-            "label": "Meeting",
+            "label": "การประชุม",
             "options": "Meetings"
         },
         {
             "fieldname": "title",
             "fieldtype": "Data",
-            "label": "Title"
+            "label": "หัวข้อ"
         },
         {
             "fieldname": "description",
             "fieldtype": "Text",
-            "label": "Description"
+            "label": "คำอธิบาย"
         },
         {
             "fieldname": "sequence",
             "fieldtype": "Int",
-            "label": "Sequence"
+            "label": "ลำดับ"
         }
     ],
     "grid_page_length": 50,

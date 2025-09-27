@@ -10,20 +10,20 @@
         {
             "fieldname": "participant",
             "fieldtype": "Link",
-            "label": "Participant",
+            "label": "ผู้เข้าร่วม",
             "options": "Participants"
         },
         {
             "fieldname": "role",
             "fieldtype": "Select",
-            "label": "Role",
-            "options": "chairperson\nsecretary\nattendee"
+            "label": "บทบาท",
+            "options": "ประธาน\nเลขานุการ\nผู้เข้าร่วม"
         },
         {
             "fieldname": "attendance_status",
             "fieldtype": "Select",
-            "label": "Attendance Status",
-            "options": "present\nabsent\nlate\nleave_early"
+            "label": "สถานะการเข้าร่วม",
+            "options": "เข้าร่วม\nขาด\nมาสาย\nออกก่อน"
         }
     ],
     "grid_page_length": 50,

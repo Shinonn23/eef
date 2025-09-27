@@ -17,31 +17,31 @@
         {
             "fieldname": "agenda",
             "fieldtype": "Link",
-            "label": "Agenda",
+            "label": "วาระ",
             "options": "Agenda"
         },
         {
             "fieldname": "decision",
             "fieldtype": "Text",
-            "label": "Decision"
+            "label": "มติ"
         },
         {
             "fieldname": "result",
             "fieldtype": "Select",
-            "label": "Result",
-            "options": "approved\nrejected\npending"
+            "label": "ผลลัพธ์",
+            "options": "อนุมัติ\nปฏิเสธ\nรอดำเนินการ"
         },
         {
             "fieldname": "reason",
             "fieldtype": "Text",
-            "label": "Reason"
+            "label": "เหตุผล"
         },
         {
             "fetch_from": "agenda.meeting",
             "fieldname": "meeting",
             "fieldtype": "Data",
             "hidden": 1,
-            "label": "Meeting"
+            "label": "การประชุม"
         },
         {
             "fieldname": "column_break_ettc",
