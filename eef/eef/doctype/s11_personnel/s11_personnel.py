@@ -3,9 +3,7 @@
 
 # import frappe
 from datetime import datetime
-from typing import cast
 
-import frappe
 from frappe.model.document import Document
 
 
@@ -18,53 +16,77 @@ class S11Personnel(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
-        access_to_information_and_services: DF.Rating
-        accommodation: DF.Rating
+        academic_stress: DF.Rating
+        accommodation_condition: DF.Rating
+        accommodation_safety: DF.Rating
+        adapt_academic: DF.Rating
+        adapt_social: DF.Rating
+        adaptation_stress: DF.Rating
         addiction: DF.Rating
-        comment_adaptation: DF.SmallText | None
-        comment_living_conditions: DF.SmallText | None
-        comment_mental_emotion: DF.SmallText | None
-        comment_other_suggestions: DF.SmallText | None
-        comment_problems: DF.SmallText | None
-        counseling_access: DF.Rating
-        depression: DF.Rating
-        emotion_management: DF.Rating
+        amenities_access: DF.Rating
+        check_data_confirmation: DF.Check
+        college_activity: DF.Rating
+        commute_access: DF.Rating
+        coping_skill: DF.Rating
+        debt_level: DF.Literal[
+            "\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2b\u0e19\u0e35\u0e49",
+            "\u0e19\u0e49\u0e2d\u0e22\u0e01\u0e27\u0e48\u0e32 5000 \u0e1a\u0e32\u0e17",  # type: ignore
+            "5000\u201320000 \u0e1a\u0e32\u0e17",  # type: ignore
+            "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 20000 \u0e1a\u0e32\u0e17",  # type: ignore
+            "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38",
+        ]
+        exercise_facility_access: DF.Rating
+        expense_manage: DF.Rating
         family_problems: DF.Rating
-        financial_management: DF.Rating
-        food_and_dining: DF.Rating
+        food_availability: DF.Rating
+        food_cleanliness: DF.Rating
+        food_price_appropriateness: DF.Rating
         full_name: DF.Link | None
+        full_name_manual: DF.Data | None
         institute: DF.Link | None
         legal_issues: DF.Rating
         major: DF.Link | None
-        new_environment_adaptation: DF.Rating
-        personal_health: DF.Rating
-        physical_wellbeing: DF.Rating
+        medical_facility_access: DF.Rating
+        mental_health_promo: DF.Rating
+        monthly_saving: DF.Literal[
+            "0-500 \u0e1a\u0e32\u0e17",  # type: ignore
+            "500-1000 \u0e1a\u0e32\u0e17",  # type: ignore
+            "1000-2000 \u0e1a\u0e32\u0e17",  # type: ignore
+            "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 2000 \u0e1a\u0e32\u0e17",  # type: ignore
+        ]
+        no_name_in_system: DF.Check
+        personal_health_status: DF.Literal[
+            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e44\u0e21\u0e48\u0e14\u0e35",
+            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e04\u0e48\u0e2d\u0e19\u0e02\u0e49\u0e32\u0e07\u0e14\u0e35",
+            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35",
+            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\u0e21\u0e32\u0e01",
+        ]
+        personal_stress: DF.Rating
         relationship_problems: DF.Rating
-        social_relation: DF.Rating
-        stress_or_anxiety: DF.Rating
+        service_access: DF.Rating
+        student_id: DF.Data | None
         study_problems: DF.Rating
+        support_additional_needs: DF.SmallText | None
+        support_college_access: DF.Rating
+        support_family_level: DF.Rating
+        support_peer_level: DF.Rating
+        support_suggestions: DF.SmallText | None
         supporting_the_times: DF.Int
-        time_management: DF.Rating
-        transportation: DF.Rating
+        time_manage: DF.Rating
     # end: auto-generated types
 
     pass
 
     def autoname(self) -> None:
         """
-        สร้างชื่อ Document อัตโนมัติโดยใช้ชื่อผู้สร้าง (owner) + timestamp
+        สร้างชื่อ Document อัตโนมัติ
         """
-        from frappe.core.doctype.user.user import User
-
-        now_str: str = datetime.now().strftime("%Y%m%d_%H%M")
-
-        try:
-            # ดึง User DocType ของ owner
-            user_doc = cast(User, frappe.get_doc("User", self.owner))
-            owner_name: str = cast(str, user_doc.full_name) or self.owner
-        except Exception:
-            owner_name: str = self.owner
-
-        # แปลงชื่อเป็น format-friendly
-        name_formatted: str = owner_name.strip().replace(" ", "_")
-        self.name = f"{name_formatted}-{now_str}"
+        now_str = datetime.now().strftime("%Y%m%d_%H%M")
+        name = self.full_name or self.full_name_manual or None
+        if name:
+            name_formatted = name.strip().replace(" ", "_")
+            self.name = f"{name_formatted}-{now_str}"
+        else:
+            # กรณีที่ข้อมูลยังไม่ครบ ให้ใช้ชื่อชั่วคราวหรือปล่อยให้ระบบจัดการ
+            # ในที่นี้จะปล่อยให้ใช้ default naming (hash) ไปก่อน
+            self.name = None
