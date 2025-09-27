@@ -17,6 +17,7 @@ frappe.ready(function () {
             // Disable ชื่อ-นามสกุล (จากฐานข้อมูล)
             frappe.web_form.set_df_property("full_name", "reqd", 0);
             frappe.web_form.set_df_property("full_name", "read_only", 1);
+            frappe.web_form.set_df_property("full_name", "hidden", 1);
             frappe.web_form.set_value("full_name", "");
 
             // Enable ชื่อ-นามสกุล (ใส่เองหากไม่เจอในระบบ)
@@ -32,6 +33,7 @@ frappe.ready(function () {
             // Enable ชื่อ-นามสกุล (จากฐานข้อมูล)
             frappe.web_form.set_df_property("full_name", "reqd", 1);
             frappe.web_form.set_df_property("full_name", "read_only", 0);
+            frappe.web_form.set_df_property("full_name", "hidden", 0);
 
             // Disable ชื่อ-นามสกุล (ใส่เองหากไม่เจอในระบบ)
             frappe.web_form.set_df_property("full_name_manual", "reqd", 0);
