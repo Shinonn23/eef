@@ -237,9 +237,7 @@ fixtures = [
     },
     {
         "doctype": "Role Profile",
-        "filters": {
-            "name": ["in", ["Teacher", "Internal EEF User", "Internal EEF Admin"]]
-        },
+        "filters": {"name": ["in", ["Teacher", "Internal EEF User", "Internal EEF Admin"]]},
     },
     {
         "doctype": "Module Profile",

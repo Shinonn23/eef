@@ -15,8 +15,9 @@ class S11Internal(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
-        from eef.eef.doctype.major_item.major_item import MajorItem
         from frappe.types import DF
+
+        from eef.eef.doctype.major_item.major_item import MajorItem
 
         access_to_information_and_services: DF.SmallText | None
         accommodation: DF.SmallText | None

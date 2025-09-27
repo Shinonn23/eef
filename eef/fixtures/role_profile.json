@@ -1,47 +1,47 @@
 [
- {
-  "docstatus": 0,
-  "doctype": "Role Profile",
-  "modified": "2025-09-22 05:16:59.513989",
-  "name": "Teacher",
-  "role_profile": "Teacher",
-  "roles": [
-   {
-    "role": "Academic Personnel"
-   }
-  ]
- },
- {
-  "docstatus": 0,
-  "doctype": "Role Profile",
-  "modified": "2025-09-27 10:36:27.995319",
-  "name": "Internal EEF User",
-  "role_profile": "Internal EEF User",
-  "roles": [
-   {
-    "role": "Internal Team User"
-   },
-   {
-    "role": "Academic Personnel"
-   }
-  ]
- },
- {
-  "docstatus": 0,
-  "doctype": "Role Profile",
-  "modified": "2025-09-27 10:42:46.402757",
-  "name": "Internal EEF Admin",
-  "role_profile": "Internal EEF Admin",
-  "roles": [
-   {
-    "role": "Academic Personnel"
-   },
-   {
-    "role": "Internal Team User"
-   },
-   {
-    "role": "Internal Team Admin"
-   }
-  ]
- }
+    {
+        "docstatus": 0,
+        "doctype": "Role Profile",
+        "modified": "2025-09-22 05:16:59.513989",
+        "name": "Teacher",
+        "role_profile": "Teacher",
+        "roles": [
+            {
+                "role": "Academic Personnel"
+            }
+        ]
+    },
+    {
+        "docstatus": 0,
+        "doctype": "Role Profile",
+        "modified": "2025-09-27 10:36:27.995319",
+        "name": "Internal EEF User",
+        "role_profile": "Internal EEF User",
+        "roles": [
+            {
+                "role": "Internal Team User"
+            },
+            {
+                "role": "Academic Personnel"
+            }
+        ]
+    },
+    {
+        "docstatus": 0,
+        "doctype": "Role Profile",
+        "modified": "2025-09-27 10:42:46.402757",
+        "name": "Internal EEF Admin",
+        "role_profile": "Internal EEF Admin",
+        "roles": [
+            {
+                "role": "Academic Personnel"
+            },
+            {
+                "role": "Internal Team User"
+            },
+            {
+                "role": "Internal Team Admin"
+            }
+        ]
+    }
 ]
