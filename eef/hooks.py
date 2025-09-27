@@ -226,7 +226,24 @@ export_python_type_annotations = True
 # Fixtures
 
 fixtures = [
-    {"doctype": "Role", "filters": {"name": ["like", "Academic Personnel"]}},
-    {"doctype": "Role Profile", "filters": {"name": ["like", "Teacher"]}},
+    {
+        "doctype": "Role",
+        "filters": {
+            "name": [
+                "in",
+                ["Academic Personnel", "Internal Team User", "Internal Team Admin"],
+            ]
+        },
+    },
+    {
+        "doctype": "Role Profile",
+        "filters": {
+            "name": ["in", ["Teacher", "Internal EEF User", "Internal EEF Admin"]]
+        },
+    },
+    {
+        "doctype": "Module Profile",
+        "filters": {"name": ["in", ["EEF Team"]]},
+    },
     {"doctype": "Educational Institution"},
 ]

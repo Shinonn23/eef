@@ -159,7 +159,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-27 07:44:29.719875",
+ "modified": "2025-09-27 10:44:00.560971",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S21 Internal",
@@ -178,13 +178,29 @@
    "write": 1
   },
   {
+   "create": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "if_owner": 1,
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Academic Personnel",
+   "role": "Internal Team User",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Internal Team Admin",
+   "select": 1,
    "share": 1,
    "write": 1
   }

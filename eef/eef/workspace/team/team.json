@@ -19,7 +19,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e01\u0e32\u0e23\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21",
-   "link_count": 3,
+   "link_count": 4,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -53,9 +53,19 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2a\u0e35\u0e48\u0e22\u0e07",
+   "link_count": 0,
+   "link_to": "Risk Internal",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-09-27 07:36:43.790707",
+ "modified": "2025-09-27 11:19:28.652454",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "TEAM",
