@@ -6,49 +6,44 @@ import frappe
 from frappe.model.document import Document
 
 class NotificationSettings(Document):
-	if TYPE_CHECKING:
-		enable_email_assignment: DF.Check
-		enable_email_event_reminders: DF.Check
-		enable_email_mention: DF.Check
-		enable_email_notifications: DF.Check
-		enable_email_share: DF.Check
-		enable_email_threads_on_assigned_document: DF.Check
-		enabled: DF.Check
-		seen: DF.Check
-		subscribed_documents: DF.TableMultiSelect[NotificationSubscribedDocument]
-		user: DF.Link | None
-		...
-	def on_update(self): # -> None:
-		...
-	
+    if TYPE_CHECKING:
+        enable_email_assignment: DF.Check
+        enable_email_event_reminders: DF.Check
+        enable_email_mention: DF.Check
+        enable_email_notifications: DF.Check
+        enable_email_share: DF.Check
+        enable_email_threads_on_assigned_document: DF.Check
+        enabled: DF.Check
+        seen: DF.Check
+        subscribed_documents: DF.TableMultiSelect[NotificationSubscribedDocument]
+        user: DF.Link | None
+        ...
+    def on_update(self):  # -> None:
+        ...
 
-
-def is_notifications_enabled(user): # -> list[Any] | list[_dict[Any, Any]] | list[list[Any | None]] | dict[Any, Any] | _dict[Any, Any] | list[Any | None] | Literal[True]:
-	...
-
-def is_email_notifications_enabled(user): # -> list[Any] | list[_dict[Any, Any]] | list[list[Any | None]] | dict[Any, Any] | _dict[Any, Any] | list[Any | None] | Literal[True]:
-	...
-
-def is_email_notifications_enabled_for_type(user, notification_type): # -> list[Any] | list[_dict[Any, Any]] | list[list[Any | None]] | dict[Any, Any] | _dict[Any, Any] | list[Any | None] | bool:
-	...
-
-def create_notification_settings(user): # -> None:
-	...
-
-def toggle_notifications(user: str, enable: bool = ..., ignore_permissions=...): # -> None:
-	...
-
+def is_notifications_enabled(
+    user,
+):  # -> list[Any] | list[_dict[Any, Any]] | list[list[Any | None]] | dict[Any, Any] | _dict[Any, Any] | list[Any | None] | Literal[True]:
+    ...
+def is_email_notifications_enabled(
+    user,
+):  # -> list[Any] | list[_dict[Any, Any]] | list[list[Any | None]] | dict[Any, Any] | _dict[Any, Any] | list[Any | None] | Literal[True]:
+    ...
+def is_email_notifications_enabled_for_type(
+    user, notification_type
+):  # -> list[Any] | list[_dict[Any, Any]] | list[list[Any | None]] | dict[Any, Any] | _dict[Any, Any] | list[Any | None] | bool:
+    ...
+def create_notification_settings(user):  # -> None:
+    ...
+def toggle_notifications(user: str, enable: bool = ..., ignore_permissions=...):  # -> None:
+    ...
 @frappe.whitelist()
-def get_subscribed_documents(): # -> list[Any]:
-	...
-
-def get_permission_query_conditions(user): # -> str | None:
-	...
-
-def has_permission(doc, ptype=..., user=...): # -> Literal[True]:
-	...
-
+def get_subscribed_documents():  # -> list[Any]:
+    ...
+def get_permission_query_conditions(user):  # -> str | None:
+    ...
+def has_permission(doc, ptype=..., user=...):  # -> Literal[True]:
+    ...
 @frappe.whitelist()
-def set_seen_value(value, user): # -> None:
-	...
-
+def set_seen_value(value, user):  # -> None:
+    ...

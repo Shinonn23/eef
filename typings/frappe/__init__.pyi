@@ -10,43 +10,61 @@ import os
 import sys
 import threading
 import warnings
-import orjson
-import frappe
-import frappe._optimizations
 from collections import defaultdict
 from collections.abc import Callable, Iterable
-from typing import Any, Optional, TYPE_CHECKING, TypeAlias, Union
-from werkzeug.datastructures import Headers
-from frappe.query_builder.utils import get_query, get_query_builder
-from frappe.utils.caching import deprecated_local_cache as local_cache, request_cache, site_cache
-from frappe.utils.data import as_unicode, bold, cint, cstr, safe_decode, safe_encode, sbool
-from frappe.utils.local import Local, LocalProxy, release_local
-from frappe.utils.translations import _, _lt, set_user_lang
-from .exceptions import *
-from .types import _dict
-from .utils.jinja import get_email_from_template, get_jenv, get_jloader, get_template, render_template
 from logging import Logger
-from werkzeug.wrappers import Request
+from typing import TYPE_CHECKING, Any, Optional, TypeAlias, Union
+
+import frappe
+import frappe._optimizations
+import orjson
+from frappe.cache_manager import clear_cache, reset_metadata_version
+from frappe.config import get_common_site_config, get_conf, get_site_config
+from frappe.core.doctype.system_settings.system_settings import get_system_settings
 from frappe.database.mariadb.database import MariaDBDatabase as PyMariaDBDatabase
 from frappe.database.mariadb.mysqlclient import MariaDBDatabase
 from frappe.database.postgres.database import PostgresDatabase
 from frappe.database.sqlite.database import SQLiteDatabase
-from frappe.model.document import Document, _set_document_in_cache, can_cache_doc, clear_document_cache, copy_doc, get_cached_doc, get_cached_value, get_doc, get_document_cache_key, get_last_doc, get_lazy_doc, get_single, get_single_value, new_doc
-from frappe.query_builder.builder import MariaDB, Postgres, SQLite
-from frappe.utils.redis_wrapper import ClientCache, RedisWrapper
 from frappe.deprecation_dumpster import frappe_get_test_records as get_test_records
-from frappe.utils.messages import *
-from frappe.cache_manager import clear_cache, reset_metadata_version
-from frappe.config import get_common_site_config, get_conf, get_site_config
-from frappe.core.doctype.system_settings.system_settings import get_system_settings
+from frappe.email import sendmail
+from frappe.model.document import (
+    Document,
+    _set_document_in_cache,
+    can_cache_doc,
+    clear_document_cache,
+    copy_doc,
+    get_cached_doc,
+    get_cached_value,
+    get_doc,
+    get_document_cache_key,
+    get_last_doc,
+    get_lazy_doc,
+    get_single,
+    get_single_value,
+    new_doc,
+)
 from frappe.model.meta import get_meta
+from frappe.query_builder.builder import MariaDB, Postgres, SQLite
+from frappe.query_builder.utils import get_query, get_query_builder
 from frappe.realtime import publish_progress, publish_realtime
 from frappe.utils import create_folder, get_traceback, mock, parse_json, safe_eval
 from frappe.utils.background_jobs import enqueue, enqueue_doc
+from frappe.utils.caching import deprecated_local_cache as local_cache
+from frappe.utils.caching import request_cache, site_cache
+from frappe.utils.data import as_unicode, bold, cint, cstr, safe_decode, safe_encode, sbool
 from frappe.utils.error import log_error
 from frappe.utils.formatters import format_value
+from frappe.utils.local import Local, LocalProxy, release_local
+from frappe.utils.messages import *
 from frappe.utils.print_utils import attach_print, get_print
-from frappe.email import sendmail
+from frappe.utils.redis_wrapper import ClientCache, RedisWrapper
+from frappe.utils.translations import _, _lt, set_user_lang
+from werkzeug.datastructures import Headers
+from werkzeug.wrappers import Request
+
+from .exceptions import *
+from .types import _dict
+from .utils.jinja import get_email_from_template, get_jenv, get_jloader, get_template, render_template
 
 """
 Frappe - Low Code Open Source Framework in Python and JS
@@ -60,27 +78,25 @@ Read the documentation: https://frappeframework.com/docs
 """
 __version__ = ...
 __title__ = ...
-if TYPE_CHECKING:
-	...
+if TYPE_CHECKING: ...
 controllers: dict[str, type] = ...
 lazy_controllers: dict[str, type] = ...
 local = ...
-cache: Optional[RedisWrapper] = ...
-client_cache: Optional[ClientCache] = ...
+cache: RedisWrapper | None = ...
+client_cache: ClientCache | None = ...
 STANDARD_USERS = ...
 in_test = ...
 _dev_server = ...
-if _dev_server:
-	...
-ConfType: TypeAlias = _dict[str, Any]
-SessionType: TypeAlias = _dict[str, Any]
-LogMessageType: TypeAlias = _dict[str, Any]
-JobMetaType: TypeAlias = _dict[str, Any]
-ResponseDict: TypeAlias = _dict[str, Any]
-FlagsDict: TypeAlias = _dict[str, Any]
-FormDict: TypeAlias = _dict[str, str]
-db: LocalProxy[Union[PyMariaDBDatabase, MariaDBDatabase, PostgresDatabase, SQLiteDatabase]] = ...
-qb: LocalProxy[Union[MariaDB, Postgres, SQLite]] = ...
+if _dev_server: ...
+type ConfType = _dict[str, Any]
+type SessionType = _dict[str, Any]
+type LogMessageType = _dict[str, Any]
+type JobMetaType = _dict[str, Any]
+type ResponseDict = _dict[str, Any]
+type FlagsDict = _dict[str, Any]
+type FormDict = _dict[str, str]
+db: LocalProxy[PyMariaDBDatabase | MariaDBDatabase | PostgresDatabase | SQLiteDatabase] = ...
+qb: LocalProxy[MariaDB | Postgres | SQLite] = ...
 conf: LocalProxy[ConfType] = ...
 form_dict: LocalProxy[FormDict] = ...
 form = form_dict
@@ -95,489 +111,529 @@ debug_log: LocalProxy[list[str]] = ...
 message_log: LocalProxy[list[LogMessageType]] = ...
 lang: LocalProxy[str] = ...
 if TYPE_CHECKING:
-	db: PyMariaDBDatabase | MariaDBDatabase | PostgresDatabase | SQLiteDatabase
-	qb: MariaDB | Postgres
-	conf: ConfType
-	form_dict: FormDict
-	request: Request
-	job: JobMetaType
-	response: ResponseDict
-	session: SessionType
-	user: str
-	flags: FlagsDict
-	error_log: list[dict[str, str]]
-	debug_log: list[str]
-	message_log: list[LogMessageType]
-	lang: str
-	...
+    db: PyMariaDBDatabase | MariaDBDatabase | PostgresDatabase | SQLiteDatabase
+    qb: MariaDB | Postgres
+    conf: ConfType
+    form_dict: FormDict
+    request: Request
+    job: JobMetaType
+    response: ResponseDict
+    session: SessionType
+    user: str
+    flags: FlagsDict
+    error_log: list[dict[str, str]]
+    debug_log: list[str]
+    message_log: list[LogMessageType]
+    lang: str
+    ...
+
 def init(site: str, sites_path: str = ..., new_site: bool = ..., force: bool = ...) -> None:
-	"""Initialize frappe for the current site. Reset thread locals `frappe.local`"""
-	...
+    """Initialize frappe for the current site. Reset thread locals `frappe.local`"""
+    ...
 
 def connect(site: str | None = ..., db_name: str | None = ..., set_admin_as_user: bool = ...) -> None:
-	"""Connect to site database instance.
+    """Connect to site database instance.
 
-	:param site: (Deprecated) If site is given, calls `frappe.init`.
-	:param db_name: (Deprecated) Optional. Will use from `site_config.json`.
-	:param set_admin_as_user: Set Administrator as current user.
-	"""
-	...
+    :param site: (Deprecated) If site is given, calls `frappe.init`.
+    :param db_name: (Deprecated) Optional. Will use from `site_config.json`.
+    :param set_admin_as_user: Set Administrator as current user.
+    """
+    ...
 
-def connect_replica() -> bool:
-	...
+def connect_replica() -> bool: ...
 
 class init_site:
-	def __init__(self, site=...) -> None:
-		"""If site is None, initialize it for empty site ('') to load common_site_config.json"""
-		...
-	
-	def __enter__(self): # -> Local:
-		...
-	
-	def __exit__(self, type, value, traceback): # -> None:
-		...
-	
+    def __init__(self, site=...) -> None:
+        """If site is None, initialize it for empty site ('') to load common_site_config.json"""
+        ...
 
+    def __enter__(self):  # -> Local:
+        ...
+    def __exit__(self, type, value, traceback):  # -> None:
+        ...
 
-def destroy(): # -> None:
-	"""Closes connection and releases werkzeug local."""
-	...
+def destroy():  # -> None:
+    """Closes connection and releases werkzeug local."""
+    ...
 
 _redis_init_lock = ...
-def setup_redis_cache_connection(): # -> None:
-	"""Defines `frappe.cache` as `RedisWrapper` instance"""
-	...
+
+def setup_redis_cache_connection():  # -> None:
+    """Defines `frappe.cache` as `RedisWrapper` instance"""
+    ...
 
 def errprint(msg: str) -> None:
-	"""Log error. This is sent back as `exc` in response.
+    """Log error. This is sent back as `exc` in response.
 
-	:param msg: Message."""
-	...
+    :param msg: Message."""
+    ...
 
-def print_sql(enable: bool = ...) -> None:
-	...
-
+def print_sql(enable: bool = ...) -> None: ...
 def log(msg: str) -> None:
-	"""Add to `debug_log`
+    """Add to `debug_log`
 
-	:param msg: Message."""
-	...
+    :param msg: Message."""
+    ...
 
-def set_user(username: str): # -> None:
-	"""Set current user.
+def set_user(username: str):  # -> None:
+    """Set current user.
 
-	:param username: **User** name to set as current user."""
-	...
+    :param username: **User** name to set as current user."""
+    ...
 
-def get_user(): # -> UserPermissions | Any:
-	...
-
+def get_user():  # -> UserPermissions | Any:
+    ...
 def get_roles(username=...) -> list[str]:
-	"""Return roles of current user."""
-	...
+    """Return roles of current user."""
+    ...
 
-def get_request_header(key, default=...): # -> str | None:
-	"""Return HTTP request header.
+def get_request_header(key, default=...):  # -> str | None:
+    """Return HTTP request header.
 
-	:param key: HTTP header key.
-	:param default: Default value."""
-	...
+    :param key: HTTP header key.
+    :param default: Default value."""
+    ...
 
 whitelisted: set[Callable] = ...
 guest_methods: set[Callable] = ...
 xss_safe_methods: set[Callable] = ...
 allowed_http_methods_for_whitelisted_func: dict[Callable, list[str]] = ...
-def whitelist(allow_guest=..., xss_safe=..., methods=...): # -> Callable[..., _Wrapped[Callable[..., Any], Any, Callable[..., Any], Any]]:
-	"""
-	Decorator for whitelisting a function and making it accessible via HTTP.
-	Standard request will be `/api/method/[path.to.method]`
 
-	:param allow_guest: Allow non logged-in user to access this method.
-	:param methods: Allowed http method to access the method.
+def whitelist(
+    allow_guest=..., xss_safe=..., methods=...
+):  # -> Callable[..., _Wrapped[Callable[..., Any], Any, Callable[..., Any], Any]]:
+    """
+    Decorator for whitelisting a function and making it accessible via HTTP.
+    Standard request will be `/api/method/[path.to.method]`
 
-	Use as:
+    :param allow_guest: Allow non logged-in user to access this method.
+    :param methods: Allowed http method to access the method.
 
-	        @frappe.whitelist()
-	        def myfunc(param1, param2):
-	                pass
-	"""
-	...
+    Use as:
 
-def is_whitelisted(method): # -> None:
-	...
+            @frappe.whitelist()
+            def myfunc(param1, param2):
+                    pass
+    """
+    ...
 
-def read_only(): # -> Callable[..., _Wrapped[Callable[..., Any], Any, Callable[..., Any], Any]]:
-	...
+def is_whitelisted(method):  # -> None:
+    ...
+def read_only():  # -> Callable[..., _Wrapped[Callable[..., Any], Any, Callable[..., Any], Any]]:
+    ...
+def write_only():  # -> Callable[..., Callable[..., Any]]:
+    ...
+def only_for(roles: list[str] | tuple[str] | str, message=...):  # -> None:
+    """
+    Raises `frappe.PermissionError` if the user does not have any of the permitted roles.
 
-def write_only(): # -> Callable[..., Callable[..., Any]]:
-	...
+    :param roles: Permitted role(s)
+    """
+    ...
 
-def only_for(roles: list[str] | tuple[str] | str, message=...): # -> None:
-	"""
-	Raises `frappe.PermissionError` if the user does not have any of the permitted roles.
+def get_domain_data(module):  # -> _dict[Any, Any]:
+    ...
+def only_has_select_perm(doctype, user=..., ignore_permissions=...):  # -> bool | Any | Literal[0] | None:
+    ...
+def has_permission(
+    doctype=...,
+    ptype=...,
+    doc=...,
+    user=...,
+    throw=...,
+    *,
+    parent_doctype=...,
+    debug=...,
+    ignore_share_permissions=...,
+):  # -> bool:
+    """
+    Return True if the user has permission `ptype` for given `doctype` or `doc`.
 
-	:param roles: Permitted role(s)
-	"""
-	...
+    Raise `frappe.PermissionError` if user isn't permitted and `throw` is truthy
 
-def get_domain_data(module): # -> _dict[Any, Any]:
-	...
+    :param doctype: DocType for which permission is to be check.
+    :param ptype: Permission type (`read`, `write`, `create`, `submit`, `cancel`, `amend`). Default: `read`.
+    :param doc: [optional] Checks User permissions for given doc.
+    :param user: [optional] Check for given user. Default: current user.
+    :param parent_doctype: Required when checking permission for a child DocType (unless doc is specified).
+    """
+    ...
 
-def only_has_select_perm(doctype, user=..., ignore_permissions=...): # -> bool | Any | Literal[0] | None:
-	...
+def has_website_permission(doc=..., ptype=..., user=..., verbose=..., doctype=...):  # -> bool:
+    """Raises `frappe.PermissionError` if not permitted.
 
-def has_permission(doctype=..., ptype=..., doc=..., user=..., throw=..., *, parent_doctype=..., debug=..., ignore_share_permissions=...): # -> bool:
-	"""
-	Return True if the user has permission `ptype` for given `doctype` or `doc`.
-
-	Raise `frappe.PermissionError` if user isn't permitted and `throw` is truthy
-
-	:param doctype: DocType for which permission is to be check.
-	:param ptype: Permission type (`read`, `write`, `create`, `submit`, `cancel`, `amend`). Default: `read`.
-	:param doc: [optional] Checks User permissions for given doc.
-	:param user: [optional] Check for given user. Default: current user.
-	:param parent_doctype: Required when checking permission for a child DocType (unless doc is specified).
-	"""
-	...
-
-def has_website_permission(doc=..., ptype=..., user=..., verbose=..., doctype=...): # -> bool:
-	"""Raises `frappe.PermissionError` if not permitted.
-
-	:param doctype: DocType for which permission is to be check.
-	:param ptype: Permission type (`read`, `write`, `create`, `submit`, `cancel`, `amend`). Default: `read`.
-	:param doc: Checks User permissions for given doc.
-	:param user: [optional] Check for given user. Default: current user."""
-	...
+    :param doctype: DocType for which permission is to be check.
+    :param ptype: Permission type (`read`, `write`, `create`, `submit`, `cancel`, `amend`). Default: `read`.
+    :param doc: Checks User permissions for given doc.
+    :param user: [optional] Check for given user. Default: current user."""
+    ...
 
 def is_table(doctype: str) -> bool:
-	"""Return True if `istable` property (indicating child Table) is set for given DocType."""
-	...
+    """Return True if `istable` property (indicating child Table) is set for given DocType."""
+    ...
 
-def get_precision(doctype: str, fieldname: str, currency: str | None = ..., doc: Optional[Document] = ...) -> int:
-	"""Get precision for a given field"""
-	...
+def get_precision(
+    doctype: str, fieldname: str, currency: str | None = ..., doc: Document | None = ...
+) -> int:
+    """Get precision for a given field"""
+    ...
 
 def generate_hash(txt: str | None = ..., length: int = ...) -> str:
-	"""Generate random hash using best available randomness source."""
-	...
+    """Generate random hash using best available randomness source."""
+    ...
 
-def set_value(doctype, docname, fieldname, value=...): # -> dict[Any, Any]:
-	"""Set document value. Calls `frappe.client.set_value`"""
-	...
+def set_value(doctype, docname, fieldname, value=...):  # -> dict[Any, Any]:
+    """Set document value. Calls `frappe.client.set_value`"""
+    ...
 
-def get_meta_module(doctype):
-	...
+def get_meta_module(doctype): ...
+def delete_doc(
+    doctype: str | None = ...,
+    name: str | dict | None = ...,
+    force: bool = ...,
+    ignore_doctypes: list[str] | None = ...,
+    for_reload: bool = ...,
+    ignore_permissions: bool = ...,
+    flags: _dict | None = ...,
+    ignore_on_trash: bool = ...,
+    ignore_missing: bool = ...,
+    delete_permanently: bool = ...,
+):
+    """Delete a document. Calls `frappe.model.delete_doc.delete_doc`.
 
-def delete_doc(doctype: str | None = ..., name: str | dict | None = ..., force: bool = ..., ignore_doctypes: list[str] | None = ..., for_reload: bool = ..., ignore_permissions: bool = ..., flags: _dict | None = ..., ignore_on_trash: bool = ..., ignore_missing: bool = ..., delete_permanently: bool = ...):
-	"""Delete a document. Calls `frappe.model.delete_doc.delete_doc`.
+    :param doctype: DocType of document to be delete.
+    :param name: Name of document to be delete.
+    :param force: Allow even if document is linked. Warning: This may lead to data integrity errors.
+    :param ignore_doctypes: Ignore if child table is one of these.
+    :param for_reload: Call `before_reload` trigger before deleting.
+    :param ignore_permissions: Ignore user permissions.
+    :param delete_permanently: Do not create a Deleted Document for the document."""
+    ...
 
-	:param doctype: DocType of document to be delete.
-	:param name: Name of document to be delete.
-	:param force: Allow even if document is linked. Warning: This may lead to data integrity errors.
-	:param ignore_doctypes: Ignore if child table is one of these.
-	:param for_reload: Call `before_reload` trigger before deleting.
-	:param ignore_permissions: Ignore user permissions.
-	:param delete_permanently: Do not create a Deleted Document for the document."""
-	...
+def reload_doctype(doctype, force=..., reset_permissions=...):  # -> None:
+    """Reload DocType from model (`[module]/[doctype]/[name]/[name].json`) files."""
+    ...
 
-def reload_doctype(doctype, force=..., reset_permissions=...): # -> None:
-	"""Reload DocType from model (`[module]/[doctype]/[name]/[name].json`) files."""
-	...
+def reload_doc(
+    module: str, dt: str | None = ..., dn: str | None = ..., force: bool = ..., reset_permissions: bool = ...
+):  # -> list[bool] | bool:
+    """Reload Document from model (`[module]/[doctype]/[name]/[name].json`) files.
 
-def reload_doc(module: str, dt: str | None = ..., dn: str | None = ..., force: bool = ..., reset_permissions: bool = ...): # -> list[bool] | bool:
-	"""Reload Document from model (`[module]/[doctype]/[name]/[name].json`) files.
-
-	:param module: Module name.
-	:param dt: DocType name.
-	:param dn: Document name.
-	:param force: Reload even if `modified` timestamp matches.
-	"""
-	...
+    :param module: Module name.
+    :param dt: DocType name.
+    :param dn: Document name.
+    :param force: Reload even if `modified` timestamp matches.
+    """
+    ...
 
 @whitelist(methods=["POST", "PUT"])
-def rename_doc(doctype: str, old: str | int, new: str | int, force: bool = ..., merge: bool = ..., *, ignore_if_exists: bool = ..., show_alert: bool = ..., rebuild_search: bool = ...) -> str:
-	"""
-	Renames a doc(dt, old) to doc(dt, new) and updates all linked fields of type "Link"
+def rename_doc(
+    doctype: str,
+    old: str | int,
+    new: str | int,
+    force: bool = ...,
+    merge: bool = ...,
+    *,
+    ignore_if_exists: bool = ...,
+    show_alert: bool = ...,
+    rebuild_search: bool = ...,
+) -> str:
+    """
+    Renames a doc(dt, old) to doc(dt, new) and updates all linked fields of type "Link"
 
-	Calls `frappe.model.rename_doc.rename_doc`
-	"""
-	...
+    Calls `frappe.model.rename_doc.rename_doc`
+    """
+    ...
 
-def get_module(modulename: str): # -> ModuleType:
-	"""Return a module object for given Python module name using `importlib.import_module`."""
-	...
+def get_module(modulename: str):  # -> ModuleType:
+    """Return a module object for given Python module name using `importlib.import_module`."""
+    ...
 
 def scrub(txt: str) -> str:
-	"""Return sluggified string. e.g. `Sales Order` becomes `sales_order`."""
-	...
+    """Return sluggified string. e.g. `Sales Order` becomes `sales_order`."""
+    ...
 
 def unscrub(txt: str) -> str:
-	"""Return titlified string. e.g. `sales_order` becomes `Sales Order`."""
-	...
+    """Return titlified string. e.g. `sales_order` becomes `Sales Order`."""
+    ...
 
-def get_module_path(module, *joins): # -> str:
-	"""Get the path of the given module name.
+def get_module_path(module, *joins):  # -> str:
+    """Get the path of the given module name.
 
-	:param module: Module name.
-	:param *joins: Join additional path elements using `os.path.join`."""
-	...
+    :param module: Module name.
+    :param *joins: Join additional path elements using `os.path.join`."""
+    ...
 
-def get_app_path(app_name, *joins): # -> str:
-	"""Return path of given app.
+def get_app_path(app_name, *joins):  # -> str:
+    """Return path of given app.
 
-	:param app: App name.
-	:param *joins: Join additional path elements using `os.path.join`."""
-	...
+    :param app: App name.
+    :param *joins: Join additional path elements using `os.path.join`."""
+    ...
 
-def get_app_source_path(app_name, *joins): # -> str:
-	"""Return source path of given app.
+def get_app_source_path(app_name, *joins):  # -> str:
+    """Return source path of given app.
 
-	:param app: App name.
-	:param *joins: Join additional path elements using `os.path.join`."""
-	...
+    :param app: App name.
+    :param *joins: Join additional path elements using `os.path.join`."""
+    ...
 
 def get_site_path(*joins):
-	"""Return path of current site.
+    """Return path of current site.
 
-	:param *joins: Join additional path elements using `os.path.join`."""
-	...
+    :param *joins: Join additional path elements using `os.path.join`."""
+    ...
 
-def get_pymodule_path(modulename, *joins): # -> str:
-	"""Return path of given Python module name.
+def get_pymodule_path(modulename, *joins):  # -> str:
+    """Return path of given Python module name.
 
-	:param modulename: Python module name.
-	:param *joins: Join additional path elements using `os.path.join`."""
-	...
+    :param modulename: Python module name.
+    :param *joins: Join additional path elements using `os.path.join`."""
+    ...
 
-def get_module_list(app_name): # -> list[str] | list[Any]:
-	"""Get list of modules for given all via `app/modules.txt`."""
-	...
+def get_module_list(app_name):  # -> list[str] | list[Any]:
+    """Get list of modules for given all via `app/modules.txt`."""
+    ...
 
-def get_all_apps(with_internal_apps=..., sites_path=...): # -> list[str] | list[Any]:
-	"""Get list of all apps via `sites/apps.txt`."""
-	...
+def get_all_apps(with_internal_apps=..., sites_path=...):  # -> list[str] | list[Any]:
+    """Get list of all apps via `sites/apps.txt`."""
+    ...
 
 @request_cache
 def get_installed_apps(*, _ensure_on_bench: bool = ...) -> list[str]:
-	"""
-	Get list of installed apps in current site.
+    """
+    Get list of installed apps in current site.
 
-	:param _ensure_on_bench: Only return apps that are present on bench.
-	"""
-	...
+    :param _ensure_on_bench: Only return apps that are present on bench.
+    """
+    ...
 
-def get_doc_hooks(): # -> Any | dict[Any, Any]:
-	"""Return hooked methods for given doc. Expand the dict tuple if required."""
-	...
+def get_doc_hooks():  # -> Any | dict[Any, Any]:
+    """Return hooked methods for given doc. Expand the dict tuple if required."""
+    ...
 
 _request_cached_load_app_hooks = ...
 _site_cached_load_app_hooks = ...
+
 def get_hooks(hook: str | None = ..., default: Any | None = ..., app_name: str | None = ...) -> _dict:
-	"""Get hooks via `app/hooks.py`
+    """Get hooks via `app/hooks.py`
 
-	:param hook: Name of the hook. Will gather all hooks for this name and return as a list.
-	:param default: Default if no hook found.
-	:param app_name: Filter by app."""
-	...
+    :param hook: Name of the hook. Will gather all hooks for this name and return as a list.
+    :param default: Default if no hook found.
+    :param app_name: Filter by app."""
+    ...
 
-def append_hook(target, key, value): # -> None:
-	"""appends a hook to the the target dict.
+def append_hook(target, key, value):  # -> None:
+    """appends a hook to the the target dict.
 
-	If the hook key, exists, it will make it a key.
+    If the hook key, exists, it will make it a key.
 
-	If the hook value is a dict, like doc_events, it will
-	listify the values against the key.
-	"""
-	...
+    If the hook value is a dict, like doc_events, it will
+    listify the values against the key.
+    """
+    ...
 
 def setup_module_map(include_all_apps: bool = ...) -> None:
-	"""
-	Function to rebuild map of all modules
+    """
+    Function to rebuild map of all modules
 
-	:param: include_all_apps: Include all apps on bench, or just apps installed on the site.
-	:return: Nothing
-	"""
-	...
+    :param: include_all_apps: Include all apps on bench, or just apps installed on the site.
+    :return: Nothing
+    """
+    ...
 
-def get_file_items(path, raise_not_found=..., ignore_empty_lines=...): # -> list[str] | list[Any]:
-	"""Return items from text file as a list. Ignore empty lines."""
-	...
+def get_file_items(path, raise_not_found=..., ignore_empty_lines=...):  # -> list[str] | list[Any]:
+    """Return items from text file as a list. Ignore empty lines."""
+    ...
 
-def get_file_json(path): # -> Any:
-	"""Read a file and return parsed JSON object."""
-	...
+def get_file_json(path):  # -> Any:
+    """Read a file and return parsed JSON object."""
+    ...
 
-def read_file(path, raise_not_found=..., as_base64=...): # -> str | None:
-	"""Open a file and return its content as Unicode or Base64 string."""
-	...
+def read_file(path, raise_not_found=..., as_base64=...):  # -> str | None:
+    """Open a file and return its content as Unicode or Base64 string."""
+    ...
 
 def get_attr(method_string: str) -> Any:
-	"""Get python method object from its name."""
-	...
+    """Get python method object from its name."""
+    ...
 
 def call(fn: str | Callable, *args, **kwargs):
-	"""Call a function and match arguments."""
-	...
+    """Call a function and match arguments."""
+    ...
 
 def get_newargs(fn: Callable, kwargs: dict[str, Any]) -> dict[str, Any]:
-	"""Remove any kwargs that are not supported by the function.
+    """Remove any kwargs that are not supported by the function.
 
-	Example:
-	        >>> def fn(a=1, b=2):
-	        ...     pass
+    Example:
+            >>> def fn(a=1, b=2):
+            ...     pass
 
-	        >>> get_newargs(fn, {"a": 2, "c": 1})
-	                {"a": 2}
-	"""
-	...
+            >>> get_newargs(fn, {"a": 2, "c": 1})
+                    {"a": 2}
+    """
+    ...
 
-def make_property_setter(args, ignore_validate=..., validate_fields_for_doctype=..., is_system_generated=..., *, module=...): # -> None:
-	"""Create a new **Property Setter** (for overriding DocType and DocField properties).
+def make_property_setter(
+    args, ignore_validate=..., validate_fields_for_doctype=..., is_system_generated=..., *, module=...
+):  # -> None:
+    """Create a new **Property Setter** (for overriding DocType and DocField properties).
 
-	If doctype is not specified, it will create a property setter for all fields with the
-	given fieldname"""
-	...
+    If doctype is not specified, it will create a property setter for all fields with the
+    given fieldname"""
+    ...
 
-def import_doc(path): # -> None:
-	"""Import a file using Data Import."""
-	...
+def import_doc(path):  # -> None:
+    """Import a file using Data Import."""
+    ...
 
-def respond_as_web_page(title, html, success=..., http_status_code=..., context=..., indicator_color=..., primary_action=..., primary_label=..., fullpage=..., width=..., template=...): # -> None:
-	"""Send response as a web page with a message rather than JSON. Used to show permission errors etc.
+def respond_as_web_page(
+    title,
+    html,
+    success=...,
+    http_status_code=...,
+    context=...,
+    indicator_color=...,
+    primary_action=...,
+    primary_label=...,
+    fullpage=...,
+    width=...,
+    template=...,
+):  # -> None:
+    """Send response as a web page with a message rather than JSON. Used to show permission errors etc.
 
-	:param title: Page title and heading.
-	:param message: Message to be shown.
-	:param success: Alert message.
-	:param http_status_code: HTTP status code
-	:param context: web template context
-	:param indicator_color: color of indicator in title
-	:param primary_action: route on primary button (default is `/`)
-	:param primary_label: label on primary button (default is "Home")
-	:param fullpage: hide header / footer
-	:param width: Width of message in pixels
-	:param template: Optionally pass view template
-	"""
-	...
+    :param title: Page title and heading.
+    :param message: Message to be shown.
+    :param success: Alert message.
+    :param http_status_code: HTTP status code
+    :param context: web template context
+    :param indicator_color: color of indicator in title
+    :param primary_action: route on primary button (default is `/`)
+    :param primary_label: label on primary button (default is "Home")
+    :param fullpage: hide header / footer
+    :param width: Width of message in pixels
+    :param template: Optionally pass view template
+    """
+    ...
 
 def redirect(url):
-	"""Raise a 301 redirect to url"""
-	...
+    """Raise a 301 redirect to url"""
+    ...
 
-def redirect_to_message(title, html, http_status_code=..., context=..., indicator_color=...): # -> str | None:
-	"""Redirects to /message?id=random
-	Similar to respond_as_web_page, but used to 'redirect' and show message pages like success, failure, etc. with a detailed message
+def redirect_to_message(
+    title, html, http_status_code=..., context=..., indicator_color=...
+):  # -> str | None:
+    """Redirects to /message?id=random
+    Similar to respond_as_web_page, but used to 'redirect' and show message pages like success, failure, etc. with a detailed message
 
-	:param title: Page title and heading.
-	:param message: Message to be shown.
-	:param http_status_code: HTTP status code.
+    :param title: Page title and heading.
+    :param message: Message to be shown.
+    :param http_status_code: HTTP status code.
 
-	Example Usage:
-	        frappe.redirect_to_message(_('Thank you'), "<div><p>You will receive an email at test@example.com</p></div>")
+    Example Usage:
+            frappe.redirect_to_message(_('Thank you'), "<div><p>You will receive an email at test@example.com</p></div>")
 
-	"""
-	...
+    """
+    ...
 
-def build_match_conditions(doctype, as_condition=...): # -> str | list[Any]:
-	"""Return match (User permissions) for given doctype as list or SQL."""
-	...
+def build_match_conditions(doctype, as_condition=...):  # -> str | list[Any]:
+    """Return match (User permissions) for given doctype as list or SQL."""
+    ...
 
-def get_list(doctype, *args, **kwargs): # -> list[Any]:
-	"""List database query via `frappe.model.db_query`. Will also check for permissions.
+def get_list(doctype, *args, **kwargs):  # -> list[Any]:
+    """List database query via `frappe.model.db_query`. Will also check for permissions.
 
-	:param doctype: DocType on which query is to be made.
-	:param fields: List of fields or `*`.
-	:param filters: List of filters (see example).
-	:param order_by: Order By e.g. `creation desc`.
-	:param limit_start: Start results at record #. Default 0.
-	:param limit_page_length: No of records in the page. Default 20.
+    :param doctype: DocType on which query is to be made.
+    :param fields: List of fields or `*`.
+    :param filters: List of filters (see example).
+    :param order_by: Order By e.g. `creation desc`.
+    :param limit_start: Start results at record #. Default 0.
+    :param limit_page_length: No of records in the page. Default 20.
 
-	Example usage:
+    Example usage:
 
-	        # simple dict filter
-	        frappe.get_list("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
+            # simple dict filter
+            frappe.get_list("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
 
-	        # filter as a list of lists
-	        frappe.get_list("ToDo", fields="*", filters = [["modified", ">", "2014-01-01"]])
-	"""
-	...
+            # filter as a list of lists
+            frappe.get_list("ToDo", fields="*", filters = [["modified", ">", "2014-01-01"]])
+    """
+    ...
 
-def get_all(doctype, *args, **kwargs): # -> list[Any]:
-	"""List database query via `frappe.model.db_query`. Will **not** check for permissions.
-	Parameters are same as `frappe.get_list`
+def get_all(doctype, *args, **kwargs):  # -> list[Any]:
+    """List database query via `frappe.model.db_query`. Will **not** check for permissions.
+    Parameters are same as `frappe.get_list`
 
-	:param doctype: DocType on which query is to be made.
-	:param fields: List of fields or `*`. Default is: `["name"]`.
-	:param filters: List of filters (see example).
-	:param order_by: Order By e.g. `creation desc`.
-	:param limit_start: Start results at record #. Default 0.
-	:param limit_page_length: No of records in the page. Default 20.
+    :param doctype: DocType on which query is to be made.
+    :param fields: List of fields or `*`. Default is: `["name"]`.
+    :param filters: List of filters (see example).
+    :param order_by: Order By e.g. `creation desc`.
+    :param limit_start: Start results at record #. Default 0.
+    :param limit_page_length: No of records in the page. Default 20.
 
-	Example usage:
+    Example usage:
 
-	        # simple dict filter
-	        frappe.get_all("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
+            # simple dict filter
+            frappe.get_all("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
 
-	        # filter as a list of lists
-	        frappe.get_all("ToDo", fields=["*"], filters = [["modified", ">", "2014-01-01"]])
-	"""
-	...
+            # filter as a list of lists
+            frappe.get_all("ToDo", fields=["*"], filters = [["modified", ">", "2014-01-01"]])
+    """
+    ...
 
-def get_value(*args, **kwargs): # -> Any:
-	"""Return a document property or list of properties.
+def get_value(*args, **kwargs):  # -> Any:
+    """Return a document property or list of properties.
 
-	Alias for `frappe.db.get_value`
+    Alias for `frappe.db.get_value`
 
-	:param doctype: DocType name.
-	:param filters: Filters like `{"x":"y"}` or name of the document. `None` if Single DocType.
-	:param fieldname: Column name.
-	:param ignore: Don't raise exception if table, column is missing.
-	:param as_dict: Return values as dict.
-	:param debug: Print query in error log.
-	"""
-	...
+    :param doctype: DocType name.
+    :param filters: Filters like `{"x":"y"}` or name of the document. `None` if Single DocType.
+    :param fieldname: Column name.
+    :param ignore: Don't raise exception if table, column is missing.
+    :param as_dict: Return values as dict.
+    :param debug: Print query in error log.
+    """
+    ...
 
 def as_json(obj: dict | list, indent=..., separators=..., ensure_ascii=...) -> str:
-	"""Return the JSON string representation of the given `obj`."""
-	...
+    """Return the JSON string representation of the given `obj`."""
+    ...
 
-def are_emails_muted(): # -> int:
-	...
-
-def task(**task_kwargs): # -> Callable[..., Any]:
-	...
-
-def get_doctype_app(doctype): # -> Any:
-	...
+def are_emails_muted():  # -> int:
+    ...
+def task(**task_kwargs):  # -> Callable[..., Any]:
+    ...
+def get_doctype_app(doctype):  # -> Any:
+    ...
 
 loggers: dict[str, Logger] = ...
 log_level: int | None = ...
-def logger(module=..., with_more_info=..., allow_site=..., filter=..., max_size=..., file_count=...) -> Logger:
-	"""Return a python logger that uses StreamHandler."""
-	...
 
-def get_desk_link(doctype, name, show_title_with_name=..., open_in_new_tab=...): # -> str:
-	...
+def logger(
+    module=..., with_more_info=..., allow_site=..., filter=..., max_size=..., file_count=...
+) -> Logger:
+    """Return a python logger that uses StreamHandler."""
+    ...
 
-def get_website_settings(key): # -> Any | None:
-	...
-
-def get_active_domains(): # -> Any | None:
-	...
-
+def get_desk_link(doctype, name, show_title_with_name=..., open_in_new_tab=...):  # -> str:
+    ...
+def get_website_settings(key):  # -> Any | None:
+    ...
+def get_active_domains():  # -> Any | None:
+    ...
 @request_cache
-def is_setup_complete(): # -> bool:
-	...
-
+def is_setup_complete():  # -> bool:
+    ...
 @whitelist(allow_guest=True)
-def ping(): # -> Literal['pong']:
-	...
-
-def validate_and_sanitize_search_inputs(fn): # -> _Wrapped[Callable[..., Any], Any, Callable[..., Any], list[Any] | Any]:
-	...
-
+def ping():  # -> Literal['pong']:
+    ...
+def validate_and_sanitize_search_inputs(
+    fn,
+):  # -> _Wrapped[Callable[..., Any], Any, Callable[..., Any], list[Any] | Any]:
+    ...
 def override_whitelisted_method(original_method: str) -> str:
-	"""Return the last override or the original whitelisted method."""
-	...
+    """Return the last override or the original whitelisted method."""
+    ...
 
 format = ...
 delete_doc_if_exists = ...

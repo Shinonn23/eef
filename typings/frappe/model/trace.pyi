@@ -31,114 +31,110 @@ Example of standard usage:
 
 See frappe.tests.classes.context_managers for a context manager built into test classes.
 """
+
 class TracedValue:
-	"""
-	A descriptor class for creating traced fields in Frappe documents.
+    """
+    A descriptor class for creating traced fields in Frappe documents.
 
-	This class allows for monitoring and validating changes to specific fields
-	in a Frappe document. It can enforce forbidden values and apply custom
-	validation logic.
+    This class allows for monitoring and validating changes to specific fields
+    in a Frappe document. It can enforce forbidden values and apply custom
+    validation logic.
 
-	Attributes:
-	        field_name (str): The name of the field being traced.
-	        forbidden_values (list): A list of values that are not allowed for this field.
-	        custom_validation (callable): A function for custom validation logic.
-	"""
-	def __init__(self, field_name, forbidden_values=..., custom_validation=...) -> None:
-		"""
-		Initialize a TracedValue instance.
+    Attributes:
+            field_name (str): The name of the field being traced.
+            forbidden_values (list): A list of values that are not allowed for this field.
+            custom_validation (callable): A function for custom validation logic.
+    """
+    def __init__(self, field_name, forbidden_values=..., custom_validation=...) -> None:
+        """
+        Initialize a TracedValue instance.
 
-		Args:
-		        field_name (str): The name of the field to be traced.
-		        forbidden_values (list, optional): A list of values that should not be allowed.
-		        custom_validation (callable, optional): A function for additional validation.
-		"""
-		...
-	
-	def __get__(self, obj, objtype=...): # -> Self | Any | None:
-		"""
-		Get the value of the traced field.
+        Args:
+                field_name (str): The name of the field to be traced.
+                forbidden_values (list, optional): A list of values that should not be allowed.
+                custom_validation (callable, optional): A function for additional validation.
+        """
+        ...
 
-		Args:
-		        obj (object): The instance that this descriptor is accessed from.
-		        objtype (type, optional): The type of the instance.
+    def __get__(self, obj, objtype=...):  # -> Self | Any | None:
+        """
+        Get the value of the traced field.
 
-		Returns:
-		        The value of the traced field, or self if accessed from the class.
-		"""
-		...
-	
-	def __set__(self, obj, value): # -> None:
-		"""
-		Set the value of the traced field with validation.
+        Args:
+                obj (object): The instance that this descriptor is accessed from.
+                objtype (type, optional): The type of the instance.
 
-		This method checks against forbidden values and applies custom validation
-		before setting the value.
+        Returns:
+                The value of the traced field, or self if accessed from the class.
+        """
+        ...
 
-		Args:
-		        obj (object): The instance that this descriptor is accessed from.
-		        value: The value to set for the traced field.
+    def __set__(self, obj, value):  # -> None:
+        """
+        Set the value of the traced field with validation.
 
-		Raises:
-		        ValueError: If the value is forbidden or fails custom validation.
-		            Note: returns AssertionError in test mode to debug with the `--pdb` flag.
+        This method checks against forbidden values and applies custom validation
+        before setting the value.
 
-		"""
-		...
-	
+        Args:
+                obj (object): The instance that this descriptor is accessed from.
+                value: The value to set for the traced field.
 
+        Raises:
+                ValueError: If the value is forbidden or fails custom validation.
+                    Note: returns AssertionError in test mode to debug with the `--pdb` flag.
+
+        """
+        ...
 
 class TracedDocument(Document):
-	"""
-	A base class for Frappe documents with traced fields.
+    """
+    A base class for Frappe documents with traced fields.
 
-	This class extends Frappe's Document class to provide support for
-	traced fields created with TracedValue.
+    This class extends Frappe's Document class to provide support for
+    traced fields created with TracedValue.
 
-	Attributes:
-	        Inherits all attributes from frappe.model.document.Document
-	"""
-	def __init__(self, *args, **kwargs) -> None:
-		"""
-		Initialize a TracedDocument instance.
+    Attributes:
+            Inherits all attributes from frappe.model.document.Document
+    """
+    def __init__(self, *args, **kwargs) -> None:
+        """
+        Initialize a TracedDocument instance.
 
-		This method sets up traced fields and initializes the parent Document.
+        This method sets up traced fields and initializes the parent Document.
 
-		Args:
-		        *args: Positional arguments to pass to the parent constructor.
-		        **kwargs: Keyword arguments to pass to the parent constructor.
-		"""
-		...
-	
-	def get_valid_dict(self, *args, **kwargs): # -> _dict[Any, Any]:
-		"""
-		Get a valid dictionary representation of the document.
+        Args:
+                *args: Positional arguments to pass to the parent constructor.
+                **kwargs: Keyword arguments to pass to the parent constructor.
+        """
+        ...
 
-		This method extends the parent method to properly handle traced fields.
+    def get_valid_dict(self, *args, **kwargs):  # -> _dict[Any, Any]:
+        """
+        Get a valid dictionary representation of the document.
 
-		Args:
-		        *args: Positional arguments to pass to the parent method.
-		        **kwargs: Keyword arguments to pass to the parent method.
+        This method extends the parent method to properly handle traced fields.
 
-		Returns:
-		        dict: A dictionary representation of the document, including traced fields.
-		"""
-		...
-	
+        Args:
+                *args: Positional arguments to pass to the parent method.
+                **kwargs: Keyword arguments to pass to the parent method.
 
+        Returns:
+                dict: A dictionary representation of the document, including traced fields.
+        """
+        ...
 
-def traced_field(*args, **kwargs): # -> TracedValue:
-	"""
-	A convenience function for creating TracedValue instances.
+def traced_field(*args, **kwargs):  # -> TracedValue:
+    """
+    A convenience function for creating TracedValue instances.
 
-	This function simplifies the creation of traced fields in Frappe documents.
+    This function simplifies the creation of traced fields in Frappe documents.
 
-	Args:
-	        *args: Positional arguments to pass to TracedValue constructor.
-	        **kwargs: Keyword arguments to pass to TracedValue constructor.
+    Args:
+            *args: Positional arguments to pass to TracedValue constructor.
+            **kwargs: Keyword arguments to pass to TracedValue constructor.
 
-	Returns:
-	        TracedValue: An instance of the TracedValue descriptor.
-	"""
-	...
-
+    Returns:
+            TracedValue: An instance of the TracedValue descriptor.
+    """
+    ...

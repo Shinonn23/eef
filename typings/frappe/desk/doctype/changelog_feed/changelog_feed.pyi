@@ -6,24 +6,22 @@ from frappe.model.document import Document
 from frappe.utils.caching import redis_cache
 
 class ChangelogFeed(Document):
-	if TYPE_CHECKING:
-		app_name: DF.Data | None
-		link: DF.LongText
-		posting_timestamp: DF.Datetime
-		title: DF.Data
-		...
+    if TYPE_CHECKING:
+        app_name: DF.Data | None
+        link: DF.LongText
+        posting_timestamp: DF.Datetime
+        title: DF.Data
+        ...
 
-
-def fetch_changelog_feed(): # -> None:
-	"""Fetches changelog feed items from source using `get_changelog_feed` hook and stores in the db"""
-	...
+def fetch_changelog_feed():  # -> None:
+    """Fetches changelog feed items from source using `get_changelog_feed` hook and stores in the db"""
+    ...
 
 @redis_cache
-def get_changelog_feed_items(): # -> list[Any]:
-	"""Returns a list of latest 10 changelog feed items"""
-	...
+def get_changelog_feed_items():  # -> list[Any]:
+    """Returns a list of latest 10 changelog feed items"""
+    ...
 
-def get_feed(since): # -> Any:
-	"""'What's New' feed implementation for Frappe"""
-	...
-
+def get_feed(since):  # -> Any:
+    """'What's New' feed implementation for Frappe"""
+    ...

@@ -5,26 +5,22 @@
     "doctype": "DocType",
     "editable_grid": 1,
     "engine": "InnoDB",
-    "field_order": [
-        "file",
-        "uploaded_by",
-        "uploaded_at"
-    ],
+    "field_order": ["file", "uploaded_by", "uploaded_at"],
     "fields": [
         {
             "fieldname": "file",
             "fieldtype": "Attach",
-            "label": "File"
+            "label": "ไฟล์"
         },
         {
             "fieldname": "uploaded_by",
             "fieldtype": "Data",
-            "label": "Uploaded By"
+            "label": "อัปโหลดโดย"
         },
         {
             "fieldname": "uploaded_at",
             "fieldtype": "Datetime",
-            "label": "Uploaded At"
+            "label": "วันที่อัปโหลด"
         }
     ],
     "grid_page_length": 50,

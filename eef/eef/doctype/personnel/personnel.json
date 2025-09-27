@@ -1,120 +1,126 @@
 {
- "actions": [],
- "allow_import": 1,
- "allow_rename": 1,
- "autoname": "field:full_name",
- "creation": "2025-09-18 05:34:09.422080",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "full_name",
-  "title",
-  "first_name",
-  "last_name",
-  "age",
-  "\u0e40\u0e1e\u0e28",
-  "institute",
-  "campus_province"
- ],
- "fields": [
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Full name",
-   "unique": 1
-  },
-  {
-   "fieldname": "title",
-   "fieldtype": "Select",
-   "label": "\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07",
-   "options": "\n\u0e2d.\n\u0e14\u0e23.\n\u0e2d.\u0e14\u0e23.\n\u0e1c\u0e28.\u0e14\u0e23.\n\u0e23\u0e28.\u0e14\u0e23.\n\u0e28.\u0e14\u0e23."
-  },
-  {
-   "fieldname": "first_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "\u0e0a\u0e37\u0e48\u0e2d",
-   "reqd": 1
-  },
-  {
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
-   "reqd": 1
-  },
-  {
-   "fieldname": "age",
-   "fieldtype": "Int",
-   "label": "\u0e2d\u0e32\u0e22\u0e38"
-  },
-  {
-   "fieldname": "institute",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
-   "options": "Educational Institution",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "institute.province",
-   "fieldname": "campus_province",
-   "fieldtype": "Select",
-   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22",
-   "read_only": 1
-  },
-  {
-   "fieldname": "\u0e40\u0e1e\u0e28",
-   "fieldtype": "Select",
-   "label": "\u0e40\u0e1e\u0e28",
-   "options": "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38\n\u0e0a\u0e32\u0e22\n\u0e2b\u0e0d\u0e34\u0e07"
-  }
- ],
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-09-23 05:59:47.854721",
- "modified_by": "Administrator",
- "module": "EEF",
- "name": "Personnel",
- "naming_rule": "By fieldname",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "import": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Guest",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Academic Personnel",
-   "share": 1
-  }
- ],
- "row_format": "Dynamic",
- "sort_field": "creation",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "allow_import": 1,
+    "allow_rename": 1,
+    "autoname": "field:full_name",
+    "creation": "2025-09-18 05:34:09.422080",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "full_name",
+        "title",
+        "first_name",
+        "last_name",
+        "age",
+        "\u0e40\u0e1e\u0e28",
+        "role",
+        "institute",
+        "campus_province"
+    ],
+    "fields": [
+        {
+            "fieldname": "full_name",
+            "fieldtype": "Data",
+            "hidden": 1,
+            "label": "Full name",
+            "unique": 1
+        },
+        {
+            "fieldname": "title",
+            "fieldtype": "Select",
+            "label": "\u0e04\u0e33\u0e19\u0e33\u0e2b\u0e19\u0e49\u0e32",
+            "options": "\n\u0e19\u0e32\u0e22\n\u0e19\u0e32\u0e07\u0e2a\u0e32\u0e27\n\u0e19\u0e32\u0e07\n\u0e2d.\n\u0e14\u0e23.\n\u0e2d.\u0e14\u0e23.\n\u0e1c\u0e28.\u0e14\u0e23.\n\u0e23\u0e28.\u0e14\u0e23.\n\u0e28.\u0e14\u0e23."
+        },
+        {
+            "fieldname": "first_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "\u0e0a\u0e37\u0e48\u0e2d",
+            "reqd": 1
+        },
+        {
+            "fieldname": "last_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
+            "reqd": 1
+        },
+        {
+            "fieldname": "age",
+            "fieldtype": "Int",
+            "label": "\u0e2d\u0e32\u0e22\u0e38"
+        },
+        {
+            "fieldname": "institute",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
+            "options": "Educational Institution",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "institute.province",
+            "fieldname": "campus_province",
+            "fieldtype": "Select",
+            "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22",
+            "read_only": 1
+        },
+        {
+            "fieldname": "\u0e40\u0e1e\u0e28",
+            "fieldtype": "Select",
+            "label": "\u0e40\u0e1e\u0e28",
+            "options": "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38\n\u0e0a\u0e32\u0e22\n\u0e2b\u0e0d\u0e34\u0e07"
+        },
+        {
+            "fieldname": "role",
+            "fieldtype": "Data",
+            "label": "\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07 (\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23, \u0e23\u0e31\u0e1a\u0e1c\u0e34\u0e14\u0e0a\u0e2d\u0e1a)"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-09-23 13:28:18.724868",
+    "modified_by": "Administrator",
+    "module": "EEF",
+    "name": "Personnel",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "import": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Guest",
+            "share": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Academic Personnel",
+            "share": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
 }

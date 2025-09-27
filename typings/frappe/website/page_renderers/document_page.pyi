@@ -6,31 +6,23 @@ from frappe.website.page_renderers.base_template_page import BaseTemplatePage
 from frappe.website.utils import cache_html
 
 class DocumentPage(BaseTemplatePage):
-	def can_render(self): # -> bool:
-		"""
-		Find a document with matching `route` from all doctypes with `has_web_view`=1
-		"""
-		...
-	
-	def search_in_doctypes_with_web_view(self): # -> Check | None:
-		...
-	
-	def search_web_page_dynamic_routes(self): # -> bool:
-		...
-	
-	def render(self): # -> Response:
-		...
-	
-	@cache_html
-	def get_html(self): # -> str | Any:
-		...
-	
-	def update_context(self): # -> None:
-		...
-	
-	@staticmethod
-	def get_condition_field(meta): # -> None:
-		...
-	
+    def can_render(self):  # -> bool:
+        """
+        Find a document with matching `route` from all doctypes with `has_web_view`=1
+        """
+        ...
 
-
+    def search_in_doctypes_with_web_view(self):  # -> Check | None:
+        ...
+    def search_web_page_dynamic_routes(self):  # -> bool:
+        ...
+    def render(self):  # -> Response:
+        ...
+    @cache_html
+    def get_html(self):  # -> str | Any:
+        ...
+    def update_context(self):  # -> None:
+        ...
+    @staticmethod
+    def get_condition_field(meta):  # -> None:
+        ...

@@ -33,10 +33,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 
-def upload_to_storage(zip_path):
+def upload_to_storage(zip_path: Path) -> bool:
     log_prefix = "UPLOAD_TO_STORAGE"
     try:
-        s3 = boto3.client(
+        s3 = boto3.client(  # type: ignore
             "s3",
             aws_access_key_id=os.getenv("aws_access_key_id"),
             aws_secret_access_key=os.getenv("aws_secret_access_key"),
@@ -54,13 +54,19 @@ def upload_to_storage(zip_path):
         return True
 
     except ClientError as e:
-        logger.error(f"[{log_prefix}:ERROR]: Upload failed due to client error: {e}", exc_info=True)
+        logger.error(
+            f"[{log_prefix}:ERROR]: Upload failed due to client error: {e}",
+            exc_info=True,
+        )
         return False
     except FileNotFoundError:
         logger.error(f"[{log_prefix}:ERROR]: The file {zip_path} was not found.", exc_info=True)
         return False
     except Exception as e:
-        logger.error(f"[{log_prefix}:ERROR]: An unexpected error occurred during upload: {e}", exc_info=True)
+        logger.error(
+            f"[{log_prefix}:ERROR]: An unexpected error occurred during upload: {e}",
+            exc_info=True,
+        )
         return False
 
 
@@ -128,11 +134,13 @@ def backup_daily():
 
         except subprocess.CalledProcessError as e:
             logger.error(
-                f"[{log_prefix}:ERROR]: Backup command failed on attempt {attempt}: {e.stderr}", exc_info=True
+                f"[{log_prefix}:ERROR]: Backup command failed on attempt {attempt}: {e.stderr}",
+                exc_info=True,
             )
         except Exception as e:
             logger.error(
-                f"[{log_prefix}:ERROR]: An unexpected error occurred on attempt {attempt}: {e}", exc_info=True
+                f"[{log_prefix}:ERROR]: An unexpected error occurred on attempt {attempt}: {e}",
+                exc_info=True,
             )
 
         finally:

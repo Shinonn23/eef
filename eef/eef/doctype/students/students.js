@@ -10,7 +10,7 @@ frappe.ui.form.on("Students", {
             campus_province
                 .map((d) => d.provinceNameEn)
                 .sort((a, b) => a.localeCompare(b))
-                .join("\n")
+                .join("\n"),
         );
     },
 });

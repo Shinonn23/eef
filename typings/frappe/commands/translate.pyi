@@ -8,17 +8,17 @@ from frappe.utils.bench_helper import CliCtxObj
 
 @click.command("build-message-files")
 @pass_context
-def build_message_files(context: CliCtxObj): # -> None:
-	"Build message files for translation"
-	...
+def build_message_files(context: CliCtxObj):  # -> None:
+    "Build message files for translation"
+    ...
 
 @click.command("new-language")
 @click.argument("lang_code")
 @click.argument("app")
 @pass_context
-def new_language(context: CliCtxObj, lang_code, app): # -> None:
-	"""Create lang-code.csv for given app"""
-	...
+def new_language(context: CliCtxObj, lang_code, app):  # -> None:
+    """Create lang-code.csv for given app"""
+    ...
 
 @click.command("get-untranslated")
 @click.option("--app", default="_ALL_APPS")
@@ -26,9 +26,9 @@ def new_language(context: CliCtxObj, lang_code, app): # -> None:
 @click.argument("untranslated_file")
 @click.option("--all", default=False, is_flag=True, help="Get all message strings")
 @pass_context
-def get_untranslated(context: CliCtxObj, lang, untranslated_file, app=..., all=...): # -> None:
-	"Get untranslated strings for language"
-	...
+def get_untranslated(context: CliCtxObj, lang, untranslated_file, app=..., all=...):  # -> None:
+    "Get untranslated strings for language"
+    ...
 
 @click.command("update-translations")
 @click.option("--app", default="_ALL_APPS")
@@ -36,24 +36,24 @@ def get_untranslated(context: CliCtxObj, lang, untranslated_file, app=..., all=.
 @click.argument("untranslated_file")
 @click.argument("translated-file")
 @pass_context
-def update_translations(context: CliCtxObj, lang, untranslated_file, translated_file, app=...): # -> None:
-	"Update translated strings"
-	...
+def update_translations(context: CliCtxObj, lang, untranslated_file, translated_file, app=...):  # -> None:
+    "Update translated strings"
+    ...
 
 @click.command("import-translations")
 @click.argument("lang")
 @click.argument("path")
 @pass_context
-def import_translations(context: CliCtxObj, lang, path): # -> None:
-	"Update translated strings"
-	...
+def import_translations(context: CliCtxObj, lang, path):  # -> None:
+    "Update translated strings"
+    ...
 
 @click.command("migrate-translations")
 @click.argument("source-app")
 @click.argument("target-app")
 @pass_context
-def migrate_translations(context: CliCtxObj, source_app, target_app): # -> None:
-	"Migrate target-app-specific translations from source-app to target-app"
-	...
+def migrate_translations(context: CliCtxObj, source_app, target_app):  # -> None:
+    "Migrate target-app-specific translations from source-app to target-app"
+    ...
 
 commands = ...

@@ -24,19 +24,23 @@ core_doctypes_list = ...
 CORE_DOCTYPES = ...
 log_types = ...
 std_fields = ...
-def delete_fields(args_dict, delete=...): # -> None:
-	"""
-	Delete a field.
-	* Deletes record from `tabDocField`
-	* If not single doctype: Drops column from table
-	* If single, deletes record from `tabSingles`
-	args_dict = { dt: [field names] }
-	"""
-	...
 
-def get_permitted_fields(doctype: str, parenttype: str | None = ..., user: str | None = ..., permission_type: str | None = ..., *, ignore_virtual=...) -> list[str]:
-	...
+def delete_fields(args_dict, delete=...):  # -> None:
+    """
+    Delete a field.
+    * Deletes record from `tabDocField`
+    * If not single doctype: Drops column from table
+    * If single, deletes record from `tabSingles`
+    args_dict = { dt: [field names] }
+    """
+    ...
 
-def is_default_field(fieldname: str) -> bool:
-	...
-
+def get_permitted_fields(
+    doctype: str,
+    parenttype: str | None = ...,
+    user: str | None = ...,
+    permission_type: str | None = ...,
+    *,
+    ignore_virtual=...,
+) -> list[str]: ...
+def is_default_field(fieldname: str) -> bool: ...
