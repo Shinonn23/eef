@@ -8,7 +8,7 @@ import frappe
 from frappe.model.document import Document
 
 
-class S12Internal(Document):
+class RiskInternal(Document):
     # begin: auto-generated types
     # This code is auto-generated. Do not modify anything in this block.
 
@@ -18,22 +18,13 @@ class S12Internal(Document):
         from eef.eef.doctype.major_item.major_item import MajorItem
         from frappe.types import DF
 
-        creativity: DF.SmallText | None
-        honesty: DF.SmallText | None
         institute: DF.Link | None
-        intercultural_communication: DF.SmallText | None
-        leadership: DF.SmallText | None
-        learning_analytical_thinking: DF.SmallText | None
-        lifelong_learning: DF.SmallText | None
         major: DF.TableMultiSelect[MajorItem]
-        presentation_communication: DF.SmallText | None
-        professional_ethics: DF.SmallText | None
-        self_management: DF.SmallText | None
-        social_responsibility: DF.SmallText | None
+        risk_details_text: DF.LongText | None
         supporting_the_times: DF.Int
-        teamwork: DF.SmallText | None
-        technology_learning: DF.SmallText | None
     # end: auto-generated types
+
+    pass
 
     def autoname(self) -> None:
         """
