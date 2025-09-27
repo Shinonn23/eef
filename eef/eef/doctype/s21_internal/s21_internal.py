@@ -15,6 +15,7 @@ class S21Internal(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
+        from eef.eef.doctype.major_item.major_item import MajorItem
         from frappe.types import DF
 
         adequacy_personnel: DF.SmallText | None
@@ -23,7 +24,6 @@ class S21Internal(Document):
         curriculum_consistency: DF.SmallText | None
         curriculum_development_process: DF.SmallText | None
         employment: DF.SmallText | None
-        full_name: DF.Link | None
         graduate_skill: DF.SmallText | None
         institute: DF.Link | None
         instructor_development: DF.SmallText | None
@@ -31,7 +31,7 @@ class S21Internal(Document):
         learning_environment: DF.SmallText | None
         learning_evaluation: DF.SmallText | None
         learning_method: DF.SmallText | None
-        major: DF.Link | None
+        major: DF.TableMultiSelect[MajorItem]
         student_academic_achievement: DF.SmallText | None
         supporting_the_times: DF.Int
     # end: auto-generated types

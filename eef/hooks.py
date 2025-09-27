@@ -16,7 +16,7 @@ add_to_apps_screen = [
         "name": "eef",
         "logo": "/assets/eef/logo.png",
         "title": "EEF",
-        "route": "/app/dev",
+        "route": "/app/team",
         # "has_permission": "eef.api.permission.has_app_permission"
     }
 ]

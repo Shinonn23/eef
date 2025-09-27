@@ -15,6 +15,7 @@ class S11Internal(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
+        from eef.eef.doctype.major_item.major_item import MajorItem
         from frappe.types import DF
 
         access_to_information_and_services: DF.SmallText | None
@@ -27,10 +28,9 @@ class S11Internal(Document):
         family_problems: DF.LongText | None
         financial_management: DF.SmallText | None
         food_and_dining: DF.SmallText | None
-        full_name: DF.Link | None
         institute: DF.Link | None
         legal_issues: DF.LongText | None
-        major: DF.Link | None
+        major: DF.TableMultiSelect[MajorItem]
         new_environment_adaptation: DF.SmallText | None
         personal_health: DF.SmallText | None
         physical_wellbeing: DF.SmallText | None

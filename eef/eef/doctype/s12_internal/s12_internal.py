@@ -15,6 +15,7 @@ class S12Internal(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
+        from eef.eef.doctype.major_item.major_item import MajorItem
         from frappe.types import DF
 
         creativity: DF.SmallText | None
@@ -24,7 +25,7 @@ class S12Internal(Document):
         leadership: DF.SmallText | None
         learning_analytical_thinking: DF.SmallText | None
         lifelong_learning: DF.SmallText | None
-        major: DF.Link | None
+        major: DF.TableMultiSelect[MajorItem]
         presentation_communication: DF.SmallText | None
         professional_ethics: DF.SmallText | None
         self_management: DF.SmallText | None
