@@ -9,7 +9,7 @@
         {
             "fieldname": "agenda",
             "fieldtype": "Link",
-            "label": "Agenda",
+            "label": "วาระ",
             "options": "Agenda"
         },
         {
@@ -17,18 +17,18 @@
             "fieldname": "meeting",
             "fieldtype": "Data",
             "hidden": 1,
-            "label": "Meeting"
+            "label": "การประชุม"
         },
         {
             "fieldname": "participants",
             "fieldtype": "Link",
-            "label": "Participants",
+            "label": "ผู้เข้าร่วม",
             "options": "Participants"
         },
         {
             "fieldname": "discussion",
             "fieldtype": "Text",
-            "label": "Discussion"
+            "label": "การสนทนา"
         }
     ],
     "grid_page_length": 50,

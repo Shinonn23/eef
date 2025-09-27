@@ -22,35 +22,35 @@
         {
             "fieldname": "general_information_section",
             "fieldtype": "Section Break",
-            "label": "General Information"
+            "label": "ข้อมูลทั่วไป"
         },
         {
             "allow_in_quick_entry": 1,
             "fieldname": "name1",
             "fieldtype": "Data",
-            "label": "Name",
+            "label": "ชื่อ",
             "unique": 1
         },
         {
             "fieldname": "partnership_institution",
             "fieldtype": "Table MultiSelect",
-            "label": "Partnership Institution",
+            "label": "สถาบันพันธมิตร",
             "options": "Partnership Institution"
         },
         {
             "fieldname": "address_section",
             "fieldtype": "Section Break",
-            "label": "Address"
+            "label": "ที่อยู่"
         },
         {
             "fieldname": "province",
             "fieldtype": "Select",
-            "label": "Province"
+            "label": "จังหวัด"
         },
         {
             "fieldname": "subdistrict",
             "fieldtype": "Select",
-            "label": "Subdistrict"
+            "label": "ตำบล"
         },
         {
             "fieldname": "column_break_kcuj",
@@ -59,23 +59,23 @@
         {
             "fieldname": "district",
             "fieldtype": "Select",
-            "label": "District"
+            "label": "อำเภอ"
         },
         {
             "fieldname": "postal_code",
             "fieldtype": "Data",
-            "label": "Postal code",
+            "label": "รหัสไปรษณีย์",
             "read_only": 1
         },
         {
             "fieldname": "business_information_section",
             "fieldtype": "Section Break",
-            "label": "Business Information"
+            "label": "ข้อมูลธุรกิจ"
         },
         {
             "fieldname": "business_major_interest",
             "fieldtype": "Table",
-            "label": "Business Major Interest",
+            "label": "ความสนใจหลักในธุรกิจ",
             "options": "Business Major Interest"
         }
     ],

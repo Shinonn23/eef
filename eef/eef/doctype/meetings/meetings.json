@@ -17,40 +17,40 @@
         {
             "fieldname": "meeting_date",
             "fieldtype": "Date",
-            "label": "Meeting Date"
+            "label": "วันที่ประชุม"
         },
         {
             "fieldname": "next_meeting_date",
             "fieldtype": "Date",
-            "label": "Next Meeting Date"
+            "label": "วันที่ประชุมครั้งต่อไป"
         },
         {
             "fieldname": "location",
             "fieldtype": "Data",
-            "label": "Location"
+            "label": "สถานที่"
         },
         {
             "fieldname": "chairperson",
             "fieldtype": "Link",
-            "label": "Chairperson",
+            "label": "ประธาน",
             "options": "Participants"
         },
         {
             "fieldname": "secretary",
             "fieldtype": "Link",
-            "label": "Secretary",
+            "label": "เลขานุการ",
             "options": "Participants"
         },
         {
             "fieldname": "notes",
             "fieldtype": "Text",
-            "label": "Notes"
+            "label": "บันทึก"
         },
         {
             "fieldname": "title",
             "fieldtype": "Data",
             "in_list_view": 1,
-            "label": "Title",
+            "label": "หัวข้อ",
             "reqd": 1
         }
     ],
