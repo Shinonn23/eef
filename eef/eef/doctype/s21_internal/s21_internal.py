@@ -15,9 +15,8 @@ class S21Internal(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
-        from frappe.types import DF
-
         from eef.eef.doctype.major_item.major_item import MajorItem
+        from frappe.types import DF
 
         adequacy_personnel: DF.SmallText | None
         availability_learning_media: DF.SmallText | None
@@ -26,7 +25,7 @@ class S21Internal(Document):
         curriculum_development_process: DF.SmallText | None
         employment: DF.SmallText | None
         graduate_skill: DF.SmallText | None
-        institute: DF.Link | None
+        institute: DF.Link
         instructor_development: DF.SmallText | None
         learning_design: DF.SmallText | None
         learning_environment: DF.SmallText | None

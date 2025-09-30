@@ -15,13 +15,12 @@ class S12Internal(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
-        from frappe.types import DF
-
         from eef.eef.doctype.major_item.major_item import MajorItem
+        from frappe.types import DF
 
         creativity: DF.SmallText | None
         honesty: DF.SmallText | None
-        institute: DF.Link | None
+        institute: DF.Link
         intercultural_communication: DF.SmallText | None
         leadership: DF.SmallText | None
         learning_analytical_thinking: DF.SmallText | None
