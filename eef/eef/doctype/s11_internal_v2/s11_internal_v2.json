@@ -198,7 +198,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-30 13:47:11.666574",
+ "modified": "2025-09-30 14:26:04.562704",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S11 Internal V2",
@@ -226,6 +226,19 @@
    "read": 1,
    "report": 1,
    "role": "Internal Team User",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Internal Team Admin",
    "select": 1,
    "share": 1,
    "write": 1
