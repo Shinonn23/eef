@@ -15,11 +15,10 @@ class RiskInternal(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
+        from eef.eef.doctype.major_item.major_item import MajorItem
         from frappe.types import DF
 
-        from eef.eef.doctype.major_item.major_item import MajorItem
-
-        institute: DF.Link | None
+        institute: DF.Link
         major: DF.TableMultiSelect[MajorItem]
         risk_details_text: DF.LongText | None
         supporting_the_times: DF.Int
