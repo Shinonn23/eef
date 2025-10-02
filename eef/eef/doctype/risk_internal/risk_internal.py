@@ -18,6 +18,7 @@ class RiskInternal(Document):
         from eef.eef.doctype.major_item.major_item import MajorItem
         from frappe.types import DF
 
+        amended_from: DF.Link | None
         institute: DF.Link
         major: DF.TableMultiSelect[MajorItem]
         risk_details_text: DF.LongText | None

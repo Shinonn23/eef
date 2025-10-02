@@ -10,6 +10,7 @@
   "major",
   "additional_information",
   "supporting_the_times",
+  "amended_from",
   "tab_academic_skill_development",
   "learning_analytical_thinking",
   "presentation_communication",
@@ -146,12 +147,23 @@
    "fieldname": "professional_ethics",
    "fieldtype": "Small Text",
    "label": "\u0e08\u0e23\u0e23\u0e22\u0e32\u0e1a\u0e23\u0e23\u0e13\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "S12 Internal",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-09-30 14:25:13.253869",
+ "modified": "2025-10-02 12:08:37.616276",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S12 Internal",

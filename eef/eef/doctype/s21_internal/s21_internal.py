@@ -19,6 +19,7 @@ class S21Internal(Document):
         from frappe.types import DF
 
         adequacy_personnel: DF.SmallText | None
+        amended_from: DF.Link | None
         availability_learning_media: DF.SmallText | None
         course_design: DF.SmallText | None
         curriculum_consistency: DF.SmallText | None
