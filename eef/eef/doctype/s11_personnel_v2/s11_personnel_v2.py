@@ -2,12 +2,11 @@
 # For license information, please see license.txt
 
 # import frappe
+from frappe.model.document import Document
 from datetime import datetime
 
-from frappe.model.document import Document
 
-
-class S12Personnel(Document):
+class S11PersonnelV2(Document):
     # begin: auto-generated types
     # This code is auto-generated. Do not modify anything in this block.
 
@@ -16,27 +15,41 @@ class S12Personnel(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
+        access_to_information_and_services: DF.Rating
+        accommodation: DF.Rating
+        addiction: DF.Rating
+        additional_suggestions: DF.SmallText | None
         check_data_confirmation: DF.Check
-        creativity: DF.Rating
+        comment_college_adaptation: DF.SmallText | None
+        comment_living_conditions: DF.SmallText | None
+        comment_mental: DF.SmallText | None
+        comment_problems: DF.SmallText | None
+        counseling_access: DF.Rating
+        depression: DF.Rating
+        emotion_management: DF.Rating
+        family_problems: DF.Rating
+        financial_management: DF.Rating
+        food_and_dining: DF.Rating
         full_name: DF.Link
         full_name_manual: DF.Data | None
-        honesty: DF.Rating
         institute: DF.Link
-        intercultural_communication: DF.Rating
-        leadership: DF.Rating
-        learning_analytical_thinking: DF.Rating
-        lifelong_learning: DF.Rating
+        legal_issues: DF.Rating
         major1: DF.Link | None
         major2: DF.Link | None
+        new_environment_adaptation: DF.Rating
         no_name_in_system: DF.Check
-        presentation_communication: DF.Rating
-        professional_ethics: DF.Rating
-        self_management: DF.Rating
-        social_responsibility: DF.Rating
+        personal_health: DF.Rating
+        physical_wellbeing: DF.Rating
+        relationship_problems: DF.Rating
+        social_relation: DF.Rating
+        stress_or_anxiety: DF.Rating
+        study_problems: DF.Rating
         supporting_the_times: DF.Int
-        teamwork: DF.Rating
-        technology_learning: DF.Rating
+        time_management: DF.Rating
+        transportation: DF.Rating
     # end: auto-generated types
+
+    pass
 
     def autoname(self) -> None:
         """

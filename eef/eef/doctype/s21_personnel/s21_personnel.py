@@ -14,22 +14,29 @@ class S21Personnel(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
+        additional_suggestions: DF.SmallText | None
         adequacy_personnel: DF.Rating
         availability_learning_media: DF.Rating
+        check_data_confirmation: DF.Check
+        comment_monitoring_curriculum: DF.SmallText | None
+        comment_monitoring_graduates: DF.SmallText | None
+        comment_monitoring_resources: DF.SmallText | None
+        comment_monitoring_teaching: DF.SmallText | None
         course_design: DF.Rating
         curriculum_consistency: DF.Rating
         curriculum_development_process: DF.Rating
         employment: DF.Rating
-        full_name: DF.Link | None
+        full_name: DF.Link
         full_name_manual: DF.Data | None
         graduate_skill: DF.Rating
-        institute: DF.Link | None
+        institute: DF.Link
         instructor_development: DF.Rating
         learning_design: DF.Rating
         learning_environment: DF.Rating
         learning_evaluation: DF.Rating
         learning_method: DF.Rating
-        major: DF.Link | None
+        major1: DF.Link | None
+        major2: DF.Link | None
         no_name_in_system: DF.Check
         student_academic_achievement: DF.Rating
         supporting_the_times: DF.Int
