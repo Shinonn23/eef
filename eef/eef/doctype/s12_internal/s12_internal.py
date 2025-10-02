@@ -18,6 +18,7 @@ class S12Internal(Document):
         from eef.eef.doctype.major_item.major_item import MajorItem
         from frappe.types import DF
 
+        amended_from: DF.Link | None
         creativity: DF.SmallText | None
         honesty: DF.SmallText | None
         institute: DF.Link

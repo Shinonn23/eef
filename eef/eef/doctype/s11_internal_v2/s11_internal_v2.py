@@ -21,6 +21,7 @@ class S11InternalV2(Document):
         accommodation: DF.SmallText | None
         addiction: DF.LongText | None
         additional_suggestions: DF.SmallText | None
+        amended_from: DF.Link | None
         counseling_access: DF.SmallText | None
         depression: DF.SmallText | None
         emotion_management: DF.SmallText | None

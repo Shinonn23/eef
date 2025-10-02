@@ -10,6 +10,7 @@
   "major",
   "additional_information",
   "supporting_the_times",
+  "amended_from",
   "living_conditions",
   "accommodation",
   "food_and_dining",
@@ -193,18 +194,31 @@
    "fieldname": "additional_suggestions",
    "fieldtype": "Small Text",
    "label": "\u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "S11 Internal V2",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-09-30 14:26:04.562704",
+ "modified": "2025-10-02 12:21:46.946085",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S11 Internal V2",
  "owner": "Administrator",
  "permissions": [
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -213,10 +227,14 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -228,9 +246,12 @@
    "role": "Internal Team User",
    "select": 1,
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -241,6 +262,7 @@
    "role": "Internal Team Admin",
    "select": 1,
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
