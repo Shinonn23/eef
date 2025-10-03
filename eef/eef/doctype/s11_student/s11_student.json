@@ -89,6 +89,7 @@
    "fieldname": "full_name",
    "fieldtype": "Link",
    "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
+   "link_filters": "[[\"Students\",\"institute\",\"=\",\"eval: doc.institute\"]]",
    "options": "Students",
    "reqd": 1
   },
@@ -96,14 +97,12 @@
    "default": "0",
    "fieldname": "no_name_in_system",
    "fieldtype": "Check",
-   "label": "\u0e2b\u0e32\u0e0a\u0e37\u0e48\u0e2d\u0e44\u0e21\u0e48\u0e40\u0e08\u0e2d\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a",
-   "read_only": 1
+   "label": "\u0e2b\u0e32\u0e0a\u0e37\u0e48\u0e2d\u0e44\u0e21\u0e48\u0e40\u0e08\u0e2d\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a"
   },
   {
    "fieldname": "full_name_manual",
    "fieldtype": "Data",
-   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25 (\u0e43\u0e2a\u0e48\u0e40\u0e2d\u0e07)",
-   "read_only": 1
+   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25 (\u0e43\u0e2a\u0e48\u0e40\u0e2d\u0e07)"
   },
   {
    "fieldname": "academic_information",
@@ -125,6 +124,7 @@
    "fieldname": "major",
    "fieldtype": "Link",
    "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
+   "link_filters": "[[\"Major\",\"educational_institution\",\"=\",\"eval: doc.institute\"]]",
    "options": "Major"
   },
   {
@@ -136,7 +136,8 @@
    "fieldname": "supporting_the_times",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48"
+   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48",
+   "reqd": 1
   },
   {
    "default": "0",
@@ -426,7 +427,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-03 15:11:30.085117",
+ "modified": "2025-10-03 21:59:34.637000",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S11 Student",

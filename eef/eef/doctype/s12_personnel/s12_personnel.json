@@ -43,6 +43,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
+   "link_filters": "[[\"Personnel\",\"institute\",\"=\",\"eval: doc.institute\"]]",
    "options": "Personnel",
    "reqd": 1
   },
@@ -180,12 +181,14 @@
    "fieldname": "major1",
    "fieldtype": "Link",
    "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23 (\u0e2b\u0e25\u0e31\u0e01)",
+   "link_filters": "[[\"Major\",\"educational_institution\",\"=\",\"eval: doc.institute\"]]",
    "options": "Major"
   },
   {
    "fieldname": "major2",
    "fieldtype": "Link",
    "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\u0e2d\u0e37\u0e48\u0e19\u0e17\u0e35\u0e48\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e02\u0e49\u0e2d\u0e07 (\u0e16\u0e49\u0e32\u0e21\u0e35)",
+   "link_filters": "[[\"Major\",\"educational_institution\",\"=\",\"eval: doc.institute\"]]",
    "options": "Major"
   },
   {
@@ -223,7 +226,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-03 15:15:25.892142",
+ "modified": "2025-10-03 22:04:13.608404",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S12 Personnel",
