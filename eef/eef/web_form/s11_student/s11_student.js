@@ -23,10 +23,6 @@ frappe.ready(function () {
             // Enable ชื่อ-นามสกุล (ใส่เองหากไม่เจอในระบบ)
             frappe.web_form.set_df_property("full_name_manual", "reqd", 1);
             frappe.web_form.set_df_property("full_name_manual", "hidden", 0);
-
-            // Enable สถาบัน
-            frappe.web_form.set_df_property("institute", "reqd", 1);
-            frappe.web_form.set_df_property("institute", "hidden", 0);
         } else {
             // Checkbox is unchecked
 
@@ -39,11 +35,6 @@ frappe.ready(function () {
             frappe.web_form.set_df_property("full_name_manual", "reqd", 0);
             frappe.web_form.set_df_property("full_name_manual", "hidden", 1);
             frappe.web_form.set_value("full_name_manual", "");
-
-            // Disable สถาบัน
-            frappe.web_form.set_df_property("institute", "reqd", 0);
-            frappe.web_form.set_df_property("institute", "hidden", 1);
-            frappe.web_form.set_value("institute", "");
         }
     });
 });

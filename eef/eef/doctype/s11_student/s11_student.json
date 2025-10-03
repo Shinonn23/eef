@@ -1,19 +1,20 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "creation": "2025-09-14 21:16:53.740152",
+ "creation": "2025-10-03 11:32:39.220016",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "general_information",
+  "academic_information",
+  "institute",
+  "major",
   "personal_information",
   "full_name",
   "no_name_in_system",
   "full_name_manual",
-  "academic_information",
-  "student_id",
-  "institute",
-  "major",
   "section_break_additional_info",
   "supporting_the_times",
   "check_data_confirmation",
@@ -74,6 +75,74 @@
   "support_suggestions"
  ],
  "fields": [
+  {
+   "fieldname": "general_information",
+   "fieldtype": "Tab Break",
+   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e31\u0e48\u0e27\u0e44\u0e1b"
+  },
+  {
+   "fieldname": "personal_information",
+   "fieldtype": "Section Break",
+   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
+   "options": "Students",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "no_name_in_system",
+   "fieldtype": "Check",
+   "label": "\u0e2b\u0e32\u0e0a\u0e37\u0e48\u0e2d\u0e44\u0e21\u0e48\u0e40\u0e08\u0e2d\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a",
+   "read_only": 1
+  },
+  {
+   "fieldname": "full_name_manual",
+   "fieldtype": "Data",
+   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25 (\u0e43\u0e2a\u0e48\u0e40\u0e2d\u0e07)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "academic_information",
+   "fieldtype": "Section Break",
+   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32"
+  },
+  {
+   "fetch_from": "full_name.institute",
+   "fieldname": "institute",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
+   "options": "Educational Institution",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "full_name.major",
+   "fieldname": "major",
+   "fieldtype": "Link",
+   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
+   "options": "Major"
+  },
+  {
+   "fieldname": "section_break_additional_info",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "supporting_the_times",
+   "fieldtype": "Int",
+   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_data_confirmation",
+   "fieldtype": "Check",
+   "label": "\u0e02\u0e49\u0e32\u0e1e\u0e40\u0e08\u0e49\u0e32\u0e44\u0e14\u0e49\u0e01\u0e23\u0e2d\u0e01\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e16\u0e39\u0e01\u0e15\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e23\u0e1a\u0e16\u0e49\u0e27\u0e19\u0e15\u0e32\u0e21\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e14\u0e35\u0e17\u0e35\u0e48\u0e2a\u0e38\u0e14"
+  },
   {
    "fieldname": "living_conditions",
    "fieldtype": "Tab Break",
@@ -146,48 +215,6 @@
    "options": "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e44\u0e21\u0e48\u0e14\u0e35\n\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e04\u0e48\u0e2d\u0e19\u0e02\u0e49\u0e32\u0e07\u0e14\u0e35\n\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\n\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\u0e21\u0e32\u0e01"
   },
   {
-   "fieldname": "general_information",
-   "fieldtype": "Tab Break",
-   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e31\u0e48\u0e27\u0e44\u0e1b"
-  },
-  {
-   "fieldname": "personal_information",
-   "fieldtype": "Section Break",
-   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27"
-  },
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Link",
-   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
-   "options": "Students"
-  },
-  {
-   "fieldname": "academic_information",
-   "fieldtype": "Section Break",
-   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32"
-  },
-  {
-   "fetch_from": "full_name.student_id",
-   "fieldname": "student_id",
-   "fieldtype": "Data",
-   "label": "\u0e23\u0e2b\u0e31\u0e2a\u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "full_name.institute",
-   "fieldname": "institute",
-   "fieldtype": "Link",
-   "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
-   "options": "Educational Institution"
-  },
-  {
-   "fetch_from": "full_name.major",
-   "fieldname": "major",
-   "fieldtype": "Link",
-   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
-   "options": "Major"
-  },
-  {
    "fieldname": "mental_and_emotional_health",
    "fieldtype": "Tab Break",
    "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.1.2 \u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e08\u0e34\u0e15\u0e41\u0e25\u0e30\u0e2d\u0e32\u0e23\u0e21\u0e13\u0e4c"
@@ -251,6 +278,16 @@
    "fieldname": "new_environment_adaptation",
    "fieldtype": "Section Break",
    "label": "\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e40\u0e02\u0e49\u0e32\u0e01\u0e31\u0e1a\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e43\u0e2b\u0e21\u0e48"
+  },
+  {
+   "fieldname": "adapt_academic",
+   "fieldtype": "Rating",
+   "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e14\u0e49\u0e32\u0e19\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19"
+  },
+  {
+   "fieldname": "adapt_social",
+   "fieldtype": "Rating",
+   "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e14\u0e49\u0e32\u0e19\u0e2a\u0e31\u0e07\u0e04\u0e21"
   },
   {
    "fieldname": "time_management",
@@ -383,54 +420,15 @@
    "fieldname": "support_suggestions",
    "fieldtype": "Small Text",
    "label": "\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e2d\u0e37\u0e48\u0e19\u0e46"
-  },
-  {
-   "fieldname": "supporting_the_times",
-   "fieldtype": "Int",
-   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48"
-  },
-  {
-   "fieldname": "adapt_academic",
-   "fieldtype": "Rating",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e14\u0e49\u0e32\u0e19\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19"
-  },
-  {
-   "fieldname": "adapt_social",
-   "fieldtype": "Rating",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e14\u0e49\u0e32\u0e19\u0e2a\u0e31\u0e07\u0e04\u0e21"
-  },
-  {
-   "fieldname": "section_break_additional_info",
-   "fieldtype": "Section Break",
-   "label": "Additional Information"
-  },
-  {
-   "default": "0",
-   "fieldname": "check_data_confirmation",
-   "fieldtype": "Check",
-   "label": "\u0e02\u0e49\u0e32\u0e1e\u0e40\u0e08\u0e49\u0e32\u0e44\u0e14\u0e49\u0e01\u0e23\u0e2d\u0e01\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e16\u0e39\u0e01\u0e15\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e23\u0e1a\u0e16\u0e49\u0e27\u0e19\u0e15\u0e32\u0e21\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e14\u0e35\u0e17\u0e35\u0e48\u0e2a\u0e38\u0e14"
-  },
-  {
-   "fieldname": "full_name_manual",
-   "fieldtype": "Data",
-   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25 (\u0e43\u0e2a\u0e48\u0e40\u0e2d\u0e07)",
-   "read_only": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "no_name_in_system",
-   "fieldtype": "Check",
-   "label": "\u0e2b\u0e32\u0e0a\u0e37\u0e48\u0e2d\u0e44\u0e21\u0e48\u0e40\u0e08\u0e2d\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a",
-   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-03 06:01:10.144965",
+ "modified": "2025-10-03 11:46:48.849782",
  "modified_by": "Administrator",
  "module": "EEF",
- "name": "Recipient Well-being",
+ "name": "S11 Student",
  "owner": "Administrator",
  "permissions": [
   {
@@ -442,7 +440,6 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
-   "select": 1,
    "share": 1,
    "write": 1
   },
@@ -453,7 +450,6 @@
    "read": 1,
    "report": 1,
    "role": "Internal Team User",
-   "select": 1,
    "share": 1,
    "write": 1
   },
@@ -466,7 +462,6 @@
    "read": 1,
    "report": 1,
    "role": "Internal Team Admin",
-   "select": 1,
    "share": 1,
    "write": 1
   }

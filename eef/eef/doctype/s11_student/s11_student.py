@@ -2,12 +2,11 @@
 # For license information, please see license.txt
 
 # import frappe
+from frappe.model.document import Document
 from datetime import datetime
 
-from frappe.model.document import Document
 
-
-class S11Personnel(Document):
+class S11Student(Document):
     # begin: auto-generated types
     # This code is auto-generated. Do not modify anything in this block.
 
@@ -28,43 +27,26 @@ class S11Personnel(Document):
         college_activity: DF.Rating
         commute_access: DF.Rating
         coping_skill: DF.Rating
-        debt_level: DF.Literal[
-            "\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2b\u0e19\u0e35\u0e49",
-            "\u0e19\u0e49\u0e2d\u0e22\u0e01\u0e27\u0e48\u0e32 5000 \u0e1a\u0e32\u0e17",  # type: ignore
-            "5000\u201320000 \u0e1a\u0e32\u0e17",  # type: ignore
-            "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 20000 \u0e1a\u0e32\u0e17",  # type: ignore
-            "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38",
-        ]
+        debt_level: DF.Literal["\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2b\u0e19\u0e35\u0e49", "\u0e19\u0e49\u0e2d\u0e22\u0e01\u0e27\u0e48\u0e32 5000 \u0e1a\u0e32\u0e17", "5000\u201320000 \u0e1a\u0e32\u0e17", "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 20000 \u0e1a\u0e32\u0e17", "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38"]
         exercise_facility_access: DF.Rating
         expense_manage: DF.Rating
         family_problems: DF.Rating
         food_availability: DF.Rating
         food_cleanliness: DF.Rating
         food_price_appropriateness: DF.Rating
-        full_name: DF.Link | None
+        full_name: DF.Link
         full_name_manual: DF.Data | None
-        institute: DF.Link | None
+        institute: DF.Link
         legal_issues: DF.Rating
         major: DF.Link | None
         medical_facility_access: DF.Rating
         mental_health_promo: DF.Rating
-        monthly_saving: DF.Literal[
-            "0-500 \u0e1a\u0e32\u0e17",  # type: ignore
-            "500-1000 \u0e1a\u0e32\u0e17",  # type: ignore
-            "1000-2000 \u0e1a\u0e32\u0e17",  # type: ignore
-            "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 2000 \u0e1a\u0e32\u0e17",  # type: ignore
-        ]
+        monthly_saving: DF.Literal["0-500 \u0e1a\u0e32\u0e17", "500-1000 \u0e1a\u0e32\u0e17", "1000-2000 \u0e1a\u0e32\u0e17", "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 2000 \u0e1a\u0e32\u0e17"]
         no_name_in_system: DF.Check
-        personal_health_status: DF.Literal[
-            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e44\u0e21\u0e48\u0e14\u0e35",
-            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e04\u0e48\u0e2d\u0e19\u0e02\u0e49\u0e32\u0e07\u0e14\u0e35",
-            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35",
-            "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\u0e21\u0e32\u0e01",
-        ]
+        personal_health_status: DF.Literal["\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e44\u0e21\u0e48\u0e14\u0e35", "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e04\u0e48\u0e2d\u0e19\u0e02\u0e49\u0e32\u0e07\u0e14\u0e35", "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35", "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\u0e21\u0e32\u0e01"]
         personal_stress: DF.Rating
         relationship_problems: DF.Rating
         service_access: DF.Rating
-        student_id: DF.Data | None
         study_problems: DF.Rating
         support_additional_needs: DF.SmallText | None
         support_college_access: DF.Rating
