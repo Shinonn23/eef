@@ -16,7 +16,11 @@ class S12Personnel(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
+        additional_suggestions: DF.SmallText | None
         check_data_confirmation: DF.Check
+        comment__morality_ethics: DF.SmallText | None
+        comment_academic_skill: DF.SmallText | None
+        comment_professional_skill: DF.SmallText | None
         creativity: DF.Rating
         full_name: DF.Link
         full_name_manual: DF.Data | None

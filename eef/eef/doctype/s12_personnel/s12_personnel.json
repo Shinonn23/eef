@@ -20,6 +20,7 @@
   "learning_analytical_thinking",
   "presentation_communication",
   "technology_learning",
+  "comment_academic_skill",
   "tab_professional_skill_development",
   "teamwork",
   "creativity",
@@ -27,10 +28,14 @@
   "leadership",
   "self_management",
   "intercultural_communication",
+  "comment_professional_skill",
   "tab_morality_ethics",
   "honesty",
   "social_responsibility",
-  "professional_ethics"
+  "professional_ethics",
+  "comment__morality_ethics",
+  "tab_other_suggestions",
+  "additional_suggestions"
  ],
  "fields": [
   {
@@ -186,12 +191,37 @@
    "fieldname": "check_data_confirmation",
    "fieldtype": "Check",
    "label": "\u0e02\u0e49\u0e32\u0e1e\u0e40\u0e08\u0e49\u0e32\u0e44\u0e14\u0e49\u0e01\u0e23\u0e2d\u0e01\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e16\u0e39\u0e01\u0e15\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e23\u0e1a\u0e16\u0e49\u0e27\u0e19\u0e15\u0e32\u0e21\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e14\u0e35\u0e17\u0e35\u0e48\u0e2a\u0e38\u0e14"
+  },
+  {
+   "fieldname": "comment_academic_skill",
+   "fieldtype": "Small Text",
+   "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e47\u0e19\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e43\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e17\u0e31\u0e01\u0e29\u0e30\u0e17\u0e32\u0e07\u0e27\u0e34\u0e0a\u0e32\u0e01\u0e32\u0e23 "
+  },
+  {
+   "fieldname": "comment_professional_skill",
+   "fieldtype": "Small Text",
+   "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e47\u0e19\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e43\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e17\u0e31\u0e01\u0e29\u0e30\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e"
+  },
+  {
+   "fieldname": "comment__morality_ethics",
+   "fieldtype": "Small Text",
+   "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e47\u0e19\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e43\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e48\u0e07\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e38\u0e13\u0e18\u0e23\u0e23\u0e21 \u0e08\u0e23\u0e34\u0e22\u0e18\u0e23\u0e23\u0e21 \u0e41\u0e25\u0e30\u0e08\u0e23\u0e23\u0e22\u0e32\u0e1a\u0e23\u0e23\u0e13\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e"
+  },
+  {
+   "fieldname": "tab_other_suggestions",
+   "fieldtype": "Tab Break",
+   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.2.4 - \u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e2d\u0e37\u0e48\u0e19\u0e46"
+  },
+  {
+   "fieldname": "additional_suggestions",
+   "fieldtype": "Small Text",
+   "label": "\u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-03 05:38:47.857287",
+ "modified": "2025-10-03 14:40:09.041218",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S12 Personnel",
