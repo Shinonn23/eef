@@ -63,6 +63,7 @@
    "fieldname": "institute",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
    "options": "Educational Institution",
    "reqd": 1
@@ -75,7 +76,8 @@
   {
    "fieldname": "supporting_the_times",
    "fieldtype": "Int",
-   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48"
+   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48",
+   "reqd": 1
   },
   {
    "fieldname": "tab_monitoring_curriculum",
@@ -238,7 +240,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-03 05:52:35.559799",
+ "modified": "2025-10-03 15:15:43.951454",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S21 Personnel",

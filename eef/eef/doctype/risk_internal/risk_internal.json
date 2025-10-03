@@ -23,6 +23,8 @@
   {
    "fieldname": "institute",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
    "options": "Educational Institution",
    "reqd": 1
@@ -70,7 +72,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-02 12:21:07.712495",
+ "modified": "2025-10-03 15:12:44.489349",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Risk Internal",

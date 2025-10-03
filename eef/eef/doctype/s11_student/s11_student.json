@@ -88,7 +88,6 @@
   {
    "fieldname": "full_name",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
    "options": "Students",
    "reqd": 1
@@ -116,6 +115,7 @@
    "fieldname": "institute",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
    "options": "Educational Institution",
    "reqd": 1
@@ -135,6 +135,7 @@
   {
    "fieldname": "supporting_the_times",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48"
   },
   {
@@ -425,7 +426,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-03 11:46:48.849782",
+ "modified": "2025-10-03 15:11:30.085117",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S11 Student",

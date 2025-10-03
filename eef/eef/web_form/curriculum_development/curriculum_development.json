@@ -21,7 +21,7 @@
  "list_columns": [],
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2025-10-03 14:51:17.934778",
+ "modified": "2025-10-03 15:14:52.272792",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "curriculum-development",
@@ -157,7 +157,7 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "default": "2",
+   "default": "1",
    "fieldname": "supporting_the_times",
    "fieldtype": "Int",
    "hidden": 0,
@@ -166,7 +166,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 1,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {

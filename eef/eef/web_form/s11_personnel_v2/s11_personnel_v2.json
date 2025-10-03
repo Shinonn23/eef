@@ -21,7 +21,7 @@
  "list_columns": [],
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2025-10-03 14:56:57.524954",
+ "modified": "2025-10-03 15:14:21.632014",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "s11-personnel-v2",
@@ -157,7 +157,7 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "default": "2",
+   "default": "1",
    "fieldname": "supporting_the_times",
    "fieldtype": "Int",
    "hidden": 0,
