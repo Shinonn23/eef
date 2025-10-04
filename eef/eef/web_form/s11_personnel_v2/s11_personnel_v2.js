@@ -37,4 +37,54 @@ frappe.ready(function () {
             frappe.web_form.set_value("full_name_manual", "");
         }
     });
+
+    // Filter names and major for institute
+    frappe.web_form.on("institute", (field, value) => {
+        filterByInstitutePersonnel(value);
+    });
 });
+
+function filterByInstitutePersonnel(institute) {
+    frappe.call({
+        method: "eef.eef.api.webform.get_personnel_and_major_by_institute",
+        args: {
+            institute: institute,
+        },
+        callback: function (r) {
+            // Filter full_name field
+            const opt_personnel = [];
+            if (r.message?.personnels) {
+                const data = r.message.personnels;
+                for (var i = 0; i < data.length; i++) {
+                    opt_personnel.push({
+                        label: data[i].full_name,
+                        value: data[i].name,
+                    });
+                }
+            }
+            const field_full_name = frappe.web_form.fields_dict["full_name"];
+            field_full_name._data = opt_personnel;
+            field_full_name.refresh();
+
+            // Filter major field
+            const opt_major = [];
+            if (r.message?.majors) {
+                const data = r.message.majors;
+                for (var i = 0; i < data.length; i++) {
+                    opt_major.push({
+                        label: data[i].name1, // name1 is the name without abbreviation.
+                        value: data[i].name,
+                    });
+                }
+            }
+
+            const field_major1 = frappe.web_form.fields_dict["major1"];
+            field_major1._data = opt_major;
+            field_major1.refresh();
+
+            const field_major2 = frappe.web_form.fields_dict["major2"];
+            field_major2._data = opt_major;
+            field_major2.refresh();
+        },
+    });
+}
