@@ -5,18 +5,17 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_8a3r",
+  "general_information",
   "amended_from",
   "institute",
+  "column_break_xmux",
   "supporting_the_times",
   "date_tracking",
-  "table_notes"
+  "section_note",
+  "table_notes",
+  "general_note"
  ],
  "fields": [
-  {
-   "fieldname": "section_break_8a3r",
-   "fieldtype": "Section Break"
-  },
   {
    "fieldname": "amended_from",
    "fieldtype": "Link",
@@ -38,12 +37,13 @@
   {
    "fieldname": "date_tracking",
    "fieldtype": "Date",
-   "label": "\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48"
+   "label": "\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48",
+   "reqd": 1
   },
   {
    "fieldname": "table_notes",
    "fieldtype": "Table",
-   "label": "\u0e01\u0e32\u0e23\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01",
+   "label": "\u0e01\u0e32\u0e23\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e32\u0e21\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d",
    "options": "Tracking Internal Items"
   },
   {
@@ -54,13 +54,32 @@
    "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32",
    "options": "Educational Institution",
    "reqd": 1
+  },
+  {
+   "fieldname": "general_note",
+   "fieldtype": "Small Text",
+   "label": "\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e48\u0e27\u0e44\u0e1b"
+  },
+  {
+   "fieldname": "column_break_xmux",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_note",
+   "fieldtype": "Section Break",
+   "label": "\u0e01\u0e32\u0e23\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01"
+  },
+  {
+   "fieldname": "general_information",
+   "fieldtype": "Section Break",
+   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e31\u0e48\u0e27\u0e44\u0e1b"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-04 18:08:03.502184",
+ "modified": "2025-10-04 19:44:41.852715",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Tracking Internal",

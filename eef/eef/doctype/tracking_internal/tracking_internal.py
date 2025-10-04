@@ -18,7 +18,8 @@ class TrackingInternal(Document):
         from frappe.types import DF
 
         amended_from: DF.Link | None
-        date_tracking: DF.Date | None
+        date_tracking: DF.Date
+        general_note: DF.SmallText | None
         institute: DF.Link
         supporting_the_times: DF.Int
         table_notes: DF.Table[TrackingInternalItems]

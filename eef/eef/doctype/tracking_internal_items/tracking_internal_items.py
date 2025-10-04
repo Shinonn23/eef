@@ -14,8 +14,8 @@ class TrackingInternalItems(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		folllowup_plan: DF.Data | None
-		followup_topic: DF.Data | None
+		folllowup_plan: DF.SmallText | None
+		followup_topic: DF.SmallText | None
 		highlight: DF.SmallText | None
 		important_note: DF.SmallText | None
 		parent: DF.Data
