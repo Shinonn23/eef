@@ -550,32 +550,6 @@ def build_report_summary(total: int, data: list[list] | None = None) -> list[dic
 
     row = data[0]
 
-    all_numeric_values = []
-    for value in row:
-        if value is not None and isinstance(value, (int, float)):
-            all_numeric_values.append(value)
-
-    if all_numeric_values:
-        overall_avg = sum(all_numeric_values) / len(all_numeric_values)
-
-        if overall_avg >= 80:
-            overall_indicator = "green"
-        elif overall_avg >= 60:
-            overall_indicator = "blue"
-        elif overall_avg >= 40:
-            overall_indicator = "orange"
-        else:
-            overall_indicator = "red"
-
-        summary.append(
-            {
-                "value": round(overall_avg, 1),
-                "indicator": overall_indicator,
-                "label": _("ภาพรวมทั้งหมด (Overall)"),
-                "datatype": "Percent",
-            }
-        )
-
     field_groups = {
         "living_conditions": {
             "label": _("สภาพความเป็นอยู่ทั่วไป"),
@@ -695,5 +669,31 @@ def build_report_summary(total: int, data: list[list] | None = None) -> list[dic
                     "datatype": "Percent",
                 }
             )
+
+    all_numeric_values = []
+    for value in row:
+        if value is not None and isinstance(value, (int, float)):
+            all_numeric_values.append(value)
+
+    if all_numeric_values:
+        overall_avg = sum(all_numeric_values) / len(all_numeric_values)
+
+        if overall_avg >= 80:
+            overall_indicator = "green"
+        elif overall_avg >= 60:
+            overall_indicator = "blue"
+        elif overall_avg >= 40:
+            overall_indicator = "orange"
+        else:
+            overall_indicator = "red"
+
+        summary.append(
+            {
+                "value": round(overall_avg, 1),
+                "indicator": overall_indicator,
+                "label": _("ภาพรวมทั้งหมด (Overall)"),
+                "datatype": "Percent",
+            }
+        )
 
     return summary
