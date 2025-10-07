@@ -34,7 +34,7 @@ class S11Student(Document):
         food_availability: DF.Rating
         food_cleanliness: DF.Rating
         food_price_appropriateness: DF.Rating
-        full_name: DF.Link
+        full_name: DF.Link | None
         full_name_manual: DF.Data | None
         institute: DF.Link
         legal_issues: DF.Rating

@@ -1,70 +1,84 @@
 {
-    "actions": [],
-    "allow_rename": 1,
-    "creation": "2025-08-02 21:53:26.512825",
-    "doctype": "DocType",
-    "engine": "InnoDB",
-    "field_order": ["name1", "column_break_jciz", "educational_institution"],
-    "fields": [
-        {
-            "allow_in_quick_entry": 1,
-            "fieldname": "name1",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "label": "\u0e0a\u0e37\u0e48\u0e2d\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
-            "reqd": 1
-        },
-        {
-            "fieldname": "column_break_jciz",
-            "fieldtype": "Column Break"
-        },
-        {
-            "allow_in_quick_entry": 1,
-            "fieldname": "educational_institution",
-            "fieldtype": "Link",
-            "in_list_view": 1,
-            "label": "\u0e2a\u0e16\u0e32\u0e19\u0e28\u0e36\u0e01\u0e29\u0e32",
-            "options": "Educational Institution",
-            "reqd": 1
-        }
-    ],
-    "grid_page_length": 50,
-    "index_web_pages_for_search": 1,
-    "links": [],
-    "modified": "2025-09-27 16:29:51.182752",
-    "modified_by": "Administrator",
-    "module": "EEF",
-    "name": "Major",
-    "owner": "Administrator",
-    "permissions": [
-        {
-            "create": 1,
-            "delete": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "System Manager",
-            "share": 1,
-            "write": 1
-        },
-        {
-            "create": 1,
-            "delete": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "Academic Personnel",
-            "share": 1,
-            "write": 1
-        }
-    ],
-    "quick_entry": 1,
-    "row_format": "Dynamic",
-    "sort_field": "creation",
-    "sort_order": "DESC",
-    "states": []
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-02 21:53:26.512825",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "column_break_jciz",
+  "educational_institution"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u0e0a\u0e37\u0e48\u0e2d\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_jciz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "educational_institution",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "\u0e2a\u0e16\u0e32\u0e19\u0e28\u0e36\u0e01\u0e29\u0e32",
+   "options": "Educational Institution",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-07 11:29:00.570340",
+ "modified_by": "Administrator",
+ "module": "EEF",
+ "name": "Major",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Personnel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "select": 1,
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
 }

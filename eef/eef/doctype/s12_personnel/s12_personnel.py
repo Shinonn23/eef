@@ -22,7 +22,7 @@ class S12Personnel(Document):
         comment_academic_skill: DF.SmallText | None
         comment_professional_skill: DF.SmallText | None
         creativity: DF.Rating
-        full_name: DF.Link
+        full_name: DF.Link | None
         full_name_manual: DF.Data | None
         honesty: DF.Rating
         institute: DF.Link

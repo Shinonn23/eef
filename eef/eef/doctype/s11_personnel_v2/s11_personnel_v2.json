@@ -240,8 +240,7 @@
    "fieldtype": "Link",
    "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
    "link_filters": "[[\"Personnel\",\"institute\",\"=\",\"eval: doc.institute\"]]",
-   "options": "Personnel",
-   "reqd": 1
+   "options": "Personnel"
   },
   {
    "fieldname": "major1",
@@ -267,7 +266,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-03 22:09:22.665361",
+ "modified": "2025-10-07 11:34:15.858480",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S11 Personnel V2",

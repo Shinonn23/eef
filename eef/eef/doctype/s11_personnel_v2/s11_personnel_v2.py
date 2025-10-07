@@ -30,7 +30,7 @@ class S11PersonnelV2(Document):
         family_problems: DF.Rating
         financial_management: DF.Rating
         food_and_dining: DF.Rating
-        full_name: DF.Link
+        full_name: DF.Link | None
         full_name_manual: DF.Data | None
         institute: DF.Link
         legal_issues: DF.Rating

@@ -3,6 +3,7 @@
 
 # import frappe
 from frappe.model.document import Document
+from datetime import datetime
 
 
 class S21Personnel(Document):
@@ -26,7 +27,7 @@ class S21Personnel(Document):
         curriculum_consistency: DF.Rating
         curriculum_development_process: DF.Rating
         employment: DF.Rating
-        full_name: DF.Link
+        full_name: DF.Link | None
         full_name_manual: DF.Data | None
         graduate_skill: DF.Rating
         institute: DF.Link
@@ -43,3 +44,17 @@ class S21Personnel(Document):
     # end: auto-generated types
 
     pass
+
+    def autoname(self) -> None:
+        """
+        สร้างชื่อ Document อัตโนมัติ
+        """
+        now_str = datetime.now().strftime("%Y%m%d_%H%M")
+        name = self.full_name or self.full_name_manual or None
+        if name:
+            name_formatted = name.strip().replace(" ", "_")
+            self.name = f"{name_formatted}-{now_str}"
+        else:
+            # กรณีที่ข้อมูลยังไม่ครบ ให้ใช้ชื่อชั่วคราวหรือปล่อยให้ระบบจัดการ
+            # ในที่นี้จะปล่อยให้ใช้ default naming (hash) ไปก่อน
+            self.name = None
