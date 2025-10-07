@@ -16,16 +16,22 @@ class S12Personnel(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
+        additional_suggestions: DF.SmallText | None
+        check_data_confirmation: DF.Check
+        comment__morality_ethics: DF.SmallText | None
+        comment_academic_skill: DF.SmallText | None
+        comment_professional_skill: DF.SmallText | None
         creativity: DF.Rating
         full_name: DF.Link | None
         full_name_manual: DF.Data | None
         honesty: DF.Rating
-        institute: DF.Link | None
+        institute: DF.Link
         intercultural_communication: DF.Rating
         leadership: DF.Rating
         learning_analytical_thinking: DF.Rating
         lifelong_learning: DF.Rating
-        major: DF.Link | None
+        major1: DF.Link | None
+        major2: DF.Link | None
         no_name_in_system: DF.Check
         presentation_communication: DF.Rating
         professional_ethics: DF.Rating
