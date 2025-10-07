@@ -21,7 +21,7 @@
  "list_columns": [],
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2025-10-03 15:14:07.343790",
+ "modified": "2025-10-07 11:49:30.506888",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "s11-student",
@@ -151,7 +151,7 @@
    "max_length": 0,
    "max_value": 0,
    "precision": "",
-   "read_only": 0,
+   "read_only": 1,
    "reqd": 0,
    "show_in_filter": 0
   },
