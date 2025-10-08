@@ -171,7 +171,7 @@ def get_columns() -> list[dict]:
             "label": _("ระดับปัญหาด้านสุขภาพของตนเอง"),
             "fieldname": "personal_health_status",
             "fieldtype": "Data",
-            "width": 150,
+            "width": 600,
         },
         # Stress or Anxiety
         {
@@ -244,13 +244,13 @@ def get_columns() -> list[dict]:
             "label": _("ระดับปัญหาหนี้สินส่วนตัว"),
             "fieldname": "debt_level",
             "fieldtype": "Data",
-            "width": 150,
+            "width": 600,
         },
         {
             "label": _("ความสามารถในการออมต่อเดือน"),
             "fieldname": "monthly_saving",
             "fieldtype": "Data",
-            "width": 150,
+            "width": 600,
         },
         # Transportation
         {
@@ -332,41 +332,13 @@ def get_columns() -> list[dict]:
     ]
 
 
+from collections import Counter
+
+
 def get_data(doc_list: list[dict]) -> list[list]:
-    """Return data for the report.
-    The report data is a list of rows, with each row being a list of cell values.
-    """
+    """Return data for the report."""
     if not doc_list:
         return []
-
-    health_status_map = {
-        "สุขภาพไม่ดี": 1,
-        "สุขภาพค่อนข้างดี": 2,
-        "สุขภาพดี": 3,
-        "สุขภาพดีมาก": 4,
-    }
-
-    debt_level_map = {
-        "ไม่มีหนี้": 1,
-        "น้อยกว่า 5000 บาท": 2,
-        "5000-20000 บาท": 3,
-        "มากกว่า 20000 บาท": 4,
-        "ไม่ระบุ": 0,
-    }
-
-    monthly_saving_map = {
-        "0-500 บาท": 1,
-        "500-1000 บาท": 2,
-        "1000-2000 บาท": 3,
-        "มากกว่า 2000 บาท": 4,
-    }
-
-    health_status_reverse = {v: k for k, v in health_status_map.items()}
-    debt_level_reverse = {v: k for k, v in debt_level_map.items()}
-    monthly_saving_reverse = {v: k for k, v in monthly_saving_map.items()}
-
-    field_sums = {}
-    field_counts = {}
 
     fields = [
         "accommodation_condition",
@@ -403,89 +375,79 @@ def get_data(doc_list: list[dict]) -> list[list]:
         "support_additional_needs",
         "support_suggestions",
     ]
+
+    _field_counts = {}
+    field_values = {}
+
+    # เก็บค่าต่างๆ
     for doc in doc_list:
         for field in fields:
             value = doc.get(field)
-
             if value is None or value == "":
                 continue
 
             if field in ["support_additional_needs", "support_suggestions"]:
-                if field not in field_sums:
-                    field_sums[field] = []
-                field_sums[field].append(value)
-                continue
-
-            numeric_value = None
-            if field == "personal_health_status":
-                numeric_value = health_status_map.get(value)
+                field_values.setdefault(field, []).append(value)
+            elif field == "personal_health_status":
+                field_values.setdefault(field, []).append(value)
             elif field == "debt_level":
-                numeric_value = debt_level_map.get(value)
+                if value != "ไม่ระบุ":
+                    field_values.setdefault(field, []).append(value)
             elif field == "monthly_saving":
-                numeric_value = monthly_saving_map.get(value)
+                field_values.setdefault(field, []).append(value)
             else:
                 try:
                     numeric_value = float(value)
                 except (ValueError, TypeError):
                     continue
-
-            if numeric_value is not None and (field != "debt_level" or numeric_value > 0):
-                if field not in field_sums:
-                    field_sums[field] = 0
-                    field_counts[field] = 0
-                field_sums[field] += numeric_value
-                field_counts[field] += 1
+                field_values.setdefault(field, []).append(numeric_value)
 
     result_row = []
 
     for field in fields:
         if field in ["support_additional_needs", "support_suggestions"]:
-            texts = field_sums.get(field, [])
+            texts = field_values.get(field, [])
             if texts:
                 formatted_texts = [f"{i + 1}. {text}" for i, text in enumerate(texts)]
                 result_row.append("\n\n".join(formatted_texts))
             else:
                 result_row.append("")
-        elif field in field_counts and field_counts[field] > 0:
-            avg = field_sums[field] / field_counts[field]
+        elif field in ["personal_health_status", "debt_level", "monthly_saving"]:
+            values = field_values.get(field, [])
+            if not values:
+                result_row.append("")
+                continue
 
-            if field == "personal_health_status":
-                rounded = round(avg)
-                result_row.append(health_status_reverse.get(rounded, ""))
-            elif field == "debt_level":
-                rounded = round(avg)
-                result_row.append(debt_level_reverse.get(rounded, ""))
-            elif field == "monthly_saving":
-                rounded = round(avg)
-                result_row.append(monthly_saving_reverse.get(rounded, ""))
-            else:
-                # For rating fields, multiply by 100 to get percentage
-                # For negative indicators (problems/stress), invert the scale
-                # so that lower values (less problems) become higher percentages (better)
-                negative_indicators = [
-                    "academic_stress",
-                    "adaptation_stress",
-                    "personal_stress",
-                    "study_problems",
-                    "family_problems",
-                    "relationship_problems",
-                    "legal_issues",
-                    "addiction",
-                ]
-
-                if field in negative_indicators:
-                    # Invert: 1.0 (high problem) becomes 0%, 0.0 (no problem) becomes 100%
-                    # Rating values are in range 0-1, not 0-5
-                    percentage = (1 - avg) * 100
-                else:
-                    # Normal: higher rating = higher percentage
-                    # Rating values are in range 0-1, not 0-5
-                    percentage = avg * 100
-
-                result_row.append(round(percentage, 2))
+            # นับจำนวนแต่ละ category
+            counter = Counter(values)
+            total = sum(counter.values())
+            # สร้าง string ของแต่ละ category พร้อมเปอร์เซ็นต์
+            sorted_items = sorted(counter.items(), key=lambda x: -x[1])
+            formatted = [f"{k} ({round(v / total * 100)}%)" for k, v in sorted_items]
+            result_row.append(" ".join(formatted))
         else:
-            # No data for this field
-            result_row.append(None)
+            values = field_values.get(field, [])
+            if not values:
+                result_row.append(None)
+                continue
+
+            avg = sum(values) / len(values)
+
+            negative_indicators = [
+                "academic_stress",
+                "adaptation_stress",
+                "personal_stress",
+                "study_problems",
+                "family_problems",
+                "relationship_problems",
+                "legal_issues",
+                "addiction",
+            ]
+            if field in negative_indicators:
+                percentage = (1 - avg) * 100
+            else:
+                percentage = avg * 100
+            result_row.append(round(percentage, 2))
 
     return [result_row]
 
