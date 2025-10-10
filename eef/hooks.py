@@ -143,9 +143,16 @@ app_include_js = ["thailand-address-autocomplete.bundle.js"]
 # Scheduled Tasks
 # ---------------
 
-scheduler_events = {
-    "daily": ["eef.eef.scheduled_tasks.backup_daily"],
-}
+# scheduler_events = {
+#     "daily": [
+#         "eef.eef.scheduled_tasks.backup_daily",
+#     ],
+#     "cron": {
+#         "* * * * *": [
+#             "eef.eef.scheduled_tasks.test",
+#         ]
+#     },
+# }
 
 # Testing
 # -------

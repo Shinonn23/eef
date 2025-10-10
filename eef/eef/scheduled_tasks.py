@@ -8,6 +8,9 @@ from datetime import datetime
 from pathlib import Path
 
 import boto3
+
+# import frappe
+import schedule
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
 
@@ -152,5 +155,29 @@ def backup_daily():
         logger.error(f"[{log_prefix}:CRITICAL]: Backup failed after {MAX_RETRIES} attempts.")
 
 
-if __name__ == "__main__":
+def run_scheduled_backup():
+    """Callback function that runs the backup process at scheduled time"""
+    log_prefix = "SCHEDULED_BACKUP"
+    logger.info(f"[{log_prefix}:INFO]: Scheduled backup triggered at {datetime.now()}")
     backup_daily()
+
+
+def start_scheduler():
+    """Start the scheduler to run backup at midnight every day"""
+    log_prefix = "SCHEDULER"
+    logger.info(f"[{log_prefix}:INFO]: Starting backup scheduler...")
+
+    # Schedule backup to run at midnight (00:00) every day
+    schedule.every().day.at("00:00").do(run_scheduled_backup)
+
+    logger.info(f"[{log_prefix}:INFO]: Backup scheduled to run at 00:00 every day")
+
+    # Keep the scheduler running
+    while True:
+        schedule.run_pending()
+        time.sleep(60)  # Check every minute
+
+
+if __name__ == "__main__":
+    # backup_daily()
+    start_scheduler()
