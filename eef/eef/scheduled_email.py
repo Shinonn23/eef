@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 
 import frappe
+import requests
 from dotenv import load_dotenv
 from frappe.utils import add_days, get_url_to_form, getdate, nowdate
 
@@ -28,6 +29,9 @@ if "environment" not in os.environ:
 def send_email_daily():
     log_prefix = "SENDING_EMAIL_DAILY"
     logger.info(f"[{log_prefix}:INFO]: Email process has started.")
+
+    # Send a test message to Discord webhook for debugging
+    send_discord_webhook(f"Sent @ {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     # Only send email in PRODUCTION environment
     if os.getenv("environment") != "PRODUCTION":
@@ -80,3 +84,19 @@ def send_email_daily():
 
 if __name__ == "__main__":
     send_email_daily()
+
+
+def send_discord_webhook(message=""):
+    webhook_url = os.getenv("discord_webhook_url")
+    if not webhook_url:
+        logger.warning("Discord webhook URL is not set in environment variables.")
+        return
+
+    data = {"content": "This is a test message from the scheduled email script. \n" + message}
+    response = requests.post(webhook_url, json=data)
+    if response.status_code == 204:
+        logger.info("Discord webhook message sent successfully.")
+    else:
+        logger.error(
+            f"Failed to send Discord webhook message. Status code: {response.status_code}, Response: {response.text}"
+        )
