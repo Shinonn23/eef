@@ -11,6 +11,8 @@ import boto3
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
 
+from .scheduled_utils import send_discord_webhook
+
 script_path = Path(__file__).resolve()
 app_root_path = script_path.parent.parent.parent
 TEMP_PATH = app_root_path / "temp"
@@ -73,6 +75,11 @@ def upload_to_storage(zip_path: Path) -> bool:
 def backup_daily():
     log_prefix = "BACKUP_DAILY"
     logger.info(f"[{log_prefix}:INFO]: Backup process started.")
+
+    # Send a test message to Discord webhook for debugging
+    send_discord_webhook(
+        source="backup_daily", message=f"Sent @ {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+    )
 
     # ตรวจสอบว่า env vars โหลดมาครบหรือไม่ก่อนเริ่ม
     if "aws_access_key_id" not in os.environ:
