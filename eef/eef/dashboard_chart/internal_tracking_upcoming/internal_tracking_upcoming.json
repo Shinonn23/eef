@@ -14,15 +14,22 @@
  "idx": 0,
  "is_public": 0,
  "is_standard": 1,
- "last_synced_on": "2025-11-05 19:52:55.818140",
- "modified": "2025-11-05 19:53:27.383744",
+ "last_synced_on": "2025-11-05 20:17:03.768631",
+ "modified": "2025-11-05 20:19:31.808559",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Internal Tracking Upcoming",
  "number_of_groups": 0,
  "owner": "Administrator",
  "parent_document_type": "Tracking Internal",
- "roles": [],
+ "roles": [
+  {
+   "role": "Internal Team Admin"
+  },
+  {
+   "role": "Internal Team User"
+  }
+ ],
  "show_values_over_chart": 0,
  "source": "",
  "time_interval": "Daily",
