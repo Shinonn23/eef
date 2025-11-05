@@ -145,6 +145,7 @@ app_include_js = ["thailand-address-autocomplete.bundle.js"]
 
 scheduler_events = {
     "daily": ["eef.eef.scheduled_tasks.backup_daily"],
+    "cron": {"*/10 * * * *": ["eef.eef.scheduled_email.send_email_daily"]},
 }
 
 # Testing
