@@ -11,7 +11,12 @@ from .scheduled_utils import send_discord_webhook
 
 # Define the number of days ahead to check for follow-up items
 NUMBER_OF_DAYS_AHEAD = 30
-EMAIL_RECIPIENTS = ["nnnpooh@gmail.com", "nirand.p@cmu.ac.th"]
+EMAIL_RECIPIENTS = [
+    "nnnpooh@gmail.com",
+    "nirand.p@cmu.ac.th",
+    "parida.jewpanya@gmail.com",
+    "parida.jewpanya@cmu.ac.th",
+]
 
 # Remove frappe logger and set up Python logging to console
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")

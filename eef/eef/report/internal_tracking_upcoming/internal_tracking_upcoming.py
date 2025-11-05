@@ -6,7 +6,7 @@ import frappe
 from frappe import _
 from frappe.utils import add_days, get_url_to_form, getdate, nowdate
 
-NUMBER_OF_DAYS_AHEAD = 30
+# NUMBER_OF_DAYS_AHEAD = 100
 
 
 def execute(filters: dict | None = None):
@@ -39,8 +39,8 @@ def get_columns() -> list[dict]:
             "fieldtype": "Int",
         },
         {
-            "label": _("Tracking Internal Document"),
-            "fieldname": "tracking_internal_document",
+            "label": _("Main Document"),
+            "fieldname": "parent",
             "fieldtype": "Link",
             "options": "Tracking Internal",
         },
@@ -50,8 +50,23 @@ def get_columns() -> list[dict]:
             "fieldtype": "Data",
         },
         {
-            "label": _("Important Note"),
-            "fieldname": "important_note",
+            "label": _("Highlight"),
+            "fieldname": "highlight",
+            "fieldtype": "Data",
+        },
+        {
+            "label": _("Problems/Obstacles"),
+            "fieldname": "problems_obstacles",
+            "fieldtype": "Data",
+        },
+        {
+            "label": _("Follow-up Topic"),
+            "fieldname": "followup_topic",
+            "fieldtype": "Data",
+        },
+        {
+            "label": _("Follow-up Plan"),
+            "fieldname": "folllowup_plan",
             "fieldtype": "Data",
         },
     ]
@@ -64,12 +79,12 @@ def get_data() -> list[list]:
     """
 
     today = nowdate()
-    end_date = add_days(today, NUMBER_OF_DAYS_AHEAD)
+    # end_date = add_days(today, NUMBER_OF_DAYS_AHEAD)
     docs = frappe.get_all(
         "Tracking Internal Items",
         filters=[
             ["folllowup_plan_date", ">=", today],
-            ["folllowup_plan_date", "<=", end_date],
+            # ["folllowup_plan_date", "<=", end_date],
         ],
         order_by="folllowup_plan_date asc",
         fields=["*"],
@@ -78,8 +93,6 @@ def get_data() -> list[list]:
     data = []
     for doc in docs:
         parent = frappe.get_doc("Tracking Internal", doc["parent"])
-        parent_url = get_url_to_form("Tracking Internal", parent.name)
-
         deadline_dt = getdate(doc["folllowup_plan_date"])
         today_dt = getdate(today)
 
@@ -89,7 +102,18 @@ def get_data() -> list[list]:
         else:
             due_in_days = 0
 
-        row = [doc["folllowup_plan_date"], due_in_days, parent.name, doc["topic"], doc["important_note"]]
+        row = [
+            doc["folllowup_plan_date"],
+            due_in_days,
+            parent.name,
+            doc["topic"],
+            doc["important_note"],
+            doc["highlight"],
+            doc["problems_obstacles"],
+            doc["followup_topic"],
+            doc["folllowup_plan"],
+        ]
+
         data.append(row)
 
     return data
