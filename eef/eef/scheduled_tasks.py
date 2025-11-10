@@ -10,13 +10,14 @@ from pathlib import Path
 import boto3
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
+from frappe.commands.site import backup
+
+from eef import ROOT_PATH
 
 from .scheduled_utils import send_discord_webhook
 
-script_path = Path(__file__).resolve()
-app_root_path = script_path.parent.parent.parent
-TEMP_PATH = app_root_path / "temp"
-dotenv_path = app_root_path / ".env"
+TEMP_PATH = ROOT_PATH / "temp"
+dotenv_path = ROOT_PATH / ".env"
 
 MAX_RETRIES = 10
 
@@ -97,23 +98,17 @@ def backup_daily():
         private_path = TEMP_PATH / f"{timestamp}-private-files"
 
         try:
-            subprocess.run(
-                [
-                    "uvx",
-                    "--from",
-                    "frappe-bench",
-                    "bench",
-                    "backup",
-                    f"--backup-path-db={db_path}",
-                    f"--backup-path-conf={conf_path}",
-                    f"--backup-path-files={files_path}",
-                    f"--backup-path-private-files={private_path}",
-                    "--with-files",
-                    "--compress",
-                ],
-                check=True,
-                capture_output=True,
-                text=True,
+            # Use Frappe's programmatic backup command instead of invoking bench via subprocess.
+            # The CLI command signature is: backup(context, with_files=..., backup_path=..., backup_path_db=..., ...)
+            # Pass a None context since we're calling it programmatically from code.
+            backup(
+                None,
+                with_files=True,
+                backup_path_db=str(db_path),
+                backup_path_conf=str(conf_path),
+                backup_path_files=str(files_path),
+                backup_path_private_files=str(private_path),
+                compress=True,
             )
 
             # บีบอัดไฟล์ทั้งหมดเป็น zip เดียว
