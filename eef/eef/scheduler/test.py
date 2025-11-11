@@ -400,11 +400,7 @@ def test_backup():
             log_save_msg = f"[{log_prefix}:INFO]: Saving logs to Test doctype with status: {test_status}"
             logger.info(log_save_msg)
 
-            doc = frappe.get_doc({
-                "doctype": "Test",
-                "test_type": test_status,
-                "message": final_message
-            })
+            doc = frappe.get_doc({"doctype": "Test", "test_type": test_status, "message": final_message})
 
             logger.info(f"[{log_prefix}:INFO]: Document created, inserting...")
             doc.insert(ignore_permissions=True)
@@ -419,4 +415,106 @@ def test_backup():
             logger.error(f"[{log_prefix}:ERROR]: Exception type: {type(save_error).__name__}")
             logger.error(f"[{log_prefix}:ERROR]: All logs:\n{final_message}")
             import traceback
+
             logger.error(f"[{log_prefix}:ERROR]: Traceback:\n{traceback.format_exc()}")
+
+
+def get_backup_files_list() -> list[str]:
+    """Get list of backup files in TEMP_PATH"""
+    if not TEMP_PATH.exists():
+        return []
+    return [f.name for f in TEMP_PATH.iterdir() if f.is_file() and f.suffix == ".zip"]
+
+
+def get_storage_files_list() -> list[str]:
+    """Get list of all backup files from S3 storage
+
+    Returns:
+        list[str]: List of filenames in the S3 bucket, or empty list if error occurs
+    """
+    log_prefix = "GET_STORAGE_FILES"
+    try:
+        s3 = boto3.client(
+            "s3",
+            aws_access_key_id=os.getenv("aws_access_key_id"),
+            aws_secret_access_key=os.getenv("aws_secret_access_key"),
+            endpoint_url=os.getenv("endpoint_url"),
+        )
+
+        bucket_name = os.getenv("aws_bucket_name")
+        logger.info(f"[{log_prefix}:INFO]: Fetching file list from bucket {bucket_name}...")
+
+        response = s3.list_objects_v2(Bucket=bucket_name)
+
+        if "Contents" not in response:
+            logger.info(f"[{log_prefix}:INFO]: No files found in bucket")
+            return []
+
+        files = [obj["Key"] for obj in response["Contents"]]
+        logger.info(f"[{log_prefix}:INFO]: Found {len(files)} files in storage")
+
+        return files
+
+    except ClientError as e:
+        logger.error(f"[{log_prefix}:ERROR]: Failed to list files from storage: {e}", exc_info=True)
+        return []
+    except Exception as e:
+        logger.error(f"[{log_prefix}:ERROR]: Unexpected error: {e}", exc_info=True)
+        return []
+
+
+def check_file_exists_in_storage(filename: str) -> bool:
+    """Check if a specific file exists in S3 storage
+
+    Args:
+        filename (str): The filename to check (just the filename, not full path)
+
+    Returns:
+        bool: True if file exists, False otherwise
+    """
+    log_prefix = "CHECK_FILE_EXISTS"
+    try:
+        s3 = boto3.client(
+            "s3",
+            aws_access_key_id=os.getenv("aws_access_key_id"),
+            aws_secret_access_key=os.getenv("aws_secret_access_key"),
+            endpoint_url=os.getenv("endpoint_url"),
+        )
+
+        bucket_name = os.getenv("aws_bucket_name")
+        logger.info(f"[{log_prefix}:INFO]: Checking if {filename} exists in bucket {bucket_name}...")
+
+        # Use head_object to check if file exists without downloading it
+        s3.head_object(Bucket=bucket_name, Key=filename)
+
+        logger.info(f"[{log_prefix}:INFO]: File {filename} exists in storage")
+        return True
+
+    except ClientError as e:
+        if e.response["Error"]["Code"] == "404":
+            logger.info(f"[{log_prefix}:INFO]: File {filename} does not exist in storage")
+        else:
+            logger.error(f"[{log_prefix}:ERROR]: Error checking file: {e}", exc_info=True)
+        return False
+    except Exception as e:
+        logger.error(f"[{log_prefix}:ERROR]: Unexpected error: {e}", exc_info=True)
+        return False
+
+
+def test_check_file_exists_in_storage():
+    """Test function for check_file_exists_in_storage"""
+    log_prefix = "TEST_CHECK_FILE_EXISTS"
+    test_filename = "20251111_221603-backup.zip"  # Replace with an actual filename to test
+
+    try:
+        print(f"[{log_prefix}:INFO]: Testing file existence check for {test_filename}...")
+        exists = check_file_exists_in_storage(test_filename)
+        if exists:
+            print(f"[{log_prefix}:SUCCESS]: File {test_filename} exists in storage.")
+        else:
+            print(f"[{log_prefix}:INFO]: File {test_filename} does not exist in storage.")
+    except Exception as e:
+        print(f"[{log_prefix}:ERROR]: Test failed due to unexpected error: {e}")
+        import traceback
+
+        traceback.print_exc()
