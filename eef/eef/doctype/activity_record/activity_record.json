@@ -1,20 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-12-21 19:01:16.011624",
+ "creation": "2025-12-21 19:21:46.745944",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_n1lp",
   "student_batch",
   "subject",
-  "column_break_npyp",
+  "column_break_negj",
   "date",
   "location",
-  "section_break_pzaj",
+  "section_break_gcqg",
   "person_in_charge",
   "attendees",
+  "output",
+  "outcome",
+  "objective",
   "description",
+  "summary",
   "amended_from"
  ],
  "fields": [
@@ -23,14 +27,10 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Meeting Record",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
+   "fieldname": "student_batch",
+   "fieldtype": "Select",
+   "label": "\u0e23\u0e38\u0e48\u0e19",
+   "options": "2568\n2569\n2570\n2571"
   },
   {
    "fieldname": "subject",
@@ -65,17 +65,41 @@
    "label": "\u0e23\u0e32\u0e22\u0e25\u0e30\u0e40\u0e2d\u0e35\u0e22\u0e14"
   },
   {
-   "fieldname": "student_batch",
-   "fieldtype": "Select",
-   "label": "\u0e23\u0e38\u0e48\u0e19",
-   "options": "2568\n2569\n2570\n2571"
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Activity Record",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   },
   {
-   "fieldname": "column_break_npyp",
+   "fieldname": "objective",
+   "fieldtype": "Small Text",
+   "label": "\u0e27\u0e31\u0e15\u0e16\u0e38\u0e1b\u0e23\u0e30\u0e2a\u0e07\u0e04\u0e4c"
+  },
+  {
+   "fieldname": "output",
+   "fieldtype": "Small Text",
+   "label": "\u0e1c\u0e25\u0e1c\u0e25\u0e34\u0e15"
+  },
+  {
+   "fieldname": "outcome",
+   "fieldtype": "Small Text",
+   "label": "\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c"
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Long Text",
+   "label": "\u0e1a\u0e17\u0e2a\u0e23\u0e38\u0e1b"
+  },
+  {
+   "fieldname": "column_break_negj",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_pzaj",
+   "fieldname": "section_break_gcqg",
    "fieldtype": "Section Break"
   }
  ],
@@ -83,10 +107,10 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-21 19:39:13.693259",
+ "modified": "2025-12-21 19:38:06.844274",
  "modified_by": "Administrator",
  "module": "EEF",
- "name": "Meeting Record",
+ "name": "Activity Record",
  "owner": "Administrator",
  "permissions": [
   {
