@@ -14,7 +14,7 @@ app_license = "mit"
 add_to_apps_screen = [
     {
         "name": "eef",
-        "logo": "/assets/eef/logo.png",
+        "logo": "/assets/eef/eef-logo.png",
         "title": "EEF",
         "route": "/app/team",
         # "has_permission": "eef.api.permission.has_app_permission"
@@ -51,7 +51,7 @@ app_include_js = ["thailand-address-autocomplete.bundle.js"]
 # Svg Icons
 # ------------------
 # include app icons in desk
-# app_include_icons = "eef/public/icons.svg"
+# app_include_icons = ["eef/public/my_custom_icons.svg"]
 
 # Home Pages
 # ----------
@@ -146,7 +146,9 @@ app_include_js = ["thailand-address-autocomplete.bundle.js"]
 scheduler_events = {
     "daily": ["eef.eef.scheduler.backup.backup_daily"],
     "cron": {
-        "0 3 * * *": ["eef.eef.scheduled_email.send_email_daily"],
+        "0 3 * * *": [
+            "eef.eef.scheduled_email.send_email_daily"  # Will deprecated soon, use eef.eef.scheduler.email.send_email_daily instead
+        ],
         # "*/1 * * * *": ["eef.eef.scheduler.test.test_backup"],
     },
 }

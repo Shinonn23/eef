@@ -1,0 +1,20 @@
+{
+ "app": "eef",
+ "creation": "2025-11-22 21:21:34.406737",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_type": "App",
+ "idx": 0,
+ "label": "\u0e01\u0e28\u0e2a.",
+ "link": "",
+ "link_to": "\u0e01\u0e2d\u0e07\u0e17\u0e38\u0e19\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2a\u0e21\u0e2d\u0e20\u0e32\u0e04\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32",
+ "link_type": "Workspace",
+ "logo_url": "/assets/eef/eef-logo.png",
+ "modified": "2025-11-23 00:07:29.680169",
+ "modified_by": "Administrator",
+ "name": "\u0e01\u0e28\u0e2a.",
+ "owner": "Administrator",
+ "roles": [],
+ "standard": 1
+}
