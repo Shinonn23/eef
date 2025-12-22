@@ -31,6 +31,7 @@ class S12Internal(Document):
         professional_ethics: DF.SmallText | None
         self_management: DF.SmallText | None
         social_responsibility: DF.SmallText | None
+        student_batch: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
         supporting_the_times: DF.Int
         teamwork: DF.SmallText | None
         technology_learning: DF.SmallText | None

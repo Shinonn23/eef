@@ -41,6 +41,7 @@ class S21Personnel(Document):
         major2: DF.Link | None
         no_name_in_system: DF.Check
         student_academic_achievement: DF.Rating
+        student_batch: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
         supporting_the_times: DF.Int
     # end: auto-generated types
 

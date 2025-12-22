@@ -15,9 +15,8 @@ class S11InternalV2(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
-        from frappe.types import DF
-
         from eef.eef.doctype.major_item.major_item import MajorItem
+        from frappe.types import DF
 
         access_to_information_and_services: DF.SmallText | None
         accommodation: DF.SmallText | None
@@ -39,6 +38,7 @@ class S11InternalV2(Document):
         relationship_problems: DF.LongText | None
         social_relation: DF.SmallText | None
         stress_or_anxiety: DF.SmallText | None
+        student_batch: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
         study_problems: DF.LongText | None
         supporting_the_times: DF.Int
         time_management: DF.SmallText | None

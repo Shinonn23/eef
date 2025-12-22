@@ -44,6 +44,7 @@ class S11PersonnelV2(Document):
         relationship_problems: DF.Rating
         social_relation: DF.Rating
         stress_or_anxiety: DF.Rating
+        student_batch: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
         study_problems: DF.Rating
         supporting_the_times: DF.Int
         time_management: DF.Rating

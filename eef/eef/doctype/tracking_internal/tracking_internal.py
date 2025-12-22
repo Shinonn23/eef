@@ -22,6 +22,7 @@ class TrackingInternal(Document):
         date_tracking: DF.Date
         general_note: DF.SmallText | None
         institute: DF.Link
+        student_batch: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
         supporting_the_times: DF.Int
         table_notes: DF.Table[TrackingInternalItems]
     # end: auto-generated types
