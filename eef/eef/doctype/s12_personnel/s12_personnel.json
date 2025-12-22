@@ -9,6 +9,7 @@
   "institute",
   "major1",
   "major2",
+  "student_batch",
   "personal_information",
   "full_name",
   "no_name_in_system",
@@ -222,12 +223,19 @@
    "fieldname": "additional_suggestions",
    "fieldtype": "Small Text",
    "label": "\u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21"
+  },
+  {
+   "default": "2568",
+   "fieldname": "student_batch",
+   "fieldtype": "Select",
+   "label": "\u0e23\u0e38\u0e48\u0e19",
+   "options": "2566\n2567\n2568\n2569\n2570\n2571"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-04 16:34:06.538501",
+ "modified": "2025-12-22 21:30:29.425525",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "S12 Personnel",

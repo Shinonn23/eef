@@ -34,6 +34,7 @@ class S21Internal(Document):
         learning_method: DF.SmallText | None
         major: DF.TableMultiSelect[MajorItem]
         student_academic_achievement: DF.SmallText | None
+        student_batch: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
         supporting_the_times: DF.Int
     # end: auto-generated types
 

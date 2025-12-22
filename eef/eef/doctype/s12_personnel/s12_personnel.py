@@ -37,6 +37,7 @@ class S12Personnel(Document):
         professional_ethics: DF.Rating
         self_management: DF.Rating
         social_responsibility: DF.Rating
+        student_batch: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
         supporting_the_times: DF.Int
         teamwork: DF.Rating
         technology_learning: DF.Rating
