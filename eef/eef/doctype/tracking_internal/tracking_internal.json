@@ -6,14 +6,15 @@
  "engine": "InnoDB",
  "field_order": [
   "general_information",
-  "amended_from",
   "institute",
+  "student_batch",
   "column_break_xmux",
   "supporting_the_times",
   "date_tracking",
   "section_note",
   "table_notes",
-  "general_note"
+  "general_note",
+  "amended_from"
  ],
  "fields": [
   {
@@ -73,13 +74,20 @@
    "fieldname": "general_information",
    "fieldtype": "Section Break",
    "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e31\u0e48\u0e27\u0e44\u0e1b"
+  },
+  {
+   "default": "2568",
+   "fieldname": "student_batch",
+   "fieldtype": "Select",
+   "label": "\u0e23\u0e38\u0e48\u0e19",
+   "options": "2566\n2567\n2568\n2569\n2570\n2571"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-06 12:07:54.622111",
+ "modified": "2025-12-22 20:31:15.128041",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "Tracking Internal",

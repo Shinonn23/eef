@@ -22,6 +22,7 @@ class RiskInternal(Document):
         institute: DF.Link
         major: DF.TableMultiSelect[MajorItem]
         risk_details_text: DF.LongText | None
+        student_batch: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
         supporting_the_times: DF.Int
     # end: auto-generated types
 

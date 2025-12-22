@@ -16,6 +16,8 @@ class Major(Document):
 
         educational_institution: DF.Link
         name1: DF.Data
+        opening_year: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
+        program_administrator: DF.Link | None
     # end: auto-generated types
 
     def autoname(self) -> None:
@@ -27,4 +29,4 @@ class Major(Document):
         # self.name = f"{self.name1} - {edu_name.upper()}".strip()
 
         edu_doc = frappe.get_doc("Educational Institution", self.educational_institution)
-        self.name = f"{edu_doc.abbreviation} - {self.name1}".strip()
+        self.name = f"{edu_doc.abbreviation} - {self.name1} - {self.opening_year[-2:]}".strip()
