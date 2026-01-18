@@ -11,15 +11,15 @@ app_license = "mit"
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-#     {
-#         "name": "eef",
-#         "logo": "/assets/eef/eef-logo.png",
-#         "title": "EEF",
-#         "route": "/app/team",
-#         # "has_permission": "eef.api.permission.has_app_permission"
-#     }
-# ]
+add_to_apps_screen = [
+    {
+        "name": "eef",
+        "logo": "/assets/eef/eef-logo.png",
+        "title": "EEF",
+        "route": "/app/desk",
+        # "has_permission": "eef.api.permission.has_app_permission"
+    }
+]
 
 # Includes in <head>
 # ------------------

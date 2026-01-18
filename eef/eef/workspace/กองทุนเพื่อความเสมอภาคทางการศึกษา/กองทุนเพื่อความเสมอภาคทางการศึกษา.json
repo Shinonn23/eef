@@ -16,7 +16,7 @@
  "icon": "users",
  "idx": 0,
  "indicator_color": "green",
- "is_hidden": 1,
+ "is_hidden": 0,
  "label": "\u0e01\u0e2d\u0e07\u0e17\u0e38\u0e19\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2a\u0e21\u0e2d\u0e20\u0e32\u0e04\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32",
  "link_type": "DocType",
  "links": [
@@ -187,7 +187,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-12-22 22:06:08.067537",
+ "modified": "2026-01-18 11:26:39.194520",
  "modified_by": "Administrator",
  "module": "EEF",
  "name": "\u0e01\u0e2d\u0e07\u0e17\u0e38\u0e19\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2a\u0e21\u0e2d\u0e20\u0e32\u0e04\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32",

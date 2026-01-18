@@ -1,0 +1,21 @@
+{
+ "app": "eef",
+ "creation": "2026-01-18 11:17:53.133514",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon": "house",
+ "icon_type": "App",
+ "idx": 0,
+ "label": "EEF",
+ "link_type": "Workspace Sidebar",
+ "logo_url": "/assets/eef/eef-logo.png",
+ "modified": "2026-01-18 11:25:14.466808",
+ "modified_by": "Administrator",
+ "name": "EEF",
+ "owner": "Administrator",
+ "restrict_removal": 0,
+ "roles": [],
+ "sidebar": "",
+ "standard": 1
+}
