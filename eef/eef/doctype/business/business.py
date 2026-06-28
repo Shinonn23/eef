@@ -32,14 +32,6 @@ class Business(Document):
         subdistrict: DF.Literal[None]
     # end: auto-generated types
 
-    def after_save(self) -> None:
-        """
-        Validate the Business document.
-        This method is called after saving the document.
-        """
-        pass
-        # cleanup_orphaned_partnerships()
-
     @frappe.whitelist()
     def has_partnership_institutions(self) -> bool:
         """

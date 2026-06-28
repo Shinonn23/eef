@@ -1,11 +1,13 @@
 import frappe
+from frappe import _
 
 
-@frappe.whitelist(allow_guest=True)
+# Guest access is required because anonymous web forms call this endpoint.
+@frappe.whitelist(allow_guest=True)  # nosemgrep
 def get_students_and_major_by_institute():
     institute = frappe.form_dict.get("institute")
     if not institute:
-        frappe.throw("Argument 'institute' is required.")
+        frappe.throw(_("Argument 'institute' is required."))
     students = frappe.db.get_list(
         "Students",
         filters={"institute": institute},
@@ -21,11 +23,12 @@ def get_students_and_major_by_institute():
     return {"students": students, "majors": majors}
 
 
-@frappe.whitelist(allow_guest=True)
+# Guest access is required because anonymous web forms call this endpoint.
+@frappe.whitelist(allow_guest=True)  # nosemgrep
 def get_personnel_and_major_by_institute():
     institute = frappe.form_dict.get("institute")
     if not institute:
-        frappe.throw("Argument 'institute' is required.")
+        frappe.throw(_("Argument 'institute' is required."))
     personnels = frappe.db.get_list(
         "Personnel",
         filters={"institute": institute},

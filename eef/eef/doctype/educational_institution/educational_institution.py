@@ -26,11 +26,3 @@ class EducationalInstitution(Document):
         province: DF.Literal[None]
         subdistrict: DF.Literal[None]
     # end: auto-generated types
-
-    def after_save(self) -> None:
-        """
-        Validate the Business document.
-        This method is called after saving the document.
-        """
-        pass
-        # cleanup_orphaned_partnerships()

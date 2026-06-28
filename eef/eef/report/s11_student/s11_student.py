@@ -1,6 +1,8 @@
 # Copyright (c) 2025, Siwat Sroisuwan and contributors
 # For license information, please see license.txt
 
+from typing import cast
+
 import frappe
 from frappe import _
 
@@ -601,8 +603,10 @@ def build_report_summary(total: int, data: list[list] | None = None) -> list[dic
     ]
 
     for _group_key, group_info in field_groups.items():
+        group_label = cast(str, group_info["label"])
+        group_fields = cast(list[str], group_info["fields"])
         values = []
-        for field in group_info["fields"]:
+        for field in group_fields:
             if field in all_fields:
                 idx = all_fields.index(field)
                 if idx < len(row) and row[idx] is not None:
@@ -627,7 +631,7 @@ def build_report_summary(total: int, data: list[list] | None = None) -> list[dic
                 {
                     "value": round(avg, 1),
                     "indicator": indicator,
-                    "label": group_info["label"],
+                    "label": group_label,
                     "datatype": "Percent",
                 }
             )

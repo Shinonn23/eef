@@ -216,7 +216,8 @@ def test_env():
         ignore_permissions=True
     )
 
-    frappe.db.commit()
+    # This debug helper is invoked from bench console and must persist diagnostics before returning.
+    frappe.db.commit()  # nosemgrep
 
     frappe.logger().info(f"[{log_prefix}]: ENV TEST completed. Check Test doctype for details.")
 
@@ -280,7 +281,8 @@ def test_backup():
         frappe.get_doc({"doctype": "Test", "test_type": test_status, "message": "\n".join(logs)}).insert(
             ignore_permissions=True
         )
-        frappe.db.commit()
+        # This debug helper is invoked from bench console and must persist diagnostics before returning.
+        frappe.db.commit()  # nosemgrep
         return
 
     # Create test backup
