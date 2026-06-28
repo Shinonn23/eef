@@ -40,7 +40,7 @@ class Business(Document):
         pass
         # cleanup_orphaned_partnerships()
 
-    @frappe.whitelist()  # type: ignore
+    @frappe.whitelist()
     def has_partnership_institutions(self) -> bool:
         """
         Returns True if the business has any partnership institutions, else False.
@@ -67,7 +67,7 @@ class MajorInterestQueryParams:
     existing_majors: str
 
 
-@frappe.whitelist()  # type: ignore
+@frappe.whitelist()
 def get_major_query(
     doctype: str,
     txt: str,
@@ -109,7 +109,9 @@ def get_major_query(
     # กรอง existing majors ออก และ return เฉพาะที่มี name
     result: list[list[str]] = []
     for major in majors:
-        if major.name and major.name not in existing_majors:
-            result.append([major.name, major.educational_institution])
+        major_name = major.get("name")
+        educational_institution = major.get("educational_institution")
+        if major_name and educational_institution and major_name not in existing_majors:
+            result.append([major_name, educational_institution])
 
     return result

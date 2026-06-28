@@ -5,7 +5,7 @@ frappe.ready(function () {
         if (value == 1) {
             return true;
         } else {
-            frappe.msgprint("กรุณายืนยันการส่งโดยการเลือกปุ่ม Checkbox");
+            frappe.msgprint(__("Please confirm submission by checking the checkbox"));
             return false;
         }
     };

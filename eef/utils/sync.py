@@ -15,7 +15,7 @@ from eef.utils.partnerships import (
 from eef.utils.types import PartnershipBusiness
 
 
-@frappe.whitelist()  # type: ignore
+@frappe.whitelist()
 def sync_partnerships(doctype: str, partnerships: Any, document_name: str | None = None):
     """
     Synchronizes partnership institutions and their associated majors.

@@ -10,7 +10,7 @@ from eef.utils.types import PartnershipBusiness, PartnershipInstitution
 T = TypeVar("T")
 
 
-def get_all_typed[T](
+def get_all_typed(
     doctype: str, fields: list[str], filters: dict[str, Any], _t: type[T] | None = None
 ) -> list[T]:
     return cast(list[T], frappe.db.get_all(doctype, fields=fields, filters=filters))

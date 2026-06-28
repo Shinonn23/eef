@@ -6,31 +6,31 @@ from frappe.model.document import Document
 
 
 class MeetingRecord(Document):
-	# begin: auto-generated types
-	# This code is auto-generated. Do not modify anything in this block.
+    # begin: auto-generated types
+    # This code is auto-generated. Do not modify anything in this block.
 
-	from typing import TYPE_CHECKING
+    from typing import TYPE_CHECKING
 
-	if TYPE_CHECKING:
-		from frappe.types import DF
+    if TYPE_CHECKING:
+        from frappe.types import DF
 
-		from eef.eef.doctype.personnel_child_table.personnel_child_table import PersonnelChildTable
+        from eef.eef.doctype.personnel_child_table.personnel_child_table import PersonnelChildTable
 
-		amended_from: DF.Link | None
-		attendees: DF.Table[PersonnelChildTable]
-		date: DF.Date | None
-		description: DF.LongText | None
-		location: DF.Data | None
-		person_in_charge: DF.Link | None
-		student_batch: DF.Literal["2568", "2569", "2570", "2571"]
-		subject: DF.Data | None
-	# end: auto-generated types
+        amended_from: DF.Link | None
+        attendees: DF.Table[PersonnelChildTable]
+        date: DF.Date | None
+        description: DF.LongText | None
+        location: DF.Data | None
+        person_in_charge: DF.Link | None
+        student_batch: DF.Literal["2568", "2569", "2570", "2571"]
+        subject: DF.Data | None
+    # end: auto-generated types
 
-	pass
+    pass
 
-	def autoname(self):
-		"""Set naming series before saving the document."""
-		if not self.name:
-			from frappe.model.naming import make_autoname
+    def autoname(self):
+        """Set naming series before saving the document."""
+        if not self.name:
+            from frappe.model.naming import make_autoname
 
-			self.name = f"MR-{self.subject}-{self.student_batch}-{make_autoname('.####')}"
+            self.name = f"MR-{self.subject}-{self.student_batch}-{make_autoname('.####')}"

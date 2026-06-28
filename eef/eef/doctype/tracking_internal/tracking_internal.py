@@ -15,8 +15,9 @@ class TrackingInternal(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
-        from eef.eef.doctype.tracking_internal_items.tracking_internal_items import TrackingInternalItems
         from frappe.types import DF
+
+        from eef.eef.doctype.tracking_internal_items.tracking_internal_items import TrackingInternalItems
 
         amended_from: DF.Link | None
         date_tracking: DF.Date

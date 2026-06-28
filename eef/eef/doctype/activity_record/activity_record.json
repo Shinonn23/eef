@@ -1,135 +1,135 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2025-12-21 19:21:46.745944",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "section_break_n1lp",
-  "student_batch",
-  "subject",
-  "column_break_negj",
-  "date",
-  "location",
-  "section_break_gcqg",
-  "person_in_charge",
-  "attendees",
-  "output",
-  "outcome",
-  "objective",
-  "description",
-  "summary",
-  "amended_from"
- ],
- "fields": [
-  {
-   "fieldname": "section_break_n1lp",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "student_batch",
-   "fieldtype": "Select",
-   "label": "\u0e23\u0e38\u0e48\u0e19",
-   "options": "2568\n2569\n2570\n2571"
-  },
-  {
-   "fieldname": "subject",
-   "fieldtype": "Data",
-   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d"
-  },
-  {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "label": "\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48"
-  },
-  {
-   "fieldname": "location",
-   "fieldtype": "Data",
-   "label": "\u0e2a\u0e16\u0e32\u0e19\u0e17\u0e35\u0e48"
-  },
-  {
-   "fieldname": "person_in_charge",
-   "fieldtype": "Link",
-   "label": "\u0e1c\u0e39\u0e49\u0e23\u0e31\u0e1a\u0e1c\u0e34\u0e14\u0e0a\u0e2d\u0e1a",
-   "options": "User"
-  },
-  {
-   "fieldname": "attendees",
-   "fieldtype": "Table",
-   "label": "\u0e1c\u0e39\u0e49\u0e40\u0e02\u0e49\u0e32\u0e23\u0e48\u0e27\u0e21",
-   "options": "Personnel Child Table"
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Long Text",
-   "label": "\u0e23\u0e32\u0e22\u0e25\u0e30\u0e40\u0e2d\u0e35\u0e22\u0e14"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Activity Record",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
-   "fieldname": "objective",
-   "fieldtype": "Small Text",
-   "label": "\u0e27\u0e31\u0e15\u0e16\u0e38\u0e1b\u0e23\u0e30\u0e2a\u0e07\u0e04\u0e4c"
-  },
-  {
-   "fieldname": "output",
-   "fieldtype": "Small Text",
-   "label": "\u0e1c\u0e25\u0e1c\u0e25\u0e34\u0e15"
-  },
-  {
-   "fieldname": "outcome",
-   "fieldtype": "Small Text",
-   "label": "\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c"
-  },
-  {
-   "fieldname": "summary",
-   "fieldtype": "Long Text",
-   "label": "\u0e1a\u0e17\u0e2a\u0e23\u0e38\u0e1b"
-  },
-  {
-   "fieldname": "column_break_negj",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_gcqg",
-   "fieldtype": "Section Break"
-  }
- ],
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "is_submittable": 1,
- "links": [],
- "modified": "2025-12-21 19:38:06.844274",
- "modified_by": "Administrator",
- "module": "EEF",
- "name": "Activity Record",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  }
- ],
- "row_format": "Dynamic",
- "rows_threshold_for_grid_search": 20,
- "sort_field": "creation",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-12-21 19:21:46.745944",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "section_break_n1lp",
+        "student_batch",
+        "subject",
+        "column_break_negj",
+        "date",
+        "location",
+        "section_break_gcqg",
+        "person_in_charge",
+        "attendees",
+        "output",
+        "outcome",
+        "objective",
+        "description",
+        "summary",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "section_break_n1lp",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "student_batch",
+            "fieldtype": "Select",
+            "label": "Batch",
+            "options": "2568\n2569\n2570\n2571"
+        },
+        {
+            "fieldname": "subject",
+            "fieldtype": "Data",
+            "label": "Subject"
+        },
+        {
+            "fieldname": "date",
+            "fieldtype": "Date",
+            "label": "Date"
+        },
+        {
+            "fieldname": "location",
+            "fieldtype": "Data",
+            "label": "Location"
+        },
+        {
+            "fieldname": "person_in_charge",
+            "fieldtype": "Link",
+            "label": "Person In Charge",
+            "options": "User"
+        },
+        {
+            "fieldname": "attendees",
+            "fieldtype": "Table",
+            "label": "Attendees",
+            "options": "Personnel Child Table"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Long Text",
+            "label": "Description"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Activity Record",
+            "print_hide": 1,
+            "read_only": 1,
+            "search_index": 1
+        },
+        {
+            "fieldname": "objective",
+            "fieldtype": "Small Text",
+            "label": "Objective"
+        },
+        {
+            "fieldname": "output",
+            "fieldtype": "Small Text",
+            "label": "Output"
+        },
+        {
+            "fieldname": "outcome",
+            "fieldtype": "Small Text",
+            "label": "Outcome"
+        },
+        {
+            "fieldname": "summary",
+            "fieldtype": "Long Text",
+            "label": "Summary"
+        },
+        {
+            "fieldname": "column_break_negj",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "section_break_gcqg",
+            "fieldtype": "Section Break"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2025-12-21 19:38:06.844274",
+    "modified_by": "Administrator",
+    "module": "EEF",
+    "name": "Activity Record",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "rows_threshold_for_grid_search": 20,
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
 }

@@ -1,43 +1,43 @@
 {
- "based_on": "folllowup_plan_date",
- "chart_name": "Internal Tracking Upcoming",
- "chart_type": "Count",
- "creation": "2025-11-05 19:50:50.656138",
- "currency": "",
- "docstatus": 0,
- "doctype": "Dashboard Chart",
- "document_type": "Tracking Internal Items",
- "dynamic_filters_json": "[]",
- "filters_json": "[]",
- "from_date": "2025-11-01",
- "group_by_type": "Count",
- "idx": 0,
- "is_public": 0,
- "is_standard": 1,
- "last_synced_on": "2025-11-05 20:17:03.768631",
- "modified": "2025-11-05 20:19:31.808559",
- "modified_by": "Administrator",
- "module": "EEF",
- "name": "Internal Tracking Upcoming",
- "number_of_groups": 0,
- "owner": "Administrator",
- "parent_document_type": "Tracking Internal",
- "roles": [
-  {
-   "role": "Internal Team Admin"
-  },
-  {
-   "role": "Internal Team User"
-  }
- ],
- "show_values_over_chart": 0,
- "source": "",
- "time_interval": "Daily",
- "timeseries": 1,
- "timespan": "Select Date Range",
- "to_date": "2026-06-30",
- "type": "Bar",
- "use_report_chart": 0,
- "value_based_on": "",
- "y_axis": []
+    "based_on": "folllowup_plan_date",
+    "chart_name": "Internal Tracking Upcoming",
+    "chart_type": "Count",
+    "creation": "2025-11-05 19:50:50.656138",
+    "currency": "",
+    "docstatus": 0,
+    "doctype": "Dashboard Chart",
+    "document_type": "Tracking Internal Items",
+    "dynamic_filters_json": "[]",
+    "filters_json": "[]",
+    "from_date": "2025-11-01",
+    "group_by_type": "Count",
+    "idx": 0,
+    "is_public": 0,
+    "is_standard": 1,
+    "last_synced_on": "2025-11-05 20:17:03.768631",
+    "modified": "2025-11-05 20:19:31.808559",
+    "modified_by": "Administrator",
+    "module": "EEF",
+    "name": "Internal Tracking Upcoming",
+    "number_of_groups": 0,
+    "owner": "Administrator",
+    "parent_document_type": "Tracking Internal",
+    "roles": [
+        {
+            "role": "Internal Team Admin"
+        },
+        {
+            "role": "Internal Team User"
+        }
+    ],
+    "show_values_over_chart": 0,
+    "source": "",
+    "time_interval": "Daily",
+    "timeseries": 1,
+    "timespan": "Select Date Range",
+    "to_date": "2026-06-30",
+    "type": "Bar",
+    "use_report_chart": 0,
+    "value_based_on": "",
+    "y_axis": []
 }

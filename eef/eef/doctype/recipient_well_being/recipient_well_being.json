@@ -77,327 +77,327 @@
         {
             "fieldname": "living_conditions",
             "fieldtype": "Tab Break",
-            "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.1.1 - \u0e2a\u0e20\u0e32\u0e1e\u0e04\u0e27\u0e32\u0e21\u0e40\u0e1b\u0e47\u0e19\u0e2d\u0e22\u0e39\u0e48\u0e17\u0e31\u0e48\u0e27\u0e44\u0e1b"
+            "label": "Section 1.1.1 - Living Conditions"
         },
         {
             "fieldname": "accommodation_section",
             "fieldtype": "Section Break",
-            "label": "\u0e17\u0e35\u0e48\u0e1e\u0e31\u0e01\u0e2d\u0e32\u0e28\u0e31\u0e22"
+            "label": "Accommodation Section"
         },
         {
             "fieldname": "accommodation_condition",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e02\u0e2d\u0e07\u0e2a\u0e20\u0e32\u0e1e\u0e17\u0e35\u0e48\u0e1e\u0e31\u0e01\u0e2d\u0e32\u0e28\u0e31\u0e22"
+            "label": "Accommodation Condition"
         },
         {
             "fieldname": "accommodation_safety",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22\u0e02\u0e2d\u0e07\u0e17\u0e35\u0e48\u0e1e\u0e31\u0e01"
+            "label": "Accommodation Safety"
         },
         {
             "fieldname": "food_and_dining",
             "fieldtype": "Section Break",
-            "label": "\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e01\u0e32\u0e23\u0e01\u0e34\u0e19"
+            "label": "Food And Dining"
         },
         {
             "fieldname": "food_availability",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e1e\u0e35\u0e22\u0e07\u0e1e\u0e2d\u0e02\u0e2d\u0e07\u0e23\u0e49\u0e32\u0e19\u0e2d\u0e32\u0e2b\u0e32\u0e23"
+            "label": "Food Availability"
         },
         {
             "fieldname": "food_cleanliness",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e30\u0e2d\u0e32\u0e14\u0e41\u0e25\u0e30\u0e2a\u0e38\u0e02\u0e2d\u0e19\u0e32\u0e21\u0e31\u0e22"
+            "label": "Food Cleanliness"
         },
         {
             "fieldname": "food_price_appropriateness",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e02\u0e2d\u0e07\u0e23\u0e32\u0e04\u0e32"
+            "label": "Food Price Appropriateness"
         },
         {
             "fieldname": "physical_wellbeing",
             "fieldtype": "Section Break",
-            "label": "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e01\u0e32\u0e22"
+            "label": "Physical Wellbeing"
         },
         {
             "fieldname": "medical_facility_access",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e02\u0e2d\u0e07\u0e2a\u0e16\u0e32\u0e19\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25"
+            "label": "Medical Facility Access"
         },
         {
             "fieldname": "exercise_facility_access",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e02\u0e2d\u0e07\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e2d\u0e2d\u0e01\u0e01\u0e33\u0e25\u0e31\u0e07\u0e01\u0e32\u0e22"
+            "label": "Exercise Facility Access"
         },
         {
             "fieldname": "amenities_access",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e02\u0e2d\u0e07\u0e2a\u0e16\u0e32\u0e19\u0e2d\u0e33\u0e19\u0e27\u0e22\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e30\u0e14\u0e27\u0e01\u0e40\u0e0a\u0e48\u0e19 \u0e23\u0e49\u0e32\u0e19\u0e2a\u0e30\u0e14\u0e27\u0e01\u0e0b\u0e37\u0e49\u0e2d \u0e18\u0e19\u0e32\u0e04\u0e32\u0e23"
+            "label": "Amenities Access"
         },
         {
             "fieldname": "personal_health",
             "fieldtype": "Section Break",
-            "label": "\u0e2a\u0e38\u0e02\u0e2d\u0e19\u0e32\u0e21\u0e31\u0e22\u0e2a\u0e48\u0e27\u0e19\u0e1a\u0e38\u0e04\u0e04\u0e25"
+            "label": "Personal Health"
         },
         {
             "fieldname": "personal_health_status",
             "fieldtype": "Select",
-            "label": "\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e14\u0e49\u0e32\u0e19\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e02\u0e2d\u0e07\u0e15\u0e19\u0e40\u0e2d\u0e07",
-            "options": "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e44\u0e21\u0e48\u0e14\u0e35\n\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e04\u0e48\u0e2d\u0e19\u0e02\u0e49\u0e32\u0e07\u0e14\u0e35\n\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\n\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\u0e21\u0e32\u0e01"
+            "label": "Personal Health Status",
+            "options": "สุขภาพไม่ดี\nสุขภาพค่อนข้างดี\nสุขภาพดี\nสุขภาพดีมาก"
         },
         {
             "fieldname": "general_information",
             "fieldtype": "Tab Break",
-            "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e31\u0e48\u0e27\u0e44\u0e1b"
+            "label": "General Information"
         },
         {
             "fieldname": "personal_information",
             "fieldtype": "Section Break",
-            "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27"
+            "label": "Personal Information"
         },
         {
             "fieldname": "full_name",
             "fieldtype": "Link",
-            "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
+            "label": "Full Name",
             "options": "Students"
         },
         {
             "fieldname": "academic_information",
             "fieldtype": "Section Break",
-            "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32"
+            "label": "Academic Information"
         },
         {
             "fetch_from": "full_name.student_id",
             "fieldname": "student_id",
             "fieldtype": "Data",
-            "label": "\u0e23\u0e2b\u0e31\u0e2a\u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32",
+            "label": "Student ID",
             "read_only": 1
         },
         {
             "fetch_from": "full_name.institute",
             "fieldname": "institute",
             "fieldtype": "Link",
-            "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
+            "label": "Institute",
             "options": "Educational Institution"
         },
         {
             "fetch_from": "full_name.major",
             "fieldname": "major",
             "fieldtype": "Link",
-            "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
+            "label": "Curriculum",
             "options": "Major"
         },
         {
             "fieldname": "mental_and_emotional_health",
             "fieldtype": "Tab Break",
-            "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.1.2 \u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e08\u0e34\u0e15\u0e41\u0e25\u0e30\u0e2d\u0e32\u0e23\u0e21\u0e13\u0e4c"
+            "label": "Section 1.1.2 - Mental And Emotional Health"
         },
         {
             "fieldname": "stress_or_anxiety",
             "fieldtype": "Section Break",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e04\u0e23\u0e35\u0e22\u0e14/\u0e04\u0e27\u0e32\u0e21\u0e27\u0e34\u0e15\u0e01\u0e01\u0e31\u0e07\u0e27\u0e25"
+            "label": "Stress Or Anxiety"
         },
         {
             "fieldname": "academic_stress",
             "fieldtype": "Rating",
-            "label": "\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e40\u0e04\u0e23\u0e35\u0e22\u0e14\u0e08\u0e32\u0e01\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19"
+            "label": "Academic Stress"
         },
         {
             "fieldname": "adaptation_stress",
             "fieldtype": "Rating",
-            "label": "\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e40\u0e04\u0e23\u0e35\u0e22\u0e14\u0e08\u0e32\u0e01\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e01\u0e31\u0e1a\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e43\u0e2b\u0e21\u0e48"
+            "label": "Adaptation Stress"
         },
         {
             "fieldname": "personal_stress",
             "fieldtype": "Rating",
-            "label": "\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e40\u0e04\u0e23\u0e35\u0e22\u0e14\u0e08\u0e32\u0e01\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27"
+            "label": "Personal Stress"
         },
         {
             "fieldname": "social_relation",
             "fieldtype": "Section Break",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e31\u0e21\u0e1e\u0e31\u0e19\u0e18\u0e4c\u0e17\u0e32\u0e07\u0e2a\u0e31\u0e07\u0e04\u0e21"
+            "label": "Social Relation"
         },
         {
             "fieldname": "college_activity",
             "fieldtype": "Rating",
-            "label": "\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e21\u0e35\u0e2a\u0e48\u0e27\u0e19\u0e23\u0e48\u0e27\u0e21\u0e43\u0e19\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+            "label": "College Activity"
         },
         {
             "fieldname": "emotion_management",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e2d\u0e32\u0e23\u0e21\u0e13\u0e4c"
+            "label": "Emotion Management"
         },
         {
             "fieldname": "coping_skill",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e23\u0e31\u0e1a\u0e21\u0e37\u0e2d\u0e01\u0e31\u0e1a\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e1c\u0e34\u0e14\u0e2b\u0e27\u0e31\u0e07"
+            "label": "Coping Skill"
         },
         {
             "fieldname": "counseling_access",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e40\u0e02\u0e49\u0e32\u0e16\u0e36\u0e07\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e49\u0e04\u0e33\u0e1b\u0e23\u0e36\u0e01\u0e29\u0e32"
+            "label": "Counseling Access"
         },
         {
             "fieldname": "mental_health_promo",
             "fieldtype": "Rating",
-            "label": "\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e0a\u0e32\u0e2a\u0e31\u0e21\u0e1e\u0e31\u0e19\u0e18\u0e4c\u0e16\u0e36\u0e07\u0e01\u0e32\u0e23\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d\u0e14\u0e49\u0e32\u0e19\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e08\u0e34\u0e15"
+            "label": "Mental Health Promo"
         },
         {
             "fieldname": "college_adaptation_and_living",
             "fieldtype": "Tab Break",
-            "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.1.3 - \u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e0a\u0e35\u0e27\u0e34\u0e15\u0e43\u0e19\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+            "label": "Section 1.1.3 - College Adaptation And Living"
         },
         {
             "fieldname": "new_environment_adaptation",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e40\u0e02\u0e49\u0e32\u0e01\u0e31\u0e1a\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e43\u0e2b\u0e21\u0e48"
+            "label": "New Environment Adaptation"
         },
         {
             "fieldname": "time_management",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e40\u0e27\u0e25\u0e32"
+            "label": "Time Management"
         },
         {
             "fieldname": "time_manage",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23\u0e40\u0e27\u0e25\u0e32\u0e40\u0e23\u0e35\u0e22\u0e19 \u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21 \u0e41\u0e25\u0e30\u0e40\u0e27\u0e25\u0e32\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27"
+            "label": "Time Manage"
         },
         {
             "fieldname": "financial_management",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e40\u0e07\u0e34\u0e19"
+            "label": "Financial Management"
         },
         {
             "fieldname": "expense_manage",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e04\u0e48\u0e32\u0e43\u0e0a\u0e49\u0e08\u0e48\u0e32\u0e22\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27"
+            "label": "Expense Manage"
         },
         {
             "fieldname": "debt_level",
             "fieldtype": "Select",
-            "label": "\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e2b\u0e19\u0e35\u0e49\u0e2a\u0e34\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27",
-            "options": "\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2b\u0e19\u0e35\u0e49\n\u0e19\u0e49\u0e2d\u0e22\u0e01\u0e27\u0e48\u0e32 5000 \u0e1a\u0e32\u0e17\n5000\u201320000 \u0e1a\u0e32\u0e17\n\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 20000 \u0e1a\u0e32\u0e17\n\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38"
+            "label": "Debt Level",
+            "options": "ไม่มีหนี้\nน้อยกว่า 5000 บาท\n5000–20000 บาท\nมากกว่า 20000 บาท\nไม่ระบุ"
         },
         {
             "fieldname": "monthly_saving",
             "fieldtype": "Select",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e2d\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e40\u0e14\u0e37\u0e2d\u0e19",
-            "options": "0-500 \u0e1a\u0e32\u0e17\n500-1000 \u0e1a\u0e32\u0e17\n1000-2000 \u0e1a\u0e32\u0e17\n\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 2000 \u0e1a\u0e32\u0e17"
+            "label": "Monthly Saving",
+            "options": "0-500 บาท\n500-1000 บาท\n1000-2000 บาท\nมากกว่า 2000 บาท"
         },
         {
             "fieldname": "transportation",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e40\u0e14\u0e34\u0e19\u0e17\u0e32\u0e07"
+            "label": "Transportation"
         },
         {
             "fieldname": "commute_access",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e30\u0e14\u0e27\u0e01\u0e43\u0e19\u0e01\u0e32\u0e23\u0e40\u0e14\u0e34\u0e19\u0e17\u0e32\u0e07\u0e44\u0e1b\u0e40\u0e23\u0e35\u0e22\u0e19\u0e41\u0e25\u0e30\u0e17\u0e33\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21"
+            "label": "Commute Access"
         },
         {
             "fieldname": "access_to_information_and_services",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e40\u0e02\u0e49\u0e32\u0e16\u0e36\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e41\u0e25\u0e30\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23"
+            "label": "Access To Information And Services"
         },
         {
             "fieldname": "service_access",
             "fieldtype": "Rating",
-            "label": "\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e23\u0e31\u0e1a\u0e23\u0e39\u0e49\u0e16\u0e36\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e41\u0e25\u0e30\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e2a\u0e33\u0e04\u0e31\u0e0d\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+            "label": "Service Access"
         },
         {
             "fieldname": "problems_and_obstacles_that_may_occur",
             "fieldtype": "Tab Break",
-            "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.1.4 - \u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e2a\u0e23\u0e23\u0e04\u0e17\u0e35\u0e48\u0e2d\u0e32\u0e08\u0e40\u0e01\u0e34\u0e14\u0e02\u0e36\u0e49\u0e19"
+            "label": "Section 1.1.4 - Problems And Obstacles That May Occur"
         },
         {
             "fieldname": "study_problems",
             "fieldtype": "Rating",
-            "label": "\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e14\u0e49\u0e32\u0e19\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19"
+            "label": "Study Problems"
         },
         {
             "fieldname": "family_problems",
             "fieldtype": "Rating",
-            "label": "\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e23\u0e31\u0e27"
+            "label": "Family Problems"
         },
         {
             "fieldname": "relationship_problems",
             "fieldtype": "Rating",
-            "label": "\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e31\u0e21\u0e1e\u0e31\u0e19\u0e18\u0e4c"
+            "label": "Relationship Problems"
         },
         {
             "fieldname": "legal_issues",
             "fieldtype": "Rating",
-            "label": "\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e17\u0e32\u0e07\u0e01\u0e0e\u0e2b\u0e21\u0e32\u0e22/\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22"
+            "label": "Legal Issues"
         },
         {
             "fieldname": "addiction",
             "fieldtype": "Rating",
-            "label": "\u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e2a\u0e34\u0e48\u0e07\u0e40\u0e2a\u0e1e\u0e15\u0e34\u0e14/\u0e1e\u0e24\u0e15\u0e34\u0e01\u0e23\u0e23\u0e21\u0e40\u0e2a\u0e35\u0e48\u0e22\u0e07"
+            "label": "Addiction"
         },
         {
             "fieldname": "support_received_and_needed",
             "fieldtype": "Tab Break",
-            "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.1.5 - \u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e17\u0e35\u0e48\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e41\u0e25\u0e30\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23"
+            "label": "Section 1.1.5 - Support Received And Needed"
         },
         {
             "fieldname": "family_support",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e08\u0e32\u0e01\u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e23\u0e31\u0e27"
+            "label": "Family Support"
         },
         {
             "fieldname": "support_family_level",
             "fieldtype": "Rating",
-            "label": "\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e08\u0e32\u0e01\u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e23\u0e31\u0e27 (\u0e01\u0e32\u0e23\u0e40\u0e07\u0e34\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e43\u0e08)"
+            "label": "Support Family Level"
         },
         {
             "fieldname": "support_from_friends",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e08\u0e32\u0e01\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e19"
+            "label": "Support From Friends"
         },
         {
             "fieldname": "support_peer_level",
             "fieldtype": "Rating",
-            "label": "\u0e01\u0e32\u0e23\u0e21\u0e35\u0e01\u0e25\u0e38\u0e48\u0e21\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e19\u0e17\u0e35\u0e48\u0e04\u0e2d\u0e22\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d\u0e41\u0e25\u0e30\u0e43\u0e2b\u0e49\u0e01\u0e33\u0e25\u0e31\u0e07\u0e43\u0e08"
+            "label": "Support Peer Level"
         },
         {
             "fieldname": "college_support",
             "fieldtype": "Section Break",
-            "label": "\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e08\u0e32\u0e01\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22"
+            "label": "College Support"
         },
         {
             "fieldname": "support_college_access",
             "fieldtype": "Rating",
-            "label": "\u0e01\u0e32\u0e23\u0e40\u0e02\u0e49\u0e32\u0e16\u0e36\u0e07\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22 (\u0e40\u0e0a\u0e48\u0e19 \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e43\u0e2b\u0e49\u0e04\u0e33\u0e1b\u0e23\u0e36\u0e01\u0e29\u0e32 \u0e2b\u0e19\u0e48\u0e27\u0e22\u0e07\u0e32\u0e19\u0e2a\u0e27\u0e31\u0e2a\u0e14\u0e34\u0e01\u0e32\u0e23)"
+            "label": "Support College Access"
         },
         {
             "fieldname": "additional_requirements",
             "fieldtype": "Section Break",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21"
+            "label": "Additional Requirements"
         },
         {
             "fieldname": "support_additional_needs",
             "fieldtype": "Small Text",
-            "label": "\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d\u0e2b\u0e23\u0e37\u0e2d\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21"
+            "label": "Support Additional Needs"
         },
         {
             "fieldname": "support_suggestions",
             "fieldtype": "Small Text",
-            "label": "\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e2d\u0e37\u0e48\u0e19\u0e46"
+            "label": "Support Suggestions"
         },
         {
             "fieldname": "supporting_the_times",
             "fieldtype": "Int",
-            "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48"
+            "label": "Supporting The Times"
         },
         {
             "fieldname": "adapt_academic",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e14\u0e49\u0e32\u0e19\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19"
+            "label": "Adapt Academic"
         },
         {
             "fieldname": "adapt_social",
             "fieldtype": "Rating",
-            "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e14\u0e49\u0e32\u0e19\u0e2a\u0e31\u0e07\u0e04\u0e21"
+            "label": "Adapt Social"
         },
         {
             "fieldname": "section_break_additional_info",
@@ -408,19 +408,19 @@
             "default": "0",
             "fieldname": "check_data_confirmation",
             "fieldtype": "Check",
-            "label": "\u0e02\u0e49\u0e32\u0e1e\u0e40\u0e08\u0e49\u0e32\u0e44\u0e14\u0e49\u0e01\u0e23\u0e2d\u0e01\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e16\u0e39\u0e01\u0e15\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e23\u0e1a\u0e16\u0e49\u0e27\u0e19\u0e15\u0e32\u0e21\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e14\u0e35\u0e17\u0e35\u0e48\u0e2a\u0e38\u0e14"
+            "label": "Check Data Confirmation"
         },
         {
             "fieldname": "full_name_manual",
             "fieldtype": "Data",
-            "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25 (\u0e43\u0e2a\u0e48\u0e40\u0e2d\u0e07)",
+            "label": "Full Name Manual",
             "read_only": 1
         },
         {
             "default": "0",
             "fieldname": "no_name_in_system",
             "fieldtype": "Check",
-            "label": "\u0e2b\u0e32\u0e0a\u0e37\u0e48\u0e2d\u0e44\u0e21\u0e48\u0e40\u0e08\u0e2d\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a",
+            "label": "No Name In System",
             "read_only": 1
         }
     ],

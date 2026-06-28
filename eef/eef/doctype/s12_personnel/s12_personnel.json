@@ -1,285 +1,285 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2025-09-18 16:49:20.283344",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "academic_information",
-  "institute",
-  "major1",
-  "major2",
-  "student_batch",
-  "personal_information",
-  "full_name",
-  "no_name_in_system",
-  "full_name_manual",
-  "additional_information",
-  "supporting_the_times",
-  "check_data_confirmation",
-  "tab_academic_skill_development",
-  "learning_analytical_thinking",
-  "presentation_communication",
-  "technology_learning",
-  "comment_academic_skill",
-  "tab_professional_skill_development",
-  "teamwork",
-  "creativity",
-  "lifelong_learning",
-  "leadership",
-  "self_management",
-  "intercultural_communication",
-  "comment_professional_skill",
-  "tab_morality_ethics",
-  "honesty",
-  "social_responsibility",
-  "professional_ethics",
-  "comment__morality_ethics",
-  "tab_other_suggestions",
-  "additional_suggestions"
- ],
- "fields": [
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
-   "link_filters": "[[\"Personnel\",\"institute\",\"=\",\"eval: doc.institute\"]]",
-   "options": "Personnel"
-  },
-  {
-   "fieldname": "personal_information",
-   "fieldtype": "Section Break",
-   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27"
-  },
-  {
-   "fieldname": "academic_information",
-   "fieldtype": "Section Break",
-   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32"
-  },
-  {
-   "fetch_from": "full_name.institute",
-   "fieldname": "institute",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
-   "options": "Educational Institution",
-   "reqd": 1
-  },
-  {
-   "fieldname": "additional_information",
-   "fieldtype": "Section Break",
-   "label": "Addtional Information"
-  },
-  {
-   "fieldname": "supporting_the_times",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48",
-   "reqd": 1
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e2d\u0e48\u0e32\u0e19\u0e40\u0e0a\u0e34\u0e07\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e41\u0e25\u0e30\u0e2a\u0e31\u0e07\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\n\u0e01\u0e32\u0e23\u0e04\u0e34\u0e14\u0e40\u0e0a\u0e34\u0e07\u0e27\u0e34\u0e1e\u0e32\u0e01\u0e29\u0e4c\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e41\u0e01\u0e49\u0e1b\u0e31\u0e0d\u0e2b\u0e32\n\u0e01\u0e32\u0e23\u0e27\u0e34\u0e08\u0e31\u0e22\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e1a\u0e04\u0e49\u0e19\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\n\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e38\u0e1b\u0e41\u0e25\u0e30\u0e08\u0e31\u0e1a\u0e1b\u0e23\u0e30\u0e40\u0e14\u0e47\u0e19\u0e2a\u0e33\u0e04\u0e31\u0e0d\n\u0e01\u0e32\u0e23\u0e40\u0e02\u0e35\u0e22\u0e19\u0e40\u0e0a\u0e34\u0e07\u0e27\u0e34\u0e0a\u0e32\u0e01\u0e32\u0e23 (\u0e23\u0e32\u0e22\u0e07\u0e32\u0e19, \u0e27\u0e34\u0e17\u0e22\u0e32\u0e19\u0e34\u0e1e\u0e19\u0e18\u0e4c, \u0e1a\u0e17\u0e04\u0e27\u0e32\u0e21)\n",
-   "fieldname": "learning_analytical_thinking",
-   "fieldtype": "Rating",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e04\u0e34\u0e14\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c"
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e19\u0e33\u0e40\u0e2a\u0e19\u0e2d\u0e1c\u0e25\u0e07\u0e32\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e (\u0e17\u0e31\u0e49\u0e07\u0e1b\u0e32\u0e01\u0e40\u0e1b\u0e25\u0e48\u0e32\u0e41\u0e25\u0e30\u0e2a\u0e37\u0e48\u0e2d)\n\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e17\u0e32\u0e07\u0e27\u0e34\u0e0a\u0e32\u0e01\u0e32\u0e23 (\u0e01\u0e32\u0e23\u0e2d\u0e18\u0e34\u0e1a\u0e32\u0e22\u0e41\u0e19\u0e27\u0e04\u0e34\u0e14\u0e17\u0e35\u0e48\u0e0b\u0e31\u0e1a\u0e0b\u0e49\u0e2d\u0e19\u0e43\u0e2b\u0e49\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e07\u0e48\u0e32\u0e22)\n\u0e01\u0e32\u0e23\u0e2d\u0e20\u0e34\u0e1b\u0e23\u0e32\u0e22\u0e41\u0e25\u0e30\u0e41\u0e25\u0e01\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e04\u0e27\u0e32\u0e21\u0e04\u0e34\u0e14\u0e40\u0e2b\u0e47\u0e19\n",
-   "fieldname": "presentation_communication",
-   "fieldtype": "Rating",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e19\u0e33\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23"
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e42\u0e1b\u0e23\u0e41\u0e01\u0e23\u0e21\u0e04\u0e2d\u0e21\u0e1e\u0e34\u0e27\u0e40\u0e15\u0e2d\u0e23\u0e4c\u0e1e\u0e37\u0e49\u0e19\u0e10\u0e32\u0e19\u0e41\u0e25\u0e30\u0e40\u0e09\u0e1e\u0e32\u0e30\u0e17\u0e32\u0e07\u0e17\u0e35\u0e48\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e02\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e1a\u0e2a\u0e32\u0e02\u0e32\n\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e2d\u0e2d\u0e19\u0e44\u0e25\u0e19\u0e4c\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e23\u0e48\u0e27\u0e21\u0e01\u0e31\u0e19\n\u0e01\u0e32\u0e23\u0e40\u0e02\u0e49\u0e32\u0e16\u0e36\u0e07\u0e41\u0e25\u0e30\u0e43\u0e0a\u0e49\u0e10\u0e32\u0e19\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e32\u0e07\u0e27\u0e34\u0e0a\u0e32\u0e01\u0e32\u0e23\n",
-   "fieldname": "technology_learning",
-   "fieldtype": "Rating",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49"
-  },
-  {
-   "fieldname": "tab_academic_skill_development",
-   "fieldtype": "Tab Break",
-   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.2.1 - \u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e17\u0e31\u0e01\u0e29\u0e30\u0e17\u0e32\u0e07\u0e27\u0e34\u0e0a\u0e32\u0e01\u0e32\u0e23 "
-  },
-  {
-   "description": "\n",
-   "fieldname": "tab_professional_skill_development",
-   "fieldtype": "Tab Break",
-   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.2.2 - \u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e17\u0e31\u0e01\u0e29\u0e30\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e"
-  },
-  {
-   "description": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e40\u0e02\u0e49\u0e32\u0e01\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e41\u0e1b\u0e25\u0e07\n\u0e04\u0e27\u0e32\u0e21\u0e01\u0e23\u0e30\u0e2b\u0e32\u0e22\u0e43\u0e19\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e2a\u0e34\u0e48\u0e07\u0e43\u0e2b\u0e21\u0e48\u0e46 \u0e41\u0e25\u0e30\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e15\u0e19\u0e40\u0e2d\u0e07\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e15\u0e48\u0e2d\u0e40\u0e19\u0e37\u0e48\u0e2d\u0e07\n\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e04\u0e27\u0e32\u0e21\u0e23\u0e39\u0e49\u0e41\u0e25\u0e30\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e02\u0e48\u0e32\u0e27\u0e2a\u0e32\u0e23\n",
-   "fieldname": "lifelong_learning",
-   "fieldtype": "Rating",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e15\u0e25\u0e2d\u0e14\u0e0a\u0e35\u0e27\u0e34\u0e15"
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e40\u0e1b\u0e47\u0e19\u0e17\u0e35\u0e21\u0e41\u0e25\u0e30\u0e1a\u0e17\u0e1a\u0e32\u0e17\u0e43\u0e19\u0e17\u0e35\u0e21\n\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e41\u0e25\u0e30\u0e1b\u0e23\u0e30\u0e2a\u0e32\u0e19\u0e07\u0e32\u0e19\u0e43\u0e19\u0e17\u0e35\u0e21\n\u0e01\u0e32\u0e23\u0e41\u0e01\u0e49\u0e44\u0e02\u0e02\u0e49\u0e2d\u0e02\u0e31\u0e14\u0e41\u0e22\u0e49\u0e07",
-   "fieldname": "teamwork",
-   "fieldtype": "Rating",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e23\u0e48\u0e27\u0e21\u0e01\u0e31\u0e1a\u0e1c\u0e39\u0e49\u0e2d\u0e37\u0e48\u0e19"
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e04\u0e34\u0e14\u0e19\u0e2d\u0e01\u0e01\u0e23\u0e2d\u0e1a\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e2a\u0e23\u0e23\u0e04\u0e4c\u0e41\u0e19\u0e27\u0e04\u0e34\u0e14\u0e43\u0e2b\u0e21\u0e48\u0e46\n\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e22\u0e38\u0e01\u0e15\u0e4c\u0e43\u0e0a\u0e49\u0e04\u0e27\u0e32\u0e21\u0e23\u0e39\u0e49\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e41\u0e01\u0e49\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e43\u0e19\u0e42\u0e25\u0e01\u0e08\u0e23\u0e34\u0e07\n\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e42\u0e04\u0e23\u0e07\u0e01\u0e32\u0e23\u0e2b\u0e23\u0e37\u0e2d\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\n",
-   "fieldname": "creativity",
-   "fieldtype": "Rating",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e04\u0e34\u0e14\u0e40\u0e0a\u0e34\u0e07\u0e19\u0e27\u0e31\u0e15\u0e01\u0e23\u0e23\u0e21\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e2a\u0e23\u0e23\u0e04\u0e4c"
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e41\u0e23\u0e07\u0e1a\u0e31\u0e19\u0e14\u0e32\u0e25\u0e43\u0e08\u0e41\u0e25\u0e30\u0e08\u0e39\u0e07\u0e43\u0e08\u0e1c\u0e39\u0e49\u0e2d\u0e37\u0e48\u0e19\n\u0e01\u0e32\u0e23\u0e15\u0e31\u0e14\u0e2a\u0e34\u0e19\u0e43\u0e08\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e23\u0e31\u0e1a\u0e1c\u0e34\u0e14\u0e0a\u0e2d\u0e1a\n\u0e01\u0e32\u0e23\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e42\u0e04\u0e23\u0e07\u0e01\u0e32\u0e23\u0e02\u0e19\u0e32\u0e14\u0e40\u0e25\u0e47\u0e01\n",
-   "fieldname": "leadership",
-   "fieldtype": "Rating",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e40\u0e1b\u0e47\u0e19\u0e1c\u0e39\u0e49\u0e19\u0e33"
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23\u0e40\u0e27\u0e25\u0e32\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e25\u0e33\u0e14\u0e31\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d\n\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e27\u0e32\u0e07\u0e41\u0e1c\u0e19\u0e2d\u0e32\u0e0a\u0e35\u0e1e\n\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e04\u0e27\u0e32\u0e21\u0e40\u0e04\u0e23\u0e35\u0e22\u0e14\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e01\u0e14\u0e14\u0e31\u0e19\n\u0e01\u0e32\u0e23\u0e21\u0e35\u0e27\u0e34\u0e19\u0e31\u0e22\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e23\u0e31\u0e1a\u0e1c\u0e34\u0e14\u0e0a\u0e2d\u0e1a\n",
-   "fieldname": "self_management",
-   "fieldtype": "Rating",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e15\u0e19\u0e40\u0e2d\u0e07"
-  },
-  {
-   "description": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e43\u0e19\u0e04\u0e27\u0e32\u0e21\u0e2b\u0e25\u0e32\u0e01\u0e2b\u0e25\u0e32\u0e22\u0e17\u0e32\u0e07\u0e27\u0e31\u0e12\u0e19\u0e18\u0e23\u0e23\u0e21\n\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e\u0e01\u0e31\u0e1a\u0e1a\u0e38\u0e04\u0e04\u0e25\u0e08\u0e32\u0e01\u0e20\u0e39\u0e21\u0e34\u0e2b\u0e25\u0e31\u0e07\u0e17\u0e35\u0e48\u0e41\u0e15\u0e01\u0e15\u0e48\u0e32\u0e07\u0e01\u0e31\u0e19\n",
-   "fieldname": "intercultural_communication",
-   "fieldtype": "Rating",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e27\u0e31\u0e12\u0e19\u0e18\u0e23\u0e23\u0e21"
-  },
-  {
-   "fieldname": "tab_morality_ethics",
-   "fieldtype": "Tab Break",
-   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.2.3 - \u0e01\u0e32\u0e23\u0e2a\u0e48\u0e07\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e38\u0e13\u0e18\u0e23\u0e23\u0e21 \u0e08\u0e23\u0e34\u0e22\u0e18\u0e23\u0e23\u0e21 \u0e41\u0e25\u0e30\u0e08\u0e23\u0e23\u0e22\u0e32\u0e1a\u0e23\u0e23\u0e13\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e"
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e1b\u0e25\u0e39\u0e01\u0e1d\u0e31\u0e07\u0e04\u0e27\u0e32\u0e21\u0e0b\u0e37\u0e48\u0e2d\u0e2a\u0e31\u0e15\u0e22\u0e4c\u0e43\u0e19\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19",
-   "fieldname": "honesty",
-   "fieldtype": "Rating",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e0b\u0e37\u0e48\u0e2d\u0e2a\u0e31\u0e15\u0e22\u0e4c\u0e2a\u0e38\u0e08\u0e23\u0e34\u0e15"
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e15\u0e23\u0e30\u0e2b\u0e19\u0e31\u0e01\u0e16\u0e36\u0e07\u0e1a\u0e17\u0e1a\u0e32\u0e17\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e23\u0e31\u0e1a\u0e1c\u0e34\u0e14\u0e0a\u0e2d\u0e1a\u0e43\u0e19\u0e10\u0e32\u0e19\u0e30\u0e1e\u0e25\u0e40\u0e21\u0e37\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e1c\u0e39\u0e49\u0e1b\u0e23\u0e30\u0e01\u0e2d\u0e1a\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e",
-   "fieldname": "social_responsibility",
-   "fieldtype": "Rating",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e23\u0e31\u0e1a\u0e1c\u0e34\u0e14\u0e0a\u0e2d\u0e1a\u0e15\u0e48\u0e2d\u0e2a\u0e31\u0e07\u0e04\u0e21"
-  },
-  {
-   "description": "\u0e01\u0e32\u0e23\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e41\u0e25\u0e30\u0e1b\u0e0f\u0e34\u0e1a\u0e31\u0e15\u0e34\u0e15\u0e32\u0e21\u0e2b\u0e25\u0e31\u0e01\u0e08\u0e23\u0e23\u0e22\u0e32\u0e1a\u0e23\u0e23\u0e13\u0e02\u0e2d\u0e07\u0e41\u0e15\u0e48\u0e25\u0e30\u0e2a\u0e32\u0e02\u0e32\u0e27\u0e34\u0e0a\u0e32",
-   "fieldname": "professional_ethics",
-   "fieldtype": "Rating",
-   "label": "\u0e08\u0e23\u0e23\u0e22\u0e32\u0e1a\u0e23\u0e23\u0e13\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e"
-  },
-  {
-   "default": "0",
-   "fieldname": "no_name_in_system",
-   "fieldtype": "Check",
-   "label": "\u0e2b\u0e32\u0e0a\u0e37\u0e48\u0e2d\u0e44\u0e21\u0e48\u0e40\u0e08\u0e2d\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a"
-  },
-  {
-   "fieldname": "full_name_manual",
-   "fieldtype": "Data",
-   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25 (\u0e43\u0e2a\u0e48\u0e40\u0e2d\u0e07)"
-  },
-  {
-   "fieldname": "major1",
-   "fieldtype": "Link",
-   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23 (\u0e2b\u0e25\u0e31\u0e01)",
-   "link_filters": "[[\"Major\",\"educational_institution\",\"=\",\"eval: doc.institute\"]]",
-   "options": "Major"
-  },
-  {
-   "fieldname": "major2",
-   "fieldtype": "Link",
-   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\u0e2d\u0e37\u0e48\u0e19\u0e17\u0e35\u0e48\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e02\u0e49\u0e2d\u0e07 (\u0e16\u0e49\u0e32\u0e21\u0e35)",
-   "link_filters": "[[\"Major\",\"educational_institution\",\"=\",\"eval: doc.institute\"]]",
-   "options": "Major"
-  },
-  {
-   "default": "0",
-   "fieldname": "check_data_confirmation",
-   "fieldtype": "Check",
-   "label": "\u0e02\u0e49\u0e32\u0e1e\u0e40\u0e08\u0e49\u0e32\u0e44\u0e14\u0e49\u0e01\u0e23\u0e2d\u0e01\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e16\u0e39\u0e01\u0e15\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e23\u0e1a\u0e16\u0e49\u0e27\u0e19\u0e15\u0e32\u0e21\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e14\u0e35\u0e17\u0e35\u0e48\u0e2a\u0e38\u0e14"
-  },
-  {
-   "fieldname": "comment_academic_skill",
-   "fieldtype": "Small Text",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e47\u0e19\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e43\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e17\u0e31\u0e01\u0e29\u0e30\u0e17\u0e32\u0e07\u0e27\u0e34\u0e0a\u0e32\u0e01\u0e32\u0e23 "
-  },
-  {
-   "fieldname": "comment_professional_skill",
-   "fieldtype": "Small Text",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e47\u0e19\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e43\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e17\u0e31\u0e01\u0e29\u0e30\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e"
-  },
-  {
-   "fieldname": "comment__morality_ethics",
-   "fieldtype": "Small Text",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e47\u0e19\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e43\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e48\u0e07\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e38\u0e13\u0e18\u0e23\u0e23\u0e21 \u0e08\u0e23\u0e34\u0e22\u0e18\u0e23\u0e23\u0e21 \u0e41\u0e25\u0e30\u0e08\u0e23\u0e23\u0e22\u0e32\u0e1a\u0e23\u0e23\u0e13\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e"
-  },
-  {
-   "fieldname": "tab_other_suggestions",
-   "fieldtype": "Tab Break",
-   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 1.2.4 - \u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e2d\u0e37\u0e48\u0e19\u0e46"
-  },
-  {
-   "fieldname": "additional_suggestions",
-   "fieldtype": "Small Text",
-   "label": "\u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21"
-  },
-  {
-   "default": "2568",
-   "fieldname": "student_batch",
-   "fieldtype": "Select",
-   "label": "\u0e23\u0e38\u0e48\u0e19",
-   "options": "2566\n2567\n2568\n2569\n2570\n2571"
-  }
- ],
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-12-22 21:30:29.425525",
- "modified_by": "Administrator",
- "module": "EEF",
- "name": "S12 Personnel",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Internal Team User",
-   "select": 1,
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Internal Team Admin",
-   "select": 1,
-   "share": 1,
-   "write": 1
-  }
- ],
- "row_format": "Dynamic",
- "sort_field": "creation",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-09-18 16:49:20.283344",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "academic_information",
+        "institute",
+        "major1",
+        "major2",
+        "student_batch",
+        "personal_information",
+        "full_name",
+        "no_name_in_system",
+        "full_name_manual",
+        "additional_information",
+        "supporting_the_times",
+        "check_data_confirmation",
+        "tab_academic_skill_development",
+        "learning_analytical_thinking",
+        "presentation_communication",
+        "technology_learning",
+        "comment_academic_skill",
+        "tab_professional_skill_development",
+        "teamwork",
+        "creativity",
+        "lifelong_learning",
+        "leadership",
+        "self_management",
+        "intercultural_communication",
+        "comment_professional_skill",
+        "tab_morality_ethics",
+        "honesty",
+        "social_responsibility",
+        "professional_ethics",
+        "comment__morality_ethics",
+        "tab_other_suggestions",
+        "additional_suggestions"
+    ],
+    "fields": [
+        {
+            "fieldname": "full_name",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Full Name",
+            "link_filters": "[[\"Personnel\",\"institute\",\"=\",\"eval: doc.institute\"]]",
+            "options": "Personnel"
+        },
+        {
+            "fieldname": "personal_information",
+            "fieldtype": "Section Break",
+            "label": "Personal Information"
+        },
+        {
+            "fieldname": "academic_information",
+            "fieldtype": "Section Break",
+            "label": "Academic Information"
+        },
+        {
+            "fetch_from": "full_name.institute",
+            "fieldname": "institute",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Institute",
+            "options": "Educational Institution",
+            "reqd": 1
+        },
+        {
+            "fieldname": "additional_information",
+            "fieldtype": "Section Break",
+            "label": "Addtional Information"
+        },
+        {
+            "fieldname": "supporting_the_times",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Supporting The Times",
+            "reqd": 1
+        },
+        {
+            "description": "การอ่านเชิงวิเคราะห์และสังเคราะห์\nการคิดเชิงวิพากษ์และการแก้ปัญหา\nการวิจัยและการสืบค้นข้อมูล\nการสรุปและจับประเด็นสำคัญ\nการเขียนเชิงวิชาการ (รายงาน, วิทยานิพนธ์, บทความ)\n",
+            "fieldname": "learning_analytical_thinking",
+            "fieldtype": "Rating",
+            "label": "Learning Analytical Thinking"
+        },
+        {
+            "description": "การนำเสนอผลงานอย่างมีประสิทธิภาพ (ทั้งปากเปล่าและสื่อ)\nการสื่อสารทางวิชาการ (การอธิบายแนวคิดที่ซับซ้อนให้เข้าใจง่าย)\nการอภิปรายและแลกเปลี่ยนความคิดเห็น\n",
+            "fieldname": "presentation_communication",
+            "fieldtype": "Rating",
+            "label": "Presentation Communication"
+        },
+        {
+            "description": "การใช้โปรแกรมคอมพิวเตอร์พื้นฐานและเฉพาะทางที่เกี่ยวข้องกับสาขา\nการใช้เครื่องมือออนไลน์เพื่อการเรียนรู้และการทำงานร่วมกัน\nการเข้าถึงและใช้ฐานข้อมูลทางวิชาการ\n",
+            "fieldname": "technology_learning",
+            "fieldtype": "Rating",
+            "label": "Technology Learning"
+        },
+        {
+            "fieldname": "tab_academic_skill_development",
+            "fieldtype": "Tab Break",
+            "label": "Section 1.2.1 - Tab Academic Skill Development"
+        },
+        {
+            "description": "\n",
+            "fieldname": "tab_professional_skill_development",
+            "fieldtype": "Tab Break",
+            "label": "Section 1.2.2 - Tab Professional Skill Development"
+        },
+        {
+            "description": "ความสามารถในการปรับตัวเข้ากับการเปลี่ยนแปลง\nความกระหายในการเรียนรู้สิ่งใหม่ๆ และพัฒนาตนเองอย่างต่อเนื่อง\nการจัดการความรู้และข้อมูลข่าวสาร\n",
+            "fieldname": "lifelong_learning",
+            "fieldtype": "Rating",
+            "label": "Lifelong Learning"
+        },
+        {
+            "description": "การทำงานเป็นทีมและบทบาทในทีม\nการสื่อสารและประสานงานในทีม\nการแก้ไขข้อขัดแย้ง",
+            "fieldname": "teamwork",
+            "fieldtype": "Rating",
+            "label": "Teamwork"
+        },
+        {
+            "description": "การคิดนอกกรอบและการสร้างสรรค์แนวคิดใหม่ๆ\nการประยุกต์ใช้ความรู้เพื่อแก้ปัญหาในโลกจริง\nการพัฒนาโครงการหรือผลิตภัณฑ์\n",
+            "fieldname": "creativity",
+            "fieldtype": "Rating",
+            "label": "Creativity"
+        },
+        {
+            "description": "การสร้างแรงบันดาลใจและจูงใจผู้อื่น\nการตัดสินใจและการรับผิดชอบ\nการบริหารจัดการโครงการขนาดเล็ก\n",
+            "fieldname": "leadership",
+            "fieldtype": "Rating",
+            "label": "Leadership"
+        },
+        {
+            "description": "การบริหารเวลาและการจัดลำดับความสำคัญ\nการตั้งเป้าหมายและการวางแผนอาชีพ\nการจัดการความเครียดและความกดดัน\nการมีวินัยและความรับผิดชอบ\n",
+            "fieldname": "self_management",
+            "fieldtype": "Rating",
+            "label": "Self Management"
+        },
+        {
+            "description": "ความเข้าใจในความหลากหลายทางวัฒนธรรม\nการสื่อสารอย่างมีประสิทธิภาพกับบุคคลจากภูมิหลังที่แตกต่างกัน\n",
+            "fieldname": "intercultural_communication",
+            "fieldtype": "Rating",
+            "label": "Intercultural Communication"
+        },
+        {
+            "fieldname": "tab_morality_ethics",
+            "fieldtype": "Tab Break",
+            "label": "Section 1.2.3 - Tab Morality Ethics"
+        },
+        {
+            "description": "การปลูกฝังความซื่อสัตย์ในการเรียนและการทำงาน",
+            "fieldname": "honesty",
+            "fieldtype": "Rating",
+            "label": "Honesty"
+        },
+        {
+            "description": "การตระหนักถึงบทบาทและความรับผิดชอบในฐานะพลเมืองและผู้ประกอบวิชาชีพ",
+            "fieldname": "social_responsibility",
+            "fieldtype": "Rating",
+            "label": "Social Responsibility"
+        },
+        {
+            "description": "การทำความเข้าใจและปฏิบัติตามหลักจรรยาบรรณของแต่ละสาขาวิชา",
+            "fieldname": "professional_ethics",
+            "fieldtype": "Rating",
+            "label": "Professional Ethics"
+        },
+        {
+            "default": "0",
+            "fieldname": "no_name_in_system",
+            "fieldtype": "Check",
+            "label": "No Name In System"
+        },
+        {
+            "fieldname": "full_name_manual",
+            "fieldtype": "Data",
+            "label": "Full Name Manual"
+        },
+        {
+            "fieldname": "major1",
+            "fieldtype": "Link",
+            "label": "Major1",
+            "link_filters": "[[\"Major\",\"educational_institution\",\"=\",\"eval: doc.institute\"]]",
+            "options": "Major"
+        },
+        {
+            "fieldname": "major2",
+            "fieldtype": "Link",
+            "label": "Major2",
+            "link_filters": "[[\"Major\",\"educational_institution\",\"=\",\"eval: doc.institute\"]]",
+            "options": "Major"
+        },
+        {
+            "default": "0",
+            "fieldname": "check_data_confirmation",
+            "fieldtype": "Check",
+            "label": "Check Data Confirmation"
+        },
+        {
+            "fieldname": "comment_academic_skill",
+            "fieldtype": "Small Text",
+            "label": "Comment Academic Skill"
+        },
+        {
+            "fieldname": "comment_professional_skill",
+            "fieldtype": "Small Text",
+            "label": "Comment Professional Skill"
+        },
+        {
+            "fieldname": "comment__morality_ethics",
+            "fieldtype": "Small Text",
+            "label": "Comment Morality Ethics"
+        },
+        {
+            "fieldname": "tab_other_suggestions",
+            "fieldtype": "Tab Break",
+            "label": "Section 1.2.4 - Tab Other Suggestions"
+        },
+        {
+            "fieldname": "additional_suggestions",
+            "fieldtype": "Small Text",
+            "label": "Additional Suggestions"
+        },
+        {
+            "default": "2568",
+            "fieldname": "student_batch",
+            "fieldtype": "Select",
+            "label": "Batch",
+            "options": "2566\n2567\n2568\n2569\n2570\n2571"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-12-22 21:30:29.425525",
+    "modified_by": "Administrator",
+    "module": "EEF",
+    "name": "S12 Personnel",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Internal Team User",
+            "select": 1,
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Internal Team Admin",
+            "select": 1,
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
 }

@@ -22,37 +22,37 @@
         {
             "fieldname": "general_information_section",
             "fieldtype": "Section Break",
-            "label": "ข้อมูลทั่วไป"
+            "label": "General Information Section"
         },
         {
             "allow_in_quick_entry": 1,
             "fieldname": "name1",
             "fieldtype": "Data",
             "in_list_view": 1,
-            "label": "ชื่อ",
+            "label": "Name",
             "reqd": 1,
             "unique": 1
         },
         {
             "fieldname": "education_information_section",
             "fieldtype": "Section Break",
-            "label": "ข้อมูลการศึกษา"
+            "label": "Education Information Section"
         },
         {
             "fieldname": "address_section",
             "fieldtype": "Section Break",
-            "label": "ที่อยู่"
+            "label": "Address Section"
         },
         {
             "fieldname": "province",
             "fieldtype": "Select",
-            "label": "จังหวัด",
+            "label": "Province",
             "reqd": 1
         },
         {
             "fieldname": "subdistrict",
             "fieldtype": "Select",
-            "label": "ตำบล"
+            "label": "Subdistrict"
         },
         {
             "fieldname": "column_break_kcuj",
@@ -61,25 +61,25 @@
         {
             "fieldname": "district",
             "fieldtype": "Select",
-            "label": "อำเภอ"
+            "label": "District"
         },
         {
             "fieldname": "postal_code",
             "fieldtype": "Data",
-            "label": "รหัสไปรษณีย์",
+            "label": "Postal Code",
             "read_only": 1
         },
         {
             "fieldname": "partnership_business",
             "fieldtype": "Table MultiSelect",
-            "label": "ธุรกิจพันธมิตร",
+            "label": "Partnership Business",
             "options": "Partnership Business"
         },
         {
             "fieldname": "abbreviation",
             "fieldtype": "Data",
             "in_list_view": 1,
-            "label": "ตัวย่อ",
+            "label": "Abbreviation",
             "reqd": 1
         }
     ],

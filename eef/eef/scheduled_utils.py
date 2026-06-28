@@ -8,7 +8,6 @@ import os
 from pathlib import Path
 
 import requests
-from deprecated import deprecated
 from dotenv import load_dotenv
 from typing_extensions import deprecated as static_deprecated
 
@@ -23,10 +22,8 @@ TEMP_PATH = app_root_path / "temp"
 dotenv_path = app_root_path / ".env"
 load_dotenv(dotenv_path=dotenv_path)
 
+
 @static_deprecated("use eef.utils.discord_hooks.send_discord_webhook instead")
-@deprecated(
-    reason="Please use 'eef.utils.discord_hooks.send_discord_webhook()' instead."
-)
 def send_discord_webhook(source="", message=""):
     """
     Send a message to Discord via webhook.

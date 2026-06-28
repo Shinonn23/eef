@@ -1,6 +1,6 @@
 # import frappe
 
 
-def get_context(context):  # type: ignore
+def get_context(context):
     # do your magic here
     pass

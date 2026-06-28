@@ -7,7 +7,7 @@ import frappe
 from dotenv import load_dotenv
 from frappe.utils import add_days, get_url_to_form, getdate, nowdate
 
-from .scheduled_utils import send_discord_webhook
+from eef.utils.discord_hooks import send_discord_webhook
 
 # Define the number of days ahead to check for follow-up items
 NUMBER_OF_DAYS_AHEAD = 30

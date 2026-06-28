@@ -15,7 +15,7 @@ class PersonnelWellbeing(Document):
         สร้างชื่อ Document อัตโนมัติ
         """
         now_str = datetime.now().strftime("%Y%m%d_%H%M")
-        name = self.full_name or None
+        name = getattr(self, "full_name", None)
         if name:
             name_formatted = name.strip().replace(" ", "_")
             self.name = f"{name_formatted}-{now_str}"

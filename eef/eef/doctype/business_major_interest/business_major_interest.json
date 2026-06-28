@@ -11,7 +11,7 @@
             "fieldname": "major",
             "fieldtype": "Link",
             "in_list_view": 1,
-            "label": "สาขาวิชา",
+            "label": "Major",
             "options": "Major",
             "reqd": 1
         },
@@ -19,7 +19,7 @@
             "fieldname": "required_headcount",
             "fieldtype": "Int",
             "in_list_view": 1,
-            "label": "จำนวนที่ต้องการ",
+            "label": "Required Headcount",
             "non_negative": 1,
             "reqd": 1
         },
@@ -27,7 +27,7 @@
             "fetch_from": "major.educational_institution",
             "fieldname": "educational_institution",
             "fieldtype": "Link",
-            "label": "สถาบันการศึกษา",
+            "label": "Educational Institution",
             "options": "Educational Institution",
             "read_only": 1,
             "reqd": 1

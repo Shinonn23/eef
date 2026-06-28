@@ -10,7 +10,7 @@
         {
             "fieldname": "educational_institution",
             "fieldtype": "Link",
-            "label": "สถาบันการศึกษา",
+            "label": "Educational Institution",
             "options": "Educational Institution"
         }
     ],

@@ -10,17 +10,17 @@
         {
             "fieldname": "file",
             "fieldtype": "Attach",
-            "label": "ไฟล์"
+            "label": "File"
         },
         {
             "fieldname": "uploaded_by",
             "fieldtype": "Data",
-            "label": "อัปโหลดโดย"
+            "label": "Uploaded By"
         },
         {
             "fieldname": "uploaded_at",
             "fieldtype": "Datetime",
-            "label": "วันที่อัปโหลด"
+            "label": "Uploaded At"
         }
     ],
     "grid_page_length": 50,

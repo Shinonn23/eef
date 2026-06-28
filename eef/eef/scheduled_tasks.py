@@ -16,8 +16,7 @@ from dotenv import load_dotenv
 from frappe.commands.site import backup
 
 from eef import ROOT_PATH
-
-from .scheduled_utils import send_discord_webhook
+from eef.utils.discord_hooks import send_discord_webhook
 
 TEMP_PATH = ROOT_PATH / "temp"
 dotenv_path = ROOT_PATH / ".env"
@@ -42,7 +41,7 @@ logger = logging.getLogger(__name__)
 def upload_to_storage(zip_path: Path) -> bool:
     log_prefix = "UPLOAD_TO_STORAGE"
     try:
-        s3 = boto3.client(  # type: ignore
+        s3 = boto3.client(
             "s3",
             aws_access_key_id=os.getenv("aws_access_key_id"),
             aws_secret_access_key=os.getenv("aws_secret_access_key"),

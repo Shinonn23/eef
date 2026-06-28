@@ -1,10 +1,9 @@
 # Copyright (c) 2025, Siwat Sroisuwan and contributors
 # For license information, please see license.txt
 
+# import frappe
 from datetime import datetime
 
-import frappe
-from frappe import _
 from frappe.model.document import Document
 
 
@@ -17,55 +16,53 @@ class S11Personnel(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
-        academic_stress: DF.Rating
-        accommodation_condition: DF.Rating
-        accommodation_safety: DF.Rating
-        adapt_academic: DF.Rating
-        adapt_social: DF.Rating
-        adaptation_stress: DF.Rating
+        access_to_information_and_services: DF.Rating
+        accommodation: DF.Rating
         addiction: DF.Rating
-        amenities_access: DF.Rating
+        additional_suggestions: DF.SmallText | None
         check_data_confirmation: DF.Check
-        college_activity: DF.Rating
-        commute_access: DF.Rating
-        coping_skill: DF.Rating
-        debt_level: DF.Literal["\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2b\u0e19\u0e35\u0e49", "\u0e19\u0e49\u0e2d\u0e22\u0e01\u0e27\u0e48\u0e32 5000 \u0e1a\u0e32\u0e17", "5000\u201320000 \u0e1a\u0e32\u0e17", "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 20000 \u0e1a\u0e32\u0e17", "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38"] # type: ignore
-        exercise_facility_access: DF.Rating
-        expense_manage: DF.Rating
+        comment_college_adaptation: DF.SmallText | None
+        comment_living_conditions: DF.SmallText | None
+        comment_mental: DF.SmallText | None
+        comment_problems: DF.SmallText | None
+        counseling_access: DF.Rating
+        depression: DF.Rating
+        emotion_management: DF.Rating
         family_problems: DF.Rating
-        food_availability: DF.Rating
-        food_cleanliness: DF.Rating
-        food_price_appropriateness: DF.Rating
+        financial_management: DF.Rating
+        food_and_dining: DF.Rating
         full_name: DF.Link | None
         full_name_manual: DF.Data | None
-        institute: DF.Link | None
+        institute: DF.Link
         legal_issues: DF.Rating
-        major: DF.Link | None
-        medical_facility_access: DF.Rating
-        mental_health_promo: DF.Rating
-        monthly_saving: DF.Literal["0-500 \u0e1a\u0e32\u0e17", "500-1000 \u0e1a\u0e32\u0e17", "1000-2000 \u0e1a\u0e32\u0e17", "\u0e21\u0e32\u0e01\u0e01\u0e27\u0e48\u0e32 2000 \u0e1a\u0e32\u0e17"] # type: ignore
+        major1: DF.Link | None
+        major2: DF.Link | None
+        new_environment_adaptation: DF.Rating
         no_name_in_system: DF.Check
-        personal_health_status: DF.Literal["\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e44\u0e21\u0e48\u0e14\u0e35", "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e04\u0e48\u0e2d\u0e19\u0e02\u0e49\u0e32\u0e07\u0e14\u0e35", "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35", "\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e\u0e14\u0e35\u0e21\u0e32\u0e01"]
-        personal_stress: DF.Rating
+        personal_health: DF.Rating
+        physical_wellbeing: DF.Rating
         relationship_problems: DF.Rating
-        service_access: DF.Rating
-        student_id: DF.Data | None
+        social_relation: DF.Rating
+        stress_or_anxiety: DF.Rating
+        student_batch: DF.Literal["2566", "2567", "2568", "2569", "2570", "2571"]
         study_problems: DF.Rating
-        support_additional_needs: DF.SmallText | None
-        support_college_access: DF.Rating
-        support_family_level: DF.Rating
-        support_peer_level: DF.Rating
-        support_suggestions: DF.SmallText | None
         supporting_the_times: DF.Int
-        time_manage: DF.Rating
+        time_management: DF.Rating
+        transportation: DF.Rating
     # end: auto-generated types
 
-    def before_insert(self) -> None:
+    pass
+
+    def autoname(self) -> None:
         """
-        ป้องกันการสร้าง (insert) ใหม่ของ S11 Personnel
+        สร้างชื่อ Document อัตโนมัติ
         """
-        frappe.throw(
-            _(
-                "ไม่อนุญาตให้สร้างเอกสาร S11 Personnel ใหม่. No longer allowed to create new S11 Personnel documents."
-            )
-        )
+        now_str = datetime.now().strftime("%Y%m%d_%H%M")
+        name = self.full_name or self.full_name_manual or None
+        if name:
+            name_formatted = name.strip().replace(" ", "_")
+            self.name = f"{name_formatted}-{now_str}"
+        else:
+            # กรณีที่ข้อมูลยังไม่ครบ ให้ใช้ชื่อชั่วคราวหรือปล่อยให้ระบบจัดการ
+            # ในที่นี้จะปล่อยให้ใช้ default naming (hash) ไปก่อน
+            self.name = None

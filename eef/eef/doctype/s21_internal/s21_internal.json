@@ -1,248 +1,248 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2025-09-18 17:52:03.350198",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "academic_information",
-  "institute",
-  "major",
-  "student_batch",
-  "additional_information",
-  "supporting_the_times",
-  "amended_from",
-  "tab_monitoring_curriculum",
-  "curriculum_consistency",
-  "course_design",
-  "curriculum_development_process",
-  "tab_monitoring_teaching",
-  "learning_design",
-  "learning_method",
-  "learning_evaluation",
-  "instructor_development",
-  "tab_monitoring_graduates",
-  "student_academic_achievement",
-  "graduate_skill",
-  "employment",
-  "tab_monitoring_resources",
-  "adequacy_personnel",
-  "availability_learning_media",
-  "learning_environment"
- ],
- "fields": [
-  {
-   "fieldname": "academic_information",
-   "fieldtype": "Section Break",
-   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32"
-  },
-  {
-   "fetch_from": "full_name.institute",
-   "fieldname": "institute",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
-   "options": "Educational Institution",
-   "reqd": 1
-  },
-  {
-   "fieldname": "major",
-   "fieldtype": "Table MultiSelect",
-   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
-   "options": "Major Item"
-  },
-  {
-   "fieldname": "additional_information",
-   "fieldtype": "Section Break",
-   "label": "Addtional Information"
-  },
-  {
-   "fieldname": "supporting_the_times",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48",
-   "reqd": 1
-  },
-  {
-   "fieldname": "tab_monitoring_curriculum",
-   "fieldtype": "Tab Break",
-   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 2.1.1 - \u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e41\u0e25\u0e30\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23"
-  },
-  {
-   "description": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e2d\u0e14\u0e04\u0e25\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e1a\u0e27\u0e34\u0e2a\u0e31\u0e22\u0e17\u0e31\u0e28\u0e19\u0e4c \u0e1e\u0e31\u0e19\u0e18\u0e01\u0e34\u0e08 \u0e41\u0e25\u0e30\u0e1b\u0e23\u0e31\u0e0a\u0e0d\u0e32\u0e02\u0e2d\u0e07\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19\n\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\u0e2a\u0e2d\u0e14\u0e04\u0e25\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e1a\u0e01\u0e23\u0e2d\u0e1a\u0e21\u0e32\u0e15\u0e23\u0e10\u0e32\u0e19 \n\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\u0e15\u0e2d\u0e1a\u0e2a\u0e19\u0e2d\u0e07\u0e15\u0e48\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e02\u0e2d\u0e07\u0e15\u0e25\u0e32\u0e14\u0e41\u0e23\u0e07\u0e07\u0e32\u0e19 \u0e1c\u0e39\u0e49\u0e1b\u0e23\u0e30\u0e01\u0e2d\u0e1a\u0e01\u0e32\u0e23 \u0e41\u0e25\u0e30\u0e2a\u0e31\u0e07\u0e04\u0e21\u0e43\u0e19\u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19\u0e41\u0e25\u0e30\u0e2d\u0e19\u0e32\u0e04\u0e15",
-   "fieldname": "curriculum_consistency",
-   "fieldtype": "Small Text",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e2d\u0e14\u0e04\u0e25\u0e49\u0e2d\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23"
-  },
-  {
-   "description": "\u0e21\u0e35\u0e01\u0e32\u0e23\u0e01\u0e33\u0e2b\u0e19\u0e14\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49 (Learning Outcomes) \u0e17\u0e35\u0e48\u0e0a\u0e31\u0e14\u0e40\u0e08\u0e19 \u0e27\u0e31\u0e14\u0e1c\u0e25\u0e44\u0e14\u0e49 \u0e41\u0e25\u0e30\u0e2a\u0e2d\u0e14\u0e04\u0e25\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e1a\u0e40\u0e19\u0e37\u0e49\u0e2d\u0e2b\u0e32 \n\u0e42\u0e04\u0e23\u0e07\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e21\u0e14\u0e38\u0e25\u0e41\u0e25\u0e30\u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e25\u0e38\u0e21\u0e17\u0e31\u0e49\u0e07\u0e04\u0e27\u0e32\u0e21\u0e23\u0e39\u0e49 \u0e17\u0e31\u0e01\u0e29\u0e30 \u0e41\u0e25\u0e30\u0e04\u0e38\u0e13\u0e25\u0e31\u0e01\u0e29\u0e13\u0e30\u0e17\u0e35\u0e48\u0e1e\u0e36\u0e07\u0e1b\u0e23\u0e30\u0e2a\u0e07\u0e04\u0e4c \n\u0e21\u0e35\u0e01\u0e32\u0e23\u0e1a\u0e39\u0e23\u0e13\u0e32\u0e01\u0e32\u0e23\u0e17\u0e31\u0e01\u0e29\u0e30\u0e17\u0e35\u0e48\u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19 \u0e40\u0e0a\u0e48\u0e19 \u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e04\u0e34\u0e14\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c, \u0e01\u0e32\u0e23\u0e41\u0e01\u0e49\u0e1b\u0e31\u0e0d\u0e2b\u0e32, \u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23, \u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e23\u0e48\u0e27\u0e21\u0e01\u0e31\u0e19, \u0e41\u0e25\u0e30\u0e17\u0e31\u0e01\u0e29\u0e30\u0e14\u0e34\u0e08\u0e34\u0e17\u0e31\u0e25 \u0e40\u0e02\u0e49\u0e32\u0e44\u0e1b\u0e43\u0e19\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
-   "fieldname": "course_design",
-   "fieldtype": "Small Text",
-   "label": "\u0e01\u0e32\u0e23\u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23"
-  },
-  {
-   "description": "\u0e21\u0e35\u0e01\u0e32\u0e23\u0e21\u0e35\u0e2a\u0e48\u0e27\u0e19\u0e23\u0e48\u0e27\u0e21\u0e08\u0e32\u0e01\u0e1c\u0e39\u0e49\u0e21\u0e35\u0e2a\u0e48\u0e27\u0e19\u0e44\u0e14\u0e49\u0e2a\u0e48\u0e27\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e04\u0e23\u0e1a\u0e16\u0e49\u0e27\u0e19 (\u0e40\u0e0a\u0e48\u0e19 \u0e1c\u0e39\u0e49\u0e2a\u0e2d\u0e19, \u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32, \u0e28\u0e34\u0e29\u0e22\u0e4c\u0e40\u0e01\u0e48\u0e32, \u0e1c\u0e39\u0e49\u0e1b\u0e23\u0e30\u0e01\u0e2d\u0e1a\u0e01\u0e32\u0e23, \u0e1c\u0e39\u0e49\u0e17\u0e23\u0e07\u0e04\u0e38\u0e13\u0e27\u0e38\u0e12\u0e34\u0e20\u0e32\u0e22\u0e19\u0e2d\u0e01)\n\u0e01\u0e23\u0e30\u0e1a\u0e27\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\u0e40\u0e1b\u0e47\u0e19\u0e44\u0e1b\u0e15\u0e32\u0e21\u0e27\u0e07\u0e23\u0e2d\u0e1a\u0e41\u0e25\u0e30\u0e40\u0e01\u0e13\u0e11\u0e4c\u0e17\u0e35\u0e48\u0e01\u0e33\u0e2b\u0e19\u0e14",
-   "fieldname": "curriculum_development_process",
-   "fieldtype": "Small Text",
-   "label": "\u0e01\u0e23\u0e30\u0e1a\u0e27\u0e19\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23"
-  },
-  {
-   "fieldname": "tab_monitoring_teaching",
-   "fieldtype": "Tab Break",
-   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 2.1.2 - \u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e01\u0e23\u0e30\u0e1a\u0e27\u0e19\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19"
-  },
-  {
-   "description": "\u0e1c\u0e39\u0e49\u0e2a\u0e2d\u0e19\u0e21\u0e35\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e17\u0e33\u0e41\u0e1c\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19 (Course Syllabus) \u0e17\u0e35\u0e48\u0e0a\u0e31\u0e14\u0e40\u0e08\u0e19 \u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e25\u0e38\u0e21 \u0e41\u0e25\u0e30\u0e2a\u0e2d\u0e14\u0e04\u0e25\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e1a\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e02\u0e2d\u0e07\u0e23\u0e32\u0e22\u0e27\u0e34\u0e0a\u0e32 \n\u0e21\u0e35\u0e01\u0e32\u0e23\u0e23\u0e30\u0e1a\u0e38\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19 \u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49 \u0e41\u0e25\u0e30\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e27\u0e31\u0e14\u0e1c\u0e25\u0e17\u0e35\u0e48\u0e2b\u0e25\u0e32\u0e01\u0e2b\u0e25\u0e32\u0e22\u0e41\u0e25\u0e30\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\n",
-   "fieldname": "learning_design",
-   "fieldtype": "Small Text",
-   "label": "\u0e01\u0e32\u0e23\u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49 "
-  },
-  {
-   "description": "\u0e1c\u0e39\u0e49\u0e2a\u0e2d\u0e19\u0e43\u0e0a\u0e49\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19\u0e17\u0e35\u0e48\u0e2b\u0e25\u0e32\u0e01\u0e2b\u0e25\u0e32\u0e22\u0e41\u0e25\u0e30\u0e2a\u0e48\u0e07\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e40\u0e0a\u0e34\u0e07\u0e23\u0e38\u0e01 (Active Learning (\u0e40\u0e0a\u0e48\u0e19 \u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e08\u0e32\u0e01\u0e42\u0e04\u0e23\u0e07\u0e07\u0e32\u0e19, \u0e01\u0e32\u0e23\u0e41\u0e01\u0e49\u0e1b\u0e31\u0e0d\u0e2b\u0e32, \u0e01\u0e32\u0e23\u0e2d\u0e20\u0e34\u0e1b\u0e23\u0e32\u0e22\u0e01\u0e25\u0e38\u0e48\u0e21, \u0e01\u0e23\u0e13\u0e35\u0e28\u0e36\u0e01\u0e29\u0e32)\n\u0e21\u0e35\u0e01\u0e32\u0e23\u0e2a\u0e48\u0e07\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e01\u0e32\u0e23\u0e04\u0e34\u0e14\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c \u0e01\u0e32\u0e23\u0e04\u0e34\u0e14\u0e40\u0e0a\u0e34\u0e07\u0e27\u0e34\u0e1e\u0e32\u0e01\u0e29\u0e4c \u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e2a\u0e23\u0e23\u0e04\u0e4c\u0e02\u0e2d\u0e07\u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32 \n\u0e21\u0e35\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e41\u0e25\u0e30\u0e19\u0e27\u0e31\u0e15\u0e01\u0e23\u0e23\u0e21\u0e43\u0e19\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e41\u0e25\u0e30\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e \n\u0e21\u0e35\u0e01\u0e32\u0e23\u0e2a\u0e48\u0e07\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e15\u0e25\u0e2d\u0e14\u0e0a\u0e35\u0e27\u0e34\u0e15 \u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e14\u0e49\u0e27\u0e22\u0e15\u0e19\u0e40\u0e2d\u0e07 \u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e41\u0e1a\u0e1a\u0e23\u0e48\u0e27\u0e21\u0e21\u0e37\u0e2d\n",
-   "fieldname": "learning_method",
-   "fieldtype": "Small Text",
-   "label": "\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49"
-  },
-  {
-   "description": "\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e27\u0e31\u0e14\u0e41\u0e25\u0e30\u0e1b\u0e23\u0e30\u0e40\u0e21\u0e34\u0e19\u0e1c\u0e25\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e2b\u0e25\u0e32\u0e01\u0e2b\u0e25\u0e32\u0e22 \u0e2a\u0e2d\u0e14\u0e04\u0e25\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e1a\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49 \u0e41\u0e25\u0e30\u0e40\u0e1b\u0e47\u0e19\u0e18\u0e23\u0e23\u0e21 \n\u0e21\u0e35\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e49\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e1b\u0e49\u0e2d\u0e19\u0e01\u0e25\u0e31\u0e1a (Feedback) \u0e41\u0e01\u0e48\u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49 \n\u0e21\u0e35\u0e01\u0e32\u0e23\u0e19\u0e33\u0e1c\u0e25\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e40\u0e21\u0e34\u0e19\u0e21\u0e32\u0e43\u0e0a\u0e49\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\u0e01\u0e23\u0e30\u0e1a\u0e27\u0e19\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19\n",
-   "fieldname": "learning_evaluation",
-   "fieldtype": "Small Text",
-   "label": "\u0e01\u0e32\u0e23\u0e27\u0e31\u0e14\u0e41\u0e25\u0e30\u0e1b\u0e23\u0e30\u0e40\u0e21\u0e34\u0e19\u0e1c\u0e25\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49"
-  },
-  {
-   "description": "\u0e1c\u0e39\u0e49\u0e2a\u0e2d\u0e19\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e04\u0e27\u0e32\u0e21\u0e23\u0e39\u0e49\u0e41\u0e25\u0e30\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e15\u0e48\u0e2d\u0e40\u0e19\u0e37\u0e48\u0e2d\u0e07 \n\u0e21\u0e35\u0e01\u0e32\u0e23\u0e41\u0e25\u0e01\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49 Best Practices \u0e43\u0e19\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e1c\u0e39\u0e49\u0e2a\u0e2d\u0e19\n",
-   "fieldname": "instructor_development",
-   "fieldtype": "Small Text",
-   "label": "\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e1c\u0e39\u0e49\u0e2a\u0e2d\u0e19"
-  },
-  {
-   "fieldname": "tab_monitoring_graduates",
-   "fieldtype": "Tab Break",
-   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 2.1.3 - \u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e41\u0e25\u0e30\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e1a\u0e31\u0e13\u0e11\u0e34\u0e15"
-  },
-  {
-   "description": "\u0e1c\u0e25\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e40\u0e09\u0e25\u0e35\u0e48\u0e22\u0e02\u0e2d\u0e07\u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32 \n\u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32\u0e21\u0e35\u0e1c\u0e25\u0e2a\u0e31\u0e21\u0e24\u0e17\u0e18\u0e34\u0e4c\u0e15\u0e32\u0e21\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e17\u0e35\u0e48\u0e01\u0e33\u0e2b\u0e19\u0e14\u0e44\u0e27\u0e49\u0e43\u0e19\u0e41\u0e15\u0e48\u0e25\u0e30\u0e23\u0e32\u0e22\u0e27\u0e34\u0e0a\u0e32\u0e41\u0e25\u0e30\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\n",
-   "fieldname": "student_academic_achievement",
-   "fieldtype": "Small Text",
-   "label": "\u0e1c\u0e25\u0e2a\u0e31\u0e21\u0e24\u0e17\u0e18\u0e34\u0e4c\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e02\u0e2d\u0e07\u0e19\u0e31\u0e01\u0e28\u0e36\u0e01\u0e29\u0e32"
-  },
-  {
-   "description": "\u0e1a\u0e31\u0e13\u0e11\u0e34\u0e15\u0e21\u0e35\u0e17\u0e31\u0e01\u0e29\u0e30\u0e17\u0e32\u0e07\u0e27\u0e34\u0e0a\u0e32\u0e01\u0e32\u0e23\u0e41\u0e25\u0e30\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e\u0e15\u0e32\u0e21\u0e17\u0e35\u0e48\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\u0e01\u0e33\u0e2b\u0e19\u0e14 \n\u0e1a\u0e31\u0e13\u0e11\u0e34\u0e15\u0e21\u0e35\u0e17\u0e31\u0e01\u0e29\u0e30\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e0a\u0e35\u0e27\u0e34\u0e15 \u0e17\u0e31\u0e01\u0e29\u0e30\u0e17\u0e32\u0e07\u0e2a\u0e31\u0e07\u0e04\u0e21 \u0e41\u0e25\u0e30\u0e17\u0e31\u0e01\u0e29\u0e30\u0e14\u0e49\u0e32\u0e19\u0e01\u0e32\u0e23\u0e40\u0e07\u0e34\u0e19\u0e15\u0e32\u0e21\u0e17\u0e35\u0e48\u0e04\u0e32\u0e14\u0e2b\u0e27\u0e31\u0e07 \n\u0e1a\u0e31\u0e13\u0e11\u0e34\u0e15\u0e21\u0e35\u0e04\u0e38\u0e13\u0e18\u0e23\u0e23\u0e21 \u0e08\u0e23\u0e34\u0e22\u0e18\u0e23\u0e23\u0e21 \u0e41\u0e25\u0e30\u0e08\u0e23\u0e23\u0e22\u0e32\u0e1a\u0e23\u0e23\u0e13\u0e27\u0e34\u0e0a\u0e32\u0e0a\u0e35\u0e1e\u0e15\u0e32\u0e21\u0e17\u0e35\u0e48\u0e1e\u0e36\u0e07\u0e1b\u0e23\u0e30\u0e2a\u0e07\u0e04\u0e4c\n",
-   "fieldname": "graduate_skill",
-   "fieldtype": "Small Text",
-   "label": "\u0e17\u0e31\u0e01\u0e29\u0e30\u0e41\u0e25\u0e30\u0e04\u0e38\u0e13\u0e25\u0e31\u0e01\u0e29\u0e13\u0e30\u0e02\u0e2d\u0e07\u0e1a\u0e31\u0e13\u0e11\u0e34\u0e15"
-  },
-  {
-   "description": "\u0e2d\u0e31\u0e15\u0e23\u0e32\u0e01\u0e32\u0e23\u0e44\u0e14\u0e49\u0e07\u0e32\u0e19\u0e17\u0e33\u0e02\u0e2d\u0e07\u0e1a\u0e31\u0e13\u0e11\u0e34\u0e15 \n\u0e19\u0e32\u0e22\u0e08\u0e49\u0e32\u0e07\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e1e\u0e36\u0e07\u0e1e\u0e2d\u0e43\u0e08\u0e43\u0e19\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e02\u0e2d\u0e07\u0e1a\u0e31\u0e13\u0e11\u0e34\u0e15\u0e17\u0e35\u0e48\u0e08\u0e1a\u0e08\u0e32\u0e01\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23 (\u0e2d\u0e32\u0e08\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e08\u0e32\u0e01\u0e19\u0e32\u0e22\u0e08\u0e49\u0e32\u0e07)\n\u0e1a\u0e31\u0e13\u0e11\u0e34\u0e15\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e40\u0e23\u0e47\u0e08\u0e43\u0e19\u0e40\u0e2a\u0e49\u0e19\u0e17\u0e32\u0e07\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e02\u0e2d\u0e07\u0e15\u0e19\u0e40\u0e2d\u0e07 (\u0e2d\u0e32\u0e08\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e08\u0e32\u0e01\u0e28\u0e34\u0e29\u0e22\u0e4c\u0e40\u0e01\u0e48\u0e32)\n",
-   "fieldname": "employment",
-   "fieldtype": "Small Text",
-   "label": "\u0e01\u0e32\u0e23\u0e44\u0e14\u0e49\u0e07\u0e32\u0e19\u0e17\u0e33\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e1e\u0e36\u0e07\u0e1e\u0e2d\u0e43\u0e08\u0e02\u0e2d\u0e07\u0e19\u0e32\u0e22\u0e08\u0e49\u0e32\u0e07"
-  },
-  {
-   "fieldname": "tab_monitoring_resources",
-   "fieldtype": "Tab Break",
-   "label": "\u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d 2.1.4 - \u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e17\u0e23\u0e31\u0e1e\u0e22\u0e32\u0e01\u0e23\u0e41\u0e25\u0e30\u0e2a\u0e34\u0e48\u0e07\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19"
-  },
-  {
-   "description": "\u0e08\u0e33\u0e19\u0e27\u0e19\u0e41\u0e25\u0e30\u0e04\u0e38\u0e13\u0e27\u0e38\u0e12\u0e34\u0e02\u0e2d\u0e07\u0e2d\u0e32\u0e08\u0e32\u0e23\u0e22\u0e4c\u0e1c\u0e39\u0e49\u0e2a\u0e2d\u0e19\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e41\u0e25\u0e30\u0e40\u0e1e\u0e35\u0e22\u0e07\u0e1e\u0e2d\u0e15\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19",
-   "fieldname": "adequacy_personnel",
-   "fieldtype": "Small Text",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e1e\u0e35\u0e22\u0e07\u0e1e\u0e2d\u0e02\u0e2d\u0e07\u0e1a\u0e38\u0e04\u0e25\u0e32\u0e01\u0e23"
-  },
-  {
-   "description": "\u0e21\u0e35\u0e2a\u0e37\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49 \u0e2b\u0e19\u0e31\u0e07\u0e2a\u0e37\u0e2d \u0e15\u0e33\u0e23\u0e32 \u0e41\u0e25\u0e30\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e17\u0e35\u0e48\u0e17\u0e31\u0e19\u0e2a\u0e21\u0e31\u0e22\u0e41\u0e25\u0e30\u0e40\u0e1e\u0e35\u0e22\u0e07\u0e1e\u0e2d \n\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c \u0e42\u0e2a\u0e15\u0e17\u0e31\u0e28\u0e19\u0e39\u0e1b\u0e01\u0e23\u0e13\u0e4c \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e41\u0e25\u0e30\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e44\u0e14\u0e49\u0e14\u0e35\n",
-   "fieldname": "availability_learning_media",
-   "fieldtype": "Small Text",
-   "label": "\u0e04\u0e27\u0e32\u0e21\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e02\u0e2d\u0e07\u0e2a\u0e37\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35"
-  },
-  {
-   "description": "\u0e2b\u0e49\u0e2d\u0e07\u0e40\u0e23\u0e35\u0e22\u0e19 \u0e2b\u0e49\u0e2d\u0e07\u0e1b\u0e0f\u0e34\u0e1a\u0e31\u0e15\u0e34\u0e01\u0e32\u0e23 \u0e41\u0e25\u0e30\u0e2a\u0e34\u0e48\u0e07\u0e2d\u0e33\u0e19\u0e27\u0e22\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e30\u0e14\u0e27\u0e01\u0e15\u0e48\u0e32\u0e07\u0e46 \u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e41\u0e25\u0e30\u0e40\u0e2d\u0e37\u0e49\u0e2d\u0e15\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49\u0e2b\u0e23\u0e37\u0e2d\u0e44\u0e21\u0e48",
-   "fieldname": "learning_environment",
-   "fieldtype": "Small Text",
-   "label": "\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e19\u0e23\u0e39\u0e49"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "S21 Internal",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
-   "default": "2568",
-   "fieldname": "student_batch",
-   "fieldtype": "Select",
-   "label": "\u0e23\u0e38\u0e48\u0e19",
-   "options": "2566\n2567\n2568\n2569\n2570\n2571"
-  }
- ],
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "is_submittable": 1,
- "links": [],
- "modified": "2025-12-22 20:28:29.747560",
- "modified_by": "Administrator",
- "module": "EEF",
- "name": "S21 Internal",
- "owner": "Administrator",
- "permissions": [
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "select": 1,
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "if_owner": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Internal Team User",
-   "select": 1,
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Internal Team Admin",
-   "select": 1,
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  }
- ],
- "row_format": "Dynamic",
- "sort_field": "creation",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-09-18 17:52:03.350198",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "academic_information",
+        "institute",
+        "major",
+        "student_batch",
+        "additional_information",
+        "supporting_the_times",
+        "amended_from",
+        "tab_monitoring_curriculum",
+        "curriculum_consistency",
+        "course_design",
+        "curriculum_development_process",
+        "tab_monitoring_teaching",
+        "learning_design",
+        "learning_method",
+        "learning_evaluation",
+        "instructor_development",
+        "tab_monitoring_graduates",
+        "student_academic_achievement",
+        "graduate_skill",
+        "employment",
+        "tab_monitoring_resources",
+        "adequacy_personnel",
+        "availability_learning_media",
+        "learning_environment"
+    ],
+    "fields": [
+        {
+            "fieldname": "academic_information",
+            "fieldtype": "Section Break",
+            "label": "Academic Information"
+        },
+        {
+            "fetch_from": "full_name.institute",
+            "fieldname": "institute",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Institute",
+            "options": "Educational Institution",
+            "reqd": 1
+        },
+        {
+            "fieldname": "major",
+            "fieldtype": "Table MultiSelect",
+            "label": "Curriculum",
+            "options": "Major Item"
+        },
+        {
+            "fieldname": "additional_information",
+            "fieldtype": "Section Break",
+            "label": "Addtional Information"
+        },
+        {
+            "fieldname": "supporting_the_times",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Supporting The Times",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tab_monitoring_curriculum",
+            "fieldtype": "Tab Break",
+            "label": "Section 2.1.1 - Tab Monitoring Curriculum"
+        },
+        {
+            "description": "หลักสูตรมีความสอดคล้องกับวิสัยทัศน์ พันธกิจ และปรัชญาของสถาบัน\nหลักสูตรสอดคล้องกับกรอบมาตรฐาน \nหลักสูตรตอบสนองต่อความต้องการของตลาดแรงงาน ผู้ประกอบการ และสังคมในปัจจุบันและอนาคต",
+            "fieldname": "curriculum_consistency",
+            "fieldtype": "Small Text",
+            "label": "Curriculum Consistency"
+        },
+        {
+            "description": "มีการกำหนดผลลัพธ์การเรียนรู้ (Learning Outcomes) ที่ชัดเจน วัดผลได้ และสอดคล้องกับเนื้อหา \nโครงสร้างหลักสูตรมีความสมดุลและครอบคลุมทั้งความรู้ ทักษะ และคุณลักษณะที่พึงประสงค์ \nมีการบูรณาการทักษะที่จำเป็น เช่น ทักษะการคิดวิเคราะห์, การแก้ปัญหา, การสื่อสาร, การทำงานร่วมกัน, และทักษะดิจิทัล เข้าไปในหลักสูตร",
+            "fieldname": "course_design",
+            "fieldtype": "Small Text",
+            "label": "Course Design"
+        },
+        {
+            "description": "มีการมีส่วนร่วมจากผู้มีส่วนได้ส่วนเสียครบถ้วน (เช่น ผู้สอน, นักศึกษา, ศิษย์เก่า, ผู้ประกอบการ, ผู้ทรงคุณวุฒิภายนอก)\nกระบวนการปรับปรุงหลักสูตรเป็นไปตามวงรอบและเกณฑ์ที่กำหนด",
+            "fieldname": "curriculum_development_process",
+            "fieldtype": "Small Text",
+            "label": "Curriculum Development Process"
+        },
+        {
+            "fieldname": "tab_monitoring_teaching",
+            "fieldtype": "Tab Break",
+            "label": "Section 2.1.2 - Tab Monitoring Teaching"
+        },
+        {
+            "description": "ผู้สอนมีการจัดทำแผนการสอน (Course Syllabus) ที่ชัดเจน ครอบคลุม และสอดคล้องกับผลลัพธ์การเรียนรู้ของรายวิชา \nมีการระบุวิธีการสอน กิจกรรมการเรียนรู้ และวิธีการวัดผลที่หลากหลายและเหมาะสม\n",
+            "fieldname": "learning_design",
+            "fieldtype": "Small Text",
+            "label": "Learning Design"
+        },
+        {
+            "description": "ผู้สอนใช้วิธีการสอนที่หลากหลายและส่งเสริมการเรียนรู้เชิงรุก (Active Learning (เช่น การเรียนรู้จากโครงงาน, การแก้ปัญหา, การอภิปรายกลุ่ม, กรณีศึกษา)\nมีการส่งเสริมการคิดวิเคราะห์ การคิดเชิงวิพากษ์ และการสร้างสรรค์ของนักศึกษา \nมีการใช้เทคโนโลยีและนวัตกรรมในการจัดการเรียนการสอนอย่างเหมาะสมและมีประสิทธิภาพ \nมีการส่งเสริมการเรียนรู้ตลอดชีวิต การเรียนรู้ด้วยตนเอง และการเรียนรู้แบบร่วมมือ\n",
+            "fieldname": "learning_method",
+            "fieldtype": "Small Text",
+            "label": "Learning Method"
+        },
+        {
+            "description": "วิธีการวัดและประเมินผลมีความหลากหลาย สอดคล้องกับผลลัพธ์การเรียนรู้ และเป็นธรรม \nมีการให้ข้อมูลป้อนกลับ (Feedback) แก่นักศึกษาเพื่อการพัฒนาการเรียนรู้ \nมีการนำผลการประเมินมาใช้ในการปรับปรุงกระบวนการเรียนการสอน\n",
+            "fieldname": "learning_evaluation",
+            "fieldtype": "Small Text",
+            "label": "Learning Evaluation"
+        },
+        {
+            "description": "ผู้สอนได้รับการพัฒนาความรู้และทักษะการสอนอย่างต่อเนื่อง \nมีการแลกเปลี่ยนเรียนรู้ Best Practices ในการจัดการเรียนการสอนระหว่างผู้สอน\n",
+            "fieldname": "instructor_development",
+            "fieldtype": "Small Text",
+            "label": "Instructor Development"
+        },
+        {
+            "fieldname": "tab_monitoring_graduates",
+            "fieldtype": "Tab Break",
+            "label": "Section 2.1.3 - Tab Monitoring Graduates"
+        },
+        {
+            "description": "ผลการเรียนเฉลี่ยของนักศึกษา \nนักศึกษามีผลสัมฤทธิ์ตามผลลัพธ์การเรียนรู้ที่กำหนดไว้ในแต่ละรายวิชาและหลักสูตร\n",
+            "fieldname": "student_academic_achievement",
+            "fieldtype": "Small Text",
+            "label": "Student Academic Achievement"
+        },
+        {
+            "description": "บัณฑิตมีทักษะทางวิชาการและวิชาชีพตามที่หลักสูตรกำหนด \nบัณฑิตมีทักษะการใช้ชีวิต ทักษะทางสังคม และทักษะด้านการเงินตามที่คาดหวัง \nบัณฑิตมีคุณธรรม จริยธรรม และจรรยาบรรณวิชาชีพตามที่พึงประสงค์\n",
+            "fieldname": "graduate_skill",
+            "fieldtype": "Small Text",
+            "label": "Graduate Skill"
+        },
+        {
+            "description": "อัตราการได้งานทำของบัณฑิต \nนายจ้างมีความพึงพอใจในคุณภาพของบัณฑิตที่จบจากหลักสูตร (อาจสำรวจจากนายจ้าง)\nบัณฑิตประสบความสำเร็จในเส้นทางอาชีพของตนเอง (อาจสำรวจจากศิษย์เก่า)\n",
+            "fieldname": "employment",
+            "fieldtype": "Small Text",
+            "label": "Employment"
+        },
+        {
+            "fieldname": "tab_monitoring_resources",
+            "fieldtype": "Tab Break",
+            "label": "Section 2.1.4 - Tab Monitoring Resources"
+        },
+        {
+            "description": "จำนวนและคุณวุฒิของอาจารย์ผู้สอนมีความเหมาะสมและเพียงพอต่อการจัดการเรียนการสอน",
+            "fieldname": "adequacy_personnel",
+            "fieldtype": "Small Text",
+            "label": "Adequacy Personnel"
+        },
+        {
+            "description": "มีสื่อการเรียนรู้ หนังสือ ตำรา และแหล่งเรียนรู้ที่ทันสมัยและเพียงพอ \nอุปกรณ์ โสตทัศนูปกรณ์ และเทคโนโลยีสำหรับการเรียนการสอนมีความพร้อมและใช้งานได้ดี\n",
+            "fieldname": "availability_learning_media",
+            "fieldtype": "Small Text",
+            "label": "Availability Learning Media"
+        },
+        {
+            "description": "ห้องเรียน ห้องปฏิบัติการ และสิ่งอำนวยความสะดวกต่างๆ มีความเหมาะสมและเอื้อต่อการเรียนรู้หรือไม่",
+            "fieldname": "learning_environment",
+            "fieldtype": "Small Text",
+            "label": "Learning Environment"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "S21 Internal",
+            "print_hide": 1,
+            "read_only": 1,
+            "search_index": 1
+        },
+        {
+            "default": "2568",
+            "fieldname": "student_batch",
+            "fieldtype": "Select",
+            "label": "Batch",
+            "options": "2566\n2567\n2568\n2569\n2570\n2571"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2025-12-22 20:28:29.747560",
+    "modified_by": "Administrator",
+    "module": "EEF",
+    "name": "S21 Internal",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "select": 1,
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "if_owner": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Internal Team User",
+            "select": 1,
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Internal Team Admin",
+            "select": 1,
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
 }

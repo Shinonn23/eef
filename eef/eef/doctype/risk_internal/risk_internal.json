@@ -1,143 +1,143 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2025-09-27 11:13:04.971619",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "academic_information",
-  "institute",
-  "major",
-  "student_batch",
-  "additional_information",
-  "supporting_the_times",
-  "amended_from",
-  "sec_details",
-  "risk_details_text"
- ],
- "fields": [
-  {
-   "fieldname": "academic_information",
-   "fieldtype": "Section Break",
-   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32"
-  },
-  {
-   "fieldname": "institute",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "\u0e2a\u0e16\u0e32\u0e1a\u0e31\u0e19",
-   "options": "Educational Institution",
-   "reqd": 1
-  },
-  {
-   "fieldname": "major",
-   "fieldtype": "Table MultiSelect",
-   "label": "\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23",
-   "options": "Major Item"
-  },
-  {
-   "fieldname": "additional_information",
-   "fieldtype": "Section Break",
-   "label": "Addtional Information"
-  },
-  {
-   "fieldname": "supporting_the_times",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "\u0e2b\u0e19\u0e38\u0e19\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48",
-   "reqd": 1
-  },
-  {
-   "fieldname": "sec_details",
-   "fieldtype": "Section Break",
-   "label": "\u0e23\u0e32\u0e22\u0e25\u0e30\u0e40\u0e2d\u0e35\u0e22\u0e14"
-  },
-  {
-   "fieldname": "risk_details_text",
-   "fieldtype": "Long Text",
-   "label": "\u0e23\u0e32\u0e22\u0e25\u0e30\u0e40\u0e2d\u0e35\u0e22\u0e14\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2a\u0e35\u0e48\u0e22\u0e07"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Risk Internal",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
-   "default": "2568",
-   "fieldname": "student_batch",
-   "fieldtype": "Select",
-   "label": "\u0e23\u0e38\u0e48\u0e19",
-   "options": "2566\n2567\n2568\n2569\n2570\n2571"
-  }
- ],
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "is_submittable": 1,
- "links": [],
- "modified": "2025-12-22 20:29:31.696446",
- "modified_by": "Administrator",
- "module": "EEF",
- "name": "Risk Internal",
- "owner": "Administrator",
- "permissions": [
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "select": 1,
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "if_owner": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Internal Team User",
-   "select": 1,
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Internal Team Admin",
-   "select": 1,
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  }
- ],
- "row_format": "Dynamic",
- "sort_field": "creation",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-09-27 11:13:04.971619",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "academic_information",
+        "institute",
+        "major",
+        "student_batch",
+        "additional_information",
+        "supporting_the_times",
+        "amended_from",
+        "sec_details",
+        "risk_details_text"
+    ],
+    "fields": [
+        {
+            "fieldname": "academic_information",
+            "fieldtype": "Section Break",
+            "label": "Academic Information"
+        },
+        {
+            "fieldname": "institute",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Institute",
+            "options": "Educational Institution",
+            "reqd": 1
+        },
+        {
+            "fieldname": "major",
+            "fieldtype": "Table MultiSelect",
+            "label": "Curriculum",
+            "options": "Major Item"
+        },
+        {
+            "fieldname": "additional_information",
+            "fieldtype": "Section Break",
+            "label": "Addtional Information"
+        },
+        {
+            "fieldname": "supporting_the_times",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Supporting The Times",
+            "reqd": 1
+        },
+        {
+            "fieldname": "sec_details",
+            "fieldtype": "Section Break",
+            "label": "Sec Details"
+        },
+        {
+            "fieldname": "risk_details_text",
+            "fieldtype": "Long Text",
+            "label": "Risk Details Text"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Risk Internal",
+            "print_hide": 1,
+            "read_only": 1,
+            "search_index": 1
+        },
+        {
+            "default": "2568",
+            "fieldname": "student_batch",
+            "fieldtype": "Select",
+            "label": "Batch",
+            "options": "2566\n2567\n2568\n2569\n2570\n2571"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2025-12-22 20:29:31.696446",
+    "modified_by": "Administrator",
+    "module": "EEF",
+    "name": "Risk Internal",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "select": 1,
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "if_owner": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Internal Team User",
+            "select": 1,
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Internal Team Admin",
+            "select": 1,
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
 }

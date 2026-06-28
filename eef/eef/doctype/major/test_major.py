@@ -2,7 +2,7 @@
 # See license.txt
 
 # import frappe
-from frappe.tests import IntegrationTestCase  # type: ignore
+from frappe.tests import IntegrationTestCase
 
 # On IntegrationTestCase, the doctype test records and all
 # link-field test record dependencies are recursively loaded
@@ -11,7 +11,7 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
-class IntegrationTestMajor(IntegrationTestCase):  # type: ignore
+class IntegrationTestMajor(IntegrationTestCase):
     """
     Integration tests for Major.
     Use this class for testing interactions between multiple components.
